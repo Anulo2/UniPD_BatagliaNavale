@@ -11,7 +11,7 @@ Game -> compvscomp, utvscomp, gamereplay
 
 
 
-struct positions -> dati membro: int x; int y, char val;
+Class positions -> dati membro: int x; int y, char val; //sottoclasse della griglia 
             metodi: costruttore(string y, string x); //usare eccezione di defalult
                     setValue(char value);
 

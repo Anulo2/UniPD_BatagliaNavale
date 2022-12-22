@@ -1,0 +1,60 @@
+#ifndef GRID_H
+#define GRID_H
+
+/*
+
+    A
+    B
+    C
+    D
+    E
+    F
+    G
+    H
+    I
+    L
+    M
+    N
+        1  2  3  4  5  6  7  8  9 10 11 12
+    
+    griglia di attacco  == griglia di difesa
+*/
+
+class Grid{ 
+    public:
+
+        struct Position{
+            int x; 
+            int y; 
+            char value;
+
+            Position();
+            Position(int X, int Y, char val);
+        };
+
+        /**Costruttori**/
+        Grid();
+
+        /**Getters**/
+        //restituisce la griglia
+        char* grid(); 
+
+        /**Disegna la griglia**/
+        void drawGrid();
+
+        //valore della posizione xy
+        char positionValue(Position& obj);  
+
+        /**Setters**/
+        Position setValue(char v);
+
+
+    private:
+        static const int ROW_MAX = 12;
+        static const int COL_MAX = 12;
+
+        char grid_[ROW_MAX][COL_MAX]{};
+        
+};
+
+#endif
