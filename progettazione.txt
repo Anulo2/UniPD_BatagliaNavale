@@ -1,0 +1,82 @@
+CLASSI:
+
+
+
+pubbliche:
+Grid -> griglia attacco, griglia difesa con struct positions
+
+Unita -> corazzata, supporto, sottomarino
+
+Game -> compvscomp, utvscomp, gamereplay
+
+
+
+struct positions -> dati membro: int x; int y, char val;
+            metodi: costruttore(string y, string x); //usare eccezione di defalult
+                    setValue(char value);
+
+Grid -> dati membro: char griglia[12][12];
+        metodi: costruttore 
+                draw
+                position_value(Positions x);
+                set_position(Positions x);
+                
+
+        grigliaattacco-> const validChars //regex
+        grigliadifesa-> const validChars //regex
+                     
+                    
+Unita -> dati membro: positions prua, poppa;
+         metodi: costruttore(int x_poppa, int y_poppa, int x_prua, int y_prua); //con controllo
+                 costruttore(positions poppa, positions prua); //con controllo
+                 getPosition(); //restituisce posizione centrale
+                 virtual action(positions x);
+
+         corazzata-> dati membro:
+                     static const int dimensione=5;
+                     int corazza;
+                     static const Char sano = 'C';
+                     static const Char colpito = 'c';
+
+                     costruttore ereditato da unita //da aggiungere controllo della dimensione
+                     action(Positions x) //fuoco su x
+                     
+
+         supporto->  dati membro:
+                     static const int dimensione=3;
+                     int corazza;
+                     static const Char sano = 'S';
+                     static const Char colpito = 's';
+
+                     costruttore ereditato da unita //da aggiungere controllo della dimensione
+                     action(Positions x) //destinazione di cura 
+
+
+         sottomarino ->  dati membro:
+                     static const int dimensione=1;
+                     int corazza;
+                     static const Char sano = 'E';
+                     static const Char colpito = 'e';
+
+                     costruttore ereditato da unita //da aggiungere controllo della dimensione
+                     action(Positions x) //destinazione di ricognizione 
+
+
+Game -> int n_turni;
+        static const int n_Corazzate;
+        static const int n_Supporto;
+        static const int n_Sottomarino;
+
+        vector<Positions> unita_player1; //per capire quante unita per player basta vedere la size di questo vettore
+        vector<Positions> unita_player2;
+
+        //WIN CONDITION: vector altro player.size = 0;
+
+        piazzaunita(positions prua, positions poppa);
+        virtual costruttore(); //posiziona cose
+
+        compvscomp -> costruttore() //mette pezzi random 
+
+        utvscomp -> costruttore() //gestisce input utente
+
+        replay -> costruttore() //gestisce input file          
