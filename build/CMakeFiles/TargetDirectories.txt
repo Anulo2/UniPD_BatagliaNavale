@@ -1,0 +1,5 @@
+/home/enrico/Scrivania/Progetto_Finale/UniPD_BatagliaNavale/build/CMakeFiles/UniPD_BatagliaNavale.dir
+/home/enrico/Scrivania/Progetto_Finale/UniPD_BatagliaNavale/build/CMakeFiles/main.dir
+/home/enrico/Scrivania/Progetto_Finale/UniPD_BatagliaNavale/build/CMakeFiles/mainReplay.dir
+/home/enrico/Scrivania/Progetto_Finale/UniPD_BatagliaNavale/build/CMakeFiles/edit_cache.dir
+/home/enrico/Scrivania/Progetto_Finale/UniPD_BatagliaNavale/build/CMakeFiles/rebuild_cache.dir

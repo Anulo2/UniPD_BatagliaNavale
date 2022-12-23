@@ -1,9 +1,11 @@
 #include<iostream> 
 #include "Grid.h"
+#include "Attack_Grid.h"
+#include "Defense_Grid.h"
 using namespace std;
 
 int main(int argc, char* argv[]){
-    Grid uno;
+    Defense_Grid uno;
     uno.drawGrid();
     char* a = uno.grid();
 

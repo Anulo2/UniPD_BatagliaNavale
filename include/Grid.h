@@ -47,12 +47,14 @@ class Grid{
         /**Setters**/
         void setValue(Position& obj, char v);
 
+        virtual bool isValidChar(const char& v)=0;
+
 
     private:
         static const int ROW_MAX = 12;
         static const int COL_MAX = 12;
 
-        char grid_[COL_MAX][COL_MAX]{};
+        char grid_[COL_MAX][ROW_MAX]{};
         
 };
 

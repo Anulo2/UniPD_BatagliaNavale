@@ -11,6 +11,8 @@ add_library(${PROJECT_NAME}
 	src/Support.cpp
 	src/Unit.cpp
 	src/Grid.cpp
+	src/Attack_Grid.cpp
+	src/Defense_Grid.cpp
 	src/Game.cpp
 	src/Pc_vs_pc.cpp
 	src/Pc_vs_player.cpp
