@@ -72,8 +72,8 @@ Game -> int n_turni;
 
         //WIN CONDITION: vector altro player.size = 0;
 
-        piazzaunita(positions prua, positions poppa);
-        virtual costruttore(); //posiziona cose
+        virtual piazzaunita(positions prua, positions poppa);
+        costruttore(); //posiziona cose usando la funzione virtuale piazzaunità
 
         compvscomp -> costruttore() //mette pezzi random 
 

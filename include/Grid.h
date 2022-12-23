@@ -26,10 +26,9 @@ class Grid{
         struct Position{
             int x; 
             int y; 
-            char value;
 
             Position();
-            Position(int X, int Y, char val);
+            Position(int Y, int X);
         };
 
         /**Costruttori**/
@@ -43,17 +42,17 @@ class Grid{
         void drawGrid();
 
         //valore della posizione xy
-        char positionValue(Position& obj);  
+        char positionValue(const Position& obj);  
 
         /**Setters**/
-        Position setValue(char v);
+        void setValue(Position& obj, char v);
 
 
     private:
         static const int ROW_MAX = 12;
         static const int COL_MAX = 12;
 
-        char grid_[ROW_MAX][COL_MAX]{};
+        char grid_[COL_MAX][COL_MAX]{};
         
 };
 
