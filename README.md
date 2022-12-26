@@ -3,4 +3,4 @@ Questa repo raccoglie il codice dedicato al progetto per la prova finale di labo
 
 compilare con 
 
-    ~bash ./build.sh
+    bash ./build.sh
