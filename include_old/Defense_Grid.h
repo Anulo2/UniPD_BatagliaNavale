@@ -9,7 +9,7 @@ class Defense_Grid : public Grid{
         bool isValidChar(const char& v);
     
     protected:
-        char validChars[6] {'C', 'c', 'S', 's', 'E', 'e'};
+        char validChars[6] {'C','S','E'};
 };
 
 #endif

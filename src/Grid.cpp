@@ -1,52 +1,61 @@
-#include<iostream>
-#include "Grid.h"
+#ifndef GRID_H
+#define GRID_H
 
-//Struct Position
-Grid::Position::Position(){}
-Grid::Position::Position(int X, int Y): x{X}, y{Y} {}
+/*
+
+    A
+    B
+    C
+    D
+    E
+    F
+    G
+    H
+    I
+    L
+    M
+    N
+        1  2  3  4  5  6  7  8  9 10 11 12
+    
+    griglia di attacco  == griglia di difesa
+*/
+
+class Grid{ 
+    public:
+
+        struct Position{
+            int x; 
+            int y; 
+
+            Position();
+            Position(int Y, int X);
+        };
+
+        /**Costruttori**/
+        Grid();
+
+        /**Getters**/
+        //restituisce la griglia
+        char* grid(); 
+
+        /**Disegna la griglia**/
+        void drawGrid(); // Da sostituire con operatore di stream
+
+        //valore della posizione xy
+        char positionValue(const Position& obj);  
+
+        /**Setters**/
+        void setValue(Position& obj, char v);
+
+        virtual bool isValidChar(const char& v)=0;
 
 
-Grid::Grid(){
-    for(int i = 0; i < COL_MAX; i ++){
-        for(int j = 0; j < ROW_MAX; j++){
-            grid_[i][j] = ' ';
-        }
-    }
-}
+    private:
+        static const int ROW_MAX = 12;
+        static const int COL_MAX = 12;
 
-char Grid::positionValue(const Position& obj){
-    return grid_[obj.y][obj.x];
-}
-
-void Grid::setValue(Position& obj, char v){
-    grid_[obj.y][obj.x]=v;
-}
-
-
-//restituisce la griglia
-char* Grid::grid(){
-    return &grid_[0][0];
-}
-
-void Grid::drawGrid(){
-
-    char rowID[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N'};
-    for(int i = 0; i <= ROW_MAX; i++){
+        char grid_[COL_MAX][ROW_MAX]{};
         
-        if(i < ROW_MAX){
-             std::cout<<rowID[i];
+};
 
-            for(int j = 0; j < COL_MAX; j++){
-                std::cout<<"\t"<<grid_[i][j];
-            }
-            std::cout<<"\n\n";
-        }
-        
-        else {
-            std::cout<<"\t";
-            for(int i = 1; i <= ROW_MAX; i++) std::cout<<i<<"\t";
-        }     
-        std::cout<<"\n";   
-    }
-
-}
+#endif
