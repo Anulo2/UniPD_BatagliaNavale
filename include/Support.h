@@ -6,9 +6,8 @@
 class Support : public Unit{
 
     public:
-        Support(Grid::Position i_bow, Grid::Position i_stern, Controller * i_myController, Controller * i_enemyController);
-        void action(Grid::Position x);
-        char identifier(void);
+        Support(Position iBow, Position iStern);
+        Entity* action(Position iTarget, Unit *iUnits);
 
     private:
         static const int dimension=3;

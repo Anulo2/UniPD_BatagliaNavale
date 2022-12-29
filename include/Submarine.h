@@ -6,9 +6,8 @@
 class Submarine : public Unit{
 
     public:
-        Submarine(Grid::Position i_bow, Grid::Position i_stern);
-        void action(Grid::Position x);
-        char identifier(void);
+        Submarine(Position iBow, Position iStern);
+        Entity * action(Position iTarget, Unit * iUnits);
 
     private:
         static const int dimension=1;

@@ -1,19 +1,11 @@
-#ifndef SUBMARINE_H
-#define SUBMARINE_H
 
-#include "Unit.h"
+#include "Submarine.h"
 
-class Submarine : public Unit{
+Submarine::Submarine(Position iBow, Position iStern) : Unit(iBow, iStern) {};
 
-    public:
-        Submarine(Grid::Position i_bow, Grid::Position i_stern);
-        void action(Grid::Position x);
-        char identifier(void);
 
-    private:
-        static const int dimension=1;
-        int armor = 1;
-        static const char id = 'E';
-};
-
-#endif
+Entity* Submarine::action(Position iTarget, Unit * iUnits){
+    Position posA(7, 'c');
+    Entity entityA(posA, 'S');
+    return &entityA;
+}

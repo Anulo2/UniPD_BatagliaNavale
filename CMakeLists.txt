@@ -10,13 +10,11 @@ add_library(${PROJECT_NAME}
 	src/Submarine.cpp
 	src/Support.cpp
 	src/Unit.cpp
-	src/Grid.cpp
-	src/Attack_Grid.cpp
-	src/Defense_Grid.cpp
-	src/Game.cpp
-	src/Pc_vs_pc.cpp
-	src/Pc_vs_player.cpp
-	src/Replay.cpp
+	src/Position.cpp
+	src/Entity.cpp
+	src/Controller.cpp
+	src/ComputerVSComputer.cpp
+	src/PlayerVSComputer.cpp
 )
 
 add_executable(main 

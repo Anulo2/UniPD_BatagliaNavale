@@ -1,19 +1,10 @@
-#ifndef BATTLESHIP_H
-#define BATTLESHIP_H
+#include "Battleship.h"
 
-#include "Unit.h"
+Battleship::Battleship(Position iBow, Position iStern) : Unit(iBow, iStern) {};
 
-class Battleship : public Unit{
 
-    public:
-        Battleship(Grid::Position i_bow, Grid::Position i_stern);
-        void action(Grid::Position x);
-        char identifier(void);
-
-    private:
-        static const int dimension=5;
-        int armor = 5
-        static const char id = 'C';
-};
-
-#endif
+Entity* Battleship::action(Position iTarget, Unit * iUnits){
+    Position posA(7, 'c');
+    Entity entityA(posA, 'S');
+    return &entityA;
+}

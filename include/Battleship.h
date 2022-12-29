@@ -6,13 +6,12 @@
 class Battleship : public Unit{
 
     public:
-        Battleship(Grid::Position i_bow, Grid::Position i_stern);
-        void action(Grid::Position x);
-        char identifier(void);
+        Battleship(Position iBow, Position iStern);
+        Entity * action(Position iTarget, Unit * iUnits);
 
     private:
         static const int dimension=5;
-        int armor = 5
+        int armor = 5;
         static const char id = 'C';
 };
 

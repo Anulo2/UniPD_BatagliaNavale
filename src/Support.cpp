@@ -1,12 +1,11 @@
 
 #include "Support.h"
 
-Support::Support(Grid::Position i_bow, Grid::Position i_stern, Controller * i_myController, Controller * i_enemyController) : Unit(i_bow, i_stern, i_myController, i_enemyController) {};
+Support::Support(Position iBow, Position iStern) : Unit(iBow, iStern) {};
 
-char Support::identifier(void){
-    return id;
-}
 
-void Support::action(Grid::Position x){
-                  
+Entity* Support::action(Position iTarget, Unit * iUnits){
+    Position posA(7, 'c');
+    Entity entityA(posA, 'S');
+    return &entityA;
 }
