@@ -13,7 +13,8 @@ class Controller{
         std::vector<Unit>* getUnits();
         Unit* getUnit(Position iPos);
         std::vector<Unit*> getUnitsInRange(Position iPos, int range);
-        void addUnit(Unit* iUnit);
+        
+        void addUnit(Unit& iUnit);
 
     protected:
         std::vector<Unit> units;

@@ -1,7 +1,8 @@
 #ifndef POSITION_H
 #define POSITION_H
 
-static const char rows[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L','M','N'};
+// A = 0 ... N = 11
+static const char rows[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N'};
 
 class Position{
 

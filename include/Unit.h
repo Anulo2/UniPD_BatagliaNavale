@@ -11,7 +11,7 @@ class Unit{
 
         Unit(Position iBow, Position iStern);
         Position getMiddle(); //restiuisce posizione centrale
-        virtual Entity* action(Position iTarget, Unit * iUnits)=0; //funzione virtuale pura 
+        virtual Entity* action(Position iTarget, Unit * iUnits); //funzione virtuale 
         char identifier(); //virtuale pura, restituisce il tipo della nave
         bool isInside(Position iPos); //Controlla se una certa posizione è parte di questa nave 
         bool isVertical(); //restituisce true se è verticale false se orizzontale 
@@ -27,7 +27,6 @@ class Unit{
         int armor;
         std::vector<char> status;
         static const char id;
-        
 };
 
 #endif

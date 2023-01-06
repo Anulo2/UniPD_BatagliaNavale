@@ -14,16 +14,21 @@ using namespace std;
 
 int main(){
 
-    Position posA(7, 'c');
-    Position posB(7, 7);
-    std::cout << posA.getY();
-    std::cout << posA.getIntY();
-    std::cout << posA.getX();
-    std::cout << posB.getY();
-    std::cout << posB.getIntY();
-    std::cout << posB.getX();
+    Position posA(7, 'n');
+    Position posB(7, 11);
 
-    Entity entityA(posA, 'S');
+    std::cout <<"A get y: " << posA.getY() << std::endl;
+    
+    std::cout <<"A get inty: " << posA.getIntY() << std::endl;
+    
+    std::cout << "A get X: " <<posA.getX() << std::endl;
+    
+    std::cout << "B get y: " <<posB.getY() << std::endl;
+    
+    std::cout << "B get inty: " <<posB.getIntY() << std::endl;
+    
+    std::cout << "B get x: " <<posB.getX() << std::endl;
 
+    Battleship prova(posA, posB);
     return 0;
 }

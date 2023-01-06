@@ -15,7 +15,6 @@ std::vector<Unit>* Controller::getUnits(){
     return &units;
 }
 
-
 Unit* Controller::getUnit(Position iPos){
     for(int i = 0; i < units.size(); i++){
         if(units[i].getMiddle() == iPos){
@@ -40,7 +39,7 @@ std::vector<Unit*> Controller::getUnitsInRange(Position iPos, int range){
 
     return unitsInRange;
     /*
-    pos a = pos(ipos.x - range/2, ipos.y - range/2) // nel costruttore di pos limitare il valore a 0 e a 12
+    pos a = pos(ipos.x - range/2, ipos.y - range/2) // nel costruttore di pos limitare il valore a 0 e a 11
     pos b = pos(ipos.x + range/2, ipos.y + range/2)
     
     unitatrovate
@@ -53,7 +52,6 @@ std::vector<Unit*> Controller::getUnitsInRange(Position iPos, int range){
 
 }
 
-void Controller::addUnit(Unit* iUnit){
-    units.push_back(*iUnit);
-    
+void Controller::addUnit(Unit& iUnit){
+    units.push_back(iUnit);
 }
