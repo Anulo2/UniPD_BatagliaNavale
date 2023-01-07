@@ -55,11 +55,13 @@ int main() {
 
     std::vector<Unit*> units = {&battleshipA};
 
-    std::vector<Entity> entitaAzione = battleshipA.action(posD, units);
+    std::vector<Entity> entitaAzioneA = battleshipA.action(posC, units);
 
-    std::cout << "size: " << entitaAzione.size() << std::endl;
+    std::cout << "Risultato azione:  " << entitaAzioneA.at(0) << std::endl;
 
-    std::cout << "Risultato azione:  " << entitaAzione.at(0) << std::endl;
+    std::vector<Entity> entitaAzioneB = battleshipA.action(posD, units);
 
-    return 0;
+    std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
+
+        return 0;
 }

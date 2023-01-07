@@ -17,6 +17,8 @@ class Unit {
     Position getBow();
     Position getStern();
 
+    void updateStatus(Position iPos, char iChar);
+
     virtual ~Unit();
 
    protected:
