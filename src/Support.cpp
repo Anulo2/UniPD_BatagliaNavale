@@ -28,8 +28,9 @@ std::vector<Entity> Support::action(Position iTarget, std::vector<Unit *> iUnits
         for (std::size_t j = 0; j < positionsToCheck.size(); j++) {
             if ((*iUnits[i]).isInside(positionsToCheck[j])) {
                 (*iUnits[i]).setArmor((*iUnits[i]).getDimension());
-                positionsToCheck.erase(positionsToCheck.begin() + j);
+                break;
             }
+            positionsToCheck.erase(positionsToCheck.begin() + j);
         }
     }
     std::vector<Entity> resultVect;
