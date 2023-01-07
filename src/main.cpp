@@ -34,9 +34,24 @@ int main() {
 
     std::cout << "a getId: " << entityA.getId() << std::endl;
 
-    Unit *unitA = new Battleship(posA, posB);
+    Battleship battleshipA(posA, posB);
 
-    delete unitA;
+    std::cout << "middle: " << battleshipA.getMiddle() << std::endl;
+
+    std::cout << "vertical? " << battleshipA.isVertical() << std::endl;
+
+    std::cout << "id:  " << battleshipA.getId() << std::endl;
+
+    std::cout << "Bow:  " << battleshipA.getBow() << std::endl;
+
+    std::cout << "Stern:  " << battleshipA.getStern() << std::endl;
+
+    Position posC(8, 'n');
+    Position posD(8, 10);
+
+    std::cout << "Is inside posC:  " << battleshipA.isInside(posC) << std::endl;
+
+    std::cout << "Is inside posD:  " << battleshipA.isInside(posD) << std::endl;
 
     return 0;
 }

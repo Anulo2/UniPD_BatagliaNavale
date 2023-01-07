@@ -8,7 +8,7 @@
 
 class Unit {
    public:
-    Unit(const Position &iBow, const Position &iStern);
+    Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId);
     Position getMiddle();                                        // restiuisce posizione centrale
     virtual Entity *action(Position iTarget, Unit *iUnits) = 0;  // funzione virtuale
     char getId();                                                // virtuale pura, restituisce il tipo della nave
@@ -23,11 +23,11 @@ class Unit {
     Position middlePos;
     Position bow;
     Position stern;
-    static const int dimension = 1;
+    int dimension;
     bool vertical;
     int armor;
-    std::vector<char> status = {};
-    static const char id = ' ';
+    std::vector<char> status;
+    char id;
 };
 
 #endif

@@ -9,11 +9,6 @@ class Support : public Unit {
     Entity* action(Position iTarget, Unit* iUnits);
 
     ~Support();
-
-   private:
-    static const int dimension = 3;
-    int armor = 3;
-    static const char id = 'S';
 };
 
 #endif
