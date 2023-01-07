@@ -16,15 +16,17 @@ class Unit {
     bool isVertical();                                                                     // restituisce true se è verticale false se orizzontale
     Position getBow();
     Position getStern();
-
     void updateStatus(Position iPos, char iChar);
+    void resetStatus();
+    int getDimension();
+
+    void setArmor(int iArmor);
+    int getArmor();
 
     virtual ~Unit();
 
    protected:
     Position middlePos;
-    Position bow;
-    Position stern;
     int dimension;
     bool vertical;
     int armor;

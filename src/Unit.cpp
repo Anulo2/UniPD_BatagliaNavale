@@ -56,5 +56,23 @@ void Unit::updateStatus(Position iPos, char iChar) {
     }
 }
 
+void Unit::setArmor(int iArmor) {
+    armor = iArmor;
+}
+
+int Unit::getArmor() {
+    return armor;
+}
+
+void Unit::resetStatus() {
+    for (std::size_t i = 0; i < dimension; ++i) {
+        status.push_back(id);
+    }
+}
+
+int Unit::getDimension() {
+    return dimension;
+}
+
 Unit::~Unit() {
 }
