@@ -1,42 +1,44 @@
 #include "Unit.h"
 
-Unit::Unit(Position iBow, Position iStern){
+Unit::Unit(const Position &iBow, const Position &iStern) {
     bow = iBow;
     stern = iStern;
-    middlePos = Position((iBow.getX() + iStern.getX())/2,(iBow.getIntY() + iStern.getIntY())/2);
-    vertical = iBow.getX() == iStern.getX() ? true: false; 
+    middlePos = Position((bow.getX() + stern.getX()) / 2, (bow.getIntY() + stern.getIntY()) / 2);
+    vertical = bow.getX() == stern.getX() ? true : false;
 };
 
-
-Position Unit::getMiddle(){
+Position Unit::getMiddle() {
     return middlePos;
 }
 
-bool Unit::isVertical(){
+bool Unit::isVertical() {
     return vertical;
 }
 
-bool Unit::isInside(Position iPos){
-    int dim_buff = dimension/2;
-    return vertical ? (iPos.getIntY() <= middlePos.getIntY()+dim_buff && iPos.getIntY() >=middlePos.getIntY()-dim_buff):(iPos.getX() <= middlePos.getX()+dim_buff && iPos.getX() >= middlePos.getX()-dim_buff); 
+bool Unit::isInside(Position iPos) {
+    int dim_buff = dimension / 2;
+    return vertical ? (iPos.getIntY() <= middlePos.getIntY() + dim_buff && iPos.getIntY() >= middlePos.getIntY() - dim_buff) : (iPos.getX() <= middlePos.getX() + dim_buff && iPos.getX() >= middlePos.getX() - dim_buff);
 }
 
-char Unit::identifier(){
+char Unit::getId() {
     return id;
 }
 
-Position Unit::getBow(){
+Position Unit::getBow() {
     if (vertical) {
-        return Position(middlePos.getX(), middlePos.getIntY() + dimension/2);
-    }else{
-        return Position(middlePos.getX() + dimension/2, middlePos.getIntY());
-    }   
+        return Position(middlePos.getX(), middlePos.getIntY() + dimension / 2);
+    } else {
+        return Position(middlePos.getX() + dimension / 2, middlePos.getIntY());
+    }
 }
 
-Position Unit::getStern(){
+Position Unit::getStern() {
     if (vertical) {
-        return Position(middlePos.getX(), middlePos.getIntY() - dimension/2);
-    }else{
-        return Position(middlePos.getX() - dimension/2, middlePos.getIntY());
-    }  
+        return Position(middlePos.getX(), middlePos.getIntY() - dimension / 2);
+    } else {
+        return Position(middlePos.getX() - dimension / 2, middlePos.getIntY());
+    }
+}
+
+Unit::~Unit() {
 }

@@ -3,16 +3,17 @@
 
 #include "Unit.h"
 
-class Support : public Unit{
+class Support : public Unit {
+   public:
+    Support(Position iBow, Position iStern);
+    Entity* action(Position iTarget, Unit* iUnits);
 
-    public:
-        Support(Position iBow, Position iStern);
-        Entity* action(Position iTarget, Unit *iUnits);
+    ~Support();
 
-    private:
-        static const int dimension=3;
-        int armor = 3;
-        static const char id = 'S';
+   private:
+    static const int dimension = 3;
+    int armor = 3;
+    static const char id = 'S';
 };
 
 #endif

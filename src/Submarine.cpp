@@ -1,11 +1,13 @@
 
 #include "Submarine.h"
 
-Submarine::Submarine(Position iBow, Position iStern) : Unit(iBow, iStern) {};
+Submarine::Submarine(Position iBow, Position iStern) : Unit(iBow, iStern){};
 
-
-Entity* Submarine::action(Position iTarget, Unit * iUnits){
+Entity* Submarine::action(Position iTarget, Unit* iUnits) {
     Position posA(7, 'c');
-    Entity entityA(posA, 'S');
-    return &entityA;
+    Entity* entityA = new Entity(posA, 'S');
+    return entityA;
+}
+
+Submarine::~Submarine() {
 }

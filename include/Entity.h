@@ -3,16 +3,17 @@
 
 #include "Position.h"
 
-class Entity{
+class Entity {
+   public:
+    Entity(Position iPos, char iId);
+    Position getPos();
+    char getId();
 
-    public:
-        Entity(Position iPos, char iId);
-        Position getPos();
-        char getId();
-    
-    private:
-        char id;
-        Position pos;
+    ~Entity();
+
+   private:
+    char id;
+    Position pos;
 };
 
 #endif

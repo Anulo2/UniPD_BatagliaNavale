@@ -3,16 +3,16 @@
 
 #include "Unit.h"
 
-class Battleship : public Unit{
+class Battleship : public Unit {
+   public:
+    Battleship(const Position& iBow, const Position& iStern);
+    Entity* action(Position iTarget, Unit* iUnits);
+    ~Battleship();
 
-    public:
-        Battleship(Position iBow, Position iStern);
-        Entity * action(Position iTarget, Unit * iUnits);
-
-    private:
-        static const int dimension=5;
-        int armor = 5;
-        static const char id = 'C';
+   private:
+    static const int dimension = 5;
+    int armor = 5;
+    static const char id = 'C';
 };
 
 #endif

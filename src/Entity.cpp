@@ -1,14 +1,17 @@
 #include "Entity.h"
 
-Entity::Entity(Position iPos, char iId){
+Entity::Entity(Position iPos, char iId) {
     id = iId;
     pos = iPos;
 }
 
-char Entity::getId(){
+char Entity::getId() {
     return id;
 }
 
-Position Entity::getPos(){
+Position Entity::getPos() {
     return pos;
+}
+
+Entity::~Entity() {
 }
