@@ -6,7 +6,7 @@
 class Battleship : public Unit {
    public:
     Battleship(const Position& iBow, const Position& iStern);
-    std::vector<Entity> action(Position iTarget, Unit* iUnits);
+    std::vector<Entity> action(Position iTarget, std::vector<Unit*> iUnits);
     ~Battleship();
 };
 

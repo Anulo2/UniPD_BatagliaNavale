@@ -53,7 +53,11 @@ int main() {
 
     std::cout << "Is inside posD:  " << battleshipA.isInside(posD) << std::endl;
 
-    std::vector<Entity> entitaAzione = battleshipA.action(posD, &battleshipA);
+    std::vector<Unit*> units = {&battleshipA};
+
+    std::vector<Entity> entitaAzione = battleshipA.action(posD, units);
+
+    std::cout << "size: " << entitaAzione.size() << std::endl;
 
     std::cout << "Risultato azione:  " << entitaAzione.at(0) << std::endl;
 

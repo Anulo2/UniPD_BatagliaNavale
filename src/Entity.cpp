@@ -15,3 +15,13 @@ Position Entity::getPos() {
 
 Entity::~Entity() {
 }
+
+std::ostream& operator<<(std::ostream& os, Entity& a) {
+    os << "(" << a.getPos() << ", " << a.getId() << ")";
+    return os;
+}
+
+std::ostream& operator<<(std::ostream& os, Entity* a) {
+    os << *a;
+    return os;
+}

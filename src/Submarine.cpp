@@ -3,7 +3,7 @@
 
 Submarine::Submarine(Position iBow, Position iStern) : Unit(iBow, iStern, 1, 1, 'E'){};
 
-std::vector<Entity> Submarine::action(Position iTarget, Unit* iUnits) {
+std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUnits) {
     Position posA(7, 'c');
     Entity entityA(posA, 'S');
     std::vector<Entity> result = {entityA};

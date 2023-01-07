@@ -1,6 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <ostream>
+
 #include "Position.h"
 
 class Entity {
@@ -15,5 +17,7 @@ class Entity {
     char id;
     Position pos;
 };
+std::ostream &operator<<(std::ostream &os, Entity &a);
+std::ostream &operator<<(std::ostream &os, Entity *a);
 
 #endif
