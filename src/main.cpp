@@ -128,6 +128,7 @@ int main() {
 
     enemyEntities.insert(enemyEntities.end(), entitiesBuffer.begin(), entitiesBuffer.end());
 
+    //entities griglia d'attacco 
     for (int i = 0; i < enemyEntities.size(); i++) {
         std::cout << enemyEntities[i] << std::endl;
     }
@@ -136,13 +137,31 @@ int main() {
 
     entitiesBuffer = support1.action(Position(8, 'h'), bufferUnits);
 
+    std::cout<<"unità player 2 \n";
     for (int i = 0; i < controllerBUnits.size(); i++) {
         std::cout << controllerBUnits[i] << std::endl;
     }
 
-    // std::cout << battleship2 << std::endl;
+    std::cout<<"unità player 1 \n";
+    for (int i = 0; i < controllerA.getUnits().size(); i++) {
+        std::cout << controllerA.getUnits()[i] << std::endl;
+    }
 
-    ComputerVSComputer();
+    ComputerVSComputer a;
+    
+    std::cout<<"NAVI RANDOM \n";
+    Controller play1 = a.getPlayer1();
+    std::cout<<play1.getUnits().size() <<std::endl; //riconosce correttamente 8 unità
+
+    //DA PROBLEMI L'ACCESSO ALLE SINGOLE UNITA'
+    std::cout<<play1.getUnits()[0];
+
+    /*
+    for(int i=0; i<play1.getUnits().size(); i++){
+        std::cout<<play1.getUnits()[i]<<std::endl;
+    }*/
+    
+    
 
     return 0;
 }

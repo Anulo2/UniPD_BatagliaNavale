@@ -23,7 +23,7 @@ class Unit {
     int getDimension();
     std::vector<char> getStatus();
     virtual std::vector<Entity> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
-    std::vector<Position> getUnitPositions();
+    const std::vector<Position> getUnitPositions();
     virtual ~Unit();
 
    protected:

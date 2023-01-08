@@ -15,15 +15,19 @@ ComputerVSComputer::ComputerVSComputer() {
             int vert = rand() % 2;  // 0 verticale, 1 orizzontale
 
             if (vert == 0) {
-                // metodo per vedere se non ci sono unità che occupano sopra o sotto di due caselle rispetto (x,y) da implementare in controller
+
                 Battleship buffer(Position(x - 2, y), Position(x + 2, y));
-                player1.addUnit(&buffer);
-                placed = true;
+                if(player1.checkUnitPlacement(&buffer)){
+                    player1.addUnit(&buffer);
+                    placed = true;
+                }                
+                
             } else {
-                // metodo per vedere se non ci sono unità che occupano a dx o sx di due caselle rispetto (x,y) da implementare in controller
                 Battleship buffer(Position(x, y - 2), Position(x, y + 2));
-                player1.addUnit(&buffer);
-                placed = true;
+                if(player1.checkUnitPlacement(&buffer)){
+                    player1.addUnit(&buffer);
+                    placed = true;
+                }   
             }
         }
     }
@@ -36,15 +40,19 @@ ComputerVSComputer::ComputerVSComputer() {
             int vert = rand() % 2;  // 0 verticale, 1 orizzontale
 
             if (vert == 0) {
-                // metodo per vedere se non ci sono unità che occupano sopra o sotto di due caselle rispetto (x,y) da implementare in controller
+
                 Battleship buffer(Position(x - 2, y), Position(x + 2, y));
-                player2.addUnit(&buffer);
-                placed = true;
+                if(player2.checkUnitPlacement(&buffer)){
+                    player2.addUnit(&buffer);
+                    placed = true;
+                }                
+                
             } else {
-                // metodo per vedere se non ci sono unità che occupano a dx o sx di due caselle rispetto (x,y) da implementare in controller
                 Battleship buffer(Position(x, y - 2), Position(x, y + 2));
-                player2.addUnit(&buffer);
-                placed = true;
+                if(player2.checkUnitPlacement(&buffer)){
+                    player2.addUnit(&buffer);
+                    placed = true;
+                }   
             }
         }
     }
@@ -57,15 +65,21 @@ ComputerVSComputer::ComputerVSComputer() {
             int vert = rand() % 2;  // 0 verticale, 1 orizzontale
 
             if (vert == 0) {
-                // metodo per vedere se non ci sono unità che occupano sopra o sotto di 1 casella rispetto (x,y) da implementare in controller
                 Support buffer(Position(x - 1, y), Position(x + 1, y));
-                player1.addUnit(&buffer);
-                placed = true;
+
+                if(player1.checkUnitPlacement(&buffer)){
+                    player1.addUnit(&buffer);
+                    placed = true;
+                } 
+
             } else {
-                // metodo per vedere se non ci sono unità che occupano a dx o sx di una casella rispetto (x,y) da implementare in controller
+
                 Support buffer(Position(x, y - 1), Position(x, y + 1));
-                player1.addUnit(&buffer);
-                placed = true;
+
+                if(player1.checkUnitPlacement(&buffer)){
+                    player1.addUnit(&buffer);
+                    placed = true;
+                } 
             }
         }
     }
@@ -78,15 +92,21 @@ ComputerVSComputer::ComputerVSComputer() {
             int vert = rand() % 2;  // 0 verticale, 1 orizzontale
 
             if (vert == 0) {
-                // metodo per vedere se non ci sono unità che occupano sopra o sotto di 1 casella rispetto (x,y) da implementare in controller
+
                 Support buffer(Position(x - 1, y), Position(x + 1, y));
-                player2.addUnit(&buffer);
-                placed = true;
+                
+               if(player2.checkUnitPlacement(&buffer)){
+                    player2.addUnit(&buffer);
+                    placed = true;
+                } 
+
             } else {
-                // metodo per vedere se non ci sono unità che occupano a dx o sx di una casella rispetto (x,y) da implementare in controller
+
                 Support buffer(Position(x, y - 1), Position(x, y + 1));
-                player2.addUnit(&buffer);
-                placed = true;
+                if(player2.checkUnitPlacement(&buffer)){
+                    player2.addUnit(&buffer);
+                    placed = true;
+                } 
             }
         }
     }
@@ -98,9 +118,11 @@ ComputerVSComputer::ComputerVSComputer() {
             int y = rand() % 12 + 1;
 
             // metodo per vedere se non ci sono unità che occupano la casella (x,y) da implementare in controller
-            Support buffer(Position(x - 1, y), Position(x + 1, y));
-            player1.addUnit(&buffer);
-            placed = true;
+            Submarine buffer(Position(x , y), Position(x , y));
+            if(player1.checkUnitPlacement(&buffer)){
+                    player1.addUnit(&buffer);
+                    placed = true;
+                } 
         }
     }
 
@@ -111,9 +133,19 @@ ComputerVSComputer::ComputerVSComputer() {
             int y = rand() % 12 + 1;
 
             // metodo per vedere se non ci sono unità che occupano la casella (x,y) da implementare in controller
-            Support buffer(Position(x - 1, y), Position(x + 1, y));
-            player2.addUnit(&buffer);
-            placed = true;
+            Submarine buffer(Position(x, y), Position(x, y));
+            if(player2.checkUnitPlacement(&buffer)){
+                    player2.addUnit(&buffer);
+                    placed = true;
+                } 
         }
     }
+}
+
+Controller ComputerVSComputer::getPlayer1(){
+    return player1;
+}
+
+Controller ComputerVSComputer::getPlayer2(){
+    return player2;
 }

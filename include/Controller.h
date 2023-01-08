@@ -13,6 +13,7 @@ class Controller {
     std::vector<Unit *> getUnits();
     Unit *getUnit(Position iPos);
     std::vector<Unit *> getUnitsInRange(Position iPos, int range);
+    bool checkUnitPlacement(Unit* iUnit); //TODO: controllare se ci sono gia unità nelle caselle di iUnit
 
     void addUnit(Unit *iUnit);
     // void addUnit(Unit iUnit);

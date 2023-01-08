@@ -78,7 +78,7 @@ std::vector<char> Unit::getStatus() {
     return status;
 }
 
-std::vector<Position> Unit::getUnitPositions() {
+const std::vector<Position> Unit::getUnitPositions() {
     std::vector<Position> result;
     if (vertical) {
         for (std::size_t i = 0; i < dimension; ++i) {

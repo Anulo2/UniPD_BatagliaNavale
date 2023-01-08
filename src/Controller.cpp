@@ -31,13 +31,20 @@ std::vector<Unit*> Controller::getUnitsInRange(Position iPos, int range) {
     Position b(iPos.getX() + range, iPos.getIntY() + range);
 
     for (int i = 0; i < units.size(); i++) {
-        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b)) {
+        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b)) { //DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
             unitsInRange.push_back(units[i]);
         }
     }
 
     return unitsInRange;
 }
+
+bool Controller::checkUnitPlacement(Unit* iUnit)
+{   
+    return true;
+    //TODO
+}
+
 
 void Controller::addUnit(Unit* iUnit) {
     units.push_back(iUnit);
