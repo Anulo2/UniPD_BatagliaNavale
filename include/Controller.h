@@ -10,18 +10,23 @@ class Controller {
    public:
     Controller();
     bool isUnit(Position iPos);
-    std::vector<Unit*> getUnits();
-    Unit* getUnit(Position iPos);
-    std::vector<Unit*> getUnitsInRange(Position iPos, int range);
+    std::vector<Unit *> getUnits();
+    Unit *getUnit(Position iPos);
+    std::vector<Unit *> getUnitsInRange(Position iPos, int range);
 
-    void addUnit(Unit* iUnit);
+    void addUnit(Unit *iUnit);
     // void addUnit(Unit iUnit);
 
     ~Controller();
 
    protected:
-    std::vector<Unit*> units;
-    std::vector<Entity*> enemyEntities;
+    std::vector<Unit *> units;
+    std::vector<Entity> enemyEntities;
 };
+std::ostream &operator<<(std::ostream &os, Controller &a);
+std::ostream &operator<<(std::ostream &os, Controller *a);
+
+bool operator==(Controller a, Controller b);
+bool operator!=(Controller a, Controller b);
 
 #endif

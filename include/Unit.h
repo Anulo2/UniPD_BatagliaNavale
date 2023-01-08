@@ -1,6 +1,7 @@
 #ifndef UNIT_H
 #define UNIT_H
 
+#include <iostream>
 #include <vector>
 
 #include "Entity.h"
@@ -9,20 +10,20 @@
 class Unit {
    public:
     Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId);
-    Position getMiddle();                                                                  // restiuisce posizione centrale
-    virtual std::vector<Entity> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale
-    char getId();                                                                          // virtuale pura, restituisce il tipo della nave
-    bool isInside(Position iPos);                                                          // Controlla se una certa posizione è parte di questa nave
-    bool isVertical();                                                                     // restituisce true se è verticale false se orizzontale
+    Position getMiddle();             // restiuisce posizione centrale
+    bool isVertical();                // restituisce true se è verticale false se orizzontale
+    bool containsPos(Position iPos);  // Controlla se una certa posizione è parte di questa nave
+    char getId();
     Position getBow();
     Position getStern();
     void updateStatus(Position iPos, char iChar);
-    void resetStatus();
-    int getDimension();
-
     void setArmor(int iArmor);
     int getArmor();
-
+    void resetStatus();
+    int getDimension();
+    std::vector<char> getStatus();
+    virtual std::vector<Entity> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
+    std::vector<Position> getUnitPositions();
     virtual ~Unit();
 
    protected:
@@ -33,5 +34,11 @@ class Unit {
     std::vector<char> status;
     char id;
 };
+
+std::ostream &operator<<(std::ostream &os, Unit &a);
+std::ostream &operator<<(std::ostream &os, Unit *a);
+
+bool operator==(const Unit &a, const Unit &b);
+bool operator!=(const Unit &a, const Unit &b);
 
 #endif

@@ -19,5 +19,6 @@ class Entity {
 };
 std::ostream &operator<<(std::ostream &os, Entity &a);
 std::ostream &operator<<(std::ostream &os, Entity *a);
-
+bool operator==(Entity a, Entity b);
+bool operator!=(Entity a, Entity b);
 #endif

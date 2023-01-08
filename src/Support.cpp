@@ -3,36 +3,19 @@
 
 Support::Support(Position iBow, Position iStern) : Unit(iBow, iStern, 3, 3, 'S'){};
 
+// RIceve un vettore di puntatori a Units con le unità in area 3x3 con centro il support
+// Il controllo se si può muovere in quella posizione bisogna farlo nel controller del giocatore
+// che sta facendo l'azione
 std::vector<Entity> Support::action(Position iTarget, std::vector<Unit *> iUnits) {
     middlePos = iTarget;  // il controllo se si può muovere qua bisogna farlo in controller
 
-    std::vector<Position> positionsToCheck;
-
-    if (vertical) {
-        positionsToCheck.push_back(Position(middlePos.getX() - 1, middlePos.getIntY() - 1));
-        positionsToCheck.push_back(Position(middlePos.getX() - 1, middlePos.getIntY()));
-        positionsToCheck.push_back(Position(middlePos.getX() - 1, middlePos.getIntY() + 1));
-        positionsToCheck.push_back(Position(middlePos.getX() + 1, middlePos.getIntY() - 1));
-        positionsToCheck.push_back(Position(middlePos.getX() + 1, middlePos.getIntY()));
-        positionsToCheck.push_back(Position(middlePos.getX() + 1, middlePos.getIntY() + 1));
-    } else {
-        positionsToCheck.push_back(Position(middlePos.getX() - 1, middlePos.getIntY() - 1));
-        positionsToCheck.push_back(Position(middlePos.getX(), middlePos.getIntY() - 1));
-        positionsToCheck.push_back(Position(middlePos.getX() + 1, middlePos.getIntY() - 1));
-        positionsToCheck.push_back(Position(middlePos.getX() - 1, middlePos.getIntY() + 1));
-        positionsToCheck.push_back(Position(middlePos.getX(), middlePos.getIntY() + 1));
-        positionsToCheck.push_back(Position(middlePos.getX() + 1, middlePos.getIntY() + 1));
-    }
-
     for (std::size_t i = 0; i < iUnits.size(); ++i) {
-        for (std::size_t j = 0; j < positionsToCheck.size(); j++) {
-            if ((*iUnits[i]).isInside(positionsToCheck[j])) {
-                (*iUnits[i]).setArmor((*iUnits[i]).getDimension());
-                break;
-            }
-            positionsToCheck.erase(positionsToCheck.begin() + j);
+        if ((*iUnits[i]).getMiddle() != middlePos) {  // Salta il support dato che non si può curare da solo
+            (*iUnits[i]).setArmor((*iUnits[i]).getDimension());
+            (*iUnits[i]).resetStatus();
         }
     }
+
     std::vector<Entity> resultVect;
     return resultVect;
 }

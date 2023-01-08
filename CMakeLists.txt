@@ -12,7 +12,7 @@ add_library(${PROJECT_NAME}
 	src/Unit.cpp
 	src/Position.cpp
 	src/Entity.cpp
-	
+	src/Controller.cpp
 
 )
 

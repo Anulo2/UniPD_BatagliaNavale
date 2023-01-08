@@ -21,7 +21,7 @@ bool Unit::isVertical() {
     return vertical;
 }
 
-bool Unit::isInside(Position iPos) {
+bool Unit::containsPos(Position iPos) {
     int dim_buff = dimension / 2;
     return vertical ? (iPos.getX() == middlePos.getX() && iPos.getIntY() <= middlePos.getIntY() + dim_buff && iPos.getIntY() >= middlePos.getIntY() - dim_buff) : (iPos.getIntY() == middlePos.getIntY() && iPos.getX() <= middlePos.getX() + dim_buff && iPos.getX() >= middlePos.getX() - dim_buff);
 }
@@ -47,7 +47,7 @@ Position Unit::getStern() {
 }
 
 void Unit::updateStatus(Position iPos, char iChar) {
-    if (Unit::isInside(iPos)) {
+    if (Unit::containsPos(iPos)) {
         if (vertical) {
             status[iPos.getIntY() - Unit::getStern().getIntY()] = iChar;
         } else {
@@ -66,7 +66,7 @@ int Unit::getArmor() {
 
 void Unit::resetStatus() {
     for (std::size_t i = 0; i < dimension; ++i) {
-        status.push_back(id);
+        status[i] = id;
     }
 }
 
@@ -74,5 +74,38 @@ int Unit::getDimension() {
     return dimension;
 }
 
+std::vector<char> Unit::getStatus() {
+    return status;
+}
+
+std::vector<Position> Unit::getUnitPositions() {
+    std::vector<Position> result;
+    if (vertical) {
+        for (std::size_t i = 0; i < dimension; ++i) {
+            Position buffer(Unit::getStern().getX(), (int)(Unit::getStern().getIntY() + i));
+            result.push_back(buffer);
+        }
+    } else {
+        for (std::size_t i = 0; i < dimension; ++i) {
+            Position buffer(Unit::getStern().getX() + i, (int)(Unit::getStern().getIntY()));
+            result.push_back(buffer);
+        }
+    }
+    return result;
+}
+
 Unit::~Unit() {
+}
+std::ostream &operator<<(std::ostream &os, Unit &a) {
+    std::string status;
+    for (char c : a.getStatus()) {
+        status.push_back(c);
+    }
+    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
+    os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId();
+    return os;
+}
+std::ostream &operator<<(std::ostream &os, Unit *a) {
+    os << *a;
+    return os;
 }

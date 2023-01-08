@@ -22,20 +22,20 @@ Position::Position(int iX, int iY) {
     y = iY;
 }
 
-char Position::getY() {
+const char Position::getY() {
     return rows[y - 1];
 }
 
-int Position::getIntY() {
+const int Position::getIntY() {
     return y;
 }
 
-int Position::getX() {
+const int Position::getX() {
     return x;
 }
 
 bool Position::isInside(Position a, Position b) {
-    if (x > a.getX() and x < b.getX() and y > a.getIntY() and y < b.getIntY()) {
+    if (x >= a.getX() and x <= b.getX() and y >= a.getIntY() and y <= b.getIntY()) {
         return true;
     }
     return false;
@@ -54,5 +54,9 @@ std::ostream& operator<<(std::ostream& os, Position a) {
     return os;
 }
 
+std::ostream& operator<<(std::ostream& os, Position* a) {
+    os << *a;
+    return os;
+}
 Position::~Position() {
 }

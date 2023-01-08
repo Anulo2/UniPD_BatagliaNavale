@@ -11,10 +11,9 @@ class Position {
     Position();
     Position(const int &iX, const char &iY);
     Position(int iX, int iY);
-    Position(char *iPos);
-    char getY();
-    int getX();
-    int getIntY();
+    const char getY();
+    const int getX();
+    const int getIntY();
     bool isInside(Position a, Position b);
 
     ~Position();
@@ -28,5 +27,6 @@ bool operator==(Position a, Position b);
 bool operator!=(Position a, Position b);
 
 std::ostream &operator<<(std::ostream &os, Position a);
+std::ostream &operator<<(std::ostream &os, Position *a);
 
 #endif
