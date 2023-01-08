@@ -13,7 +13,7 @@ add_library(${PROJECT_NAME}
 	src/Position.cpp
 	src/Entity.cpp
 	src/Controller.cpp
-
+	src/ComputerVSComputer.cpp
 )
 
 add_executable(main 

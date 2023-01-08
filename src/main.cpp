@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "Battleship.h"
-// #include "ComputerVSComputer.h"
+#include "ComputerVSComputer.h"
 #include "Controller.h"
 #include "Entity.h"
 // #include "PlayerVSComputer.h"
@@ -141,6 +141,8 @@ int main() {
     }
 
     // std::cout << battleship2 << std::endl;
+
+    ComputerVSComputer();
 
     return 0;
 }
