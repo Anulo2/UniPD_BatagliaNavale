@@ -153,13 +153,11 @@ int main() {
     Controller play1 = a.getPlayer1();
     std::cout<<play1.getUnits().size() <<std::endl; //riconosce correttamente 8 unità
 
-    //DA PROBLEMI L'ACCESSO ALLE SINGOLE UNITA'
-    std::cout<<play1.getUnits()[0];
-
-    /*
+    //DA PROBLEMI L'ACCESSO ALLE SINGOLE UNITA' 
+    
     for(int i=0; i<play1.getUnits().size(); i++){
-        std::cout<<play1.getUnits()[i]<<std::endl;
-    }*/
+        std::cout<<play1.getUnits()[i]<<std::endl;}
+    
     
     
 

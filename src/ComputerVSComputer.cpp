@@ -16,14 +16,14 @@ ComputerVSComputer::ComputerVSComputer() {
 
             if (vert == 0) {
 
-                Battleship buffer(Position(x - 2, y), Position(x + 2, y));
+                static Battleship buffer(Position(x - 2, y), Position(x + 2, y));
                 if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
                     placed = true;
                 }                
                 
             } else {
-                Battleship buffer(Position(x, y - 2), Position(x, y + 2));
+                static Battleship buffer(Position(x, y - 2), Position(x, y + 2));
                 if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
                     placed = true;
@@ -41,14 +41,14 @@ ComputerVSComputer::ComputerVSComputer() {
 
             if (vert == 0) {
 
-                Battleship buffer(Position(x - 2, y), Position(x + 2, y));
+                static Battleship buffer(Position(x - 2, y), Position(x + 2, y));
                 if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
                     placed = true;
                 }                
                 
             } else {
-                Battleship buffer(Position(x, y - 2), Position(x, y + 2));
+                static Battleship buffer(Position(x, y - 2), Position(x, y + 2));
                 if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
                     placed = true;
@@ -65,7 +65,7 @@ ComputerVSComputer::ComputerVSComputer() {
             int vert = rand() % 2;  // 0 verticale, 1 orizzontale
 
             if (vert == 0) {
-                Support buffer(Position(x - 1, y), Position(x + 1, y));
+                static Support buffer(Position(x - 1, y), Position(x + 1, y));
 
                 if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
@@ -74,7 +74,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
             } else {
 
-                Support buffer(Position(x, y - 1), Position(x, y + 1));
+                static Support buffer(Position(x, y - 1), Position(x, y + 1));
 
                 if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
@@ -93,7 +93,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
             if (vert == 0) {
 
-                Support buffer(Position(x - 1, y), Position(x + 1, y));
+                static Support buffer(Position(x - 1, y), Position(x + 1, y));
                 
                if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
@@ -102,7 +102,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
             } else {
 
-                Support buffer(Position(x, y - 1), Position(x, y + 1));
+                static Support buffer(Position(x, y - 1), Position(x, y + 1));
                 if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
                     placed = true;
@@ -117,8 +117,7 @@ ComputerVSComputer::ComputerVSComputer() {
             int x = rand() % 12 + 1;
             int y = rand() % 12 + 1;
 
-            // metodo per vedere se non ci sono unità che occupano la casella (x,y) da implementare in controller
-            Submarine buffer(Position(x , y), Position(x , y));
+            static Submarine buffer(Position(x , y), Position(x , y));
             if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
                     placed = true;
