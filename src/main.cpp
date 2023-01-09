@@ -149,14 +149,19 @@ int main() {
 
     ComputerVSComputer a;
     
-    std::cout<<"NAVI RANDOM \n";
+    std::cout<<"NAVI RANDOM PLAYER1 \n";
     Controller play1 = a.getPlayer1();
-    std::cout<<play1.getUnits().size() <<std::endl; //riconosce correttamente 8 unità
-
-    //DA PROBLEMI L'ACCESSO ALLE SINGOLE UNITA' 
+    std::cout<<play1.getUnits().size() <<std::endl; //riconosce correttamente 8 unità 
     
     for(int i=0; i<play1.getUnits().size(); i++){
         std::cout<<play1.getUnits()[i]<<std::endl;}
+
+    std::cout<<"NAVI RANDOM PLAYER2 \n";
+    Controller play2 = a.getPlayer2();
+    std::cout<<play2.getUnits().size() <<std::endl; //riconosce correttamente 8 unità 
+    
+    for(int i=0; i<play2.getUnits().size(); i++){
+        std::cout<<play2.getUnits()[i]<<std::endl;}
     
     
     

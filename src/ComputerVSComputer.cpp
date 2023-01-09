@@ -3,8 +3,8 @@
 #include <cstdlib>
 #include <ctime>  //librerie per generare posizioni casuali dove piazzare le navi
 
-ComputerVSComputer::ComputerVSComputer() {
-    srand(time(NULL));  // seme della randomicità
+ComputerVSComputer::ComputerVSComputer() { //TODO: CHECK RANDOMICITY
+    srand(time(NULL));  
     bool placed;
 
     for (int i = 0; i < 3; i++) {  // piazzo le corazzate del player1
@@ -84,7 +84,7 @@ ComputerVSComputer::ComputerVSComputer() {
         }
     }
 
-    for (int i = 0; i < 2; i++) {  // piazzo i supporti del player2
+    for (int i = 0; i < 3; i++) {  // piazzo i supporti del player2
         placed = false;
         while (!placed) {
             int x = rand() % 12 + 1;
@@ -132,7 +132,7 @@ ComputerVSComputer::ComputerVSComputer() {
             int y = rand() % 12 + 1;
 
             // metodo per vedere se non ci sono unità che occupano la casella (x,y) da implementare in controller
-            Submarine buffer(Position(x, y), Position(x, y));
+            static Submarine buffer(Position(x, y), Position(x, y));
             if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
                     placed = true;
