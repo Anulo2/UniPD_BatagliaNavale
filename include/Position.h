@@ -11,10 +11,13 @@ class Position {
     Position();
     Position(const int &iX, const char &iY);
     Position(int iX, int iY);
-    const char getY();
-    const int getX();
-    const int getIntY();
+    char  getY() const;
+    int  getX() const;
+    int  getIntY()const;
     bool isInside(Position a, Position b);
+    bool isAligned(const Position& a) const;
+    int distanceTo(const Position& a) const;
+
 
     ~Position();
 

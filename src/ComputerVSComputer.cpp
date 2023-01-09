@@ -20,16 +20,21 @@ ComputerVSComputer::ComputerVSComputer() { //TODO: CHECK RANDOMICITY
                 if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
                     placed = true;
-                }                
+                }else{
+                    //std::cout << "Failed to place vertical Battleship of Player1 at pos: " << buffer.getMiddle() << "\n";
+                }             
                 
             } else {
                 static Battleship buffer(Position(x, y - 2), Position(x, y + 2));
                 if(player1.checkUnitPlacement(&buffer)){
                     player1.addUnit(&buffer);
                     placed = true;
-                }   
+                }else{
+                    //std::cout << "Failed to place horizontal Battleship of Player1 at pos: " << buffer.getMiddle() << "\n";
+                }
             }
         }
+        std::cout <<"Placed Battleship Player1!\n";
     }
 
     for (int i = 0; i < 3; i++) {  // piazzo le corazzate del player2
@@ -45,16 +50,21 @@ ComputerVSComputer::ComputerVSComputer() { //TODO: CHECK RANDOMICITY
                 if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
                     placed = true;
-                }                
+                 }else{
+                    //std::cout << "Failed to place vertical Battleship of Player2 at pos: " << buffer.getMiddle() << "\n";
+                }                 
                 
             } else {
                 static Battleship buffer(Position(x, y - 2), Position(x, y + 2));
                 if(player2.checkUnitPlacement(&buffer)){
                     player2.addUnit(&buffer);
                     placed = true;
-                }   
+                 }else{
+                    //std::cout << "Failed to place horizontal Battleship of Player2 at pos: " << buffer.getMiddle() << "\n";
+                }
             }
         }
+        std::cout <<"Placed Battleship Player2!\n";
     }
 
     for (int i = 0; i < 3; i++) {  // piazzo i supporti del player1

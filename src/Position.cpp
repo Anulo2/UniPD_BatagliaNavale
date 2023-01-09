@@ -22,17 +22,31 @@ Position::Position(int iX, int iY) {
     y = iY;
 }
 
-const char Position::getY() {
+char  Position::getY() const{
     return rows[y - 1];
 }
 
-const int Position::getIntY() {
+ int  Position::getIntY()const {
     return y;
 }
 
-const int Position::getX() {
+ int  Position::getX() const{
     return x;
 }
+
+
+bool Position::isAligned(const Position& a) const{
+    return x == a.getX() || y == a.getY();
+}
+
+int Position::distanceTo(const Position& a) const {
+        if (!Position::isAligned(a)) {
+            throw std::invalid_argument("Positions must be aligned");
+        }
+        return std::abs(x - a.x) + std::abs(y - a.y);
+    }
+
+
 
 bool Position::isInside(Position a, Position b) {
     if (x >= a.getX() and x <= b.getX() and y >= a.getIntY() and y <= b.getIntY()) {

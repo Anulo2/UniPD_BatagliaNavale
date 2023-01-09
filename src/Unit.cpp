@@ -3,6 +3,13 @@
 Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId) {
     Position bow(iBow);
     Position stern(iStern);
+
+    if (!bow.isAligned(stern)) {
+        throw std::invalid_argument("Positions must be aligned");
+    }
+    if (bow.distanceTo(stern) != iDimension){
+        throw std::invalid_argument("These positions do not rapresent that Unit");
+    }
     for (std::size_t i = 0; i < iDimension; ++i) {
         status.push_back(iId);
     }
