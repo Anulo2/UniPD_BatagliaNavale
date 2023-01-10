@@ -171,30 +171,94 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
         // std::cout << "Placed Battleship Player1!\n";
     }
 
+    std::cout << player1 << "\n\n\n"
+              << player2 << "\n";
+
     int naveSelezionata = rand() % player1.getUnits().size() + 1;
     naveSelezionata = 0;
-    Unit* battleshipBuff = player1.getUnits()[naveSelezionata];
-    char type = battleshipBuff->getId();
-    for (int i = 0; i < 10; i++) {
+    Unit* unitBuff = player1.getUnits()[naveSelezionata];
+    char type = unitBuff->getId();
+    for (int i = 0; i < 100; i++) {
         bool valid = false;
         while (!valid) {
             int x = rand() % 12 + 1;
             int y = rand() % 12 + 1;
             Position bufferPos(x, y);
             if (type == 'C') {
-                // Unit * enemyUnit = player2.getUnit(Position(x, y));
-                // Battleship* battleshipBuff = (Battleship)player1.getUnits().at(naveSelezionata);
                 std::vector<Unit*> bufferEnemy = {player2.getUnit(bufferPos)};
 
-                std::vector<Entity> enemyEntities = battleshipBuff->action(bufferPos, bufferEnemy);
+                std::vector<Entity> enemyEntities = unitBuff->action(bufferPos, bufferEnemy);
 
                 player1.mergeEntities(enemyEntities);
                 valid = true;
             } else if (type == 'S') {
+                if (unitBuff->isVertical()) {
+                    if (player1.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
+                        valid = true;
+                    }
+                } else {
+                    if (player1.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
+                        valid = true;
+                    }
+                }
+                if (valid) {
+                    std::vector<Unit*> bufferUnit = player1.getUnitsInRange(bufferPos, 1);
+
+                    std::vector<Entity> enemyEntities = unitBuff->action(bufferPos, bufferUnit);
+                }
+
             } else if (type == 'E') {
             }
         }
     }
+    std::cout << "\n\n\n##################################################################\n";
+    std::cout << "##################################################################\n";
+    std::cout << "##################################################################\n\n\n\n";
+    std::cout << player1 << "\n\n\n"
+              << player2 << "\n";
+
+    naveSelezionata = rand() % player2.getUnits().size() + 1;
+    naveSelezionata = 4;
+    unitBuff = player2.getUnits()[naveSelezionata];
+    type = unitBuff->getId();
+    for (int i = 0; i < 1; i++) {
+        bool valid = false;
+        while (!valid) {
+            int x = rand() % 12 + 1;
+            int y = rand() % 12 + 1;
+            Position bufferPos(x, y);
+            if (type == 'C') {
+                std::vector<Unit*> bufferEnemy = {player1.getUnit(bufferPos)};
+
+                std::vector<Entity> enemyEntities = unitBuff->action(bufferPos, bufferEnemy);
+
+                player2.mergeEntities(enemyEntities);
+                valid = true;
+            } else if (type == 'S') {
+                if (unitBuff->isVertical()) {
+                    if (player2.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
+                        valid = true;
+                    }
+                } else {
+                    if (player2.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
+                        valid = true;
+                    }
+                }
+                if (valid) {
+                    std::vector<Unit*> bufferUnit = player2.getUnitsInRange(bufferPos, 1);
+
+                    std::vector<Entity> enemyEntities = unitBuff->action(bufferPos, bufferUnit);
+                }
+
+            } else if (type == 'E') {
+            }
+        }
+    }
+    std::cout << "\n\n\n##################################################################\n";
+    std::cout << "##################################################################\n";
+    std::cout << "##################################################################\n\n\n\n";
+    std::cout << player1 << "\n\n\n"
+              << player2 << "\n";
 }
 
 Controller* ComputerVSComputer::getPlayer1() {

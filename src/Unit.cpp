@@ -63,7 +63,7 @@ Position Unit::getStern() {
 void Unit::updateStatus(Position iPos, char iChar) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
-            status[iPos.getIntY() - Unit::getStern().getIntY() - 1] = iChar;
+            status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iChar;
         } else {
             status[iPos.getX() - Unit::getStern().getX() - 1] = iChar;
         }

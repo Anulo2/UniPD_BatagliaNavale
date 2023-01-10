@@ -5,8 +5,8 @@ Battleship::Battleship(const Position& iBow, const Position& iStern) : Unit(iBow
 std::vector<Entity> Battleship::action(Position iTarget, std::vector<Unit*> iUnits) {
     if (iUnits[0]) {
         // std::cout << iUnits[0]->getId();
-        iUnits[0]->updateStatus(iTarget, iUnits[0]->getId());  // il +32 la rende minuscola
-        iUnits[0]->setArmor(iUnits[0]->getArmor() - 1);        // TODO: aggiungere lancio eccenzione in caso sia già a zero
+        iUnits[0]->updateStatus(iTarget, iUnits[0]->getId() + 32);  // il +32 la rende minuscola
+        iUnits[0]->setArmor(iUnits[0]->getArmor() - 1);             // TODO: aggiungere lancio eccenzione in caso sia già a zero
 
         Entity result(iTarget, 'X');
         std::vector<Entity> resultVect;

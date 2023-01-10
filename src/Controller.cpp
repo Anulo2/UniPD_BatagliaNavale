@@ -37,7 +37,7 @@ std::vector<Unit*> Controller::getUnitsInRange(Position iPos, int range) {
     Position b(iPos.getX() + range, iPos.getIntY() + range);
 
     for (int i = 0; i < units.size(); i++) {
-        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b)) {  // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
+        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) {  // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
             unitsInRange.push_back(units[i]);
         }
     }
@@ -104,13 +104,14 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
     for (int i = 0; i < units.size(); i++) {
         std::vector<char> status = units[i]->getStatus();
         std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
+        int dim = units[i]->getDimension();
         if ((*units[i]).isVertical()) {
-            for (int j = 0; j < units[i]->getDimension(); j++) {
-                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[j];
+            for (int j = 0; j < dim; j++) {
+                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1];
             }
         } else {
-            for (int j = 0; j < units[i]->getDimension(); j++) {
-                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j] = status[j];
+            for (int j = 0; j < dim; j++) {
+                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j + 1] = status[j];
             }
         }
     }
@@ -125,7 +126,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 void Controller::printAttack(std::ostream& os) {
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[12 - enemyEntities[i].getPos().getIntY()][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
-        std::cout << enemyEntities[i] << std::endl;
+        // std::cout << enemyEntities[i] << std::endl;
     }
 
     for (int i = 0; i < 13; i++) {

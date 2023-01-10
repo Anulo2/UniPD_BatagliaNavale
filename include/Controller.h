@@ -20,7 +20,6 @@ class Controller {
     void printDefense(std::ostream &os);
     void printAttack(std::ostream &os);
     void mergeEntities(std::vector<Entity> iEnemyEntities);
-    void battleshipAction(Position iTarget, Unit *iUnit);
     ~Controller();
 
    protected:

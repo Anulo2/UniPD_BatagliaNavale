@@ -13,57 +13,57 @@
 using namespace std;
 
 int main() {
-        /*
-    Position posA(7, 'n');
-    Position posB(12, 12);
+    /*
+Position posA(7, 'n');
+Position posB(12, 12);
 
-    std::cout << "A get y: " << posA.getY() << std::endl;
+std::cout << "A get y: " << posA.getY() << std::endl;
 
-    std::cout << "A get inty: " << posA.getIntY() << std::endl;
+std::cout << "A get inty: " << posA.getIntY() << std::endl;
 
-    std::cout << "A get X: " << posA.getX() << std::endl;
+std::cout << "A get X: " << posA.getX() << std::endl;
 
-    std::cout << "B get y: " << posB.getY() << std::endl;
+std::cout << "B get y: " << posB.getY() << std::endl;
 
-    std::cout << "B get inty: " << posB.getIntY() << std::endl;
+std::cout << "B get inty: " << posB.getIntY() << std::endl;
 
-    std::cout << "B get x: " << posB.getX() << std::endl;
+std::cout << "B get x: " << posB.getX() << std::endl;
 
-    Entity entityA(posA, 'X');
+Entity entityA(posA, 'X');
 
-    std::cout << "A getPos: " << entityA.getPos() << std::endl;
+std::cout << "A getPos: " << entityA.getPos() << std::endl;
 
-    std::cout << "a getId: " << entityA.getId() << std::endl;
+std::cout << "a getId: " << entityA.getId() << std::endl;
 
-    Battleship battleshipA(posA, posB);
+Battleship battleshipA(posA, posB);
 
-    std::cout << "middle: " << battleshipA.getMiddle() << std::endl;
+std::cout << "middle: " << battleshipA.getMiddle() << std::endl;
 
-    std::cout << "vertical? " << battleshipA.isVertical() << std::endl;
+std::cout << "vertical? " << battleshipA.isVertical() << std::endl;
 
-    std::cout << "id:  " << battleshipA.getId() << std::endl;
+std::cout << "id:  " << battleshipA.getId() << std::endl;
 
-    std::cout << "Bow:  " << battleshipA.getBow() << std::endl;
+std::cout << "Bow:  " << battleshipA.getBow() << std::endl;
 
-    std::cout << "Stern:  " << battleshipA.getStern() << std::endl;
+std::cout << "Stern:  " << battleshipA.getStern() << std::endl;
 
-    Position posC(8, 'n');
-    Position posD(8, 11);
+Position posC(8, 'n');
+Position posD(8, 11);
 
-    std::cout << "Is inside posC:  " << battleshipA.containsPos(posC) << std::endl;
+std::cout << "Is inside posC:  " << battleshipA.containsPos(posC) << std::endl;
 
-    std::cout << "Is inside posD:  " << battleshipA.containsPos(posD) << std::endl;
+std::cout << "Is inside posD:  " << battleshipA.containsPos(posD) << std::endl;
 
-    std::vector<Unit*> units = {&battleshipA};
+std::vector<Unit*> units = {&battleshipA};
 
-    std::vector<Entity> entitaAzioneA = battleshipA.action(posC, units);
+std::vector<Entity> entitaAzioneA = battleshipA.action(posC, units);
 
-    std::cout << "Risultato azione:  " << entitaAzioneA.at(0) << std::endl;
+std::cout << "Risultato azione:  " << entitaAzioneA.at(0) << std::endl;
 
-    std::vector<Entity> entitaAzioneB = battleshipA.action(posD, units);
+std::vector<Entity> entitaAzioneB = battleshipA.action(posD, units);
 
-    std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
-    */
+std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
+*/
     /*
         Controller controllerA;
 
@@ -92,65 +92,65 @@ int main() {
         std::cout << "Unit at index: " << i << ": " << unitsController[i] << std::endl;
     }
     */
-   /*
-    Controller controllerA;
+    /*
+     Controller controllerA;
 
-    Battleship battleship1(Position(2, 'c'), Position(6, 'c'));
-    Submarine submarine1(Position(9, 'h'));
+     Battleship battleship1(Position(2, 'c'), Position(6, 'c'));
+     Submarine submarine1(Position(9, 'h'));
 
-    controllerA.addUnit(&battleship1);
-    controllerA.addUnit(&submarine1);
+     controllerA.addUnit(&battleship1);
+     controllerA.addUnit(&submarine1);
 
-    Controller controllerB;
+     Controller controllerB;
 
-    Battleship battleship2(Position(7, 'c'), Position(7, 'g'));
+     Battleship battleship2(Position(7, 'c'), Position(7, 'g'));
 
-    Support support1(Position(7, 'H'), Position(9, 'H'));
+     Support support1(Position(7, 'H'), Position(9, 'H'));
 
-    controllerB.addUnit(&battleship2);
-    controllerB.addUnit(&support1);
+     controllerB.addUnit(&battleship2);
+     controllerB.addUnit(&support1);
 
-    std::vector<Unit*> target = {controllerB.getUnit(Position(7, 'e'))};
+     std::vector<Unit*> target = {controllerB.getUnit(Position(7, 'e'))};
 
-    std::vector<Entity> enemyEntities = battleship1.action(Position(7, 'e'), target);
+     std::vector<Entity> enemyEntities = battleship1.action(Position(7, 'e'), target);
 
-    std::vector<Unit*> controllerBUnits = controllerB.getUnits();
+     std::vector<Unit*> controllerBUnits = controllerB.getUnits();
 
-    std::cout << "Unità del controller B: " << std::endl;
+     std::cout << "Unità del controller B: " << std::endl;
 
-    for (int i = 0; i < controllerBUnits.size(); i++) {
-        std::cout << controllerBUnits[i] << std::endl;
-    }
+     for (int i = 0; i < controllerBUnits.size(); i++) {
+         std::cout << controllerBUnits[i] << std::endl;
+     }
 
-    std::vector<Unit*> bufferUnits = controllerB.getUnitsInRange(Position(9, 'h'), 2);
+     std::vector<Unit*> bufferUnits = controllerB.getUnitsInRange(Position(9, 'h'), 2);
 
-    std::vector<Entity> entitiesBuffer = submarine1.action(Position(9, 'h'), bufferUnits);
+     std::vector<Entity> entitiesBuffer = submarine1.action(Position(9, 'h'), bufferUnits);
 
-    enemyEntities.insert(enemyEntities.end(), entitiesBuffer.begin(), entitiesBuffer.end());
+     enemyEntities.insert(enemyEntities.end(), entitiesBuffer.begin(), entitiesBuffer.end());
 
-    // entities griglia d'attacco
-    for (int i = 0; i < enemyEntities.size(); i++) {
-        std::cout << enemyEntities[i] << std::endl;
-    }
+     // entities griglia d'attacco
+     for (int i = 0; i < enemyEntities.size(); i++) {
+         std::cout << enemyEntities[i] << std::endl;
+     }
 
-    bufferUnits = controllerB.getUnitsInRange(Position(8, 'h'), 1);
+     bufferUnits = controllerB.getUnitsInRange(Position(8, 'h'), 1);
 
-    entitiesBuffer = support1.action(Position(8, 'h'), bufferUnits);
+     entitiesBuffer = support1.action(Position(8, 'h'), bufferUnits);
 
-    std::cout << "unità player 2 \n";
-    for (int i = 0; i < controllerBUnits.size(); i++) {
-        std::cout << controllerBUnits[i] << std::endl;
-    }
+     std::cout << "unità player 2 \n";
+     for (int i = 0; i < controllerBUnits.size(); i++) {
+         std::cout << controllerBUnits[i] << std::endl;
+     }
 
-    std::cout << "unità player 1 \n";
-    for (int i = 0; i < controllerA.getUnits().size(); i++) {
-        std::cout << controllerA.getUnits()[i] << std::endl;
-    }
-    */
+     std::cout << "unità player 1 \n";
+     for (int i = 0; i < controllerA.getUnits().size(); i++) {
+         std::cout << controllerA.getUnits()[i] << std::endl;
+     }
+     */
 
     ComputerVSComputer a;
-    
-    std::cout << a << std::endl;
+
+    // std::cout << a << std::endl;
     /*
     std::cout << "NAVI RANDOM PLAYER1 \n";
     Controller* play1 = a.getPlayer1();
