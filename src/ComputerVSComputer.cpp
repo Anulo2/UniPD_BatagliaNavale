@@ -6,44 +6,6 @@
 #include <iostream>
 #include <random>
 
-void printDefense(std::ostream& os, std::vector<Unit *> iUnits) {
-    char output[13][13];
-    for (int i = 0; i < 13; i++) {
-        for (int j = 0; j < 13; j++) {
-            if (j == 0) {
-                output[i][j] = rows[11 - i];
-            } else {
-                output[i][j] = '#';
-            }
-        }
-    }
-    char array[] = {' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C'};
-
-    std::copy(array, array + 13, output[12]);
-
-    // output[13] = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '0', '1', '1', '1', '2' ];
-    for (int i = 0; i < iUnits.size(); i++) {
-        std::vector<char> status = iUnits[i]->getStatus();
-        std::cout<< iUnits[i] << ", " << iUnits[i]->getStern() << ", " << iUnits[i]->getBow() << "\n";
-        if ((*iUnits[i]).isVertical()) {
-            for (int j = 0; j < iUnits[i]->getDimension(); j++) {
-                output[12 - iUnits[i]->getBow().getIntY() + j][iUnits[i]->getBow().getX()] = status[j];
-            }
-        } else {
-            for (int j = 0; j < iUnits[i]->getDimension(); j++) {
-                output[12 - iUnits[i]->getStern().getIntY()][iUnits[i]->getStern().getX()+j] = status[j];
-            }
-        }
-    }
-    for (int i = 0; i < 13; i++) {
-        for (int j = 0; j < 13; j++) {
-            os << output[i][j] << " ";
-        }
-        os << std::endl;
-    }
-
-}
-
 ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
     std::srand(std::time(nullptr));
     bool placed;
@@ -54,7 +16,6 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             int x = rand() % 10 + 1;
             int y = rand() % 10 + 1;
             int vert = rand() % 2;  // 1 verticale, 0 orizzontale
-
             if (vert == 0) {
                 if(player1.checkUnitPlacement(new Battleship(Position(x - 2, y), Position(x + 2, y)))){
                     player1.addUnit(new Battleship(Position(x - 2, y), Position(x + 2, y)));
@@ -209,21 +170,48 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
 
         //std::cout << "Placed Battleship Player1!\n";
     }
+    std::cout << player1 << "\n";
+    std::cout << player2;
+    int naveSelezionata = rand() % player1.getUnits().size() +1;
+    naveSelezionata = 0;
+    Unit * battleshipBuff = player1.getUnits().at(naveSelezionata);
+    char type = battleshipBuff->getId();
+    
+    bool valid=false;
+    while(!valid){
+        int x = rand() % 12 + 1;
+        int y = rand() % 12 + 1;
+        Position bufferPos(x,y);
+        if (type == 'C'){
+            
+            //Unit * enemyUnit = player2.getUnit(Position(x, y));
+            //Battleship* battleshipBuff = (Battleship)player1.getUnits().at(naveSelezionata);
+            std::vector<Unit *> bufferEnemy = {player2.getUnit(bufferPos)};
+            std::cout<<"here\n";
+            std::vector<Entity> enemyEntities = battleshipBuff->action(bufferPos, bufferEnemy);
+            std::cout<<"here\n";
+            player1.mergeEntities(enemyEntities);
+            valid = true;
+        }else if(type == 'S'){
+
+        }else if(type == 'E'){
+
+        }
+    }
 }
 
-Controller ComputerVSComputer::getPlayer1() {
-    return player1;
+Controller* ComputerVSComputer::getPlayer1() {
+    return &player1;
 }
 
-Controller ComputerVSComputer::getPlayer2() {
-    return player2;
+Controller* ComputerVSComputer::getPlayer2() {
+    return &player2;
 }
 
 std::ostream& operator<<(std::ostream& os, ComputerVSComputer& a) {
-    printDefense(os, a.getPlayer1().getUnits());
+    os << (a.getPlayer1());
     os << "\n";
-    printDefense(os, a.getPlayer2().getUnits());
-
+    os<< (a.getPlayer2());
     return os;
 }
 

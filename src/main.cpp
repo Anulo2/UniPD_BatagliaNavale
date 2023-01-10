@@ -92,7 +92,7 @@ int main() {
         std::cout << "Unit at index: " << i << ": " << unitsController[i] << std::endl;
     }
     */
-
+   /*
     Controller controllerA;
 
     Battleship battleship1(Position(2, 'c'), Position(6, 'c'));
@@ -146,26 +146,27 @@ int main() {
     for (int i = 0; i < controllerA.getUnits().size(); i++) {
         std::cout << controllerA.getUnits()[i] << std::endl;
     }
+    */
 
     ComputerVSComputer a;
-
+    
     std::cout << a << std::endl;
-
+    /*
     std::cout << "NAVI RANDOM PLAYER1 \n";
-    Controller play1 = a.getPlayer1();
-    std::cout << play1.getUnits().size() << std::endl;  // riconosce correttamente 8 unità
+    Controller* play1 = a.getPlayer1();
+    std::cout << play1->getUnits().size() << std::endl;  // riconosce correttamente 8 unità
 
-    for (int i = 0; i < play1.getUnits().size(); i++) {
-        std::cout << play1.getUnits()[i] << std::endl;
+    for (int i = 0; i < play1->getUnits().size(); i++) {
+        std::cout << play1->getUnits()[i] << std::endl;
     }
 
     std::cout << "NAVI RANDOM PLAYER2 \n";
-    Controller play2 = a.getPlayer2();
-    std::cout << play2.getUnits().size() << std::endl;  // riconosce correttamente 8 unità
+    Controller* play2 = a.getPlayer2();
+    std::cout << play2->getUnits().size() << std::endl;  // riconosce correttamente 8 unità
 
-    for (int i = 0; i < play2.getUnits().size(); i++) {
-        std::cout << play2.getUnits()[i] << std::endl;
-    }
+    for (int i = 0; i < play2->getUnits().size(); i++) {
+        std::cout << play2->getUnits()[i] << std::endl;
+    }*/
 
     return 0;
 }

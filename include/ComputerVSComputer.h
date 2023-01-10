@@ -10,8 +10,8 @@ class ComputerVSComputer {
    public:
     ComputerVSComputer();  // piazza le navi di entrambi i giocatori in posizioni random
 
-    Controller getPlayer1();
-    Controller getPlayer2();
+    Controller* getPlayer1();
+    Controller* getPlayer2();
 
    protected:
     Controller player1;

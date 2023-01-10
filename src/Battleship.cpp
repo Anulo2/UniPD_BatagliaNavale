@@ -4,14 +4,16 @@ Battleship::Battleship(const Position& iBow, const Position& iStern) : Unit(iBow
 // Riceve un vettore di puntatori a Units lungo 1 se a target il controller avversario ha trovato una nave
 std::vector<Entity> Battleship::action(Position iTarget, std::vector<Unit*> iUnits) {
     if (iUnits.size() != 0) {
-        (*iUnits[0]).updateStatus(iTarget, (*iUnits[0]).getId() + 32);  // il +32 la rende minuscola
+        
+
+        iUnits[0]->updateStatus(iTarget, iUnits[0]->getId() - 32);  // il +32 la rende minuscola
+        std::cout<<"sos\n";
         (*iUnits[0]).setArmor((*iUnits[0]).getArmor() - 1);             // TODO: aggiungere lancio eccenzione in caso sia già a zero
         Entity result(iTarget, 'X');
         std::vector<Entity> resultVect;
         resultVect.push_back(result);
         return resultVect;
     }
-
     Entity result(iTarget, 'O');
     std::vector<Entity> resultVect;
     resultVect.push_back(result);

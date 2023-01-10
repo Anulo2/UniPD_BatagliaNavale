@@ -37,8 +37,7 @@ bool Unit::isVertical() {
 }
 
 bool Unit::containsPos(Position iPos) {
-    int dim_buff = dimension / 2;
-    return vertical ? (iPos.getX() == middlePos.getX() && iPos.getIntY() <= middlePos.getIntY() + dim_buff && iPos.getIntY() >= middlePos.getIntY() - dim_buff) : (iPos.getIntY() == middlePos.getIntY() && iPos.getX() <= middlePos.getX() + dim_buff && iPos.getX() >= middlePos.getX() - dim_buff);
+    return iPos.isInside(Unit::getBow(), Unit::getStern());
 }
 
 char Unit::getId() {
@@ -63,6 +62,7 @@ Position Unit::getStern() {
 
 void Unit::updateStatus(Position iPos, char iChar) {
     if (Unit::containsPos(iPos)) {
+        std::cout<<"sos2\n";
         if (vertical) {
             status[iPos.getIntY() - Unit::getStern().getIntY()] = iChar;
         } else {

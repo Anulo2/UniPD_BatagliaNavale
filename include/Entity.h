@@ -8,8 +8,10 @@
 class Entity {
    public:
     Entity(Position iPos, char iId);
+    Entity(const Entity &a);
     Position getPos();
     char getId();
+    void setId(char iId);
 
     ~Entity();
 

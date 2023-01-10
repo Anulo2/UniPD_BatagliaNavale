@@ -17,12 +17,16 @@ class Controller {
 
     void addUnit(Unit *iUnit);
     // void addUnit(Unit iUnit);
-
+    void printDefense(std::ostream& os);
+    void printAttack(std::ostream& os);
+    void mergeEntities(std::vector<Entity> iEnemyEntities);
+    void battleshipAction(Position iTarget, Unit* iUnit);
     ~Controller();
 
    protected:
     std::vector<Unit *> units;
     std::vector<Entity> enemyEntities;
+    Entity *enemyEntitiesMatrix[12][12] = {nullptr};
 };
 std::ostream &operator<<(std::ostream &os, Controller &a);
 std::ostream &operator<<(std::ostream &os, Controller *a);

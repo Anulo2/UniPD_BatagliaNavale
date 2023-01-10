@@ -5,8 +5,18 @@ Entity::Entity(Position iPos, char iId) {
     pos = iPos;
 }
 
+
+Entity::Entity(const Entity &a) {
+    id = a.id;
+    pos = a.pos;
+}
+
 char Entity::getId() {
     return id;
+}
+
+void Entity::setId(char iId){
+    id = iId;
 }
 
 Position Entity::getPos() {

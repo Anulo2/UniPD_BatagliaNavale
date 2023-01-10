@@ -32,7 +32,7 @@ class Unit {
     int dimension;
     bool vertical;
     int armor;
-    std::vector<char> status;
+    std::vector<char> status; //TODO: trasformare in vettore di bool
     char id;
 };
 
