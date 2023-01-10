@@ -10,6 +10,7 @@
 class Unit {
    public:
     Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId);
+    Unit(const Unit &a);
     Position getMiddle();             // restiuisce posizione centrale
     bool isVertical();                // restituisce true se è verticale false se orizzontale
     bool containsPos(Position iPos);  // Controlla se una certa posizione è parte di questa nave

@@ -13,7 +13,7 @@
 using namespace std;
 
 int main() {
-    /*
+        /*
     Position posA(7, 'n');
     Position posB(12, 12);
 
@@ -128,7 +128,7 @@ int main() {
 
     enemyEntities.insert(enemyEntities.end(), entitiesBuffer.begin(), entitiesBuffer.end());
 
-    //entities griglia d'attacco 
+    // entities griglia d'attacco
     for (int i = 0; i < enemyEntities.size(); i++) {
         std::cout << enemyEntities[i] << std::endl;
     }
@@ -137,34 +137,35 @@ int main() {
 
     entitiesBuffer = support1.action(Position(8, 'h'), bufferUnits);
 
-    std::cout<<"unità player 2 \n";
+    std::cout << "unità player 2 \n";
     for (int i = 0; i < controllerBUnits.size(); i++) {
         std::cout << controllerBUnits[i] << std::endl;
     }
 
-    std::cout<<"unità player 1 \n";
+    std::cout << "unità player 1 \n";
     for (int i = 0; i < controllerA.getUnits().size(); i++) {
         std::cout << controllerA.getUnits()[i] << std::endl;
     }
 
     ComputerVSComputer a;
-    
-    std::cout<<"NAVI RANDOM PLAYER1 \n";
-    Controller play1 = a.getPlayer1();
-    std::cout<<play1.getUnits().size() <<std::endl; //riconosce correttamente 8 unità 
-    
-    for(int i=0; i<play1.getUnits().size(); i++){
-        std::cout<<play1.getUnits()[i]<<std::endl;}
 
-    std::cout<<"NAVI RANDOM PLAYER2 \n";
+    std::cout << a << std::endl;
+
+    std::cout << "NAVI RANDOM PLAYER1 \n";
+    Controller play1 = a.getPlayer1();
+    std::cout << play1.getUnits().size() << std::endl;  // riconosce correttamente 8 unità
+
+    for (int i = 0; i < play1.getUnits().size(); i++) {
+        std::cout << play1.getUnits()[i] << std::endl;
+    }
+
+    std::cout << "NAVI RANDOM PLAYER2 \n";
     Controller play2 = a.getPlayer2();
-    std::cout<<play2.getUnits().size() <<std::endl; //riconosce correttamente 8 unità 
-    
-    for(int i=0; i<play2.getUnits().size(); i++){
-        std::cout<<play2.getUnits()[i]<<std::endl;}
-    
-    
-    
+    std::cout << play2.getUnits().size() << std::endl;  // riconosce correttamente 8 unità
+
+    for (int i = 0; i < play2.getUnits().size(); i++) {
+        std::cout << play2.getUnits()[i] << std::endl;
+    }
 
     return 0;
 }

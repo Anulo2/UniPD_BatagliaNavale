@@ -3,22 +3,30 @@
 Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId) {
     Position bow(iBow);
     Position stern(iStern);
-
     if (!bow.isAligned(stern)) {
         throw std::invalid_argument("Positions must be aligned");
     }
-    if (bow.distanceTo(stern) != iDimension){
+    if ((bow.distanceTo(stern) + 1) != iDimension) {
         throw std::invalid_argument("These positions do not rapresent that Unit");
     }
     for (std::size_t i = 0; i < iDimension; ++i) {
         status.push_back(iId);
     }
     middlePos = Position((bow.getX() + stern.getX()) / 2, (bow.getIntY() + stern.getIntY()) / 2);
-    vertical = bow.getX() == stern.getX() ? true : false;
+    vertical = (bow.getX() == stern.getX()) ? true : false;
     dimension = iDimension;
     armor = iArmor;
     id = iId;
 };
+
+Unit::Unit(const Unit &a) {
+    middlePos = a.middlePos;
+    vertical = a.vertical;
+    dimension = a.dimension;
+    armor = a.armor;
+    id = a.id;
+    status = a.status;
+}
 
 Position Unit::getMiddle() {
     return middlePos;
