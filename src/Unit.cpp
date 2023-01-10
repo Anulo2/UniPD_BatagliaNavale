@@ -62,11 +62,10 @@ Position Unit::getStern() {
 
 void Unit::updateStatus(Position iPos, char iChar) {
     if (Unit::containsPos(iPos)) {
-        std::cout<<"sos2\n";
         if (vertical) {
-            status[iPos.getIntY() - Unit::getStern().getIntY()] = iChar;
+            status[iPos.getIntY() - Unit::getStern().getIntY() - 1] = iChar;
         } else {
-            status[iPos.getX() - Unit::getStern().getX()] = iChar;
+            status[iPos.getX() - Unit::getStern().getX() - 1] = iChar;
         }
     }
 }
@@ -117,7 +116,7 @@ std::ostream &operator<<(std::ostream &os, Unit &a) {
         status.push_back(c);
     }
     os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
-    os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId();
+    os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId() << ")";
     return os;
 }
 std::ostream &operator<<(std::ostream &os, Unit *a) {

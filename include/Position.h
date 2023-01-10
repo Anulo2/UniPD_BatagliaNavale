@@ -2,6 +2,7 @@
 #define POSITION_H
 
 #include <ostream>
+#include <iostream>
 
 // A = 0 ... N = 11
 static const char rows[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N'};

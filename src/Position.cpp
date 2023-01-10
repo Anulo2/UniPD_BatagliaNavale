@@ -50,11 +50,10 @@ bool Position::isSmaller(const Position& a) const {
 }
 
 bool Position::isInside(Position a, Position b) {
-    
     int x1 = std::min(a.getX(), b.getX());
     int x2 = std::max(a.getX(), b.getX());
-    int y1 = std::min(a.getY(), b.getY());
-    int y2 = std::max(a.getY(), b.getY());
+    int y1 = std::min(a.getIntY(), b.getIntY());
+    int y2 = std::max(a.getIntY(), b.getIntY());
 
     if (x1 <= x && x <= x2 && y1 <= y && y <= y2) {
         return true;

@@ -1,21 +1,28 @@
 #include "Entity.h"
 
+Entity::Entity() {
+}
+
 Entity::Entity(Position iPos, char iId) {
     id = iId;
     pos = iPos;
+    empty = false;
 }
 
-
-Entity::Entity(const Entity &a) {
+Entity::Entity(const Entity& a) {
     id = a.id;
     pos = a.pos;
+    empty = a.empty;
 }
 
 char Entity::getId() {
     return id;
 }
 
-void Entity::setId(char iId){
+bool Entity::isEmpty() {
+    return empty;
+}
+void Entity::setId(char iId) {
     id = iId;
 }
 

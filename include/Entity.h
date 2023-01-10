@@ -7,17 +7,20 @@
 
 class Entity {
    public:
+    Entity();
     Entity(Position iPos, char iId);
     Entity(const Entity &a);
     Position getPos();
     char getId();
     void setId(char iId);
+    bool isEmpty();
 
     ~Entity();
 
    private:
-    char id;
+    char id = ' ';
     Position pos;
+    bool empty = true;
 };
 std::ostream &operator<<(std::ostream &os, Entity &a);
 std::ostream &operator<<(std::ostream &os, Entity *a);
