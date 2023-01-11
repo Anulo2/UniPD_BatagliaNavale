@@ -6,7 +6,8 @@ Submarine::Submarine(Position iPos) : Unit(iPos, iPos, 1, 1, 'E'){};
 // RIceve un vettore di puntatori a Units con le unità in area 5x5 con centro il submarine
 // Il controllo se si può muovere in quella posizione bisogna farlo nel controller del giocatore
 // che sta facendo l'azione
-std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUnits) {
+std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUnits)
+{
     middlePos = iTarget;
 
     Position a(iTarget.getX() - 2, iTarget.getIntY() - 2);
@@ -14,12 +15,60 @@ std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUni
 
     std::vector<Entity> resultVect;
 
-    for (std::size_t i = 0; i < iUnits.size(); ++i) {
+    for (std::size_t i = 0; i < iUnits.size(); ++i)
+    {
+        std::cout << iUnits[i] << "\n";
+        if (iUnits[i]->isVertical())
+        {
+            for (std::size_t j = 0; j < iUnits[i]->getDimension(); ++j)
+            {
+                Position buffer(Unit::getStern().getX(), (int)(Unit::getStern().getIntY() + j));
+
+                if (buffer.isInside(a, b))
+                {
+
+                    if (iUnits[i]->isHitAt(buffer))
+                    {
+                        Entity result(buffer, 'X');
+                        resultVect.push_back(result);
+                    }
+                    else
+                    {
+                        Entity result(buffer, 'Y');
+                        resultVect.push_back(result);
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (std::size_t j = 0; j < iUnits[i]->getDimension(); ++j)
+            {
+                Position buffer(Unit::getStern().getX() + j, (int)(Unit::getStern().getIntY()));
+                if (buffer.isInside(a, b))
+                {
+
+                    if (iUnits[i]->isHitAt(buffer))
+                    {
+                        Entity result(buffer, 'X');
+                        resultVect.push_back(result);
+                    }
+                    else
+                    {
+                        Entity result(buffer, 'Y');
+                        resultVect.push_back(result);
+                    }
+                }
+            }
+        }
+    }
+
+    /*
         std::vector<Position> unitPositions = (*iUnits[i]).getUnitPositions();
 
         for (std::size_t j = 0; j < unitPositions.size(); ++j) {
             if (unitPositions[j].isInside(a, b)) {
-                
+
                 if(iUnits[i]-> isHitAt(unitPositions[j])){
 Entity result(unitPositions[j], 'X');
                 resultVect.push_back(result);
@@ -27,13 +76,14 @@ Entity result(unitPositions[j], 'X');
 Entity result(unitPositions[j], 'Y');
                 resultVect.push_back(result);
                 }
-                
+
             }
         }
-    }
+    }*/
 
     return resultVect;
 }
 
-Submarine::~Submarine() {
+Submarine::~Submarine()
+{
 }

@@ -49,7 +49,7 @@ bool Unit::isVertical() {
 }
 
 bool Unit::containsPos(Position iPos) {
-    return iPos.isInside(Unit::getBow(), Unit::getStern());
+    return iPos.isInside(Unit::getStern(), Unit::getBow());
 }
 
 char Unit::getId() {
