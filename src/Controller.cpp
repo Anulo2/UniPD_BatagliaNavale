@@ -82,7 +82,6 @@ void Controller::mergeEntities(std::vector<Entity> iEnemyEntities) {
         } else {
             enemyEntities.push_back(iEnemyEntities[i]);
             enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1] = &enemyEntities[i];
-            
         }
     }
 }
@@ -105,7 +104,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 
     for (int i = 0; i < units.size(); i++) {
         std::vector<char> status = units[i]->getStatus();
-        //std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
+        std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
         int dim = units[i]->getDimension();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
@@ -127,12 +126,13 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 
 void Controller::printAttack(std::ostream& os) {
     for (int i = 0; i < enemyEntities.size(); i++) {
-        enemyEntitiesMatrix[12 - enemyEntities[i].getPos().getIntY()][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
-        //std::cout << enemyEntities[i] << std::endl;
+        enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY()-1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
+        std::cout << enemyEntities[i] << std::endl;
     }
 
-    for (int i = 0; i < 13; i++) {
-        if (i == 12) {
+
+    for (int i = 13; i > 0; i--) {
+        if (i == 1) {
             for (char column : columns) {
                 os << column << " ";
             }
@@ -140,12 +140,12 @@ void Controller::printAttack(std::ostream& os) {
         } else {
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
-                    os << rows[11 - i] << " ";
+                    os << rows[i-2] << " ";
                 } else {
-                    if (enemyEntitiesMatrix[i][j - 1] == nullptr) {
+                    if (enemyEntitiesMatrix[i-2][j - 1] == nullptr) {
                         os << "# ";
                     } else {
-                        os << enemyEntitiesMatrix[i][j - 1]->getId();
+                        os << enemyEntitiesMatrix[i-2][j - 1]->getId();
                         os << " ";
                     }
                 }
