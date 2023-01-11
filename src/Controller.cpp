@@ -103,7 +103,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 
     for (int i = 0; i < units.size(); i++) {
         std::vector<char> status = units[i]->getStatus();
-        std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
+        //std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
         int dim = units[i]->getDimension();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
@@ -111,7 +111,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
             }
         } else {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j + 1] = status[j];
+                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j ] = status[j];
             }
         }
     }
@@ -126,7 +126,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 void Controller::printAttack(std::ostream& os) {
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[12 - enemyEntities[i].getPos().getIntY()][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
-        // std::cout << enemyEntities[i] << std::endl;
+        //std::cout << enemyEntities[i] << std::endl;
     }
 
     for (int i = 0; i < 13; i++) {

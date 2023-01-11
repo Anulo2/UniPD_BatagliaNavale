@@ -221,7 +221,8 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
     naveSelezionata = 4;
     unitBuff = player2.getUnits()[naveSelezionata];
     type = unitBuff->getId();
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 2; i++) {
+        unitBuff = player2.getUnits()[naveSelezionata+i];
         bool valid = false;
         while (!valid) {
             int x = rand() % 12 + 1;
@@ -253,14 +254,15 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             } else if (type == 'E') {
             }
         }
-    }
-    std::cout << "\n\n\n##################################################################\n";
+        std::cout << "\n\n\n##################################################################\n";
     std::cout << "##################################################################\n";
     std::cout << "##################################################################\n\n\n\n";
     std::cout << player1 << "\n\n\n"
               << player2 << "\n";
-}
 
+    }
+    
+}
 Controller* ComputerVSComputer::getPlayer1() {
     return &player1;
 }
