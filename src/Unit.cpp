@@ -10,7 +10,7 @@ Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iAr
         throw std::invalid_argument("These positions do not rapresent that Unit");
     }
     for (std::size_t i = 0; i < iDimension; ++i) {
-        status.push_back(iId);
+        status.push_back(false);
     }
     middlePos = Position((bow.getX() + stern.getX()) / 2, (bow.getIntY() + stern.getIntY()) / 2);
     vertical = (bow.getX() == stern.getX()) ? true : false;
@@ -26,6 +26,18 @@ Unit::Unit(const Unit &a) {
     armor = a.armor;
     id = a.id;
     status = a.status;
+}
+
+
+bool Unit::isHitAt(Position iPos){
+    if (Unit::containsPos(iPos)) {
+        if (vertical) {
+            return status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1];
+        } else {
+            return status[iPos.getX() - Unit::getStern().getX()];
+        }
+    }
+    return false;
 }
 
 Position Unit::getMiddle() {
@@ -60,12 +72,12 @@ Position Unit::getStern() {
     }
 }
 
-void Unit::updateStatus(Position iPos, char iChar) {
+void Unit::updateStatus(Position iPos, bool iValue) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
-            status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iChar;
+            status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iValue;
         } else {
-            status[iPos.getX() - Unit::getStern().getX()] = iChar;
+            status[iPos.getX() - Unit::getStern().getX()] = iValue;
         }
     }
 }
@@ -80,7 +92,7 @@ int Unit::getArmor() {
 
 void Unit::resetStatus() {
     for (std::size_t i = 0; i < dimension; ++i) {
-        status[i] = id;
+        status[i] = false;
     }
 }
 
@@ -88,7 +100,7 @@ int Unit::getDimension() {
     return dimension;
 }
 
-std::vector<char> Unit::getStatus() {
+std::vector<bool> Unit::getStatus() {
     return status;
 }
 
@@ -112,8 +124,8 @@ Unit::~Unit() {
 }
 std::ostream &operator<<(std::ostream &os, Unit &a) {
     std::string status;
-    for (char c : a.getStatus()) {
-        status.push_back(c);
+    for (bool c : a.getStatus()) {
+        status.push_back(c ? (a.getId()+32) : a.getId());
     }
     os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
     os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId() << ")";

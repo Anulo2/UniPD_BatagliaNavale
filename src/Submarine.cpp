@@ -19,8 +19,15 @@ std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUni
 
         for (std::size_t j = 0; j < unitPositions.size(); ++j) {
             if (unitPositions[j].isInside(a, b)) {
-                Entity result(unitPositions[j], 'Y');
+                
+                if(iUnits[i]-> isHitAt(unitPositions[j])){
+Entity result(unitPositions[j], 'X');
                 resultVect.push_back(result);
+                }else{
+Entity result(unitPositions[j], 'Y');
+                resultVect.push_back(result);
+                }
+                
             }
         }
     }

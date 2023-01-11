@@ -103,16 +103,17 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
     std::copy(columns, columns + 13, output[12]);
 
     for (int i = 0; i < units.size(); i++) {
-        std::vector<char> status = units[i]->getStatus();
+        std::vector<bool> status = units[i]->getStatus();
         std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
         int dim = units[i]->getDimension();
+        char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1];
+                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1] ? (id+32):id;
             }
         } else {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j ] = status[j];
+                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j ] = status[j]? (id+32):id;
             }
         }
     }

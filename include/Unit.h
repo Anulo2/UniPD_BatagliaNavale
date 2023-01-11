@@ -17,12 +17,13 @@ class Unit {
     char getId();
     Position getBow();
     Position getStern();
-    void updateStatus(Position iPos, char iChar);
+    void updateStatus(Position iPos, bool iValue);
     void setArmor(int iArmor);
     int getArmor();
     void resetStatus();
     int getDimension();
-    std::vector<char> getStatus();
+    bool isHitAt(Position iPos);
+    std::vector<bool> getStatus();
     virtual std::vector<Entity> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
     const std::vector<Position> getUnitPositions();
     virtual ~Unit();
@@ -32,7 +33,7 @@ class Unit {
     int dimension;
     bool vertical;
     int armor;
-    std::vector<char> status; //TODO: trasformare in vettore di bool
+    std::vector<bool> status; //TODO: trasformare in vettore di bool
     char id;
 };
 
