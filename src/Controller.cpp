@@ -1,7 +1,6 @@
 #include "Controller.h"
 
 Controller::Controller() {
-    
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
             enemyEntitiesMatrix[i][j] = nullptr;
@@ -74,7 +73,7 @@ Controller::~Controller() {
 void Controller::mergeEntities(std::vector<Entity> iEnemyEntities) {
     for (int i = 0; i < iEnemyEntities.size(); i++) {
         Position buffer = iEnemyEntities[i].getPos();
-        if (enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1]!=nullptr) {
+        if (enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1] != nullptr) {
             Entity* bufferEntity = enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1];
             // if(bufferEntity->getId()!= 'X'){
             bufferEntity->setId(iEnemyEntities[i].getId());
@@ -109,11 +108,11 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1] ? (id+32):id;
+                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
             }
         } else {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j ] = status[j]? (id+32):id;
+                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j] = status[j] ? (id + 32) : id;
             }
         }
     }
@@ -127,10 +126,9 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 
 void Controller::printAttack(std::ostream& os) {
     for (int i = 0; i < enemyEntities.size(); i++) {
-        enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY()-1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
+        enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
         std::cout << enemyEntities[i] << std::endl;
     }
-
 
     for (int i = 13; i > 0; i--) {
         if (i == 1) {
@@ -141,12 +139,12 @@ void Controller::printAttack(std::ostream& os) {
         } else {
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
-                    os << rows[i-2] << " ";
+                    os << rows[i - 2] << " ";
                 } else {
-                    if (enemyEntitiesMatrix[i-2][j - 1] == nullptr) {
+                    if (enemyEntitiesMatrix[i - 2][j - 1] == nullptr) {
                         os << "# ";
                     } else {
-                        os << enemyEntitiesMatrix[i-2][j - 1]->getId();
+                        os << enemyEntitiesMatrix[i - 2][j - 1]->getId();
                         os << " ";
                     }
                 }
@@ -156,10 +154,91 @@ void Controller::printAttack(std::ostream& os) {
     }
 }
 
+void Controller::print(std::ostream& os) {
+    for (int i = 0; i < enemyEntities.size(); i++) {
+        enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
+    }
+    char output[12][12];
+    for (int i = 0; i < 13; i++) {
+        for (int j = 0; j < 13; j++) {
+            output[i][j] = ' ';
+        }
+    }
+
+    for (int i = 0; i < units.size(); i++) {
+        std::vector<bool> status = units[i]->getStatus();
+        int dim = units[i]->getDimension();
+        char id = units[i]->getId();
+        if ((*units[i]).isVertical()) {
+            for (int j = 0; j < dim; j++) {
+                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
+            }
+        } else {
+            for (int j = 0; j < dim; j++) {
+                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j] = status[j] ? (id + 32) : id;
+            }
+        }
+    }
+
+    for (int i = 13; i > 0; i--) {
+        if (i == 1) {
+            os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝";
+            os << "        ";
+            os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝\n";
+            os << "";
+            for (char column : columns) {
+                os << column << "   ";
+            }
+            os << "       ";
+            for (char column : columns) {
+                os << column << "   ";
+            }
+        } else {
+            if (i == 13) {
+                os << "  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗";
+                os << "        ";
+                os << "  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗\n";
+            } else {
+                os << "  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣";
+                os << "        ";
+                os << "  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣\n";
+            }
+            for (int j = 0; j < 13; j++) {
+                if (j == 0) {
+                    os << rows[i - 2] << " ";
+                } else {
+                    os << "║ " << output[13 - i][j] << " ";
+                }
+            }
+            os << "║";
+            os << "        ";
+            for (int j = 0; j < 13; j++) {
+                if (j == 0) {
+                    os << rows[i - 2] << " ";
+                } else {
+                    if (enemyEntitiesMatrix[i - 2][j - 1] == nullptr) {
+                        os << "   ";
+                    } else {
+                        os << " " << enemyEntitiesMatrix[i - 2][j - 1]->getId();
+                        os << " ";
+                    }
+                }
+                os << "║";
+            }
+
+            os << "\n";
+        }
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, Controller& a) {
-    a.printDefense(os);
+    /* a.printDefense(os);
     os << std::endl;
     a.printAttack(os);
+    */
+    os << "\n";
+    a.print(os);
+    os << "\n";
     return os;
 }
 
