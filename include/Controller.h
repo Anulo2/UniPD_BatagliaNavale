@@ -23,7 +23,7 @@ class Controller {
     ~Controller();
 
    protected:
-    std::vector<Unit *> units;
+    std::vector<Unit *> units = {};
     std::vector<Entity> enemyEntities = {};
     Entity defaultEntity;
     Entity *enemyEntitiesMatrix[12][12] = {{}};

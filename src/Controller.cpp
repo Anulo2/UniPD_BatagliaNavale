@@ -1,9 +1,10 @@
 #include "Controller.h"
 
 Controller::Controller() {
+    
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
-            enemyEntitiesMatrix[i][j] = &defaultEntity;
+            enemyEntitiesMatrix[i][j] = nullptr;
         }
     }
 }
@@ -73,14 +74,15 @@ Controller::~Controller() {
 void Controller::mergeEntities(std::vector<Entity> iEnemyEntities) {
     for (int i = 0; i < iEnemyEntities.size(); i++) {
         Position buffer = iEnemyEntities[i].getPos();
-        if (!(enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1]->isEmpty())) {
+        if (enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1]!=nullptr) {
             Entity* bufferEntity = enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1];
             // if(bufferEntity->getId()!= 'X'){
             bufferEntity->setId(iEnemyEntities[i].getId());
             //}
         } else {
-            enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1] = &iEnemyEntities[i];
             enemyEntities.push_back(iEnemyEntities[i]);
+            enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1] = &enemyEntities[i];
+            
         }
     }
 }
@@ -140,7 +142,7 @@ void Controller::printAttack(std::ostream& os) {
                 if (j == 0) {
                     os << rows[11 - i] << " ";
                 } else {
-                    if (enemyEntitiesMatrix[i][j - 1]->isEmpty()) {
+                    if (enemyEntitiesMatrix[i][j - 1] == nullptr) {
                         os << "# ";
                     } else {
                         os << enemyEntitiesMatrix[i][j - 1]->getId();

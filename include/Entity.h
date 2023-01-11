@@ -12,15 +12,13 @@ class Entity {
     Entity(const Entity &a);
     Position getPos();
     char getId();
-    void setId(char iId);
-    bool isEmpty();
+    void setId(char iId);;
 
     ~Entity();
 
    private:
     char id = ' ';
     Position pos;
-    bool empty = true;
 };
 std::ostream &operator<<(std::ostream &os, Entity &a);
 std::ostream &operator<<(std::ostream &os, Entity *a);
