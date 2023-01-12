@@ -1,6 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include <memory>
 #include <vector>
 
 #include "Entity.h"
@@ -26,7 +27,7 @@ class Controller {
 
    protected:
     std::vector<Unit *> units = {};
-    std::vector<Entity> enemyEntities = {};
+    std::vector<std::unique_ptr<Entity>> enemyEntities = {};
     Entity defaultEntity;
     Entity *enemyEntitiesMatrix[12][12];
 };

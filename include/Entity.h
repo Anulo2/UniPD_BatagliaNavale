@@ -9,10 +9,11 @@ class Entity {
    public:
     Entity();
     Entity(Position iPos, char iId);
-    Entity(const Entity &a);
+    // Entity(const Entity &a);
     Position getPos();
     char getId();
-    void setId(char iId);;
+    void setId(char iId);
+    ;
 
     ~Entity();
 

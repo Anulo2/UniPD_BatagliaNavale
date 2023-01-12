@@ -179,17 +179,17 @@ void Controller::print(std::ostream& os) {
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
+                output[units[i]->getStern().getIntY() + j - 1][units[i]->getStern().getX()] = status[dim - j - 1] ? (id + 32) : id;
             }
         } else {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j] = status[j] ? (id + 32) : id;
+                output[units[i]->getStern().getIntY() - 1][units[i]->getStern().getX() + j] = status[j] ? (id + 32) : id;
             }
         }
     }
 
-    for (int i = 13; i > 0; i--) {
-        if (i == 1) {
+    for (int i = 0; i < 13; i++) {
+        if (i == 12) {
             os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝";
             os << "        ";
             os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝\n";
@@ -202,7 +202,7 @@ void Controller::print(std::ostream& os) {
                 os << column << "   ";
             }
         } else {
-            if (i == 13) {
+            if (i == 0) {
                 os << "  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗";
                 os << "        ";
                 os << "  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗\n";
@@ -213,21 +213,21 @@ void Controller::print(std::ostream& os) {
             }
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
-                    os << rows[i - 2] << " ";
+                    os << rows[i] << " ";
                 } else {
-                    os << "║ " << output[13 - i][j] << " ";
+                    os << "║ " << output[i][j] << " ";
                 }
             }
             os << "║";
             os << "        ";
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
-                    os << rows[i - 2] << " ";
+                    os << rows[i] << " ";
                 } else {
-                    if (enemyEntitiesMatrix[i - 2][j - 1] == nullptr) {
+                    if (enemyEntitiesMatrix[i][j - 1] == nullptr) {
                         os << "   ";
                     } else {
-                        os << " " << enemyEntitiesMatrix[i - 2][j - 1]->getId();
+                        os << " " << enemyEntitiesMatrix[i][j - 1]->getId();
                         os << " ";
                     }
                 }
@@ -237,7 +237,14 @@ void Controller::print(std::ostream& os) {
             os << "\n";
         }
     }
-    
+    os << "\n";
+    for (int i = 0; i < units.size(); i++) {
+        std::cout << units[i] << "\n";
+    }
+    for (int i = 0; i < enemyEntities.size(); i++) {
+        std::cout << enemyEntities[i] << "\n";
+    }
+    std::cout << "\n";
 }
 
 std::ostream& operator<<(std::ostream& os, Controller& a) {
