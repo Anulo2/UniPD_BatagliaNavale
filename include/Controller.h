@@ -16,9 +16,11 @@ class Controller {
     bool checkUnitPlacement(Unit *iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
 
     void addUnit(Unit *iUnit);
+    void removeDeadUnits();
     // void addUnit(Unit iUnit);
     void printDefense(std::ostream &os);
     void printAttack(std::ostream &os);
+    void print(std::ostream &os);
     void mergeEntities(std::vector<Entity> iEnemyEntities);
     ~Controller();
 
@@ -26,7 +28,7 @@ class Controller {
     std::vector<Unit *> units = {};
     std::vector<Entity> enemyEntities = {};
     Entity defaultEntity;
-    Entity *enemyEntitiesMatrix[12][12] = {{}};
+    Entity *enemyEntitiesMatrix[12][12];
 };
 std::ostream &operator<<(std::ostream &os, Controller &a);
 std::ostream &operator<<(std::ostream &os, Controller *a);

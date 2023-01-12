@@ -13,9 +13,9 @@ Position::Position(const int& iX, const char& iY) {
     int tempY = (int)tolower(iY) + 1;
 
     // bisogna saltare le lettere j e k dell'alfabeto
-    (tempY < 106) ? y = tempY - 97 : y = tempY - 99;
+    (tempY < 106) ? (y = tempY - 97) : (y = tempY - 97);
 
-    //TODO: CONTROLLI INPUT
+    // TODO: CONTROLLI INPUT
 }
 
 // x[0,11] y[0,11]
