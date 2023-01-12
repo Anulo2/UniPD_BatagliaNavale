@@ -19,17 +19,16 @@ bool Controller::isUnit(Position iPos) {
 void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
-            delete units[i];
             units.erase(units.begin() + i);
             return;
         }
     }
 }
-std::vector<Unit*> Controller::getUnits() {
+std::vector<std::shared_ptr<Unit>> Controller::getUnits() {
     return units;
 }
 
-Unit* Controller::getUnit(Position iPos) {
+std::shared_ptr<Unit> Controller::getUnit(Position iPos) {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->containsPos(iPos)) {
             return units[i];
@@ -38,8 +37,8 @@ Unit* Controller::getUnit(Position iPos) {
     return nullptr;
 }
 
-std::vector<Unit*> Controller::getUnitsInRange(Position iPos, int range) {
-    std::vector<Unit*> unitsInRange;
+std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, int range) {
+    std::vector<std::shared_ptr<Unit>> unitsInRange;
 
     Position a(iPos.getX() - range, iPos.getIntY() - range);
     Position b(iPos.getX() + range, iPos.getIntY() + range);
@@ -53,7 +52,7 @@ std::vector<Unit*> Controller::getUnitsInRange(Position iPos, int range) {
     return unitsInRange;
 }
 
-bool Controller::checkUnitPlacement(Unit* iUnit) {
+bool Controller::checkUnitPlacement(std::shared_ptr<Unit> iUnit) {
     Position a(1, 1);
     Position b(12, 12);
     if (iUnit->getBow().isInside(a, b) && iUnit->getStern().isInside(a, b)) {
@@ -71,7 +70,7 @@ bool Controller::checkUnitPlacement(Unit* iUnit) {
     return false;
 }
 
-void Controller::addUnit(Unit* iUnit) {
+void Controller::addUnit(std::shared_ptr<Unit> iUnit) {
     units.push_back(iUnit);
 }
 
@@ -241,6 +240,7 @@ void Controller::print(std::ostream& os) {
         }
     }
     os << "\n";
+    /*
     for (int i = 0; i < units.size(); i++) {
         std::cout << units[i] << "\n";
     }
@@ -248,6 +248,7 @@ void Controller::print(std::ostream& os) {
         std::cout << enemyEntities[i] << "\n";
     }
     std::cout << "\n";
+    */
 }
 
 std::ostream& operator<<(std::ostream& os, Controller& a) {

@@ -153,7 +153,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     a.getPlayer2()->print(std::cout);
     */
     ComputerVSComputer a;
-    // std::cout << a << std::endl;
+    std::cout << a << std::endl;
     /*
     std::cout << "NAVI RANDOM PLAYER1 \n";
     Controller* play1 = a.getPlayer1();

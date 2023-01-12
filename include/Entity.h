@@ -13,9 +13,6 @@ class Entity {
     Position getPos();
     char getId();
     void setId(char iId);
-    ;
-
-    ~Entity();
 
    private:
     char id = ' ';

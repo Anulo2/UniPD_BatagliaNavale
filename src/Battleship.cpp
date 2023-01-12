@@ -2,7 +2,7 @@
 
 Battleship::Battleship(const Position& iBow, const Position& iStern) : Unit(iBow, iStern, 5, 5, 'C'){};
 // Riceve un vettore di puntatori a Units lungo 1 se a target il controller avversario ha trovato una nave
-std::vector<std::shared_ptr<Entity>> Battleship::action(Position iTarget, std::vector<Unit*> iUnits) {
+std::vector<std::shared_ptr<Entity>> Battleship::action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) {
     if (iUnits[0]) {
         // std::cout << iUnits[0] << "\n";
         // std::cout << iUnits[0]->getId();

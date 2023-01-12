@@ -11,12 +11,12 @@ class Controller {
    public:
     Controller();
     bool isUnit(Position iPos);
-    std::vector<Unit *> getUnits();
-    Unit *getUnit(Position iPos);
-    std::vector<Unit *> getUnitsInRange(Position iPos, int range);
-    bool checkUnitPlacement(Unit *iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
+    std::vector<std::shared_ptr<Unit>> getUnits();
+    std::shared_ptr<Unit> getUnit(Position iPos);
+    std::vector<std::shared_ptr<Unit>> getUnitsInRange(Position iPos, int range);
+    bool checkUnitPlacement(std::shared_ptr<Unit> iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
 
-    void addUnit(Unit *iUnit);
+    void addUnit(std::shared_ptr<Unit> iUnit);
     void removeDeadUnits();
     // void addUnit(Unit iUnit);
     void printDefense(std::ostream &os);
@@ -26,7 +26,8 @@ class Controller {
     ~Controller();
 
    protected:
-    std::vector<Unit *> units = {};
+    // std::vector<Unit *> units = {};
+    std::vector<std::shared_ptr<Unit>> units;
     std::vector<std::shared_ptr<Entity>> enemyEntities;
     Entity defaultEntity;
     std::shared_ptr<Entity> enemyEntitiesMatrix[12][12];

@@ -17,9 +17,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             if (vert == 0) {
                 int x = rand() % 10 + 1;
                 int y = rand() % 12 + 1;
-
-                if (player1.checkUnitPlacement(new Battleship(Position(x - 2, y), Position(x + 2, y)))) {
-                    player1.addUnit(new Battleship(Position(x - 2, y), Position(x + 2, y)));
+                std::shared_ptr<Unit> battleShip(new Battleship(Position(x - 2, y), Position(x + 2, y)));
+                if (player1.checkUnitPlacement(battleShip)) {
+                    player1.addUnit(battleShip);
                     placed = true;
                     // std::cout << Position(x, y) << ", Horiz\n";
                     // printDefense(player1.getUnits());
@@ -30,8 +30,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             } else {
                 int x = rand() % 12 + 1;
                 int y = rand() % 10 + 1;
-                if (player1.checkUnitPlacement(new Battleship(Position(x, y - 2), Position(x, y + 2)))) {
-                    player1.addUnit(new Battleship(Position(x, y - 2), Position(x, y + 2)));
+                std::shared_ptr<Unit> battleShip(new Battleship(Position(x, y - 2), Position(x, y + 2)));
+                if (player1.checkUnitPlacement(battleShip)) {
+                    player1.addUnit(battleShip);
                     placed = true;
                     // std::cout << Position(x, y) << ", Vert\n";
                     // printDefense(player1.getUnits());
@@ -53,8 +54,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             if (vert == 0) {
                 int x = rand() % 10 + 1;
                 int y = rand() % 12 + 1;
-                if (player2.checkUnitPlacement(new Battleship(Position(x - 2, y), Position(x + 2, y)))) {
-                    player2.addUnit(new Battleship(Position(x - 2, y), Position(x + 2, y)));
+                std::shared_ptr<Unit> battleShip(new Battleship(Position(x - 2, y), Position(x + 2, y)));
+                if (player2.checkUnitPlacement(battleShip)) {
+                    player2.addUnit(battleShip);
                     placed = true;
                     // std::cout << Position(x, y) << ", Horiz\n";
                     // printDefense(player1.getUnits());
@@ -65,8 +67,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             } else {
                 int x = rand() % 12 + 1;
                 int y = rand() % 10 + 1;
-                if (player2.checkUnitPlacement(new Battleship(Position(x, y - 2), Position(x, y + 2)))) {
-                    player2.addUnit(new Battleship(Position(x, y - 2), Position(x, y + 2)));
+                std::shared_ptr<Unit> battleShip(new Battleship(Position(x, y - 2), Position(x, y + 2)));
+                if (player2.checkUnitPlacement(battleShip)) {
+                    player2.addUnit(battleShip);
                     placed = true;
                     // std::cout << Position(x, y) << ", Vert\n";
                     // printDefense(player1.getUnits());
@@ -86,8 +89,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             if (vert == 0) {
                 int x = rand() % 11 + 1;
                 int y = rand() % 12 + 1;
-                if (player1.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
-                    player1.addUnit(new Support(Position(x - 1, y), Position(x + 1, y)));
+                std::shared_ptr<Unit> support(new Support(Position(x - 1, y), Position(x + 1, y)));
+                if (player1.checkUnitPlacement(support)) {
+                    player1.addUnit(support);
                     placed = true;
                     // std::cout << Position(x, y) << ", Horiz\n";
                     // printDefense(player1.getUnits());
@@ -98,8 +102,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             } else {
                 int x = rand() % 12 + 1;
                 int y = rand() % 11 + 1;
-                if (player1.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
-                    player1.addUnit(new Support(Position(x, y - 1), Position(x, y + 1)));
+                std::shared_ptr<Unit> support(new Support(Position(x, y - 1), Position(x, y + 1)));
+                if (player1.checkUnitPlacement(support)) {
+                    player1.addUnit(support);
                     placed = true;
                     // std::cout << Position(x, y) << ", Vert\n";
                     // printDefense(player1.getUnits());
@@ -119,8 +124,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             if (vert == 0) {
                 int x = rand() % 11 + 1;
                 int y = rand() % 12 + 1;
-                if (player2.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
-                    player2.addUnit(new Support(Position(x - 1, y), Position(x + 1, y)));
+                std::shared_ptr<Unit> support(new Support(Position(x - 1, y), Position(x + 1, y)));
+                if (player2.checkUnitPlacement(support)) {
+                    player2.addUnit(support);
                     placed = true;
                     // std::cout << Position(x, y) << ", Horiz\n";
                     // printDefense(player1.getUnits());
@@ -131,8 +137,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             } else {
                 int x = rand() % 12 + 1;
                 int y = rand() % 11 + 1;
-                if (player2.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
-                    player2.addUnit(new Support(Position(x, y - 1), Position(x, y + 1)));
+                std::shared_ptr<Unit> support(new Support(Position(x, y - 1), Position(x, y + 1)));
+                if (player2.checkUnitPlacement(support)) {
+                    player2.addUnit(support);
                     placed = true;
                     // std::cout << Position(x, y) << ", Vert\n";
                     // printDefense(player1.getUnits());
@@ -150,8 +157,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
         while (!placed) {
             int x = rand() % 12 + 1;
             int y = rand() % 12 + 1;
+            std::shared_ptr<Unit> submarine(new Submarine(Position(x, y), Position(x, y)));
             if (!player1.isUnit(Position(x, y))) {
-                player1.addUnit(new Submarine(Position(x, y), Position(x, y)));
+                player1.addUnit(submarine);
                 placed = true;
                 // std::cout << Position(x, y) << ", Horiz\n";
                 // printDefense(player1.getUnits());
@@ -167,8 +175,9 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
         while (!placed) {
             int x = rand() % 12 + 1;
             int y = rand() % 12 + 1;
+            std::shared_ptr<Unit> submarine(new Submarine(Position(x, y), Position(x, y)));
             if (!player2.isUnit(Position(x, y))) {
-                player2.addUnit(new Submarine(Position(x, y), Position(x, y)));
+                player2.addUnit(submarine);
                 placed = true;
                 // std::cout << Position(x, y) << ", Horiz\n";
                 // printDefense(player1.getUnits());
@@ -283,27 +292,27 @@ while (!valid) {
     int bufferCounter = 0;
     Position bufferPos;
     while (alive) {
-        std::cout << "\n\n\n";
-        std::cout << player1;
+        //   std::cout << "\n\n\n";
+        //    std::cout << player1;
         // std::cout << "########################################\n";
         int naveSelezionata = rand() % player1.getUnits().size();
         // std::cout << naveSelezionata << "\n";
         //  std::cout << naveSelezionata << "\n";
-        Unit* unitBuff1 = player1.getUnits()[naveSelezionata];
+        std::shared_ptr<Unit> unitBuff1 = player1.getUnits()[naveSelezionata];
         // std::cout << unitBuff1 << "\n";
         char type = unitBuff1->getId();
 
-        std::cout << "\nNave selezionata: " << unitBuff1;
+        //   std::cout << "\nNave selezionata: " << unitBuff1;
 
         bool valid = false;
         while (!valid) {
             int x = rand() % 12 + 1;
             int y = rand() % 12 + 1;
             bufferPos = Position(x, y);
-            std::cout << "\nBufferPos: " << bufferPos;
+            //   std::cout << "\nBufferPos: " << bufferPos;
             if (type == 'C') {
-                std::cout << "\nEnter Battleship handle";
-                std::cout << "\nBattleship, action on Pos: " << bufferPos;
+                //  std::cout << "\nEnter Battleship handle";
+                //  std::cout << "\nBattleship, action on Pos: " << bufferPos;
                 // std::cout << bufferPos;
 
                 std::vector<std::shared_ptr<Entity>> enemyEntities = unitBuff1->action(bufferPos, {player2.getUnit(bufferPos)});
@@ -313,68 +322,68 @@ while (!valid) {
                 player2.removeDeadUnits();
 
             } else if (type == 'S') {
-                std::cout << "\nEnter Support handle";
+                // std::cout << "\nEnter Support handle";
                 if (unitBuff1->isVertical()) {
-                    // Unit* buffer = new Support(Position(x, y - 1), Position(x, y + 1));
-                    if (player1.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
-                        std::cout << "\nSupport (Vertical), action on Pos: " << bufferPos;
+                    std::shared_ptr<Unit> buffer(new Support(Position(x, y - 1), Position(x, y + 1)));
+                    if (player1.checkUnitPlacement(buffer)) {
+                        //   std::cout << "\nSupport (Vertical), action on Pos: " << bufferPos;
                         valid = true;
                     }
 
                 } else {
-                    // Unit* buffer = new Support(Position(x - 1, y), Position(x + 1, y));
-                    if (player1.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
-                        std::cout << "\nSupport (Horizontal), action on Pos: " << bufferPos;
+                    std::shared_ptr<Unit> buffer(new Support(Position(x - 1, y), Position(x + 1, y)));
+                    if (player1.checkUnitPlacement(buffer)) {
+                        //    std::cout << "\nSupport (Horizontal), action on Pos: " << bufferPos;
                         valid = true;
                     }
                 }
                 if (valid) {
                     // std::cout << bufferPos;
-                    std::vector<Unit*> bufferUnit = player1.getUnitsInRange(bufferPos, 1);
+                    std::vector<std::shared_ptr<Unit>> bufferUnit = player1.getUnitsInRange(bufferPos, 1);
 
                     std::vector<std::shared_ptr<Entity>> enemyEntities = unitBuff1->action(bufferPos, player1.getUnitsInRange(bufferPos, 1));
                 }
 
             } else if (type == 'E') {
-                std::cout << "\nEnter Submarine handle";
+                //  std::cout << "\nEnter Submarine handle";
 
                 if (!player1.isUnit(bufferPos)) {
-                    std::cout << "\nSubmarine, action on Pos: " << bufferPos;
+                    // std::cout << "\nSubmarine, action on Pos: " << bufferPos;
                     valid = true;
                     // std::cout << bufferPos;
                 }
 
                 if (valid) {
                     // std::vector<Unit*> bufferUnit = player2.getUnitsInRange(bufferPos, 2);
-                    std::cout << "\nNumbers of enemy ships found: " << player2.getUnitsInRange(bufferPos, 2).size();
+                    // std::cout << "\nNumbers of enemy ships found: " << player2.getUnitsInRange(bufferPos, 2).size();
                     // std::cout << bufferUnit.size() << "\n";
                     std::vector<std::shared_ptr<Entity>> enemyEntities = unitBuff1->action(bufferPos, player2.getUnitsInRange(bufferPos, 2));
                     player1.mergeEntities(enemyEntities);
                 }
             }
         }
-        std::cout << "\n"
-                  << player1 << "\n";
-        std::cout << player2;
+        // std::cout << "\n"
+        //           << player1 << "\n";
+        // std::cout << player2;
         naveSelezionata = rand() % player2.getUnits().size();
         // std::cout << naveSelezionata << "\n";
-        Unit* unitBuff2 = player2.getUnits()[naveSelezionata];
+        std::shared_ptr<Unit> unitBuff2 = player2.getUnits()[naveSelezionata];
         // std::cout << unitBuff2 << "\n";
         type = player2.getUnits()[naveSelezionata]->getId();
 
-        std::cout << "\nNave selezionata: " << unitBuff2;
+        // std::cout << "\nNave selezionata: " << unitBuff2;
 
         valid = false;
         while (!valid) {
             int x = rand() % 12 + 1;
             int y = rand() % 12 + 1;
             bufferPos = Position(x, y);
-            std::cout << "\nBufferPos: " << bufferPos;
+            // std::cout << "\nBufferPos: " << bufferPos;
             if (type == 'C') {
-                std::cout << "\nEnter Battleship handle";
-                std::cout << "\nBattleship, action on Pos: " << bufferPos;
-                // std::cout << bufferPos;
-                std::cout.flush();
+                // std::cout << "\nEnter Battleship handle";
+                // std::cout << "\nBattleship, action on Pos: " << bufferPos;
+                //  std::cout << bufferPos;
+                // std::cout.flush();
 
                 std::vector<std::shared_ptr<Entity>> enemyEntities = player2.getUnits()[naveSelezionata]->action(bufferPos, {player1.getUnit(bufferPos)});
 
@@ -382,18 +391,18 @@ while (!valid) {
                 valid = true;
                 player1.removeDeadUnits();
             } else if (type == 'S') {
-                std::cout << "\nEnter Support handle";
+                // std::cout << "\nEnter Support handle";
                 if (player2.getUnits()[naveSelezionata]->isVertical()) {
-                    // Unit* buffer = new Support(Position(x, y - 1), Position(x, y + 1));
-                    if (player2.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
-                        std::cout << "\nSupport (Vertical), action on Pos: " << bufferPos;
+                    std::shared_ptr<Unit> buffer(new Support(Position(x, y - 1), Position(x, y + 1)));
+                    if (player2.checkUnitPlacement(buffer)) {
+                        // std::cout << "\nSupport (Vertical), action on Pos: " << bufferPos;
                         valid = true;
                     }
 
                 } else {
-                    // Unit* buffer = new Support(Position(x - 1, y), Position(x + 1, y));
-                    if (player2.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
-                        std::cout << "\nSupport (Horizontal), action on Pos: " << bufferPos;
+                    std::shared_ptr<Unit> buffer(new Support(Position(x - 1, y), Position(x + 1, y)));
+                    if (player2.checkUnitPlacement(buffer)) {
+                        // std::cout << "\nSupport (Horizontal), action on Pos: " << bufferPos;
                         valid = true;
                     }
                 }
@@ -405,41 +414,44 @@ while (!valid) {
                 }
 
             } else if (type == 'E') {
-                std::cout << "\nEnter Submarine handle";
-                // valid = true;
+                // std::cout << "\nEnter Submarine handle";
+                //  valid = true;
 
                 if (!player2.isUnit(bufferPos)) {
-                    std::cout << "\nSubmarine, action on Pos: " << bufferPos;
+                    // std::cout << "\nSubmarine, action on Pos: " << bufferPos;
                     valid = true;
                     // std::cout << bufferPos;
                 }
 
                 if (valid) {
-                    std::vector<Unit*> bufferUnit = player1.getUnitsInRange(bufferPos, 2);
-                    std::cout << "\nNumbers of enemy ships found: " << bufferUnit.size();
-                    // std::cout << bufferUnit.size() << "\n";
+                    std::vector<std::shared_ptr<Unit>> bufferUnit = player1.getUnitsInRange(bufferPos, 2);
+                    // std::cout << "\nNumbers of enemy ships found: " << bufferUnit.size();
+                    //  std::cout << bufferUnit.size() << "\n";
                     std::vector<std::shared_ptr<Entity>> enemyEntities = player2.getUnits()[naveSelezionata]->action(bufferPos, player1.getUnitsInRange(bufferPos, 2));
                     player2.mergeEntities(enemyEntities);
                 }
             }
         }
 
+        /*
         std::cout << "\n"
                   << player2 << "\n";
         std::cout << "\n\n###################################################################################################################\n";
         std::cout << "###################################################################################################################";
-
+        */
         bufferCounter++;
         // std::cout << bufferCounter << "\n";
         if (bufferCounter == 300) {
             alive = false;
         }
     }
+    /*
     std::cout << "\n\n\n###################################################################################################################\n";
     std::cout << "###################################################################################################################\n";
     std::cout << "###################################################################################################################\n\n\n\n";
     std::cout << player1 << "\n\n\n"
               << player2 << "\n";
+              */
 }
 Controller* ComputerVSComputer::getPlayer1() {
     return &player1;

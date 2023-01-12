@@ -6,7 +6,7 @@
 class Support : public Unit {
    public:
     Support(Position iBow, Position iStern);
-    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<Unit *> iUnits);
+    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits);
 
     ~Support();
 };

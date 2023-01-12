@@ -25,7 +25,7 @@ class Unit {
     int getDimension();
     bool isHitAt(Position iPos);
     std::vector<bool> getStatus();
-    virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
+    virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
     const std::vector<Position> getUnitPositions();
     virtual ~Unit();
 

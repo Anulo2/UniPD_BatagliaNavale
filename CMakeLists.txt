@@ -13,7 +13,6 @@ add_library(${PROJECT_NAME}
 	src/Position.cpp
 	src/Entity.cpp
 	src/Controller.cpp
-	src/PlayerVSComputer.cpp
 	src/ComputerVSComputer.cpp
 )
 

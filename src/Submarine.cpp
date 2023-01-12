@@ -6,7 +6,7 @@ Submarine::Submarine(Position iPos) : Unit(iPos, iPos, 1, 1, 'E'){};
 // RIceve un vettore di puntatori a Units con le unità in area 5x5 con centro il submarine
 // Il controllo se si può muovere in quella posizione bisogna farlo nel controller del giocatore
 // che sta facendo l'azione
-std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::vector<Unit *> iUnits) {
+std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) {
     middlePos = Position(iTarget);
 
     Position a(std::max(iTarget.getX() - 2, 1), std::max(iTarget.getIntY() - 2, 1));
