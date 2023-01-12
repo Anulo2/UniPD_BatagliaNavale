@@ -78,17 +78,18 @@ void Controller::addUnit(Unit* iUnit) {
 Controller::~Controller() {
 }
 
-void Controller::mergeEntities(std::vector<Entity> iEnemyEntities) {
+void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntities) {
     for (int i = 0; i < iEnemyEntities.size(); i++) {
-        Position buffer = iEnemyEntities[i].getPos();
-        if (enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1] != nullptr) {
-            Entity* bufferEntity = enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1];
-            // if(bufferEntity->getId()!= 'X'){
-            bufferEntity->setId(iEnemyEntities[i].getId());
+        if (enemyEntitiesMatrix[iEnemyEntities[i]->getPos().getIntY() - 1][iEnemyEntities[i]->getPos().getX() - 1] != nullptr) {
+            // Entity* bufferEntity = enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1];
+            //  if(bufferEntity->getId()!= 'X'){
+            // bufferEntity->setId(iEnemyEntities[i]->getId());
+            enemyEntitiesMatrix[iEnemyEntities[i]->getPos().getIntY() - 1][iEnemyEntities[i]->getPos().getX() - 1]->setId(iEnemyEntities[i]->getId());
             //}
         } else {
-            enemyEntities.push_back(iEnemyEntities[i]);
-            enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1] = &enemyEntities[i];
+            std::shared_ptr<Entity> sharedPtr(iEnemyEntities[i]);
+            enemyEntities.push_back(sharedPtr);
+            enemyEntitiesMatrix[sharedPtr->getPos().getIntY() - 1][sharedPtr->getPos().getX() - 1] = sharedPtr;
         }
     }
 }
@@ -131,7 +132,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
         os << std::endl;
     }
 }
-
+/*
 void Controller::printAttack(std::ostream& os) {
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
@@ -161,11 +162,13 @@ void Controller::printAttack(std::ostream& os) {
         }
     }
 }
-
+*/
 void Controller::print(std::ostream& os) {
+    /*
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
     }
+    */
     char output[12][12];
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 13; j++) {
@@ -179,7 +182,7 @@ void Controller::print(std::ostream& os) {
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
-                output[units[i]->getStern().getIntY() + j - 1][units[i]->getStern().getX()] = status[dim - j - 1] ? (id + 32) : id;
+                output[units[i]->getStern().getIntY() + j - 1][units[i]->getStern().getX()] = status[j] ? (id + 32) : id;
             }
         } else {
             for (int j = 0; j < dim; j++) {

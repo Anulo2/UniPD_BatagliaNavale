@@ -7,7 +7,7 @@ class Submarine : public Unit {
    public:
     Submarine(Position iBow, Position iStern);
     Submarine(Position iPos);
-    std::vector<Entity> action(Position iTarget, std::vector<Unit *> iUnits);
+    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<Unit *> iUnits);
 
     ~Submarine();
 };

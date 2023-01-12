@@ -2,6 +2,7 @@
 #define UNIT_H
 
 #include <iostream>
+#include <memory>
 #include <vector>
 
 #include "Entity.h"
@@ -24,7 +25,7 @@ class Unit {
     int getDimension();
     bool isHitAt(Position iPos);
     std::vector<bool> getStatus();
-    virtual std::vector<Entity> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
+    virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<Unit *> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
     const std::vector<Position> getUnitPositions();
     virtual ~Unit();
 
@@ -33,7 +34,7 @@ class Unit {
     int dimension;
     bool vertical;
     int armor;
-    std::vector<bool> status; //TODO: trasformare in vettore di bool
+    std::vector<bool> status;  // TODO: trasformare in vettore di bool
     char id;
 };
 

@@ -22,14 +22,14 @@ class Controller {
     void printDefense(std::ostream &os);
     void printAttack(std::ostream &os);
     void print(std::ostream &os);
-    void mergeEntities(std::vector<Entity> iEnemyEntities);
+    void mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntities);
     ~Controller();
 
    protected:
     std::vector<Unit *> units = {};
-    std::vector<std::unique_ptr<Entity>> enemyEntities = {};
+    std::vector<std::shared_ptr<Entity>> enemyEntities;
     Entity defaultEntity;
-    Entity *enemyEntitiesMatrix[12][12];
+    std::shared_ptr<Entity> enemyEntitiesMatrix[12][12];
 };
 std::ostream &operator<<(std::ostream &os, Controller &a);
 std::ostream &operator<<(std::ostream &os, Controller *a);
