@@ -3,6 +3,7 @@
 Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId) {
     Position bow(iBow);
     Position stern(iStern);
+
     if (!bow.isAligned(stern)) {
         throw std::invalid_argument("Positions must be aligned");
     }
@@ -28,8 +29,7 @@ Unit::Unit(const Unit &a) {
     status = a.status;
 }
 
-
-bool Unit::isHitAt(Position iPos){
+bool Unit::isHitAt(Position iPos) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
             return status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1];
@@ -125,7 +125,7 @@ Unit::~Unit() {
 std::ostream &operator<<(std::ostream &os, Unit &a) {
     std::string status;
     for (bool c : a.getStatus()) {
-        status.push_back(c ? (a.getId()+32) : a.getId());
+        status.push_back(c ? (a.getId() + 32) : a.getId());
     }
     os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
     os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId() << ")";

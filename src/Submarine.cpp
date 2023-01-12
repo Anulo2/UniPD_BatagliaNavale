@@ -7,20 +7,20 @@ Submarine::Submarine(Position iPos) : Unit(iPos, iPos, 1, 1, 'E'){};
 // Il controllo se si può muovere in quella posizione bisogna farlo nel controller del giocatore
 // che sta facendo l'azione
 std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUnits) {
-    middlePos = iTarget;
+    middlePos = Position(iTarget);
 
     Position a(std::max(iTarget.getX() - 2, 1), std::max(iTarget.getIntY() - 2, 1));
     Position b(std::min(iTarget.getX() + 2, 12), std::min(iTarget.getIntY() + 2, 12));
 
-    std::cout << a << "\n";
-    std::cout << b << "\n";
+    // std::cout << a << "\n";
+    // std::cout << b << "\n";
 
     std::vector<Entity> resultVect;
-    std::cout << "here\n";
-    std::cout << iTarget << "\n";
+    // std::cout << "here\n";
+    // std::cout << iTarget << "\n";
 
     for (int i = 0; i < iUnits.size(); i++) {
-        std::cout << iUnits[i] << "\n";
+        // std::cout << iUnits[i] << "\n";
         if (iUnits[i]->getMiddle() != iTarget) {
             for (int j = 0; j < iUnits[i]->getDimension(); j++) {
                 if (iUnits[i]->isVertical()) {

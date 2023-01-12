@@ -148,7 +148,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
      }
      */
 
-    // ComputerVSComputer a;
+    ComputerVSComputer a;
 
     // std::cout << a << std::endl;
     /*
@@ -167,7 +167,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     for (int i = 0; i < play2->getUnits().size(); i++) {
         std::cout << play2->getUnits()[i] << std::endl;
     }*/
-
+    /*
     Controller player1;
     Controller player2;
 
@@ -188,76 +188,83 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     player2.addUnit(new Support(Position(10, 'h'), Position(10, 'f')));
     player2.addUnit(new Submarine(Position(11, 12), Position(11, 12)));
     player2.addUnit(new Submarine(Position(5, 7), Position(5, 7)));
-
+    */
     /*
     ##################################
     #             BATTLESHIP         #
     ##################################
     */
-    {
-        std::vector<Unit *> buffer = {player2.getUnit(Position(6, 'e'))};
-        std::vector<Entity> resultEntities = player1.getUnits()[0]->action(Position(7, 'e'), buffer);
-        player1.mergeEntities(resultEntities);
-    }
-    {
-        std::vector<Unit *> buffer = {player1.getUnit(Position(6, 'e'))};
-        std::vector<Entity> resultEntities = player2.getUnits()[0]->action(Position(7, 'e'), buffer);
-        player2.mergeEntities(resultEntities);
-    }
-    {
-        std::vector<Unit *> buffer = {player2.getUnit(Position(4, 'h'))};
-        std::vector<Entity> resultEntities = player1.getUnits()[0]->action(Position(4, 'h'), buffer);
-        player1.mergeEntities(resultEntities);
-    }
-    {
-        std::vector<Unit *> buffer = {player1.getUnit(Position(4, 'h'))};
-        std::vector<Entity> resultEntities = player2.getUnits()[0]->action(Position(4, 'h'), buffer);
-        player2.mergeEntities(resultEntities);
-    }
-    {
-        std::vector<Unit *> buffer = {player2.getUnit(Position(10, 'g'))};
-        std::vector<Entity> resultEntities = player1.getUnits()[0]->action(Position(10, 'f'), buffer);
-        player1.mergeEntities(resultEntities);
-    }
-    {
-        std::vector<Unit *> buffer = {player1.getUnit(Position(10, 'g'))};
-        std::vector<Entity> resultEntities = player2.getUnits()[0]->action(Position(10, 'f'), buffer);
-        player2.mergeEntities(resultEntities);
-    }
+    /*
+     {
+         std::vector<Unit *> buffer = {player2.getUnit(Position(6, 'e'))};
+         std::vector<Entity> resultEntities = player1.getUnits()[0]->action(Position(7, 'e'), buffer);
+         player1.mergeEntities(resultEntities);
+     }
+     {
+         std::vector<Unit *> buffer = {player1.getUnit(Position(6, 'e'))};
+         std::vector<Entity> resultEntities = player2.getUnits()[0]->action(Position(7, 'e'), buffer);
+         player2.mergeEntities(resultEntities);
+     }
+     {
+         std::vector<Unit *> buffer = {player2.getUnit(Position(4, 'h'))};
+         std::vector<Entity> resultEntities = player1.getUnits()[0]->action(Position(4, 'h'), buffer);
+         player1.mergeEntities(resultEntities);
+     }
+     {
+         std::vector<Unit *> buffer = {player1.getUnit(Position(4, 'h'))};
+         std::vector<Entity> resultEntities = player2.getUnits()[0]->action(Position(4, 'h'), buffer);
+         player2.mergeEntities(resultEntities);
+     }
+     {
+         std::vector<Unit *> buffer = {player2.getUnit(Position(10, 'g'))};
+         std::vector<Entity> resultEntities = player1.getUnits()[0]->action(Position(10, 'f'), buffer);
+         player1.mergeEntities(resultEntities);
+     }
+     {
+         std::vector<Unit *> buffer = {player1.getUnit(Position(10, 'g'))};
+         std::vector<Entity> resultEntities = player2.getUnits()[0]->action(Position(10, 'f'), buffer);
+         player2.mergeEntities(resultEntities);
+     }
+     */
     /*
     ##################################
     #              SUPPORT           #
     ##################################
     */
-    {
-        std::vector<Unit *> buffer = player1.getUnitsInRange(Position(6, 'F'), 1);
-        std::vector<Entity> resultEntities = player1.getUnits()[4]->action(Position(6, 'F'), buffer);
-        player1.mergeEntities(resultEntities);
-    }
-    {
-        std::vector<Unit *> buffer = player2.getUnitsInRange(Position(6, 'F'), 1);
-        std::vector<Entity> resultEntities = player2.getUnits()[4]->action(Position(6, 'F'), buffer);
-        player2.mergeEntities(resultEntities);
-    }
+    /*
+     {
+         std::vector<Unit *> buffer = player1.getUnitsInRange(Position(6, 'F'), 1);
+         std::vector<Entity> resultEntities = player1.getUnits()[4]->action(Position(6, 'F'), buffer);
+         player1.mergeEntities(resultEntities);
+     }
+     {
+         std::vector<Unit *> buffer = player2.getUnitsInRange(Position(6, 'F'), 1);
+         std::vector<Entity> resultEntities = player2.getUnits()[4]->action(Position(6, 'F'), buffer);
+         player2.mergeEntities(resultEntities);
+     }
+     */
     /*
     ##################################
     #             SUBMARINE          #
     ##################################
     */
-
-    {
-        std::vector<Unit *> buffer = player2.getUnitsInRange(Position(4, 'g'), 2);
-        std::vector<Entity> resultEntities = player1.getUnits()[7]->action(Position(4, 'g'), buffer);
-        player1.mergeEntities(resultEntities);
-    }
     /*
-    {
-        std::vector<Unit *> buffer = player1.getUnitsInRange(Position(4, 'g'), 2);
-        std::vector<Entity> resultEntities = player2.getUnits()[7]->action(Position(4, 'g'), buffer);
-        player2.mergeEntities(resultEntities);
-    }*/
-    std::cout << player1 << "\n";
-    std::cout << player2 << "\n";
+
+     {
+         std::vector<Unit *> buffer = player2.getUnitsInRange(Position(4, 'g'), 2);
+         std::vector<Entity> resultEntities = player1.getUnits()[7]->action(Position(4, 'g'), buffer);
+         player1.mergeEntities(resultEntities);
+     }
+
+     {
+         std::vector<Unit *> buffer = player1.getUnitsInRange(Position(4, 'g'), 2);
+         std::vector<Entity> resultEntities = player2.getUnits()[7]->action(Position(4, 'g'), buffer);
+         player2.mergeEntities(resultEntities);
+     }
+
+     std::cout << player1 << "\n";
+     std::cout << player2 << "\n";
+     */
 
     return 0;
 }

@@ -16,6 +16,7 @@ class Controller {
     bool checkUnitPlacement(Unit *iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
 
     void addUnit(Unit *iUnit);
+    void removeDeadUnits();
     // void addUnit(Unit iUnit);
     void printDefense(std::ostream &os);
     void printAttack(std::ostream &os);

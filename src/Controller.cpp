@@ -16,7 +16,13 @@ bool Controller::isUnit(Position iPos) {
     }
     return false;
 }
-
+void Controller::removeDeadUnits() {
+    for (int i = 0; i < units.size(); i++) {
+        if (units[i]->getArmor() == 0) {
+            units.erase(units.begin() + i);
+        }
+    }
+}
 std::vector<Unit*> Controller::getUnits() {
     return units;
 }
