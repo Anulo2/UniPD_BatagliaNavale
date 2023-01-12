@@ -15,13 +15,13 @@ std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUni
     // std::cout << a << "\n";
     // std::cout << b << "\n";
 
-    std::vector<Entity> resultVect;
+    std::vector<Entity> resultVect = std::vector<Entity>();
     // std::cout << "here\n";
     // std::cout << iTarget << "\n";
 
     for (int i = 0; i < iUnits.size(); i++) {
         // std::cout << iUnits[i] << "\n";
-        if (iUnits[i]->getMiddle() != iTarget) {
+       
             for (int j = 0; j < iUnits[i]->getDimension(); j++) {
                 if (iUnits[i]->isVertical()) {
                     Position buffer(Unit::getStern().getX(), (Unit::getStern().getIntY() + j));
@@ -48,7 +48,7 @@ std::vector<Entity> Submarine::action(Position iTarget, std::vector<Unit *> iUni
                     }
                 }
             }
-        }
+        
     }
 
     /*

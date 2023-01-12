@@ -291,6 +291,9 @@ while (!valid) {
         Unit* unitBuff1 = player1.getUnits()[naveSelezionata];
         // std::cout << unitBuff1 << "\n";
         char type = unitBuff1->getId();
+
+        std::cout << "\nNave selezionata: " << unitBuff1;
+
         bool valid = false;
         while (!valid) {
             int x = rand() % 12 + 1;
@@ -332,7 +335,9 @@ while (!valid) {
                 }
 
             } else if (type == 'E') {
+                
                 std::cout << "\nEnter Submarine handle";
+            
                 if (!player1.isUnit(bufferPos)) {
                     std::cout << "\nSubmarine, action on Pos: " << bufferPos;
                     valid = true;
@@ -346,6 +351,7 @@ while (!valid) {
                     std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, player2.getUnitsInRange(bufferPos, 2));
                     player1.mergeEntities(enemyEntities);
                 }
+                
             }
         }
         std::cout << "\n"
@@ -357,6 +363,8 @@ while (!valid) {
         // std::cout << unitBuff2 << "\n";
         type = player2.getUnits()[naveSelezionata]->getId();
 
+        std::cout << "\nNave selezionata: " << unitBuff2;
+
         valid = false;
         while (!valid) {
             int x = rand() % 12 + 1;
@@ -367,9 +375,10 @@ while (!valid) {
                 std::cout << "\nEnter Battleship handle";
                 std::cout << "\nBattleship, action on Pos: " << bufferPos;
                 // std::cout << bufferPos;
+                std::cout.flush();
 
                 std::vector<Entity> enemyEntities = player2.getUnits()[naveSelezionata]->action(bufferPos, {player1.getUnit(bufferPos)});
-
+                
                 player2.mergeEntities(enemyEntities);
                 valid = true;
                 player1.removeDeadUnits();
@@ -398,6 +407,8 @@ while (!valid) {
 
             } else if (type == 'E') {
                 std::cout << "\nEnter Submarine handle";
+                //valid = true;
+                
                 if (!player2.isUnit(bufferPos)) {
                     std::cout << "\nSubmarine, action on Pos: " << bufferPos;
                     valid = true;
@@ -411,6 +422,7 @@ while (!valid) {
                     std::vector<Entity> enemyEntities = player2.getUnits()[naveSelezionata]->action(bufferPos, player1.getUnitsInRange(bufferPos, 2));
                     player2.mergeEntities(enemyEntities);
                 }
+                
             }
         }
 

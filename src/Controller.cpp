@@ -10,7 +10,7 @@ Controller::Controller() {
 
 bool Controller::isUnit(Position iPos) {
     for (int i = 0; i < units.size(); i++) {
-        if ((*units[i]).containsPos(iPos)) {
+        if (units[i]->containsPos(iPos)) {
             return true;
         }
     }
@@ -19,7 +19,9 @@ bool Controller::isUnit(Position iPos) {
 void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
+            delete units[i];
             units.erase(units.begin() + i);
+            return;
         }
     }
 }
