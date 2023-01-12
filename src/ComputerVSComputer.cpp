@@ -311,15 +311,15 @@ while (!valid) {
             } else if (type == 'S') {
                 std::cout << "\nEnter Support handle";
                 if (unitBuff1->isVertical()) {
-                    Unit* buffer = new Support(Position(x, y - 1), Position(x, y + 1));
-                    if (player1.checkUnitPlacement(buffer)) {
+                    //Unit* buffer = new Support(Position(x, y - 1), Position(x, y + 1));
+                    if (player1.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
                         std::cout << "\nSupport (Vertical), action on Pos: " << bufferPos;
                         valid = true;
                     }
 
                 } else {
-                    Unit* buffer = new Support(Position(x - 1, y), Position(x + 1, y));
-                    if (player1.checkUnitPlacement(buffer)) {
+                    //Unit* buffer = new Support(Position(x - 1, y), Position(x + 1, y));
+                    if (player1.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
                         std::cout << "\nSupport (Horizontal), action on Pos: " << bufferPos;
                         valid = true;
                     }
@@ -328,7 +328,7 @@ while (!valid) {
                     // std::cout << bufferPos;
                     std::vector<Unit*> bufferUnit = player1.getUnitsInRange(bufferPos, 1);
 
-                    std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, bufferUnit);
+                    std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, player1.getUnitsInRange(bufferPos, 1));
                 }
 
             } else if (type == 'E') {
@@ -340,10 +340,10 @@ while (!valid) {
                 }
 
                 if (valid) {
-                    std::vector<Unit*> bufferUnit = player2.getUnitsInRange(bufferPos, 2);
-                    std::cout << "\nNumbers of enemy ships found: " << bufferUnit.size();
+                    //std::vector<Unit*> bufferUnit = player2.getUnitsInRange(bufferPos, 2);
+                    std::cout << "\nNumbers of enemy ships found: " << player2.getUnitsInRange(bufferPos, 2).size();
                     // std::cout << bufferUnit.size() << "\n";
-                    std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, bufferUnit);
+                    std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, player2.getUnitsInRange(bufferPos, 2));
                     player1.mergeEntities(enemyEntities);
                 }
             }
@@ -355,7 +355,7 @@ while (!valid) {
         // std::cout << naveSelezionata << "\n";
         Unit* unitBuff2 = player2.getUnits()[naveSelezionata];
         // std::cout << unitBuff2 << "\n";
-        type = unitBuff2->getId();
+        type = player2.getUnits()[naveSelezionata]->getId();
 
         valid = false;
         while (!valid) {
@@ -368,32 +368,32 @@ while (!valid) {
                 std::cout << "\nBattleship, action on Pos: " << bufferPos;
                 // std::cout << bufferPos;
 
-                std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, {player1.getUnit(bufferPos)});
+                std::vector<Entity> enemyEntities = player2.getUnits()[naveSelezionata]->action(bufferPos, {player1.getUnit(bufferPos)});
 
                 player2.mergeEntities(enemyEntities);
                 valid = true;
                 player1.removeDeadUnits();
             } else if (type == 'S') {
                 std::cout << "\nEnter Support handle";
-                if (unitBuff1->isVertical()) {
-                    Unit* buffer = new Support(Position(x, y - 1), Position(x, y + 1));
-                    if (player2.checkUnitPlacement(buffer)) {
+                if (player2.getUnits()[naveSelezionata]->isVertical()) {
+                    //Unit* buffer = new Support(Position(x, y - 1), Position(x, y + 1));
+                    if (player2.checkUnitPlacement(new Support(Position(x, y - 1), Position(x, y + 1)))) {
                         std::cout << "\nSupport (Vertical), action on Pos: " << bufferPos;
                         valid = true;
                     }
 
                 } else {
-                    Unit* buffer = new Support(Position(x - 1, y), Position(x + 1, y));
-                    if (player2.checkUnitPlacement(buffer)) {
+                    //Unit* buffer = new Support(Position(x - 1, y), Position(x + 1, y));
+                    if (player2.checkUnitPlacement(new Support(Position(x - 1, y), Position(x + 1, y)))) {
                         std::cout << "\nSupport (Horizontal), action on Pos: " << bufferPos;
                         valid = true;
                     }
                 }
                 if (valid) {
                     // std::cout << bufferPos;
-                    std::vector<Unit*> bufferUnit = player2.getUnitsInRange(bufferPos, 1);
+                    //std::vector<Unit*> bufferUnit = player2.getUnitsInRange(bufferPos, 1);
 
-                    std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, bufferUnit);
+                    std::vector<Entity> enemyEntities = unitBuff2->action(bufferPos, player2.getUnitsInRange(bufferPos, 1));
                 }
 
             } else if (type == 'E') {
@@ -408,7 +408,7 @@ while (!valid) {
                     std::vector<Unit*> bufferUnit = player1.getUnitsInRange(bufferPos, 2);
                     std::cout << "\nNumbers of enemy ships found: " << bufferUnit.size();
                     // std::cout << bufferUnit.size() << "\n";
-                    std::vector<Entity> enemyEntities = unitBuff1->action(bufferPos, bufferUnit);
+                    std::vector<Entity> enemyEntities = player2.getUnits()[naveSelezionata]->action(bufferPos, player1.getUnitsInRange(bufferPos, 2));
                     player2.mergeEntities(enemyEntities);
                 }
             }
