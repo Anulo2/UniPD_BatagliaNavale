@@ -17,6 +17,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             if (vert == 0) {
                 int x = rand() % 10 + 1;
                 int y = rand() % 12 + 1;
+                
                 if (player1.checkUnitPlacement(new Battleship(Position(x - 2, y), Position(x + 2, y)))) {
                     player1.addUnit(new Battleship(Position(x - 2, y), Position(x + 2, y)));
                     placed = true;

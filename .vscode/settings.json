@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.html": "html",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -46,6 +47,27 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "cstring": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "hash_map": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "condition_variable": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "unordered_set": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "source_location": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp",
+        "mutex": "cpp",
+        "semaphore": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "valarray": "cpp",
+        "variant": "cpp"
     }
 }

@@ -149,19 +149,21 @@ std::vector<Position> inputManipolation()
     std::string XY2 = in.substr(in.find(" ")+1, in.npos);
 
     std::cout << "\n";
-    //std::cout << XY1 << "\n";
-    //std::cout << XY2 << "\n";
+    std::cout << XY1 << "\n";
+    std::cout << XY2 << "\n";
 
-    std::string strx1 = XY1.substr(0, XY1.length()-1); // estrazione dei caratteri dall'inizio all'ultimo-1
-    int x1=stringTointeger(strx1);
-    char y1 = XY1[XY1.length()-1]; // estrazione dell'ultimo carattere
+    char y1 = XY1[0];
+    std::string strx1 = XY1.substr(1, XY1.length()-1); // estrazione dei caratteri dall'inizio all'ultimo-1
+    int x1 = stringTointeger(strx1);
+     // estrazione dell'ultimo carattere
 
     //std::cout << "X: " << x1 << std::endl;
     //std::cout << "Y: " << y1 << std::endl;
 
-    std::string strx2 = XY2.substr(0, XY2.length()-1); // estrazione dei caratteri dall'inizio all'ultimo-1
-    int x2=stringTointeger(strx2);
-    char y2 = XY2[XY2.length()-1]; // estrazione dell'ultimo carattere
+    
+    char y2=XY2[0];
+    std::string stry2 = XY2.substr(1, XY2.length()-1); // estrazione dei caratteri dall'inizio all'ultimo-1
+    char x2 = stringTointeger(stry2);                  // estrazione dell'ultimo carattere
 
     //std::cout << "X: " << x2 << std::endl;
     //std::cout << "Y: " << y2 << std::endl;

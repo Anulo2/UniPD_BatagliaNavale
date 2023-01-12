@@ -148,10 +148,11 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
      }
      */
 
-    PlayerVSComputer a;
-    a.getPlayer1()->print(std::cout);
-    a.getPlayer2()->print(std::cout);
+PlayerVSComputer a;
+a.getPlayer1()->print(std::cout);
+a.getPlayer2()->print(std::cout);
 
+//ComputerVSComputer a;
     // std::cout << a << std::endl;
     /*
     std::cout << "NAVI RANDOM PLAYER1 \n";

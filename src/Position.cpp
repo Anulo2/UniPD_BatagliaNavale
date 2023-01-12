@@ -8,23 +8,30 @@ Position::Position() {
 }
 
 Position::Position(const int& iX, const char& iY) {
-    // TODO: CONTROLLI INPUT
+    if(iX < 1 || iX > 12)
+        throw std::invalid_argument("invalid X, valid value for X: [1,2,3,4,5,6,7,8,9,10,11,12]");
+    
+    if((tolower(iY) < 'a' || tolower(iY) > 'n') || tolower(iY)  == 'j' || tolower(iY) == 'k') 
+        throw std::invalid_argument("invalid Y, valid value for Y: [a,b,c,d,e,f,g,h,i,l,m,n]");
+    
     x = iX;
 
     int tempY = (int)tolower(iY) + 1;
 
     // bisogna saltare le lettere j e k dell'alfabeto
     (tempY < 106) ? (y = tempY - 97) : (y = tempY - 97);
-
-    
 }
 
-// x[0,11] y[0,11]
+//X[1,12] Y[1,12]
 Position::Position(int iX, int iY) {
+    /*if(iX < 1 || iX > 12 || iY < 1 || iY > 12)
+       throw std::invalid_argument("invalid X & Y, valid value for X & Y[1,2,3,4,5,6,7,8,9,10,11,12]");
+    */
+
+   //TODO controllare eccezione !!
     x = iX;
     y = iY;
 }
-
 char Position::getY() const {
     return rows[y - 1];
 }
