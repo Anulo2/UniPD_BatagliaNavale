@@ -5,10 +5,10 @@ Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iAr
     Position stern(iStern);
 
     if (!bow.isAligned(stern)) {
-        throw std::invalid_argument("Positions must be aligned");
+        throw std::invalid_argument("Positions must be aligned \n");
     }
     if ((bow.distanceTo(stern) + 1) != iDimension) {
-        throw std::invalid_argument("These positions do not rapresent that Unit");
+        throw std::invalid_argument("These positions do not rapresent that Unit \n");
     }
     for (std::size_t i = 0; i < iDimension; ++i) {
         status.push_back(false);

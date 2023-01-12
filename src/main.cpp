@@ -1,10 +1,10 @@
 #include <iostream>
 
 #include "Battleship.h"
-#include "ComputerVSComputer.h"
+//#include "ComputerVSComputer.h"
 #include "Controller.h"
 #include "Entity.h"
-// #include "PlayerVSComputer.h"
+#include "PlayerVSComputer.h"
 #include "Position.h"
 #include "Submarine.h"
 #include "Support.h"
@@ -148,7 +148,9 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
      }
      */
 
-    ComputerVSComputer a;
+    PlayerVSComputer a;
+    a.getPlayer1()->print(std::cout);
+    a.getPlayer2()->print(std::cout);
 
     // std::cout << a << std::endl;
     /*

@@ -8,6 +8,7 @@ Position::Position() {
 }
 
 Position::Position(const int& iX, const char& iY) {
+    // TODO: CONTROLLI INPUT
     x = iX;
 
     int tempY = (int)tolower(iY) + 1;
@@ -15,7 +16,7 @@ Position::Position(const int& iX, const char& iY) {
     // bisogna saltare le lettere j e k dell'alfabeto
     (tempY < 106) ? (y = tempY - 97) : (y = tempY - 97);
 
-    // TODO: CONTROLLI INPUT
+    
 }
 
 // x[0,11] y[0,11]

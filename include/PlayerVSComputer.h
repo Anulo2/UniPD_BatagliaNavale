@@ -20,6 +20,11 @@ class PlayerVSComputer {
 std::ostream &operator<<(std::ostream &os, PlayerVSComputer &a);
 std::ostream &operator<<(std::ostream &os, PlayerVSComputer *a);
 
+
+//FUNZIONI HELPER
+std::vector<Position> inputManipolation();
+int stringTointeger(std::string str);
+
 Battleship* inputBattleship();  //funzione che prende un unità in input (chiede la posizione di poppa e prua e fa i controlli necessari)
 Support* inputSupport();
 Submarine* inputSubmarine();
