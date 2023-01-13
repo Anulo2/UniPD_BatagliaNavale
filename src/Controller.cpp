@@ -163,15 +163,18 @@ void Controller::printAttack(std::ostream& os) {
     }
 }
 
-void Controller::print(std::ostream& os) {
+void Controller::print(std::ostream &os){
+    
     /*
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
     }
     */
-    char output[12][12];
-    for (int i = 0; i < 13; i++) {
-        for (int j = 0; j < 13; j++) {
+   
+    char output[13][13] = {' '};
+    
+    for (int i = 0; i < 13; i++){
+        for (int j = 0; j < 13; j++){
             output[i][j] = ' ';
         }
     }
@@ -190,7 +193,7 @@ void Controller::print(std::ostream& os) {
             }
         }
     }
-
+    
     for (int i = 0; i < 13; i++) {
         if (i == 12) {
             os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝";
@@ -214,6 +217,7 @@ void Controller::print(std::ostream& os) {
                 os << "        ";
                 os << "  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣\n";
             }
+            
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
                     os << rows[i] << " ";
@@ -221,9 +225,12 @@ void Controller::print(std::ostream& os) {
                     os << "║ " << output[i][j] << " ";
                 }
             }
+
             os << "║";
             os << "        ";
-            for (int j = 0; j < 13; j++) {
+            int j = 0;
+            for (j = 0; j < 13; j++){
+
                 if (j == 0) {
                     os << rows[i] << " ";
                 } else {
@@ -236,11 +243,13 @@ void Controller::print(std::ostream& os) {
                 }
                 os << "║";
             }
-
+            
             os << "\n";
         }
+        
     }
     os << "\n";
+    
     /*
     for (int i = 0; i < units.size(); i++) {
         std::cout << units[i] << "\n";
@@ -250,6 +259,7 @@ void Controller::print(std::ostream& os) {
     }
     std::cout << "\n";
     */
+   
 }
 
 std::ostream& operator<<(std::ostream& os, Controller& a) {
@@ -257,9 +267,11 @@ std::ostream& operator<<(std::ostream& os, Controller& a) {
     os << std::endl;
     a.printAttack(os);
     */
+
     os << "\n";
     a.print(os);
     os << "\n";
+    
     return os;
 }
 

@@ -133,10 +133,12 @@ Replay::Replay(std::vector<std::string> in){
         }
 
         std::cout << "iterator: " << iterator <<std::endl;
+
         // end placing unit
     }//end of while
-}
 
+    
+}
 
 Controller *Replay::getPlayer1() {
     return &player1;

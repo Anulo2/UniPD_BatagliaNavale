@@ -1,0 +1,357 @@
+Input String: 
+b6 b10
+inserire posizioni poppa e prua nave corazzata 
+
+b6
+b10
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+A # # # # # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # # # # # # # # # # # # 
+E # # # # # # # # # # # # 
+F # # # # # # # # # # # # 
+G # # # # # # # # # # # # 
+H # # # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+Input String: 
+f8 f12
+inserire posizioni poppa e prua nave corazzata 
+
+f8
+f12
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+A # # # # # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # # # # # # # # # # # # 
+E # # # # # # # # # # # # 
+F # # # # # # # C C C C C 
+G # # # # # # # # # # # # 
+H # # # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+Input String: 
+d2 h2
+inserire posizioni poppa e prua nave corazzata 
+
+d2
+h2
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C)
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+A # # # # # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # # # # # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave corazzata 
+
+b6
+b10
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+A # # # # # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # # # # # # # # # # # # 
+E # # # # # # # # # # # # 
+F # # # # # # # # # # # # 
+G # # # # # # # # # # # # 
+H # # # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave corazzata 
+
+f8
+f12
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+A # # # # # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # # # # # # # # # # # # 
+E # # # # # # # # # # # # 
+F # # # # # # # C C C C C 
+G # # # # # # # # # # # # 
+H # # # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave corazzata 
+
+d2
+h2
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C)
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+A # # # # # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # # # # # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave supporto 
+
+a2
+a4
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # # # # # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave supporto 
+
+d6
+d8
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave supporto 
+
+l6
+l8
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+(Pos: (7, L), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, L), (8, L)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # S S S # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave supporto 
+
+a2
+a4
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # # # # # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave supporto 
+
+d6
+d8
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # # # # # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave supporto 
+
+l6
+l8
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+(Pos: (7, L), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, L), (8, L)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # # # 
+I # # # # # # # # # # # # 
+L # # # # # S S S # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave sottomarino 
+
+h11
+h11
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+(Pos: (7, L), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, L), (8, L)
+(Pos: (11, H), Dim: 1, Vert: 1, Armor: 1, Status: E, Id: E), (11, H), (11, H)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # E # 
+I # # # # # # # # # # # # 
+L # # # # # S S S # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave sottomarino 
+
+l2
+l2
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+(Pos: (7, L), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, L), (8, L)
+(Pos: (11, H), Dim: 1, Vert: 1, Armor: 1, Status: E, Id: E), (11, H), (11, H)
+(Pos: (2, L), Dim: 1, Vert: 1, Armor: 1, Status: E, Id: E), (2, L), (2, L)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # E # 
+I # # # # # # # # # # # # 
+L # E # # # S S S # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave sottomarino 
+
+h11
+h11
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+(Pos: (7, L), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, L), (8, L)
+(Pos: (11, H), Dim: 1, Vert: 1, Armor: 1, Status: E, Id: E), (11, H), (11, H)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # E # 
+I # # # # # # # # # # # # 
+L # # # # # S S S # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+inserire posizioni poppa e prua nave sottomarino 
+
+l2
+l2
+(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (6, B), (10, B)
+(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C), (8, F), (12, F)
+(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C), (2, D), (2, H)
+(Pos: (3, A), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (2, A), (4, A)
+(Pos: (7, D), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, D), (8, D)
+(Pos: (7, L), Dim: 3, Vert: 0, Armor: 3, Status: SSS, Id: S), (6, L), (8, L)
+(Pos: (11, H), Dim: 1, Vert: 1, Armor: 1, Status: E, Id: E), (11, H), (11, H)
+(Pos: (2, L), Dim: 1, Vert: 1, Armor: 1, Status: E, Id: E), (2, L), (2, L)
+A # S S S # # # # # # # # 
+B # # # # # C C C C C # # 
+C # # # # # # # # # # # # 
+D # C # # # S S S # # # # 
+E # C # # # # # # # # # # 
+F # C # # # # # C C C C C 
+G # C # # # # # # # # # # 
+H # C # # # # # # # # E # 
+I # # # # # # # # # # # # 
+L # E # # # S S S # # # # 
+M # # # # # # # # # # # # 
+N # # # # # # # # # # # # 
+  1 2 3 4 5 6 7 8 9 A B C 
+iterator: 16

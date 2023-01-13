@@ -1,0 +1,512 @@
+
+Invalid Pos for battleship p1
+
+Invalid Pos for support p1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 2
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+invalid argument 1
+
+  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
+A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║ O ║   ║   ║   ║   ║ X ║   ║ X ║ O ║ O ║ O ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+B ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        B ║ O ║   ║   ║ X ║   ║   ║ O ║   ║ X ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+C ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ c ║ C ║   ║   ║        C ║ O ║   ║   ║ Y ║ Y ║ O ║ Y ║ O ║ O ║ O ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        D ║   ║ O ║ O ║ Y ║ Y ║   ║   ║   ║ O ║ X ║ Y ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║ O ║   ║ Y ║ O ║   ║   ║ O ║ Y ║ O ║ O ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+F ║   ║   ║   ║   ║   ║   ║   ║ E ║   ║ c ║   ║   ║        F ║   ║   ║ O ║ X ║   ║   ║ O ║ Y ║ Y ║ Y ║ O ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ C ║   ║   ║        G ║ O ║   ║ Y ║ Y ║ X ║ Y ║ X ║ Y ║ O ║ O ║ O ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ C ║   ║   ║        H ║   ║   ║ Y ║ Y ║ Y ║ O ║ Y ║ Y ║ O ║   ║ O ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+I ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║ C ║   ║   ║        I ║   ║   ║ Y ║ Y ║ Y ║ O ║ O ║ O ║ Y ║ O ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+L ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║ c ║   ║   ║        L ║   ║ O ║ Y ║ O ║ Y ║ O ║ O ║ O ║ O ║   ║ O ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║ O ║ O ║ O ║   ║ O ║ X ║   ║   ║ X ║ O ║ X ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║ O ║ O ║ O ║ O ║ O ║ O ║ O ║   ║   ║ O ║   ║ O ║
+  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
+    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
+
+
+
+  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
+A ║   ║   ║   ║ C ║ C ║ C ║ C ║ c ║   ║   ║   ║   ║        A ║   ║ O ║ O ║   ║   ║ O ║ O ║   ║ O ║ O ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+B ║   ║ s ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        B ║ O ║ O ║ O ║   ║   ║   ║ O ║ O ║ O ║   ║   ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+C ║   ║ S ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║ O ║ Y ║ Y ║ X ║ Y ║   ║ X ║ X ║   ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+D ║   ║ S ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        D ║   ║ O ║   ║ O ║   ║   ║ Y ║ Y ║ Y ║ Y ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+E ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║ O ║   ║ Y ║ Y ║ Y ║ O ║ O ║ Y ║ Y ║   ║ O ║ X ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+F ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        F ║ O ║   ║ Y ║ Y ║ Y ║ O ║ Y ║ Y ║   ║ X ║ O ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        G ║ O ║ O ║ O ║ O ║ X ║ O ║ Y ║ Y ║ Y ║ Y ║ O ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+H ║   ║   ║   ║   ║   ║   ║   ║ S ║ S ║ S ║   ║   ║        H ║ O ║ O ║ O ║ O ║ O ║   ║ O ║ Y ║ O ║ Y ║ Y ║ O ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║        I ║ O ║   ║   ║ O ║ O ║ O ║ Y ║ Y ║ O ║ X ║ O ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+L ║   ║   ║   ║   ║   ║   ║ E ║   ║   ║ S ║   ║   ║        L ║   ║   ║ O ║ O ║ Y ║ Y ║ Y ║ Y ║ Y ║ X ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║        M ║   ║ O ║ X ║ O ║   ║ O ║ O ║ O ║ O ║ O ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║ O ║ O ║   ║ O ║ O ║   ║ O ║   ║   ║   ║ O ║
+  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
+    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
+
+
