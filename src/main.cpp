@@ -154,8 +154,8 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout << a.getPlayer2() << std::endl;
     
     
-    //ComputerVSComputer a;
-    //std::cout << a << std::endl;
+    ComputerVSComputer b;
+    std::cout << a << std::endl;
 
 
 

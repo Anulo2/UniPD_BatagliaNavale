@@ -9,7 +9,7 @@ Replay::Replay(std::vector<std::string> in){
     int iterator = 0;
     static const int nTotalUnitsInGame = 16;
 
-    while(iterator <= nTotalUnitsInGame){
+    while(iterator < nTotalUnitsInGame){
 
         //Placing battleships of player1
         for (int i = 0; i < 3; i++) {
@@ -136,7 +136,6 @@ Replay::Replay(std::vector<std::string> in){
 
         // end placing unit
     }//end of while
-
     
 }
 
