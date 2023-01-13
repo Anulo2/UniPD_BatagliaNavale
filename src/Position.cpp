@@ -17,18 +17,30 @@ Position::Position(const int& iX, const char& iY) {
     x = iX;
 
     int tempY = (int)tolower(iY) + 1;
-
+    
     // bisogna saltare le lettere j e k dell'alfabeto
-    (tempY < 106) ? (y = tempY - 97) : (y = tempY - 97);
+    (tempY < 106) ? (y = tempY - 97) : (y = tempY - 99);
+
+    //std::cout << "TEMPY : -> " << this->y <<std::endl;
 }
 
 //X[1,12] Y[1,12]
 Position::Position(int iX, int iY) {
-    /*if(iX < 1 || iX > 12 || iY < 1 || iY > 12)
-       throw std::invalid_argument("invalid X & Y, valid value for X & Y[1,2,3,4,5,6,7,8,9,10,11,12]");
+   /* if(iX < 1)
+        std::cout << "\niX < 1: \t" << iX << std::endl;
+    if(iX > 12)
+        std::cout << "\niX > 12: \t" << iX<< std::endl;;
+    
+    if(iY < 1)
+        std::cout << "\niY < 1: \t" << iY<< std::endl;;
+    if(iY > 12)
+        std::cout << "\niY > 12: \t" << iY<< std::endl;;
     */
+    if (iX < 1 || iX > 12 || iY < 1 || iY > 12)
+       throw std::invalid_argument("invalid X & Y, valid value for X & Y[1,2,3,4,5,6,7,8,9,10,11,12]" );
 
-   //TODO controllare eccezione !!
+    // TODO controllare eccezione !!
+
     x = iX;
     y = iY;
 }

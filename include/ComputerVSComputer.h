@@ -17,6 +17,7 @@ class ComputerVSComputer {
     Controller player1;
     Controller player2;
 };
+
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a);
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer *a);
 

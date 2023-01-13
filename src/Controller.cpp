@@ -15,7 +15,7 @@ bool Controller::isUnit(Position iPos) {
         }
     }
     return false;
-}
+}                                
 void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
@@ -100,7 +100,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 13; j++) {
             if (j == 0) {
-                output[i][j] = rows[11 - i];
+                output[i][j] = rows[i];
             } else {
                 output[i][j] = '#';
             }
@@ -116,11 +116,11 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getBow().getIntY() + j][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
+                output[units[i]->getBow().getIntY() - (j+1)][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
             }
         } else {
             for (int j = 0; j < dim; j++) {
-                output[12 - units[i]->getStern().getIntY()][units[i]->getStern().getX() + j] = status[j] ? (id + 32) : id;
+                output[units[i]->getStern().getIntY() - 1][units[i]->getStern().getX() + j] = status[j] ? (id + 32) : id;
             }
         }
     }

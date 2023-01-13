@@ -14,6 +14,8 @@ add_library(${PROJECT_NAME}
 	src/Entity.cpp
 	src/Controller.cpp
 	src/ComputerVSComputer.cpp
+	src/PlayerVSComputer.cpp
+	src/Replay.cpp
 )
 
 add_executable(main 

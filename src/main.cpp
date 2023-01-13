@@ -12,7 +12,7 @@
 
 using namespace std;
 
-int main() {
+int main(){
     /*
 Position posA(7, 'n');
 Position posB(12, 12);
@@ -147,13 +147,17 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
          std::cout << controllerA.getUnits()[i] << std::endl;
      }
      */
-    /*
+    
     PlayerVSComputer a;
     a.getPlayer1()->print(std::cout);
     a.getPlayer2()->print(std::cout);
-    */
-    ComputerVSComputer a;
-    std::cout << a << std::endl;
+    
+    
+    //ComputerVSComputer a;
+    //std::cout << a << std::endl;
+
+
+
     /*
     std::cout << "NAVI RANDOM PLAYER1 \n";
     Controller* play1 = a.getPlayer1();
