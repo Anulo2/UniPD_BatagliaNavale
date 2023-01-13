@@ -28,7 +28,9 @@ PlayerVSComputer::PlayerVSComputer(){
             if(player1.checkUnitPlacement(battleShip)){
                 player1.addUnit(battleShip);
                 placed=true;
-                player1.printDefense(std::cout);
+                
+                //player1.printDefense(std::cout);
+                //player1.printAttack(std::cout);
             }
             else{
                 std::cout<<"input non valido, c'è gia una nave\n";
@@ -53,7 +55,8 @@ PlayerVSComputer::PlayerVSComputer(){
                         player2.addUnit(battleShip);
                         placed = true;
                         // std::cout << Position(x, y) << ", Horiz\n";
-                        // printDefense(player1.getUnits());
+                        //player2.printDefense(std::cout);
+                        //player2.printAttack(std::cout);
                     } else {
                         // std::cout << "Failed to place vertical Battleship of Player1 at pos: " << Position(x, y) << "\n";
                     }
@@ -70,7 +73,8 @@ PlayerVSComputer::PlayerVSComputer(){
                         player2.addUnit(battleShip);
                         placed = true;
                         // std::cout << Position(x, y) << ", Vert\n";
-                        // printDefense(player1.getUnits());
+                        //player2.printDefense(std::cout);
+                        //player2.printAttack(std::cout);
                     } else {
                         // std::cout << "Failed to place horizontal Battleship of Player1 at pos: " << Position(x, y) << "\n";
                     }
@@ -96,7 +100,9 @@ PlayerVSComputer::PlayerVSComputer(){
             if (player1.checkUnitPlacement(support)){
                 player1.addUnit(support);
                 placed=true;
-                player1.printDefense(std::cout);
+                
+                //player1.printDefense(std::cout);
+                //player1.printAttack(std::cout);
             }
             else{
                 std::cout<<"input non valido, c'è gia una nave\n";
@@ -121,7 +127,8 @@ PlayerVSComputer::PlayerVSComputer(){
                         player2.addUnit(support);
                         placed = true;
                         // std::cout << Position(x, y) << ", Horiz\n";
-                        // printDefense(player1.getUnits());
+                        //player2.printDefense(std::cout);
+                        //player2.printAttack(std::cout);
                     } else {
                         // std::cout << "Failed to place vertical Battleship of Player1 at pos: " << Position(x, y) << "\n";
                     }
@@ -139,7 +146,8 @@ PlayerVSComputer::PlayerVSComputer(){
                         player2.addUnit(support);
                         placed = true;
                         // std::cout << Position(x, y) << ", Vert\n";
-                        // printDefense(player1.getUnits());
+                        //player2.printDefense(std::cout);
+                        //player2.printAttack(std::cout);
                     } else {
                         // std::cout << "Failed to place horizontal Battleship of Player1 at pos: " << Position(x, y) << "\n";
                     }
@@ -164,7 +172,9 @@ PlayerVSComputer::PlayerVSComputer(){
             if(player1.checkUnitPlacement(submarine)){
                 player1.addUnit(submarine);
                 placed=true;
-                player1.printDefense(std::cout);
+                
+                //player1.printDefense(std::cout);
+                //player1.printAttack(std::cout);
             }
             else{
                 std::cout<<"input non valido, c'è gia una nave\n";
@@ -184,7 +194,8 @@ PlayerVSComputer::PlayerVSComputer(){
                     player2.addUnit(submarine);
                     placed = true;
                     // std::cout << Position(x, y) << ", Horiz\n";
-                    // printDefense(player1.getUnits());
+                    //player2.printDefense(std::cout);
+                    //player2.printAttack(std::cout);
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player1 at pos: " << Position(x, y) << "\n";
                 }

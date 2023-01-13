@@ -131,15 +131,16 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
         os << std::endl;
     }
 }
-/*
+
 void Controller::printAttack(std::ostream& os) {
+
     for (int i = 0; i < enemyEntities.size(); i++) {
-        enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
+        enemyEntitiesMatrix[enemyEntities[i]->getPos().getIntY() - 1][enemyEntities[i]->getPos().getX() - 1] = enemyEntities[i];
         std::cout << enemyEntities[i] << std::endl;
     }
 
-    for (int i = 13; i > 0; i--) {
-        if (i == 1) {
+    for (int i = 0; i < 13; i++) {
+        if (i == 12) {
             for (char column : columns) {
                 os << column << " ";
             }
@@ -147,12 +148,12 @@ void Controller::printAttack(std::ostream& os) {
         } else {
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
-                    os << rows[i - 2] << " ";
+                    os << rows[i] << " ";
                 } else {
-                    if (enemyEntitiesMatrix[i - 2][j - 1] == nullptr) {
+                    if (enemyEntitiesMatrix[i][j] == nullptr) {
                         os << "# ";
                     } else {
-                        os << enemyEntitiesMatrix[i - 2][j - 1]->getId();
+                        os << enemyEntitiesMatrix[i][j]->getId();
                         os << " ";
                     }
                 }
@@ -161,7 +162,7 @@ void Controller::printAttack(std::ostream& os) {
         }
     }
 }
-*/
+
 void Controller::print(std::ostream& os) {
     /*
     for (int i = 0; i < enemyEntities.size(); i++) {
