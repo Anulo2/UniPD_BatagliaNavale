@@ -27,6 +27,7 @@ int main(){
     }
 
     Replay a(iFile);
-
+    std::cout << a.getPlayer1() << std::endl;
+    std::cout << a.getPlayer2() << std::endl;
     return 0;
 }

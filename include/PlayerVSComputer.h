@@ -28,16 +28,6 @@ std::vector<Position> inputManipolation();
 
 //Convert string to integer value
 int stringTointeger(const std::string str);
-/*
-//Function that takes a input Battleship
-Battleship* inputBattleship(); 
-
-//Function that takes a input Support
-Support* inputSupport();
-
-//Function that takes a input Submarine
-Submarine* inputSubmarine();
-*/
 
 //Function that takes a input Battleship
 std::shared_ptr<Battleship> inputBattleship();

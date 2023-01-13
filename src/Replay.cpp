@@ -23,7 +23,7 @@ Replay::Replay(std::vector<std::string> in){
                 if(player1.checkUnitPlacement(battleShip)){
                     player1.addUnit(battleShip);
                     placed=true;
-                    player1.printDefense(std::cout);
+                    //player1.printDefense(std::cout);
                 }
                 else{
                     std::cout<<"input non valido, c'è gia una nave\n";
@@ -43,7 +43,7 @@ Replay::Replay(std::vector<std::string> in){
                 if(player2.checkUnitPlacement(battleShip)){
                     player2.addUnit(battleShip);
                     placed=true;
-                    player2.printDefense(std::cout);
+                    //player2.printDefense(std::cout);
                 }
                 else{
                     std::cout<<"input non valido, c'è gia una nave\n";
@@ -63,7 +63,7 @@ Replay::Replay(std::vector<std::string> in){
                 if(player1.checkUnitPlacement(support)){
                     player1.addUnit(support);
                     placed=true;
-                    player1.printDefense(std::cout);
+                    //player1.printDefense(std::cout);
                 }
                 else{
                     std::cout<<"input non valido, c'è gia una nave\n";
@@ -83,7 +83,7 @@ Replay::Replay(std::vector<std::string> in){
                 if(player2.checkUnitPlacement(support)){
                     player2.addUnit(support);
                     placed=true;
-                    player2.printDefense(std::cout);
+                    //player2.printDefense(std::cout);
                 }
                 else{
                     std::cout<<"input non valido, c'è gia una nave\n";
@@ -103,7 +103,7 @@ Replay::Replay(std::vector<std::string> in){
                 if(player1.checkUnitPlacement(submarine)){
                     player1.addUnit(submarine);
                     placed=true;
-                    player1.printDefense(std::cout);
+                    //player1.printDefense(std::cout);
                 }
                 else{
                     std::cout<<"input non valido, c'è gia una nave\n";
@@ -123,7 +123,7 @@ Replay::Replay(std::vector<std::string> in){
                 if(player2.checkUnitPlacement(submarine)){
                     player2.addUnit(submarine);
                     placed=true;
-                    player2.printDefense(std::cout);
+                   // player2.printDefense(std::cout);
                 }
                 else{
                     std::cout<<"input non valido, c'è gia una nave\n";
@@ -140,6 +140,10 @@ Replay::Replay(std::vector<std::string> in){
     
 }
 
+/*********************************************************         
+ *                  GETTER FUNCTIONS                     * 
+**********************************************************/
+
 Controller *Replay::getPlayer1() {
     return &player1;
 }
@@ -152,6 +156,18 @@ Controller *Replay::getPlayer2() {
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 
 **********************************************************/
+
+std::ostream& operator<<(std::ostream& os, Replay& a) {
+    os << (a.getPlayer1());
+    os << "\n";
+    os << (a.getPlayer2());
+    return os;
+}
+
+std::ostream& operator<<(std::ostream& os, Replay* a) {
+    os << *a;
+    return os;
+}
 
 int stringTointeger(std::string str){
     int temp = 0;

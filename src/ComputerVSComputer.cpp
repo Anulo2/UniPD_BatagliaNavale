@@ -534,6 +534,12 @@ while (!valid) {
               << player2 << "\n";
               */
 }
+
+
+/*********************************************************         
+ *                  GETTER FUNCTIONS                     * 
+**********************************************************/
+
 Controller* ComputerVSComputer::getPlayer1() {
     return &player1;
 }
@@ -541,6 +547,11 @@ Controller* ComputerVSComputer::getPlayer1() {
 Controller* ComputerVSComputer::getPlayer2() {
     return &player2;
 }
+
+
+/*********************************************************         
+ *                  HELPER FUNCTIONS                     * 
+**********************************************************/
 
 std::ostream& operator<<(std::ostream& os, ComputerVSComputer& a) {
     os << (a.getPlayer1());

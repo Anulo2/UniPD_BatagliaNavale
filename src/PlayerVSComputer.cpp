@@ -209,6 +209,10 @@ PlayerVSComputer::PlayerVSComputer(){
     }
 }
 
+/*********************************************************         
+ *                  GETTER FUNCTIONS                     * 
+**********************************************************/
+
 Controller *PlayerVSComputer::getPlayer1() {
     return &player1;
 }
@@ -220,6 +224,18 @@ Controller *PlayerVSComputer::getPlayer2() {
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 
 **********************************************************/
+
+std::ostream& operator<<(std::ostream& os, PlayerVSComputer& a) {
+    os << (a.getPlayer1());
+    os << "\n";
+    os << (a.getPlayer2());
+    return os;
+}
+
+std::ostream& operator<<(std::ostream& os, PlayerVSComputer* a) {
+    os << *a;
+    return os;
+}
 
 int stringTointeger(std::string str){
     int temp = 0;

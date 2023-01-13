@@ -170,7 +170,6 @@ void Controller::print(std::ostream &os){
         enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
     }
     */
-   
     char output[13][13] = {' '};
     
     for (int i = 0; i < 13; i++){
