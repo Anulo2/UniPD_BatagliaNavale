@@ -16,6 +16,7 @@ add_library(${PROJECT_NAME}
 	src/ComputerVSComputer.cpp
 	src/PlayerVSComputer.cpp
 	src/Replay.cpp
+	src//inputHelper.cpp
 )
 
 add_executable(main 

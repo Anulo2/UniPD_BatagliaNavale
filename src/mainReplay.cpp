@@ -13,6 +13,10 @@
 
 int main(){
 
+    std::cout<<"####################################\n";
+    std::cout<<"###          REPLAY              ###\n";
+    std::cout<<"####################################\n";
+
     std::vector<std::string> iFile;
     std::ifstream my_ifile("../replay.txt");
     

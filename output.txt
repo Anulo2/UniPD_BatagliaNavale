@@ -1,12 +1,16 @@
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/eris/Documents/Uni/LabDP/UniPD_BatagliaNavale/build
-[ 73%] Built target UniPD_BatagliaNavale
-[ 86%] Built target main
+-- Build files have been written to: /home/enrico/Scrivania/Progetto_Finale/UniPD_BatagliaNavale/build
+Consolidate compiler generated dependencies of target UniPD_BatagliaNavale
+[ 75%] Built target UniPD_BatagliaNavale
+Consolidate compiler generated dependencies of target main
+[ 87%] Built target main
+Consolidate compiler generated dependencies of target mainReplay
 [100%] Built target mainReplay
-[ 73%] Built target UniPD_BatagliaNavale
-[ 86%] Built target main
+[ 75%] Built target UniPD_BatagliaNavale
+[ 87%] Built target main
 [100%] Built target mainReplay
+######################################
 inserire posizioni poppa e prua nave corazzata 
 
 b6
@@ -24,8 +28,6 @@ h2
 (Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C)
 Placed Battleship Player2!
 Placed Battleship Player2!
-
-Invalid Pos for battleship p2
 Placed Battleship Player2!
 inserire posizioni poppa e prua nave supporto 
 
@@ -39,9 +41,9 @@ inserire posizioni poppa e prua nave supporto
 
 l6
 l8
-Placed supports Player2!
-Placed supports Player2!
-Placed supports Player2!
+Placed Support Player2!
+Placed Support Player2!
+Placed Support Player2!
 inserire posizioni poppa e prua nave sottomarino 
 
 h11
@@ -50,6 +52,80 @@ inserire posizioni poppa e prua nave sottomarino
 
 l2
 l2
+Placed submarine Player2!
+Placed submarine Player2!
+######   PLAYER VS COMPUTER   ######
+  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
+A ║   ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+B ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+D ║   ║ C ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+E ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+F ║   ║ C ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+G ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+H ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║ E ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+L ║   ║ E ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
+    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
+
+
+
+  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
+A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+C ║ E ║   ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+F ║   ║   ║   ║ C ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+G ║   ║   ║ S ║ C ║   ║ E ║   ║   ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+H ║   ║ C ║ S ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+I ║   ║ C ║ S ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+L ║   ║ C ║   ║ C ║ C ║ C ║ C ║ C ║ C ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+M ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
+N ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
+    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
+
+
+######   COMPUTER VS COMPUTER   ######Placed Battleship Player1!
+Placed Battleship Player1!
+Placed Battleship Player1!
+Placed Battleship Player2!
+Placed Battleship Player2!
+Placed Battleship Player2!
+Placed Support Player1!
+Placed Support Player1!
+Placed Support Player1!
+Placed Support Player2!
+Placed Support Player2!
+Placed Support Player2!
+Placed submarine Player1!
+Placed submarine Player1!
 Placed submarine Player2!
 Placed submarine Player2!
 
@@ -83,718 +159,29 @@ N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   
 
 
   ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
-A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-C ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║ S ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+C ║ E ║   ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-D ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-E ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-F ║   ║   ║   ║ C ║   ║ C ║ C ║ C ║ C ║ C ║   ║   ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+F ║   ║   ║   ║ C ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-G ║   ║   ║   ║ C ║   ║   ║   ║ S ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+G ║   ║   ║ S ║ C ║   ║ E ║   ║   ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-H ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║   ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+H ║   ║ C ║ S ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-I ║   ║ E ║   ║   ║   ║   ║   ║ S ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+I ║   ║ C ║ S ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+L ║   ║ C ║   ║ C ║ C ║ C ║ C ║ C ║ C ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-M ║   ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+M ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-N ║   ║   ║   ║ E ║   ║   ║   ║   ║ S ║ S ║ S ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
-    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
-
-
-
-Invalid Pos for battleship p1
-
-Invalid Pos for battleship p2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 1
-
-invalid argument 2
-
-invalid argument 2
-
-invalid argument 2
-
-  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
-A ║   ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-B ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-D ║   ║ C ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-E ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-F ║   ║ C ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-G ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-H ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║ E ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-L ║   ║ E ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
-    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
-
-
-
-  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
-A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-C ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║ S ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-D ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-E ║   ║   ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-F ║   ║   ║   ║ C ║   ║ C ║ C ║ C ║ C ║ C ║   ║   ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-G ║   ║   ║   ║ C ║   ║   ║   ║ S ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-H ║   ║   ║   ║   ║   ║   ║   ║ S ║   ║   ║   ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-I ║   ║ E ║   ║   ║   ║   ║   ║ S ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-M ║   ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-N ║   ║   ║   ║ E ║   ║   ║   ║   ║ S ║ S ║ S ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
-    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
-
-
-Input String: 
-b6 b10
-inserire posizioni poppa e prua nave corazzata 
-
-b6
-b10
-(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
-Input String: 
-f8 f12
-inserire posizioni poppa e prua nave corazzata 
-
-f8
-f12
-(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
-Input String: 
-d2 h2
-inserire posizioni poppa e prua nave corazzata 
-
-d2
-h2
-(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C)
-inserire posizioni poppa e prua nave corazzata 
-
-b6
-b10
-(Pos: (8, B), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
-inserire posizioni poppa e prua nave corazzata 
-
-f8
-f12
-(Pos: (10, F), Dim: 5, Vert: 0, Armor: 5, Status: CCCCC, Id: C)
-inserire posizioni poppa e prua nave corazzata 
-
-d2
-h2
-(Pos: (2, F), Dim: 5, Vert: 1, Armor: 5, Status: CCCCC, Id: C)
-inserire posizioni poppa e prua nave supporto 
-
-a2
-a4
-inserire posizioni poppa e prua nave supporto 
-
-d6
-d8
-inserire posizioni poppa e prua nave supporto 
-
-l6
-l8
-inserire posizioni poppa e prua nave supporto 
-
-a2
-a4
-inserire posizioni poppa e prua nave supporto 
-
-d6
-d8
-inserire posizioni poppa e prua nave supporto 
-
-l6
-l8
-inserire posizioni poppa e prua nave sottomarino 
-
-h11
-h11
-inserire posizioni poppa e prua nave sottomarino 
-
-l2
-l2
-inserire posizioni poppa e prua nave sottomarino 
-
-h11
-h11
-inserire posizioni poppa e prua nave sottomarino 
-
-l2
-l2
-iterator: 16
-
-  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
-A ║   ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-B ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-D ║   ║ C ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-E ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-F ║   ║ C ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-G ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-H ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║ E ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-L ║   ║ E ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
-    1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
-
-
-
-  ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗          ╔═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╦═══╗
-A ║   ║ S ║ S ║ S ║   ║   ║   ║   ║   ║   ║   ║   ║        A ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-B ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║   ║   ║        B ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-D ║   ║ C ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        D ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-E ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        E ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-F ║   ║ C ║   ║   ║   ║   ║   ║ C ║ C ║ C ║ C ║ C ║        F ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-G ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        G ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-H ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║ E ║   ║        H ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        I ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-L ║   ║ E ║   ║   ║   ║ S ║ S ║ S ║   ║   ║   ║   ║        L ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        M ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
-  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣          ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣
-N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
+N ║   ║ C ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║        N ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║   ║
   ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝          ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝
     1   2   3   4   5   6   7   8   9   A   B   C              1   2   3   4   5   6   7   8   9   A   B   C   
 

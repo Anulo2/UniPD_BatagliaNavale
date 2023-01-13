@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <cstdlib>
-#include <ctime>    //librerie per generare posizioni casuali dove piazzare le navi
 #include <iostream>
 #include <random>
 
@@ -12,7 +11,6 @@
 
 PlayerVSComputer::PlayerVSComputer(){
 
-    std::srand(std::time(nullptr));
     bool placed;
     
     // int x, y, vert;
@@ -22,7 +20,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
 
-            std::shared_ptr<Battleship> buffer = inputBattleship();
+            std::shared_ptr<Battleship> buffer = inputBattleship(std::cin);
             std::shared_ptr<Unit> battleShip(buffer);
             
             if(player1.checkUnitPlacement(battleShip)){
@@ -41,47 +39,21 @@ PlayerVSComputer::PlayerVSComputer(){
 //Placing battleships of player2
     for (int i = 0; i < 3; i++) {  
         placed = false;
-        while (!placed) {
-
-            // 1 vertical, 0 horizontal
-            int vert = rand() % 2;  
+        while (!placed) {            
             
-            if (vert == 0) {
-                try{
-                    int x = rand() % 10 + 1;
-                    int y = rand() % 12 + 1;
-                    std::shared_ptr<Unit> battleShip(new Battleship(Position(x - 2, y), Position(x + 2, y)));
-                    if (player2.checkUnitPlacement(battleShip)) {
-                        player2.addUnit(battleShip);
-                        placed = true;
-                        // std::cout << Position(x, y) << ", Horiz\n";
-                        //player2.printDefense(std::cout);
-                        //player2.printAttack(std::cout);
-                    } else {
-                        // std::cout << "Failed to place vertical Battleship of Player1 at pos: " << Position(x, y) << "\n";
-                    }
-                } catch(std::invalid_argument){
-                    std::cout << "\nInvalid Pos for battleship p2" <<std::endl;
-                }
+            try{
                 
-            } else {
-                try{
-                    int x = rand() % 12 + 1;
-                    int y = rand() % 10 + 1;
-                    std::shared_ptr<Unit> battleShip(new Battleship(Position(x, y - 2), Position(x, y + 2)));
-                    if (player2.checkUnitPlacement(battleShip)) {
-                        player2.addUnit(battleShip);
-                        placed = true;
-                        // std::cout << Position(x, y) << ", Vert\n";
-                        //player2.printDefense(std::cout);
-                        //player2.printAttack(std::cout);
-                    } else {
-                        // std::cout << "Failed to place horizontal Battleship of Player1 at pos: " << Position(x, y) << "\n";
-                    }
-                } catch(std::invalid_argument){
-                    std::cout << "\nInvalid Pos for battleship p2" <<std::endl;
+                std::shared_ptr<Unit> buffer(randomBattleship());
+                if (player2.checkUnitPlacement(buffer)) {
+                    player2.addUnit(buffer);
+                    placed = true;
+                } else {
+                    // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
+            } catch(std::invalid_argument){
+                std::cout << "\nInvalid Pos for battleship p2" <<std::endl;
             }
+            
         }
 
         std::cout << "Placed Battleship Player2!\n";
@@ -94,7 +66,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
         
-            std::shared_ptr<Support> buffer =inputSupport();
+            std::shared_ptr<Support> buffer =inputSupport(std::cin);
             std::shared_ptr<Unit> support(buffer);
 
             if (player1.checkUnitPlacement(support)){
@@ -111,55 +83,26 @@ PlayerVSComputer::PlayerVSComputer(){
     }
     
     //Placing supports of player2
-    for (int i = 0; i < 3; i++) { 
+    for (int i = 0; i < 3; i++) {  
         placed = false;
-        while (!placed) {
-
-            // 1 vertical, 0 horizontal
-            int vert = rand() % 2;  
-
-            if (vert == 0) {
-                try{
-                    int x = rand() % 11 + 1;
-                    int y = rand() % 12 + 1;
-                    std::shared_ptr<Unit> support(new Support(Position(x - 1, y), Position(x + 1, y)));
-                    if (player2.checkUnitPlacement(support)) {
-                        player2.addUnit(support);
-                        placed = true;
-                        // std::cout << Position(x, y) << ", Horiz\n";
-                        //player2.printDefense(std::cout);
-                        //player2.printAttack(std::cout);
-                    } else {
-                        // std::cout << "Failed to place vertical Battleship of Player1 at pos: " << Position(x, y) << "\n";
-                    }
-                } catch(std::invalid_argument){
-                    std::cout << "\nInvalid Pos for support p2" <<std::endl;
-                } 
-
-            } else {
-
-                try{
-                    int x = rand() % 12 + 1;
-                    int y = rand() % 11 + 1;
-                    std::shared_ptr<Unit> support(new Support(Position(x, y - 1), Position(x, y + 1)));
-                    if (player2.checkUnitPlacement(support)) {
-                        player2.addUnit(support);
-                        placed = true;
-                        // std::cout << Position(x, y) << ", Vert\n";
-                        //player2.printDefense(std::cout);
-                        //player2.printAttack(std::cout);
-                    } else {
-                        // std::cout << "Failed to place horizontal Battleship of Player1 at pos: " << Position(x, y) << "\n";
-                    }
-
-                } catch(std::invalid_argument){
-                    std::cout << "\nInvalid Pos for support p2" <<std::endl;
-                } 
+        while (!placed) {            
+            
+            try{
                 
+                std::shared_ptr<Unit> buffer(randomSupport());
+                if (player2.checkUnitPlacement(buffer)) {
+                    player2.addUnit(buffer);
+                    placed = true;
+                } else {
+                    // std::cout << "Failed to place vertical support of Player2 at pos: " << Position(x, y) << "\n";
+                }
+            } catch(std::invalid_argument e){
+                std::cout << "\n"<<e.what() <<std::endl;
             }
+            
         }
 
-        std::cout << "Placed supports Player2!\n";
+        std::cout << "Placed Support Player2!\n";
     }
 
     //Placing submarines of player1
@@ -167,7 +110,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
             
-            std::shared_ptr<Submarine> buffer = inputSubmarine();
+            std::shared_ptr<Submarine> buffer = inputSubmarine(std::cin);
             std::shared_ptr<Unit> submarine(buffer);
             if(player1.checkUnitPlacement(submarine)){
                 player1.addUnit(submarine);
@@ -185,23 +128,20 @@ PlayerVSComputer::PlayerVSComputer(){
     //Placing submarines of player2
     for (int i = 0; i < 2; i++) {  
         placed = false;
-        while (!placed) {
+        while (!placed) {            
+            
             try{
-                int x = rand() % 12 + 1;
-                int y = rand() % 12 + 1;
-                std::shared_ptr<Unit> submarine(new Submarine(Position(x, y), Position(x, y)));
-                if (!player2.isUnit(Position(x, y))) {
-                    player2.addUnit(submarine);
+                
+                std::shared_ptr<Unit> buffer(randomSubmarine());
+                if (player2.checkUnitPlacement(buffer)) {
+                    player2.addUnit(buffer);
                     placed = true;
-                    // std::cout << Position(x, y) << ", Horiz\n";
-                    //player2.printDefense(std::cout);
-                    //player2.printAttack(std::cout);
                 } else {
-                    // std::cout << "Failed to place vertical Battleship of Player1 at pos: " << Position(x, y) << "\n";
+                    // std::cout << "Failed to place vertical submarine of Player2 at pos: " << Position(x, y) << "\n";
                 }
             } catch(std::invalid_argument){
                 std::cout << "\nInvalid Pos for submarine p2" <<std::endl;
-            } 
+            }
             
         }
 
@@ -237,7 +177,7 @@ std::ostream& operator<<(std::ostream& os, PlayerVSComputer* a) {
     return os;
 }
 
-int stringTointeger(std::string str){
+/*int stringTointeger(std::string str){
     int temp = 0;
     for (int i = 0; i < str.length(); i++) {
         temp = temp * 10 + (str[i] - '0');
@@ -245,10 +185,10 @@ int stringTointeger(std::string str){
     return temp;
 }
 
-std::vector<Position> inputManipolation(){
+std::vector<Position> inputManipolation(std::istream& is){
 
     std::string in{};
-    std::getline(std::cin, in, '\n');
+    std::getline(is, in, '\n');
     //std::cout << in;
 
     std::string XY1 = in.substr(0, in.find(" "));
@@ -281,13 +221,13 @@ std::vector<Position> inputManipolation(){
 }
 
 
-std::shared_ptr<Battleship> inputBattleship(){
+std::shared_ptr<Battleship> inputBattleship(std::istream& is){
     bool done = false;
     while (!done) {
         std::cout<<"inserire posizioni poppa e prua nave corazzata \n";
         try {
             
-            std::vector<Position> iPositions {inputManipolation()}; 
+            std::vector<Position> iPositions {inputManipolation(is)}; 
             
             //Battleship* iBattleship = new Battleship(iPositions.at(0), iPositions.at(1));
             
@@ -303,12 +243,12 @@ std::shared_ptr<Battleship> inputBattleship(){
     return nullptr;
 }
 
-std::shared_ptr<Support> inputSupport(){
+std::shared_ptr<Support> inputSupport(std::istream& is){
      bool done = false;
      while (!done) {
         std::cout<<"inserire posizioni poppa e prua nave supporto \n";
         try {
-            std::vector<Position> iPositions {inputManipolation()}; 
+            std::vector<Position> iPositions {inputManipolation(is)}; 
             std::shared_ptr<Support> iSupport(new Support(iPositions.at(0), iPositions.at(1)));
 
             //Support* iSupport= new Support(iPositions.at(0), iPositions.at(1));
@@ -321,12 +261,12 @@ std::shared_ptr<Support> inputSupport(){
     return nullptr;
 }
 
-std::shared_ptr<Submarine> inputSubmarine(){
+std::shared_ptr<Submarine> inputSubmarine(std::istream& is){
     bool done = false;
     while (!done) {
         std::cout<<"inserire posizioni poppa e prua nave sottomarino \n";
         try {
-            std::vector<Position> iPositions {inputManipolation()}; 
+            std::vector<Position> iPositions {inputManipolation(is)}; 
             std::shared_ptr<Submarine> iSubmarine(new Submarine(iPositions.at(0), iPositions.at(1)));
 
             //Submarine* iSubmarine= new Submarine(iPositions.at(0), iPositions.at(1));
@@ -337,4 +277,4 @@ std::shared_ptr<Submarine> inputSubmarine(){
         };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate eccezioni perche il ciclo va avanti e riprova (viene interrotto dal return)
     }
     return nullptr;
-}
+}*/
