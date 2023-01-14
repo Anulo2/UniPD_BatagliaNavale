@@ -15,6 +15,8 @@ class Position {
     char getY() const;
     int getX() const;
     int getIntY() const;
+    void setX(int iX){x=iX;};
+    void setY(int iY){y=iY;};
     bool isInside(Position a, Position b);
     bool isAligned(const Position &a) const;
     int distanceTo(const Position &a) const;

@@ -40,8 +40,11 @@ std::shared_ptr<Unit> Controller::getUnit(Position iPos) {
 std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, int range) {
     std::vector<std::shared_ptr<Unit>> unitsInRange;
 
-    Position a(iPos.getX() - range, iPos.getIntY() - range);
-    Position b(iPos.getX() + range, iPos.getIntY() + range);
+    Position a(std::max(iPos.getX()-range,1), std::max(iPos.getIntY() - range,1));
+    Position b(std::min(iPos.getX() + range,12), std::min(iPos.getIntY() + range,12));
+
+    std::cout << a << "\n";
+    std::cout << b << "\n";
 
     for (int i = 0; i < units.size(); i++) {
         if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) {  // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si

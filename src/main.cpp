@@ -162,7 +162,10 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"######################################\n";
     std::cout<<"########   PLAYER VS COMPUTER   ######\n";
     std::cout<<"######################################\n";
+    inputHelper::randomAction(a.getPlayer1(), a.getPlayer2());
     std::cout << a << std::endl;
+
+    
     
 
       

@@ -38,6 +38,9 @@ namespace inputHelper{
     //To get a random Submarine
     std::shared_ptr<Unit> randomSubmarine();
 
+    //Random action by player1 + merge entity
+    void randomAction(Controller* player1, Controller* player2);
+
 }
 
 #endif //INPUTHELPER_H
