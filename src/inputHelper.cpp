@@ -1,6 +1,5 @@
 #include "inputHelper.h"
-#include <ctime>    //librerie per generare posizioni casuali dove piazzare le navi
-
+#include <random>
 
 int stringTointeger(std::string str){
     int temp = 0;
@@ -107,21 +106,29 @@ std::shared_ptr<Submarine> inputSubmarine(std::istream& is){
 
 
 std::shared_ptr<Unit> randomBattleship(){
-    
-    //1 vertical, 0 horizontal
-    int vert = rand() % 2;  
+
+    std::random_device rand;
+
+    std::uniform_int_distribution<int> VerticalDistribution(0, 1);
+    std::uniform_int_distribution<int> Xdistribution(3, 10);
+    std::uniform_int_distribution<int> Ydistribution(1, 12);
+
+    // 1 vertical, 0 horizontal
+    int vert = VerticalDistribution(rand);  
     if (vert == 0) {
 
-        int x = rand() % 8 + 3;
-        int y = rand() % 12 + 1;
+        int x = Xdistribution(rand);
+        int y = Ydistribution(rand);
+
         std::shared_ptr<Unit> battleShip(new Battleship(Position(x - 2, y), Position(x + 2, y)));
-        
+
         return battleShip;
     } 
     else {
-            
-        int x = rand() % 12 + 1;
-        int y = rand() % 8 + 3;
+
+        int x = Ydistribution(rand);
+        int y = Xdistribution(rand);
+
         std::shared_ptr<Unit> buffer(new Battleship(Position(x, y - 2), Position(x, y + 2)));
         
         return buffer;
@@ -131,22 +138,30 @@ std::shared_ptr<Unit> randomBattleship(){
 }
 
 std::shared_ptr<Unit> randomSupport(){
+
+    std::random_device rand;
+
+    std::uniform_int_distribution<int> VerticalDistribution(0, 1);
+    std::uniform_int_distribution<int> Xdistribution(2, 10);
+    std::uniform_int_distribution<int> Ydistribution(1, 12);
+
     //1 vertical, 0 horizontal
-    
-    int vert = rand() % 2;  
+
+    int vert = VerticalDistribution(rand);
     if (vert == 0) {
             
-        int x = rand()%10+2;
-        int y = rand()%12+1;
+        int x = Xdistribution(rand);
+        int y = Ydistribution(rand);
+
         std::shared_ptr<Unit> buffer(new Support(Position(x - 1, y), Position(x + 1, y)));
         
         return buffer;
-        
     } 
     else {
             
-        int x = rand()%12+1;
-        int y = rand()%10+2;
+        int x = Ydistribution(rand);
+        int y = Xdistribution(rand);
+
         std::shared_ptr<Unit> buffer(new Support(Position(x, y - 1), Position(x, y + 1)));
         
         return buffer;
@@ -155,8 +170,14 @@ std::shared_ptr<Unit> randomSupport(){
 }
 
 std::shared_ptr<Unit> randomSubmarine(){
-    int x = rand() % 12 + 1;
-    int y = rand() % 12 + 1;
+
+    std::random_device rand;
+    
+    std::uniform_int_distribution<int> Xdistribution(1, 12);
+    std::uniform_int_distribution<int> Ydistribution(1, 12);
+
+    int x = Xdistribution(rand);
+    int y = Ydistribution(rand);
     std::shared_ptr<Unit> buffer(new Submarine(Position(x, y), Position(x, y)));
     
     return buffer;

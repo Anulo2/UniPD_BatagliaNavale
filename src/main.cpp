@@ -148,18 +148,20 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
          std::cout << controllerA.getUnits()[i] << std::endl;
      }
      */
-    std::srand(std::time(NULL));
+    std::cout << "\n\n\n";
+    std::cout << "######   COMPUTER VS COMPUTER   ######";
+    ComputerVSComputer b;
+    std::cout << b << std::endl;
+
+      
+    std::cout << "\n\n\n";
     std::cout<<"######################################\n";
     PlayerVSComputer a;
     std::cout<<"######   PLAYER VS COMPUTER   ######";
     std::cout << a.getPlayer1() << std::endl;
     std::cout << a.getPlayer2() << std::endl;
 
-    std::cout<<"######   COMPUTER VS COMPUTER   ######";
-    ComputerVSComputer b;
-    std::cout << a << std::endl;
-
-        
+      
         /*for(int i=0; i<5; i++){
 
         std::cout<<randomBattleship()<<"\n";
