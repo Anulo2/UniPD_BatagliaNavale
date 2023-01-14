@@ -10,7 +10,10 @@
 #include "Support.h"
 
 namespace inputHelper{
-
+    
+    //Return String from player input stream
+    std::string getPlayerInput(std::istream& is);
+    
     //return a position from a input string
     std::vector<Position> inputString(std::string in);
 

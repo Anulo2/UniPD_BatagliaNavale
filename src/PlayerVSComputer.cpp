@@ -15,7 +15,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
 
-            std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(getPlayerInput(std::cin));
+            std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(inputHelper::getPlayerInput(std::cin));
             std::shared_ptr<Unit> battleShip(buffer);
             
             if(player1.checkUnitPlacement(battleShip)){
@@ -62,7 +62,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
         
-            std::shared_ptr<Support> buffer = inputHelper::inputSupport(getPlayerInput(std::cin));
+            std::shared_ptr<Support> buffer = inputHelper::inputSupport(inputHelper::getPlayerInput(std::cin));
             std::shared_ptr<Unit> support(buffer);
 
             if (player1.checkUnitPlacement(support)){
@@ -106,7 +106,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
             
-            std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(getPlayerInput(std::cin));
+            std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(inputHelper::getPlayerInput(std::cin));
             std::shared_ptr<Unit> submarine(buffer);
             if(player1.checkUnitPlacement(submarine)){
                 player1.addUnit(submarine);
@@ -161,12 +161,6 @@ Controller *PlayerVSComputer::getPlayer2() {
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 
 **********************************************************/
-
-std::string PlayerVSComputer::getPlayerInput(std::istream &is){
-    std::string in{};
-    std::getline(is, in, '\n');
-    return in;
-}
 
 std::ostream& operator<<(std::ostream& os, PlayerVSComputer& a) {
     os << (a.getPlayer1());

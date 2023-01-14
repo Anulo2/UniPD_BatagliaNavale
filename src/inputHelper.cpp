@@ -1,5 +1,12 @@
 #include "inputHelper.h"
 
+
+std::string inputHelper::getPlayerInput(std::istream &is){
+    std::string in{};
+    std::getline(is, in, '\n');
+    return in;
+}
+
 int inputHelper::stringTointeger(std::string str){
     int temp = 0;
     for (int i = 0; i < str.length(); i++) {
@@ -47,14 +54,14 @@ std::vector<Position> inputHelper::inputString(std::string in){
 std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in){
     bool done = false;
     while (!done) {
-        std::cout<<"inserire posizioni poppa e prua nave corazzata \n";
+        std::cout<<"\ninserire posizioni poppa e prua nave corazzata \n";
         try {
             
             std::vector<Position> iPositions {inputHelper::inputString(in)};
             
             std::shared_ptr<Battleship> iBattleship(new Battleship(iPositions.at(0), iPositions.at(1)));
             
-            std::cout<<iBattleship<<"\n";
+            std::cout<<"\n"<<iBattleship<<"\n";
             return iBattleship;
         } catch (std::invalid_argument e) {
             std::cout<<"eccezione input Battlehip\n";
@@ -68,12 +75,12 @@ std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in){
 std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
      bool done = false;
      while (!done) {
-        std::cout<<"inserire posizioni poppa e prua nave supporto \n";
+        std::cout<<"\ninserire posizioni poppa e prua nave supporto \n";
         try {
             std::vector<Position> iPositions {inputHelper::inputString(in)}; 
             std::shared_ptr<Support> iSupport(new Support(iPositions.at(0), iPositions.at(1)));
-            
-            
+
+            std::cout <<"\n"<< iSupport << "\n";
             return iSupport;
         } catch (std::invalid_argument e) {
             std::cout<<"eccezione input Support\n";
@@ -87,11 +94,11 @@ std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
 std::shared_ptr<Submarine> inputHelper::inputSubmarine(const std::string in) {
     bool done = false;
     while (!done) {
-        std::cout<<"inserire posizioni poppa e prua nave sottomarino \n";
+        std::cout<<"\ninserire posizioni poppa e prua nave sottomarino \n";
         try {
             std::vector<Position> iPositions{inputHelper::inputString(in)};
             std::shared_ptr<Submarine> iSubmarine(new Submarine(iPositions.at(0), iPositions.at(1)));
-            //Submarine* iSubmarine= new Submarine(iPositions.at(0), iPositions.at(1));
+            std::cout <<"\n"<< iSubmarine << "\n";
             return iSubmarine;
         } catch (std::invalid_argument e) {
             std::cout<<"eccezione input Submarine\n";
