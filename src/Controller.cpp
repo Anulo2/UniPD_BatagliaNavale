@@ -111,7 +111,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 
     for (int i = 0; i < units.size(); i++) {
         std::vector<bool> status = units[i]->getStatus();
-        std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
+        //std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
         int dim = units[i]->getDimension();
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {

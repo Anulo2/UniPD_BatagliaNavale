@@ -156,8 +156,12 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
       
     std::cout << "\n\n\n";
     std::cout<<"######################################\n";
+    std::cout<<"########   START INPUT PLVSPC   ######\n";
+    std::cout<<"######################################\n";
     PlayerVSComputer a;
-    std::cout<<"######   PLAYER VS COMPUTER   ######";
+    std::cout<<"######################################\n";
+    std::cout<<"########   PLAYER VS COMPUTER   ######\n";
+    std::cout<<"######################################\n";
     std::cout << a << std::endl;
     
 

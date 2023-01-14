@@ -18,8 +18,9 @@ ComputerVSComputer::ComputerVSComputer() {
                 {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
-            } catch(std::invalid_argument){
-                std::cout << "\nInvalid Pos for battleship p1" <<std::endl;
+            } catch(std::invalid_argument e){
+                std::cout << "\nInvalid Pos for battleship p1\n" <<std::endl;
+                std::cout << e.what()<<"\n";
             }
             
         }
@@ -42,8 +43,9 @@ ComputerVSComputer::ComputerVSComputer() {
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
-            } catch(std::invalid_argument){
-                std::cout << "\nInvalid Pos for battleship p2" <<std::endl;
+            } catch(std::invalid_argument e){
+                std::cout << "\nInvalid Pos for battleship p1\n" <<std::endl;
+                std::cout << e.what()<<"\n";
             }
             
         }
@@ -89,8 +91,9 @@ ComputerVSComputer::ComputerVSComputer() {
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
-            } catch(std::invalid_argument){
-                std::cout << "\nInvalid Pos for Support p2" <<std::endl;
+            } catch(std::invalid_argument e){
+                std::cout << "\nInvalid Pos for Support p2 \n" <<std::endl;
+                std::cout << e.what()<<"\n";
             }
             
         }
@@ -112,8 +115,9 @@ ComputerVSComputer::ComputerVSComputer() {
                 } else {
                     // std::cout << "Failed to place vertical submarine of Player2 at pos: " << Position(x, y) << "\n";
                 }
-            } catch(std::invalid_argument){
-                std::cout << "\nInvalid Pos for submarine p1" <<std::endl;
+            } catch(std::invalid_argument e){
+                std::cout << "\nInvalid Pos for submarine p1 \n" <<std::endl;
+                std::cout << e.what()<<"\n";
             }
             
         }
@@ -135,8 +139,9 @@ ComputerVSComputer::ComputerVSComputer() {
                 } else {
                     // std::cout << "Failed to place vertical submarine of Player2 at pos: " << Position(x, y) << "\n";
                 }
-            } catch(std::invalid_argument){
-                std::cout << "\nInvalid Pos for submarine p2" <<std::endl;
+            } catch(std::invalid_argument e){
+                std::cout << "\nInvalid Pos for submarine p2 \n" <<std::endl;
+                std::cout << e.what()<<"\n";
             }
             
         }
