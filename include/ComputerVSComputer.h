@@ -5,6 +5,7 @@
 #include "Controller.h"
 #include "Submarine.h"
 #include "Support.h"
+#include "inputHelper.h"
 
 class ComputerVSComputer {
    public:

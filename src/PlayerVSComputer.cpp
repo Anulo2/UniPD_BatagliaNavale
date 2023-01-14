@@ -15,7 +15,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
 
-            std::shared_ptr<Battleship> buffer = inputBattleship(std::cin);
+            std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(std::cin);
             std::shared_ptr<Unit> battleShip(buffer);
             
             if(player1.checkUnitPlacement(battleShip)){
@@ -38,7 +38,7 @@ PlayerVSComputer::PlayerVSComputer(){
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomBattleship());
+                std::shared_ptr<Unit> buffer(inputHelper::randomBattleship());
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
@@ -61,7 +61,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
         
-            std::shared_ptr<Support> buffer =inputSupport(std::cin);
+            std::shared_ptr<Support> buffer = inputHelper::inputSupport(std::cin);
             std::shared_ptr<Unit> support(buffer);
 
             if (player1.checkUnitPlacement(support)){
@@ -84,7 +84,7 @@ PlayerVSComputer::PlayerVSComputer(){
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomSupport());
+                std::shared_ptr<Unit> buffer(inputHelper::randomSupport());
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
@@ -105,7 +105,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
             
-            std::shared_ptr<Submarine> buffer = inputSubmarine(std::cin);
+            std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(std::cin);
             std::shared_ptr<Unit> submarine(buffer);
             if(player1.checkUnitPlacement(submarine)){
                 player1.addUnit(submarine);
@@ -127,7 +127,7 @@ PlayerVSComputer::PlayerVSComputer(){
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomSubmarine());
+                std::shared_ptr<Unit> buffer(inputHelper::randomSubmarine());
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;

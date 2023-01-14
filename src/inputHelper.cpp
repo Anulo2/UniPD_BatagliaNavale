@@ -1,6 +1,6 @@
 #include "inputHelper.h"
 
-int stringTointeger(std::string str){
+int inputHelper::stringTointeger(std::string str){
     int temp = 0;
     for (int i = 0; i < str.length(); i++) {
         temp = temp * 10 + (str[i] - '0');
@@ -8,7 +8,7 @@ int stringTointeger(std::string str){
     return temp;
 }
 
-std::vector<Position> inputManipolation(std::istream& is){
+std::vector<Position> inputHelper::inputManipolation(std::istream& is){
 
     std::string in{};
     std::getline(is, in, '\n');
@@ -44,7 +44,7 @@ std::vector<Position> inputManipolation(std::istream& is){
 }
 
 
-std::shared_ptr<Battleship> inputBattleship(std::istream& is){
+std::shared_ptr<Battleship> inputHelper::inputBattleship(std::istream& is){
     bool done = false;
     while (!done) {
         std::cout<<"inserire posizioni poppa e prua nave corazzata \n";
@@ -66,7 +66,7 @@ std::shared_ptr<Battleship> inputBattleship(std::istream& is){
     return nullptr;
 }
 
-std::shared_ptr<Support> inputSupport(std::istream& is){
+std::shared_ptr<Support> inputHelper::inputSupport(std::istream& is){
      bool done = false;
      while (!done) {
         std::cout<<"inserire posizioni poppa e prua nave supporto \n";
@@ -84,7 +84,7 @@ std::shared_ptr<Support> inputSupport(std::istream& is){
     return nullptr;
 }
 
-std::shared_ptr<Submarine> inputSubmarine(std::istream& is){
+std::shared_ptr<Submarine> inputHelper::inputSubmarine(std::istream& is){
     bool done = false;
     while (!done) {
         std::cout<<"inserire posizioni poppa e prua nave sottomarino \n";
@@ -104,7 +104,7 @@ std::shared_ptr<Submarine> inputSubmarine(std::istream& is){
 
 
 
-std::shared_ptr<Unit> randomBattleship(){
+std::shared_ptr<Unit> inputHelper::randomBattleship(){
 
     std::random_device rand;
 
@@ -136,7 +136,7 @@ std::shared_ptr<Unit> randomBattleship(){
     
 }
 
-std::shared_ptr<Unit> randomSupport(){
+std::shared_ptr<Unit> inputHelper::randomSupport(){
 
     std::random_device rand;
 
@@ -168,7 +168,7 @@ std::shared_ptr<Unit> randomSupport(){
       
 }
 
-std::shared_ptr<Unit> randomSubmarine(){
+std::shared_ptr<Unit> inputHelper::randomSubmarine(){
 
     std::random_device rand;
 

@@ -1,5 +1,4 @@
 #include "ComputerVSComputer.h"
-#include "inputHelper.h"
 
 ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
     bool placed;
@@ -10,7 +9,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomBattleship());
+                std::shared_ptr<Unit> buffer(inputHelper::randomBattleship());
                 if (player1.checkUnitPlacement(buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
@@ -33,7 +32,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomBattleship());
+                std::shared_ptr<Unit> buffer(inputHelper::randomBattleship());
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
@@ -56,7 +55,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomSupport());
+                std::shared_ptr<Unit> buffer(inputHelper::randomSupport());
                 if (player1.checkUnitPlacement(buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
@@ -79,7 +78,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomSupport());
+                std::shared_ptr<Unit> buffer(inputHelper::randomSupport());
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
@@ -102,7 +101,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomSubmarine());
+                std::shared_ptr<Unit> buffer(inputHelper::randomSubmarine());
                 if (player1.checkUnitPlacement(buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
@@ -125,7 +124,7 @@ ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
             
             try{
                 
-                std::shared_ptr<Unit> buffer(randomSubmarine());
+                std::shared_ptr<Unit> buffer(inputHelper::randomSubmarine());
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
