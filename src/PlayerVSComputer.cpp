@@ -15,15 +15,15 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
 
-            std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(std::cin);
+            std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(getPlayerInput(std::cin));
             std::shared_ptr<Unit> battleShip(buffer);
             
             if(player1.checkUnitPlacement(battleShip)){
                 player1.addUnit(battleShip);
                 placed=true;
                 
-                //player1.printDefense(std::cout);
-                //player1.printAttack(std::cout);
+                // player1.printDefense(std::cout);
+                // player1.printAttack(std::cout);
             }
             else{
                 std::cout<<"input non valido, c'è gia una nave\n";
@@ -42,6 +42,7 @@ PlayerVSComputer::PlayerVSComputer(){
                 if (player2.checkUnitPlacement(buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
+                    
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
@@ -61,7 +62,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
         
-            std::shared_ptr<Support> buffer = inputHelper::inputSupport(std::cin);
+            std::shared_ptr<Support> buffer = inputHelper::inputSupport(getPlayerInput(std::cin));
             std::shared_ptr<Unit> support(buffer);
 
             if (player1.checkUnitPlacement(support)){
@@ -105,7 +106,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
             
-            std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(std::cin);
+            std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(getPlayerInput(std::cin));
             std::shared_ptr<Unit> submarine(buffer);
             if(player1.checkUnitPlacement(submarine)){
                 player1.addUnit(submarine);
@@ -142,6 +143,7 @@ PlayerVSComputer::PlayerVSComputer(){
 
         std::cout << "Placed submarine Player2!\n";
     }
+
 }
 
 /*********************************************************         
@@ -159,6 +161,12 @@ Controller *PlayerVSComputer::getPlayer2() {
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 
 **********************************************************/
+
+std::string PlayerVSComputer::getPlayerInput(std::istream &is){
+    std::string in{};
+    std::getline(is, in, '\n');
+    return in;
+}
 
 std::ostream& operator<<(std::ostream& os, PlayerVSComputer& a) {
     os << (a.getPlayer1());

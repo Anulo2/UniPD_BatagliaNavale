@@ -14,8 +14,11 @@ class PlayerVSComputer {
 
     Controller* getPlayer1();
     Controller* getPlayer2();
+    
 
-   protected:
+protected:
+    std::string getPlayerInput(std::istream& is);
+    
     Controller player1;
     Controller player2;
 };

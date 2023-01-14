@@ -42,33 +42,7 @@ std::vector<Position> inputHelper::inputString(std::string in){
     return std::vector<Position> {bow,stern}; 
 }
 
-std::vector<Position> inputHelper::inputManipolation(std::istream& is){
 
-    std::string in{};
-    std::getline(is, in, '\n');
-
-    return inputHelper::inputString(in);
-}
-
-std::shared_ptr<Battleship> inputHelper::inputBattleship(std::istream& is){
-    bool done = false;
-    while (!done) {
-        std::cout<<"inserire posizioni poppa e prua nave corazzata \n";
-        try {
-            
-            std::vector<Position> iPositions {inputHelper::inputManipolation(is)}; 
-            
-            std::shared_ptr<Battleship> iBattleship(new Battleship(iPositions.at(0), iPositions.at(1)));
-            
-            std::cout<<iBattleship<<"\n";
-            return iBattleship;
-        } catch (std::invalid_argument e) {
-            std::cout<<"eccezione input Battlehip\n";
-            std::cout<<e.what();
-        };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate eccezioni perche il ciclo va avanti e riprova (viene interrotto dal return)
-    }
-    return nullptr;
-}
 
 std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in){
     bool done = false;
@@ -90,23 +64,6 @@ std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in){
     return nullptr;
 }
 
-std::shared_ptr<Support> inputHelper::inputSupport(std::istream& is){
-     bool done = false;
-     while (!done) {
-        std::cout<<"inserire posizioni poppa e prua nave supporto \n";
-        try {
-            std::vector<Position> iPositions {inputHelper::inputManipolation(is)}; 
-
-            std::shared_ptr<Support> iSupport(new Support(iPositions.at(0), iPositions.at(1)));
-
-            return iSupport;
-        } catch (std::invalid_argument e) {
-            std::cout<<"eccezione input Support\n";
-            std::cout<<e.what();
-        };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate eccezioni perche il ciclo va avanti e riprova (viene interrotto dal return)
-    }
-    return nullptr;
-}
 
 std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
      bool done = false;
@@ -120,24 +77,6 @@ std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
             return iSupport;
         } catch (std::invalid_argument e) {
             std::cout<<"eccezione input Support\n";
-            std::cout<<e.what();
-        };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate eccezioni perche il ciclo va avanti e riprova (viene interrotto dal return)
-    }
-    return nullptr;
-}
-
-std::shared_ptr<Submarine> inputHelper::inputSubmarine(std::istream& is){
-    bool done = false;
-    while (!done) {
-        std::cout<<"inserire posizioni poppa e prua nave sottomarino \n";
-        try {
-            std::vector<Position> iPositions {inputHelper::inputManipolation(is)}; 
-
-            std::shared_ptr<Submarine> iSubmarine(new Submarine(iPositions.at(0), iPositions.at(1)));
-
-            return iSubmarine;
-        } catch (std::invalid_argument e) {
-            std::cout<<"eccezione input Submarine\n";
             std::cout<<e.what();
         };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate eccezioni perche il ciclo va avanti e riprova (viene interrotto dal return)
     }

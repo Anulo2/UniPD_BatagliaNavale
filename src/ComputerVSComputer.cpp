@@ -13,7 +13,9 @@ ComputerVSComputer::ComputerVSComputer() {
                 if (player1.checkUnitPlacement(buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
-                } else {
+                }
+                else
+                {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
             } catch(std::invalid_argument){
@@ -24,6 +26,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
         std::cout << "Placed Battleship Player1!\n";
     }
+    
 
     //Placing battleships of player2
     for (int i = 0; i < 3; i++) {  
@@ -47,6 +50,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
         std::cout << "Placed Battleship Player2!\n";
     }
+    
 
     //Placing support of player1
     for (int i = 0; i < 3; i++) {  
