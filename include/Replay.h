@@ -2,6 +2,7 @@
 #define REPLAY_H
 
 #include <string>
+#include <ostream>
 
 #include "Battleship.h"
 #include "Controller.h"

@@ -1,5 +1,4 @@
 #include "inputHelper.h"
-#include <random>
 
 int stringTointeger(std::string str){
     int temp = 0;
@@ -172,7 +171,7 @@ std::shared_ptr<Unit> randomSupport(){
 std::shared_ptr<Unit> randomSubmarine(){
 
     std::random_device rand;
-    
+
     std::uniform_int_distribution<int> Xdistribution(1, 12);
     std::uniform_int_distribution<int> Ydistribution(1, 12);
 

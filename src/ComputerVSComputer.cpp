@@ -1,10 +1,4 @@
 #include "ComputerVSComputer.h"
-
-#include <algorithm>
-#include <cstdlib>
-#include <ctime>  //librerie per generare posizioni casuali dove piazzare le navi
-#include <iostream>
-#include <random>
 #include "inputHelper.h"
 
 ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY

@@ -1,6 +1,9 @@
 #ifndef INPUTHELPER_H
 #define INPUTHELPER_H
 
+#include <random>
+#include <iostream>
+
 #include "Controller.h"
 #include "Battleship.h"
 #include "Submarine.h"

@@ -3,4 +3,4 @@ cd build
 cmake .. 
 cmake --build .  
 make 
-bash -c './main && cd ..'
+bash -c './main && ./mainReplay ../replay.txt cd ..'

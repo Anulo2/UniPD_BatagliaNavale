@@ -1,10 +1,5 @@
 #include "PlayerVSComputer.h"
 
-#include <algorithm>
-#include <cstdlib>
-#include <iostream>
-#include <random>
-
 /*********************************************************         
  *                    CONSTRUCTOR                        * 
 **********************************************************/

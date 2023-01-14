@@ -149,7 +149,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
      }
      */
     std::cout << "\n\n\n";
-    std::cout << "######   COMPUTER VS COMPUTER   ######";
+    std::cout << "######   COMPUTER VS COMPUTER   ######\n";
     ComputerVSComputer b;
     std::cout << b << std::endl;
 

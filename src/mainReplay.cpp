@@ -11,14 +11,14 @@
 
 #include "Replay.h"
 
-int main(){
+int main(int argc, char** argv){
 
     std::cout<<"####################################\n";
     std::cout<<"###          REPLAY              ###\n";
     std::cout<<"####################################\n";
 
     std::vector<std::string> iFile;
-    std::ifstream my_ifile("../replay.txt");
+    std::ifstream my_ifile(argv[1]);
     
     if (my_ifile.is_open()) {
         std::string line;
