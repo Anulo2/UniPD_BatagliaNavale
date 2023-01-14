@@ -1,6 +1,6 @@
 #include "ComputerVSComputer.h"
 
-ComputerVSComputer::ComputerVSComputer() {  // TODO: CHECK RANDOMICITY
+ComputerVSComputer::ComputerVSComputer() {  
     bool placed;
     //Placing battleships of player1
     for (int i = 0; i < 3; i++) {  
