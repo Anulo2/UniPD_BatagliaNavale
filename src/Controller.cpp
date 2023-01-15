@@ -19,10 +19,16 @@ bool Controller::isUnit(Position iPos) {
 void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
+            std::cout << "Rimossa unità: " << units[i] << "\n";
             units.erase(units.begin() + i);
+            if (units.size() == 0){
+        dead = true;
+    }
+            
             return;
         }
     }
+    
 }
 std::vector<std::shared_ptr<Unit>> Controller::getUnits() {
     return units;
@@ -36,7 +42,9 @@ std::shared_ptr<Unit> Controller::getUnit(Position iPos) {
     }
     return nullptr;
 }
-
+bool Controller::isDead(){
+    return dead;
+}
 std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, int range) {
     std::vector<std::shared_ptr<Unit>> unitsInRange;
 
@@ -55,16 +63,18 @@ std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, in
     return unitsInRange;
 }
 
-bool Controller::checkUnitPlacement(std::shared_ptr<Unit> iUnit) {
+bool Controller::checkUnitPlacement(std::shared_ptr<Unit> originalUnit,std::shared_ptr<Unit> iUnit) {
     Position a(1, 1);
     Position b(12, 12);
     if (iUnit->getBow().isInside(a, b) && iUnit->getStern().isInside(a, b)) {
         // std::cout << iUnit->getBow() << ", " << iUnit->getStern() <<"\n";
         std::vector<Position> buffer = iUnit->getUnitPositions();
         for (int i = 0; i < units.size(); i++) {
-            for (int j = 0; j < buffer.size(); j++) {
-                if (units[i]->containsPos(buffer[j])) {
-                    return false;
+            if (units[i] != originalUnit){
+                for (int j = 0; j < buffer.size(); j++) {
+                    if (units[i]->containsPos(buffer[j])) {
+                        return false;
+                    }
                 }
             }
         }

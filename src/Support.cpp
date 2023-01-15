@@ -9,10 +9,10 @@ Support::Support(Position iBow, Position iStern) : Unit(iBow, iStern, 3, 3, 'S')
 std::vector<std::shared_ptr<Entity>> Support::action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) {
     middlePos = iTarget;  // il controllo se si può muovere qua bisogna farlo in controller
 
-    for (std::size_t i = 0; i < iUnits.size(); ++i) {
-        if ((*iUnits[i]).getMiddle() != middlePos) {  // Salta il support dato che non si può curare da solo
-            (*iUnits[i]).setArmor((*iUnits[i]).getDimension());
-            (*iUnits[i]).resetStatus();
+    for (int i = 0; i < iUnits.size(); i++) {
+        if (iUnits[i]->getMiddle() != middlePos) {  // Salta il support dato che non si può curare da solo
+            iUnits[i]->setArmor(iUnits[i]->getDimension());
+            iUnits[i]->resetStatus();
         }
     }
 

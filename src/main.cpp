@@ -148,7 +148,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
          std::cout << controllerA.getUnits()[i] << std::endl;
      }
      */
-    std::cout << "\n\n\n";
+    /*std::cout << "\n\n\n";
     std::cout << "######   COMPUTER VS COMPUTER   ######\n";
     ComputerVSComputer b;
     std::cout << b << std::endl;
@@ -158,14 +158,33 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"######################################\n";
     std::cout<<"########   START INPUT PLVSPC   ######\n";
     std::cout<<"######################################\n";
-    PlayerVSComputer a;
+*/
+    ComputerVSComputer a;
+    
+
+    //PlayerVSComputer a;
     std::cout<<"######################################\n";
     std::cout<<"########   PLAYER VS COMPUTER   ######\n";
     std::cout<<"######################################\n";
-    inputHelper::randomAction(a.getPlayer1(), a.getPlayer2());
-    std::cout << a << std::endl;
-
     
+    for (int i = 0; i < 5000; i++){
+       
+        inputHelper::randomAction(a.getPlayer1(), a.getPlayer2());
+        inputHelper::randomAction(a.getPlayer2(), a.getPlayer1());
+        std::cout << "Turno: " << i << "\n";
+        std::cout << "Player1\n" << a.getPlayer1() << "\n";
+        std::cout << "Player2\n"<< a.getPlayer2() << "\n";
+    
+        if (a.getPlayer1()->isDead()){
+            std::cout << "Hai Perso!";
+            break;
+        }
+        if (a.getPlayer2()->isDead()){
+            std::cout << "Hai vinto!";
+            break;
+        }
+    }
+
     
 
       

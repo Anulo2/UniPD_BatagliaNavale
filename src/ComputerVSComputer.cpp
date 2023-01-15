@@ -10,7 +10,7 @@ ComputerVSComputer::ComputerVSComputer() {
             try{
                 
                 std::shared_ptr<Unit> buffer(inputHelper::randomBattleship());
-                if (player1.checkUnitPlacement(buffer)) {
+                if (player1.checkUnitPlacement(buffer,buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
                 }
@@ -37,7 +37,7 @@ ComputerVSComputer::ComputerVSComputer() {
             try{
                 
                 std::shared_ptr<Unit> buffer(inputHelper::randomBattleship());
-                if (player2.checkUnitPlacement(buffer)) {
+                if (player2.checkUnitPlacement(buffer,buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
                 } else {
@@ -62,7 +62,7 @@ ComputerVSComputer::ComputerVSComputer() {
             try{
                 
                 std::shared_ptr<Unit> buffer(inputHelper::randomSupport());
-                if (player1.checkUnitPlacement(buffer)) {
+                if (player1.checkUnitPlacement(buffer,buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
                 } else {
@@ -85,7 +85,7 @@ ComputerVSComputer::ComputerVSComputer() {
             try{
                 
                 std::shared_ptr<Unit> buffer(inputHelper::randomSupport());
-                if (player2.checkUnitPlacement(buffer)) {
+                if (player2.checkUnitPlacement(buffer,buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
                 } else {
@@ -109,7 +109,7 @@ ComputerVSComputer::ComputerVSComputer() {
             try{
                 
                 std::shared_ptr<Unit> buffer(inputHelper::randomSubmarine());
-                if (player1.checkUnitPlacement(buffer)) {
+                if (player1.checkUnitPlacement(buffer,buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
                 } else {
@@ -133,7 +133,7 @@ ComputerVSComputer::ComputerVSComputer() {
             try{
                 
                 std::shared_ptr<Unit> buffer(inputHelper::randomSubmarine());
-                if (player2.checkUnitPlacement(buffer)) {
+                if (player2.checkUnitPlacement(buffer, buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
                 } else {

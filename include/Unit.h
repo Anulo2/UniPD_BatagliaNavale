@@ -12,15 +12,15 @@ class Unit {
    public:
     Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId);
     Unit(const Unit &a);
-    Position getMiddle();             // restiuisce posizione centrale
-    bool isVertical();                // restituisce true se è verticale false se orizzontale
+    Position getMiddle() const;             // restiuisce posizione centrale
+    bool isVertical() const;                // restituisce true se è verticale false se orizzontale
     bool containsPos(Position iPos);  // Controlla se una certa posizione è parte di questa nave
-    char getId();
+    char getId() const;
     Position getBow();
     Position getStern();
     void updateStatus(Position iPos, bool iValue);
     void setArmor(int iArmor);
-    int getArmor();
+    int getArmor() const;
     void resetStatus();
     int getDimension();
     bool isHitAt(Position iPos);

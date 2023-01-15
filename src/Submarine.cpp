@@ -22,9 +22,9 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
     for (int i = 0; i < iUnits.size(); i++) {
         // std::cout << iUnits[i] << "\n";
 
-        for (int j = 0; j < iUnits[i]->getDimension() && (Unit::getStern().getX() + j < 13) && (Unit::getStern().getIntY() + j < 13) ; j++)  {
+        for (int j = 0; j < iUnits[i]->getDimension(); j++)  {
             if (iUnits[i]->isVertical()) {
-                Position buffer(Unit::getStern().getX(), Unit::getStern().getIntY()+j);
+                Position buffer(iUnits[i]->getStern().getX(), iUnits[i]->getStern().getIntY()+j);
                 if (buffer.isInside(a, b)) {
                     if (iUnits[i]->isHitAt(buffer)) {
                         resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'y')));
@@ -34,7 +34,7 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
                 }
 
             } else {
-                Position buffer(Unit::getStern().getX() + j, Unit::getStern().getIntY());
+                Position buffer(iUnits[i]->getStern().getX() + j, iUnits[i]->getStern().getIntY());
                 if (buffer.isInside(a, b)) {
                     if (iUnits[i]->isHitAt(buffer)) {
                         resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'y')));
@@ -69,3 +69,38 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
 
 Submarine::~Submarine() {
 }
+
+
+/*
+
+
+
+N # # # # # # # # # # # #
+M # # # # # # # # # # # #
+L # # # # # S # # # # # #
+I # # # # # S # S S S # #
+H # # # # # S # C C C C C
+G # # # # # # # # # # # #
+F # # # # # # # # # # # #
+E # # # # # # # # # # # #
+D # # # # # S S S # # # #
+C # # # # # # # # # # # #
+B # # # # # # # # # # # #
+A # # # # # # # # # # # #
+  1 2 3 4 5 6 7 8 9 101112
+
+
+N # # # # # # # # # # # #
+M # # # # # # # # # # # #
+L # # # # # # # # # # # #
+I # # # # # # # S S S # #
+H # # # # # # # C C C C T
+G # # # # # # # # # # # #
+F # # # # # # # # # # # #
+E # # # # # # # # # # # #
+D # # # # # # # # # # # #
+C # # # # # # # # # # # #
+B # # # # # # # # # # # #
+A # # # # # # # # # # # #
+  1 2 3 4 5 6 7 8 9 101112
+*/

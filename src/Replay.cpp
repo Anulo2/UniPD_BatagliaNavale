@@ -20,7 +20,7 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
 
-                if(player1.checkUnitPlacement(battleShip)){
+                if(player1.checkUnitPlacement(buffer, battleShip)){
                     player1.addUnit(battleShip);
                     placed=true;
                     //player1.printDefense(std::cout);
@@ -40,7 +40,7 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
                 
-                if(player2.checkUnitPlacement(battleShip)){
+                if(player2.checkUnitPlacement(buffer, battleShip)){
                     player2.addUnit(battleShip);
                     placed=true;
                     //player2.printDefense(std::cout);
@@ -60,7 +60,7 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
-                if(player1.checkUnitPlacement(support)){
+                if(player1.checkUnitPlacement(buffer,support)){
                     player1.addUnit(support);
                     placed=true;
                     //player1.printDefense(std::cout);
@@ -80,7 +80,7 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
-                if(player2.checkUnitPlacement(support)){
+                if(player2.checkUnitPlacement(buffer,support)){
                     player2.addUnit(support);
                     placed=true;
                     //player2.printDefense(std::cout);
@@ -100,7 +100,7 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
-                if(player1.checkUnitPlacement(submarine)){
+                if(player1.checkUnitPlacement(buffer,submarine)){
                     player1.addUnit(submarine);
                     placed=true;
                     //player1.printDefense(std::cout);
@@ -120,7 +120,7 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
-                if(player2.checkUnitPlacement(submarine)){
+                if(player2.checkUnitPlacement(buffer,submarine)){
                     player2.addUnit(submarine);
                     placed=true;
                    // player2.printDefense(std::cout);

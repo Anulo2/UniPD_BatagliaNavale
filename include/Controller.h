@@ -14,7 +14,7 @@ class Controller {
     std::vector<std::shared_ptr<Unit>> getUnits();
     std::shared_ptr<Unit> getUnit(Position iPos);
     std::vector<std::shared_ptr<Unit>> getUnitsInRange(Position iPos, int range);
-    bool checkUnitPlacement(std::shared_ptr<Unit> iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
+    bool checkUnitPlacement(std::shared_ptr<Unit> originalUnit,std::shared_ptr<Unit> iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
 
     void addUnit(std::shared_ptr<Unit> iUnit);
     void removeDeadUnits();
@@ -23,6 +23,7 @@ class Controller {
     void printAttack(std::ostream &os);
     void print(std::ostream &os);
     void mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntities);
+    bool isDead();
     ~Controller();
 
    protected:
@@ -31,6 +32,7 @@ class Controller {
     std::vector<std::shared_ptr<Entity>> enemyEntities;
     Entity defaultEntity;
     std::shared_ptr<Entity> enemyEntitiesMatrix[12][12];
+    bool dead = false;
 };
 std::ostream &operator<<(std::ostream &os, Controller &a);
 std::ostream &operator<<(std::ostream &os, Controller *a);

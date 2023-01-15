@@ -14,10 +14,10 @@ Position::Position(const int& iX, const char& iY) {
     
     x = iX;
 
-    int tempY = (int)tolower(iY) + 1;
-    
+    int tempY = (int)tolower(iY);
+    std::cout << "tempY:\t" << tempY;
     // bisogna saltare le lettere j e k dell'alfabeto
-    (tempY < 106) ? (y = tempY - 97) : (y = tempY - 99);
+    (tempY < 106) ? (y = tempY - 96) : (y = tempY - 98);
 
     //std::cout << "TEMPY : -> " << this->y <<std::endl;
 }
