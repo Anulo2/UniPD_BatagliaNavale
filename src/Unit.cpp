@@ -32,7 +32,8 @@ Unit::Unit(const Unit &a) {
 bool Unit::isHitAt(Position iPos) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
-            return status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1];
+            return status[iPos.getIntY() - Unit::getStern().getIntY()] ;
+            //return status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1];
         } else {
             return status[iPos.getX() - Unit::getStern().getX()];
         }
@@ -75,7 +76,8 @@ Position Unit::getStern() {
 void Unit::updateStatus(Position iPos, bool iValue) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
-            status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iValue;
+            status[iPos.getIntY() - Unit::getStern().getIntY()] = iValue;
+            //status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iValue;
         } else {
             status[iPos.getX() - Unit::getStern().getX()] = iValue;
         }

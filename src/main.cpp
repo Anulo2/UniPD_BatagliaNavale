@@ -166,9 +166,9 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"######################################\n";
     std::cout<<"########   PLAYER VS COMPUTER   ######\n";
     std::cout<<"######################################\n";
-    
-    for (int i = 0; i < 5000; i++){
-       
+    int i = 0;
+    while(true){
+        i++;
         inputHelper::randomAction(a.getPlayer1(), a.getPlayer2());
         inputHelper::randomAction(a.getPlayer2(), a.getPlayer1());
         std::cout << "Turno: " << i << "\n";

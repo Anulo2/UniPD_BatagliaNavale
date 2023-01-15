@@ -20,10 +20,13 @@ void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
             std::cout << "Rimossa unità: " << units[i] << "\n";
+            
+            if (units.size() == 1){
+                dead = true;
+                return;
+            }
+
             units.erase(units.begin() + i);
-            if (units.size() == 0){
-        dead = true;
-    }
             
             return;
         }
