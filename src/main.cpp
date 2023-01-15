@@ -161,7 +161,6 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
 */
     ComputerVSComputer a;
     
-
     //PlayerVSComputer a;
     std::cout<<"######################################\n";
     std::cout<<"########   PLAYER VS COMPUTER   ######\n";

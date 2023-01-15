@@ -181,11 +181,6 @@ void Controller::printAttack(std::ostream& os) {
 
 void Controller::print(std::ostream &os){
     
-    /*
-    for (int i = 0; i < enemyEntities.size(); i++) {
-        enemyEntitiesMatrix[enemyEntities[i].getPos().getIntY() - 1][enemyEntities[i].getPos().getX() - 1] = &enemyEntities[i];
-    }
-    */
     char output[13][13] = {' '};
     
     for (int i = 0; i < 13; i++){
