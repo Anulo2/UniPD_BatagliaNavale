@@ -13,11 +13,14 @@ class Replay {
 
     Controller* getPlayer1();
     Controller* getPlayer2();
+    std::vector<std::string> getLog();
 
    protected:
     Controller player1;
     Controller player2;
+    std::vector<std::string> log;
 };
+
 std::ostream &operator<<(std::ostream &os, Replay &a);
 std::ostream &operator<<(std::ostream &os, Replay *a);
 

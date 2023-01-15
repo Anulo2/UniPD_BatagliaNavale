@@ -69,7 +69,11 @@ int main(int argc, char* argv[]){
             }
 
             Replay a(iFile);
-            my_ofile << a;
+            my_ofile <<inputHelper::logToString(a.getLog());
+            
+            //my_ofile << a.getPlayer1() << "\n";
+            //my_ofile << a.getPlayer2() << "\n";
+            
             my_ofile.close();
             invalid = true;
 

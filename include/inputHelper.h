@@ -10,7 +10,16 @@
 #include "Support.h"
 
 namespace inputHelper{
+    void writeLog(std::ostream &os, std::vector<std::string> log);
+
+    std::string addContentToLog(std::shared_ptr<Unit> obj);
+
+    std::string addContentToLog(Position target, std::shared_ptr<Unit> obj);
+
+    std::string logToString(std::vector<std::string> log);
+
     
+
     //Return String from player input stream
     std::string getPlayerInput(std::istream& is);
     
@@ -39,10 +48,10 @@ namespace inputHelper{
     std::shared_ptr<Unit> randomSubmarine();
 
     //Random action by player1 + merge entity
-    void randomAction(Controller* player1, Controller* player2);
+    std::string randomAction(Controller* player1, Controller* player2);
 
     //Gestisce l'acquisizione dell'azione del player
-    void handlePlayerAction(Controller* player1, Controller* player2);
+    std::string handlePlayerAction(Controller* player1, Controller* player2);
 
 }
 

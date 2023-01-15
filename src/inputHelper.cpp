@@ -1,5 +1,35 @@
 #include "inputHelper.h"
 
+
+void inputHelper::writeLog(std::ostream & os, std::vector<std::string> log){
+    for(int i = 0; i < log.size(); i++)
+        os<<log[i]<<"\n";
+}
+
+std::string inputHelper::logToString(std::vector<std::string> log){
+    std::string toString;
+    for(int i = 0; i < log.size(); i++)
+        toString += log[i] += "\n";
+
+    return toString;
+}
+
+std::string inputHelper::addContentToLog(std::shared_ptr<Unit> obj){
+
+    std::string coordBow = obj->getBow().getY() + std::to_string(obj->getBow().getX());
+    std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());
+    
+    return coordStern + " " + coordBow;
+}
+
+std::string inputHelper::addContentToLog(Position target, std::shared_ptr<Unit> obj){
+
+    std::string coordBow = target.getY() + std::to_string(target.getX());
+    std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());
+    
+    return coordStern + " " + coordBow;
+}
+
 std::string inputHelper::getPlayerInput(std::istream &is) {
     std::string in{};
     std::getline(is, in, '\n');
@@ -187,9 +217,10 @@ std::shared_ptr<Unit> inputHelper::randomSubmarine() {
     return buffer;
 }
 
-void inputHelper::randomAction(Controller *player1,
+std::string inputHelper::randomAction(Controller *player1,
                                Controller *player2)  // player 1 esegue l'azione
-{
+{   
+    std::string log;
     std::random_device rand;
 
     std::uniform_int_distribution<int> randomUnitdistribuition(0, player1->getUnits().size()-1);
@@ -209,7 +240,8 @@ void inputHelper::randomAction(Controller *player1,
 
         std::cout << "\nPOSIZIONE TARGET = " << target << std::endl;
         std::cout << "\nNAVE AZIONE = " << actionUnit << std::endl;
-
+        
+        
         if (type == 'C') {
             std::vector<std::shared_ptr<Unit>> enemyUnit = {
                 player2->getUnit(target)};
@@ -217,7 +249,7 @@ void inputHelper::randomAction(Controller *player1,
             std::vector<std::shared_ptr<Entity>> enemyEntities =
                 actionUnit->action(target, enemyUnit);
             valid = true;
-
+            
             player1->mergeEntities(enemyEntities);
             player2->removeDeadUnits();
         } else if (type == 'S') {
@@ -264,12 +296,19 @@ void inputHelper::randomAction(Controller *player1,
                 player1->mergeEntities(enemyEntities);
             }
         }
+
+        log = addContentToLog(target,actionUnit);
     }
+    
+
     std::cout << "\nAZIONE ESEGUITA DA\t" << actionUnit << std::endl;
+    return log;
 }
 
-void inputHelper::handlePlayerAction(Controller *player1, Controller *player2) {
+std::string inputHelper::handlePlayerAction(Controller *player1, Controller *player2) {
+    std::string log;
     std::shared_ptr<Unit> actionUnit;
+    
     bool valid = false;
     std::cout << player1 << "\n";
     while (!actionUnit || !valid) {
@@ -343,8 +382,10 @@ void inputHelper::handlePlayerAction(Controller *player1, Controller *player2) {
                     }
                 }
             }
+            log = action;
         } catch (std::invalid_argument e) {
         }
     }
     std::cout << "\nAZIONE ESEGUITA DA\t" << actionUnit << std::endl;
+    return log;
 }

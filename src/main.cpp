@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "Battleship.h"
 #include "ComputerVSComputer.h"
@@ -13,7 +14,7 @@
 
 using namespace std;
 
-int main(){
+int main(int argc, char* argv[]){
     /*
 Position posA(7, 'n');
 Position posB(12, 12);
@@ -159,32 +160,46 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"########   START INPUT PLVSPC   ######\n";
     std::cout<<"######################################\n";
 */
+    
+    //PlayerVSComputer b;
+
+    //std::cout<<b;
+
     ComputerVSComputer a;
     
-    //PlayerVSComputer a;
+    std::cout<<a;
+    
+
     std::cout<<"######################################\n";
     std::cout<<"########   PLAYER VS COMPUTER   ######\n";
     std::cout<<"######################################\n";
+    
     int i = 0;
     while(true){
         i++;
-        inputHelper::randomAction(a.getPlayer1(), a.getPlayer2());
-        inputHelper::randomAction(a.getPlayer2(), a.getPlayer1());
-        std::cout << "Turno: " << i << "\n";
-        std::cout << "Player1\n" << a.getPlayer1() << "\n";
-        std::cout << "Player2\n"<< a.getPlayer2() << "\n";
+
+        a.addStringToLog(inputHelper::randomAction(a.getPlayer1(), a.getPlayer2()));
+
+        a.addStringToLog(inputHelper::randomAction(a.getPlayer2(), a.getPlayer1()));
+
+       std::cout << "Turno: " << i << "\n";
+       std::cout << "Player1\n" << a.getPlayer1() << "\n";
+       std::cout << "Player2\n"<< a.getPlayer2() << "\n";
     
         if (a.getPlayer1()->isDead()){
-            std::cout << "Hai Perso!";
+            std::cout << "Hai Perso!"<<std::endl;
             break;
         }
         if (a.getPlayer2()->isDead()){
-            std::cout << "Hai vinto!";
+            std::cout << "Hai vinto!" <<std::endl;
             break;
         }
     }
 
-    
+    std::ofstream my_ofile("../mainLog.txt");
+
+    my_ofile <<inputHelper::logToString(a.getLog());
+            
 
       
         /*for(int i=0; i<5; i++){

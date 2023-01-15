@@ -13,10 +13,14 @@ class ComputerVSComputer {
 
     Controller* getPlayer1();
     Controller* getPlayer2();
+    std::vector<std::string> getLog();
+    void addToLog(std::shared_ptr<Entity> obj);
+    void addStringToLog(std::string iLog);
 
    protected:
     Controller player1;
     Controller player2;
+    std::vector<std::string> log;
 };
 
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a);

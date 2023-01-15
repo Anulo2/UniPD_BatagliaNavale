@@ -29,6 +29,7 @@ Replay::Replay(std::vector<std::string> in){
                     std::cout<<"input non valido, c'è gia una nave\n";
                 }
             }
+            log.push_back(in[iterator]);
             iterator++;
         }
 
@@ -49,6 +50,7 @@ Replay::Replay(std::vector<std::string> in){
                     std::cout<<"input non valido, c'è gia una nave\n";
                 }
             }
+            log.push_back(in[iterator]);
             iterator++;
         }
 
@@ -69,6 +71,7 @@ Replay::Replay(std::vector<std::string> in){
                     std::cout<<"input non valido, c'è gia una nave\n";
                 }
             }
+            log.push_back(in[iterator]);
             iterator++;
         }
 
@@ -89,6 +92,7 @@ Replay::Replay(std::vector<std::string> in){
                     std::cout<<"input non valido, c'è gia una nave\n";
                 }
             }
+            log.push_back(in[iterator]);
             iterator++;
         }
 
@@ -109,6 +113,7 @@ Replay::Replay(std::vector<std::string> in){
                     std::cout<<"input non valido, c'è gia una nave\n";
                 }
             }
+            log.push_back(in[iterator]);
             iterator++;
         }
 
@@ -129,6 +134,7 @@ Replay::Replay(std::vector<std::string> in){
                     std::cout<<"input non valido, c'è gia una nave\n";
                 }
             }
+            log.push_back(in[iterator]);    
             iterator++;
         }
 
@@ -136,7 +142,6 @@ Replay::Replay(std::vector<std::string> in){
 
         // end placing unit
     }//end of while
-    
 }
 
 /*********************************************************         
@@ -151,19 +156,24 @@ Controller *Replay::getPlayer2() {
     return &player2;
 }
 
+std::vector<std::string> Replay::getLog(){
+    return log;
+}
+
 
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 
 **********************************************************/
 
 std::ostream& operator<<(std::ostream& os, Replay& a) {
+    inputHelper::writeLog(os,a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, Replay* a) {
+std::ostream& operator<<(std::ostream& os, Replay* a) { 
     os << *a;
     return os;
 }

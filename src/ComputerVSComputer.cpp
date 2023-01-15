@@ -8,14 +8,14 @@ ComputerVSComputer::ComputerVSComputer() {
         while (!placed) {            
             
             try{
-                
                 std::shared_ptr<Unit> buffer(inputHelper::randomBattleship());
                 if (player1.checkUnitPlacement(buffer,buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
+                    
+                    log.push_back(inputHelper::addContentToLog(buffer));    
                 }
-                else
-                {
+                else{
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
             } catch(std::invalid_argument e){
@@ -40,6 +40,8 @@ ComputerVSComputer::ComputerVSComputer() {
                 if (player2.checkUnitPlacement(buffer,buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
+
+                    log.push_back(inputHelper::addContentToLog(buffer));     
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
@@ -65,6 +67,8 @@ ComputerVSComputer::ComputerVSComputer() {
                 if (player1.checkUnitPlacement(buffer,buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
+
+                    log.push_back(inputHelper::addContentToLog(buffer));     
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
@@ -88,6 +92,8 @@ ComputerVSComputer::ComputerVSComputer() {
                 if (player2.checkUnitPlacement(buffer,buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
+
+                    log.push_back(inputHelper::addContentToLog(buffer));     
                 } else {
                     // std::cout << "Failed to place vertical Battleship of Player2 at pos: " << Position(x, y) << "\n";
                 }
@@ -112,6 +118,8 @@ ComputerVSComputer::ComputerVSComputer() {
                 if (player1.checkUnitPlacement(buffer,buffer)) {
                     player1.addUnit(buffer);
                     placed = true;
+
+                    log.push_back(inputHelper::addContentToLog(buffer));   
                 } else {
                     // std::cout << "Failed to place vertical submarine of Player2 at pos: " << Position(x, y) << "\n";
                 }
@@ -136,6 +144,8 @@ ComputerVSComputer::ComputerVSComputer() {
                 if (player2.checkUnitPlacement(buffer, buffer)) {
                     player2.addUnit(buffer);
                     placed = true;
+
+                    log.push_back(inputHelper::addContentToLog(buffer));                    
                 } else {
                     // std::cout << "Failed to place vertical submarine of Player2 at pos: " << Position(x, y) << "\n";
                 }
@@ -148,6 +158,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
         std::cout << "Placed submarine Player2!\n";
     }
+
 
     /*
     std::cout << player1 << "\n\n\n"
@@ -442,11 +453,32 @@ Controller* ComputerVSComputer::getPlayer2() {
 }
 
 
+std::vector<std::string> ComputerVSComputer::getLog(){
+    return log;
+}
+
+/*********************************************************         
+ *                  SETTER FUNCTIONS                     * 
+**********************************************************/
+
+
+void ComputerVSComputer::addToLog(std::shared_ptr<Entity> obj){
+    
+    std::string coordBow = obj->getPos().getY() + std::to_string(obj->getPos().getX());
+    std::string coordStern = obj->getPos().getY() + std::to_string(obj->getPos().getX());
+    log.push_back(coordStern + " " + coordBow);
+}
+
+void ComputerVSComputer::addStringToLog(std::string iLog){
+    log.push_back(iLog);
+}
+
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 
 **********************************************************/
 
 std::ostream& operator<<(std::ostream& os, ComputerVSComputer& a) {
+    inputHelper::writeLog(os,a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());
