@@ -203,6 +203,7 @@ void inputHelper::randomAction(Controller* player1, Controller* player2) //playe
     char type = actionUnit->getId();
     bool valid= false;
     while(!valid){
+        valid=false;
         int xTarget = Xdistribution(rand);
         int yTarget = Ydistribution(rand);
         Position target(xTarget, yTarget);
@@ -223,14 +224,14 @@ void inputHelper::randomAction(Controller* player1, Controller* player2) //playe
             if (actionUnit->isVertical()) {
                 if(yTarget=1 && yTarget!=12){
                     std::shared_ptr<Unit> buffer(new Support(Position(xTarget, yTarget - 1), Position(xTarget, yTarget + 1)));
-                    if (player2->checkUnitPlacement(buffer)) {
+                    if (player1->checkUnitPlacement(buffer)) {
                         valid = true;
                     }
                 }
             } else {
                 if(xTarget!=1 && xTarget!=12){
                     std::shared_ptr<Unit> buffer(new Support(Position(xTarget-1, yTarget ), Position(xTarget+1, yTarget)));
-                    if (player2->checkUnitPlacement(buffer)) {
+                    if (player1->checkUnitPlacement(buffer)) {
                         valid = true;
                     }
                 }
@@ -246,7 +247,7 @@ void inputHelper::randomAction(Controller* player1, Controller* player2) //playe
             
             
             std::shared_ptr<Unit> buffer(new Submarine(Position(xTarget, yTarget), Position(xTarget, yTarget)));
-            if (player2->checkUnitPlacement(buffer)) {
+            if (player1->checkUnitPlacement(buffer)) {
                 valid = true;
             }
             

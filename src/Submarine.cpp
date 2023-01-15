@@ -22,27 +22,23 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
     for (int i = 0; i < iUnits.size(); i++) {
         // std::cout << iUnits[i] << "\n";
 
-        for (int j = 0; j < iUnits[i]->getDimension(); j++) {
+        for (int j = 0; j < iUnits[i]->getDimension() && (Unit::getStern().getX() + j < 13) && (Unit::getStern().getIntY() + j < 13) ; j++)  {
             if (iUnits[i]->isVertical()) {
-                Position buffer(Unit::getStern().getX(), (Unit::getStern().getIntY() + j));
+                Position buffer(Unit::getStern().getX(), Unit::getStern().getIntY()+j);
                 if (buffer.isInside(a, b)) {
                     if (iUnits[i]->isHitAt(buffer)) {
-                        Entity result(buffer, 'X');
-                        resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'X')));
+                        resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'y')));
                     } else {
-                        Entity result(buffer, 'Y');
                         resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'Y')));
                     }
                 }
 
             } else {
-                Position buffer(Unit::getStern().getX() + j, (Unit::getStern().getIntY()));
+                Position buffer(Unit::getStern().getX() + j, Unit::getStern().getIntY());
                 if (buffer.isInside(a, b)) {
                     if (iUnits[i]->isHitAt(buffer)) {
-                        Entity result(buffer, 'X');
-                        resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'X')));
+                        resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'y')));
                     } else {
-                        Entity result(buffer, 'Y');
                         resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'Y')));
                     }
                 }
