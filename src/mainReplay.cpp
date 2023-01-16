@@ -19,7 +19,8 @@ int main(int argc, char* argv[]){
     std::cout<<"####################################\n";
 
     //content for input file
-    std::vector<std::string> iFile;    
+    std::vector<std::string> iFile;   
+
     //content for output file
     std::vector<std::string> oFile;
     
@@ -47,9 +48,33 @@ int main(int argc, char* argv[]){
                 std::cout << "Unable to open file" << std::endl;
             }
 
+
             Replay a(iFile);
             std::cout << a.getPlayer1() << std::endl;
             std::cout << a.getPlayer2() << std::endl;
+
+            static const int placedUnits = 16;  
+            int i = placedUnits;
+            
+            std::cout<<"\niFile size: \t"<<iFile.size()<<std::endl;
+
+            while(i < iFile.size()){
+                    std::cout<<"\niterator: \t"<<i<<std::endl;
+                    inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(),iFile[i]);
+                    std::cout<<"\n Azione player 1"<<std::endl;
+                    std::cout<<"\n file: \t"<<iFile[i]<<std::endl;
+                    i++;
+                    std::cout<<"\niterator: \t"<<i<<std::endl;
+                    inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(),iFile[i]);
+                    std::cout<<"\n Azione player 2"<<std::endl;
+                    std::cout<<"\n file: \t"<<iFile[i]<<std::endl;
+                    i++;
+            }
+
+            std::cout << a.getPlayer1() << std::endl;
+            std::cout << a.getPlayer2() << std::endl;
+
+            
             invalid = true;
         }
         else if (argc == 4 && strcmp(argv[1],"f")==0){

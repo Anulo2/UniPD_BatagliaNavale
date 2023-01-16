@@ -160,6 +160,13 @@ std::vector<std::string> Replay::getLog(){
     return log;
 }
 
+/*********************************************************         
+ *                  SETER FUNCTIONS                      * 
+**********************************************************/
+
+void Replay::addStringToLog(std::string iLog){
+    log.push_back(iLog);
+}
 
 /*********************************************************         
  *                  HELPER FUNCTIONS                     * 

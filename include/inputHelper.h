@@ -14,11 +14,9 @@ namespace inputHelper{
 
     std::string addContentToLog(std::shared_ptr<Unit> obj);
 
-    std::string addContentToLog(Position target, std::shared_ptr<Unit> obj);
+    std::string addContentToLog(Position target, std::string actionUnit);
 
     std::string logToString(std::vector<std::string> log);
-
-    
 
     //Return String from player input stream
     std::string getPlayerInput(std::istream& is);
@@ -51,7 +49,7 @@ namespace inputHelper{
     std::string randomAction(Controller* player1, Controller* player2);
 
     //Gestisce l'acquisizione dell'azione del player
-    std::string handlePlayerAction(Controller* player1, Controller* player2);
+    std::string handlePlayerAction(Controller* player1, Controller* player2, std::string iLog);
 
 }
 

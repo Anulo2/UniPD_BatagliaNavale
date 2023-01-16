@@ -14,6 +14,7 @@ class Replay {
     Controller* getPlayer1();
     Controller* getPlayer2();
     std::vector<std::string> getLog();
+    void addStringToLog(std::string iLog);
 
    protected:
     Controller player1;

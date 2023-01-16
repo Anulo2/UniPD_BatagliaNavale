@@ -470,6 +470,7 @@ void ComputerVSComputer::addToLog(std::shared_ptr<Entity> obj){
 }
 
 void ComputerVSComputer::addStringToLog(std::string iLog){
+    std::cout<<"\nIlog string-> "<<iLog<<std::endl;
     log.push_back(iLog);
 }
 

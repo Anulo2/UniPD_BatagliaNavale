@@ -187,7 +187,6 @@ std::vector<std::string> PlayerVSComputer::getLog(){
  *                  SETTER FUNCTIONS                     * 
 **********************************************************/
 
-
 void PlayerVSComputer::addToLog(std::shared_ptr<Unit> obj){
     std::string coordBow = obj->getBow().getY() + std::to_string(obj->getBow().getX());
     std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());

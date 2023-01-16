@@ -160,7 +160,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"########   START INPUT PLVSPC   ######\n";
     std::cout<<"######################################\n";
 */
-    
+    /*
     PlayerVSComputer b;
 
     std::cout<<"######################################\n";
@@ -173,10 +173,9 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"########           LOG          ######\n";
     std::cout<<"######################################\n";
 
-
     
     for(int i = 0; i < 2; i++){
-        b.addStringToLog(inputHelper::handlePlayerAction(b.getPlayer1(), b.getPlayer2()));
+        b.addStringToLog(inputHelper::handlePlayerAction(b.getPlayer1(), b.getPlayer2(),""));
 
         b.addStringToLog(inputHelper::randomAction(b.getPlayer2(), b.getPlayer1()));
     }
@@ -185,7 +184,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     my_oFileB <<inputHelper::logToString(b.getLog());
     my_oFileB.close();
     
-
+*/
     ComputerVSComputer a;
     
     std::cout<<"######################################\n";
@@ -193,9 +192,6 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"######################################\n";
 
     std::cout<<a;
-    
-
-    
    
     int i = 0;
     while(true){
@@ -203,12 +199,15 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
 
         a.addStringToLog(inputHelper::randomAction(a.getPlayer1(), a.getPlayer2()));
 
+        std::cout<<"\nAzione eseguita dal player 1\n";
+
         a.addStringToLog(inputHelper::randomAction(a.getPlayer2(), a.getPlayer1()));
 
-       std::cout << "Turno: " << i << "\n";
-       std::cout << "Player1\n" << a.getPlayer1() << "\n";
-       std::cout << "Player2\n"<< a.getPlayer2() << "\n";
-    
+        std::cout<<"\nAzione eseguita dal player 2\n";
+
+        std::cout << "Turno: " << i << "\n";
+
+       
         if (a.getPlayer1()->isDead()){
             std::cout << "Hai Perso!"<<std::endl;
             break;
@@ -220,7 +219,7 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     }
 
 
-    
+    std::cout<<a;
    
     std::ofstream my_oFileA("../mainLogPCVSPC.txt");
     my_oFileA <<inputHelper::logToString(a.getLog());
