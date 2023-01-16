@@ -7,10 +7,10 @@ Support::Support(Position iBow, Position iStern) : Unit(iBow, iStern, 3, 3, 'S')
 // Il controllo se si può muovere in quella posizione bisogna farlo nel controller del giocatore
 // che sta facendo l'azione
 std::vector<std::shared_ptr<Entity>> Support::action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) {
-    middlePos = iTarget;  // il controllo se si può muovere qua bisogna farlo in controller
+    middlePos = iTarget; // il controllo se si può muovere qua bisogna farlo in controller
 
     for (int i = 0; i < iUnits.size(); i++) {
-        if (iUnits[i]->getMiddle() != middlePos) {  // Salta il support dato che non si può curare da solo
+        if (iUnits[i]->getMiddle() != middlePos) { // Salta il support dato che non si può curare da solo
             iUnits[i]->setArmor(iUnits[i]->getDimension());
             iUnits[i]->resetStatus();
         }

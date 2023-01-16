@@ -8,15 +8,15 @@
 #include "inputHelper.h"
 
 class Replay {
-   public:
-    Replay(std::vector<std::string> in);  
+public:
+    Replay(std::vector<std::string> in);
 
-    Controller* getPlayer1();
-    Controller* getPlayer2();
+    Controller *getPlayer1();
+    Controller *getPlayer2();
     std::vector<std::string> getLog();
     void addStringToLog(std::string iLog);
 
-   protected:
+protected:
     Controller player1;
     Controller player2;
     std::vector<std::string> log;
@@ -25,8 +25,6 @@ class Replay {
 std::ostream &operator<<(std::ostream &os, Replay &a);
 std::ostream &operator<<(std::ostream &os, Replay *a);
 
+// HELPER FUNCTIONS
 
-//HELPER FUNCTIONS
-
-
-#endif  // REPLAY_H
+#endif // REPLAY_H

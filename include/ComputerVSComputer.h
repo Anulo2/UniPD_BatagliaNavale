@@ -8,16 +8,16 @@
 #include "inputHelper.h"
 
 class ComputerVSComputer {
-   public:
-    ComputerVSComputer();  // piazza le navi di entrambi i giocatori in posizioni random
+public:
+    ComputerVSComputer(); // piazza le navi di entrambi i giocatori in posizioni random
 
-    Controller* getPlayer1();
-    Controller* getPlayer2();
+    Controller *getPlayer1();
+    Controller *getPlayer2();
     std::vector<std::string> getLog();
     void addToLog(std::shared_ptr<Entity> obj);
     void addStringToLog(std::string iLog);
 
-   protected:
+protected:
     Controller player1;
     Controller player2;
     std::vector<std::string> log;
@@ -26,4 +26,4 @@ class ComputerVSComputer {
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a);
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer *a);
 
-#endif  // COMPUTERVSCOMPUTER_H
+#endif // COMPUTERVSCOMPUTER_H

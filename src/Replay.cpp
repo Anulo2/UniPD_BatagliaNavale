@@ -1,60 +1,59 @@
 #include "Replay.h"
 
-/*********************************************************         
- *                    CONSTRUCTOR                        * 
-**********************************************************/
+/*********************************************************
+ *                    CONSTRUCTOR                        *
+ **********************************************************/
 
-Replay::Replay(std::vector<std::string> in){
+Replay::Replay(std::vector<std::string> in) {
     bool placed;
     int iterator = 0;
     static const int nTotalUnitsInGame = 16;
 
-    while(iterator < nTotalUnitsInGame){
+    while (iterator < nTotalUnitsInGame) {
 
-        //Placing battleships of player1
+        // Placing battleships of player1
         for (int i = 0; i < 3; i++) {
-            std::cout <<"Input String: \n" << in[iterator] <<std::endl;
+            std::cout << "Input String: \n"
+                      << in[iterator] << std::endl;
             placed = false;
             while (!placed) {
 
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
 
-                if(player1.checkUnitPlacement(buffer, battleShip)){
+                if (player1.checkUnitPlacement(buffer, battleShip)) {
                     player1.addUnit(battleShip);
-                    placed=true;
-                    //player1.printDefense(std::cout);
-                }
-                else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    placed = true;
+                    // player1.printDefense(std::cout);
+                } else {
+                    std::cout << "input non valido, c'è gia una nave\n";
                 }
             }
             log.push_back(in[iterator]);
             iterator++;
         }
 
-        //Placing battleships of player2
-        for (int i = 0; i < 3; i++) {  
+        // Placing battleships of player2
+        for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
 
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
-                
-                if(player2.checkUnitPlacement(buffer, battleShip)){
+
+                if (player2.checkUnitPlacement(buffer, battleShip)) {
                     player2.addUnit(battleShip);
-                    placed=true;
-                    //player2.printDefense(std::cout);
-                }
-                else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    placed = true;
+                    // player2.printDefense(std::cout);
+                } else {
+                    std::cout << "input non valido, c'è gia una nave\n";
                 }
             }
             log.push_back(in[iterator]);
             iterator++;
         }
 
-        //Placing supports of player1
+        // Placing supports of player1
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
@@ -62,20 +61,19 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
-                if(player1.checkUnitPlacement(buffer,support)){
+                if (player1.checkUnitPlacement(buffer, support)) {
                     player1.addUnit(support);
-                    placed=true;
-                    //player1.printDefense(std::cout);
-                }
-                else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    placed = true;
+                    // player1.printDefense(std::cout);
+                } else {
+                    std::cout << "input non valido, c'è gia una nave\n";
                 }
             }
             log.push_back(in[iterator]);
             iterator++;
         }
 
-        //Placing supports of player2
+        // Placing supports of player2
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
@@ -83,70 +81,67 @@ Replay::Replay(std::vector<std::string> in){
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
-                if(player2.checkUnitPlacement(buffer,support)){
+                if (player2.checkUnitPlacement(buffer, support)) {
                     player2.addUnit(support);
-                    placed=true;
-                    //player2.printDefense(std::cout);
-                }
-                else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    placed = true;
+                    // player2.printDefense(std::cout);
+                } else {
+                    std::cout << "input non valido, c'è gia una nave\n";
                 }
             }
             log.push_back(in[iterator]);
             iterator++;
         }
 
-        //Placing submarines of player1
-        for (int i = 0; i < 2; i++) {  
+        // Placing submarines of player1
+        for (int i = 0; i < 2; i++) {
             placed = false;
             while (!placed) {
-                
+
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
-                if(player1.checkUnitPlacement(buffer,submarine)){
+                if (player1.checkUnitPlacement(buffer, submarine)) {
                     player1.addUnit(submarine);
-                    placed=true;
-                    //player1.printDefense(std::cout);
-                }
-                else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    placed = true;
+                    // player1.printDefense(std::cout);
+                } else {
+                    std::cout << "input non valido, c'è gia una nave\n";
                 }
             }
             log.push_back(in[iterator]);
             iterator++;
         }
 
-        //Placing submarines of player1
-        for (int i = 0; i < 2; i++) {  
+        // Placing submarines of player1
+        for (int i = 0; i < 2; i++) {
             placed = false;
             while (!placed) {
-                
+
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
-                if(player2.checkUnitPlacement(buffer,submarine)){
+                if (player2.checkUnitPlacement(buffer, submarine)) {
                     player2.addUnit(submarine);
-                    placed=true;
-                   // player2.printDefense(std::cout);
-                }
-                else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    placed = true;
+                    // player2.printDefense(std::cout);
+                } else {
+                    std::cout << "input non valido, c'è gia una nave\n";
                 }
             }
-            log.push_back(in[iterator]);    
+            log.push_back(in[iterator]);
             iterator++;
         }
 
-        std::cout << "iterator: " << iterator <<std::endl;
+        std::cout << "iterator: " << iterator << std::endl;
 
         // end placing unit
-    }//end of while
+    } // end of while
 }
 
-/*********************************************************         
- *                  GETTER FUNCTIONS                     * 
-**********************************************************/
+/*********************************************************
+ *                  GETTER FUNCTIONS                     *
+ **********************************************************/
 
 Controller *Replay::getPlayer1() {
     return &player1;
@@ -156,31 +151,31 @@ Controller *Replay::getPlayer2() {
     return &player2;
 }
 
-std::vector<std::string> Replay::getLog(){
+std::vector<std::string> Replay::getLog() {
     return log;
 }
 
-/*********************************************************         
- *                  SETER FUNCTIONS                      * 
-**********************************************************/
+/*********************************************************
+ *                  SETER FUNCTIONS                      *
+ **********************************************************/
 
-void Replay::addStringToLog(std::string iLog){
+void Replay::addStringToLog(std::string iLog) {
     log.push_back(iLog);
 }
 
-/*********************************************************         
- *                  HELPER FUNCTIONS                     * 
-**********************************************************/
+/*********************************************************
+ *                  HELPER FUNCTIONS                     *
+ **********************************************************/
 
-std::ostream& operator<<(std::ostream& os, Replay& a) {
-    inputHelper::writeLog(os,a.getLog());
+std::ostream &operator<<(std::ostream &os, Replay &a) {
+    inputHelper::writeLog(os, a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, Replay* a) { 
+std::ostream &operator<<(std::ostream &os, Replay *a) {
     os << *a;
     return os;
 }

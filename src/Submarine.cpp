@@ -22,9 +22,9 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
     for (int i = 0; i < iUnits.size(); i++) {
         // std::cout << iUnits[i] << "\n";
 
-        for (int j = 0; j < iUnits[i]->getDimension(); j++)  {
+        for (int j = 0; j < iUnits[i]->getDimension(); j++) {
             if (iUnits[i]->isVertical()) {
-                Position buffer(iUnits[i]->getStern().getX(), iUnits[i]->getStern().getIntY()+j);
+                Position buffer(iUnits[i]->getStern().getX(), iUnits[i]->getStern().getIntY() + j);
                 if (buffer.isInside(a, b)) {
                     if (iUnits[i]->isHitAt(buffer)) {
                         resultVect.push_back(std::shared_ptr<Entity>(new Entity(buffer, 'y')));
@@ -69,7 +69,6 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
 
 Submarine::~Submarine() {
 }
-
 
 /*
 

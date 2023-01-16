@@ -65,7 +65,7 @@ PlayerVSComputer::PlayerVSComputer(){
         }
 
         std::cout<<"Battleship player2 n."<<i+1<<" placed!\n";
-        player2.printDefense(std::cout);
+        //player2.printDefense(std::cout);
     }
 
 
@@ -124,7 +124,7 @@ PlayerVSComputer::PlayerVSComputer(){
         }
 
         std::cout<<"Support player2 n."<<i+1<<" placed!\n";
-        player2.printDefense(std::cout);
+        //player2.printDefense(std::cout);
     }
 
     //Placing submarines of player1
@@ -179,7 +179,7 @@ PlayerVSComputer::PlayerVSComputer(){
         }
 
         std::cout<<"Submarine player2 n."<<i+1<<" placed!\n";
-        player2.printDefense(std::cout);
+        //player2.printDefense(std::cout);
     }
 
     

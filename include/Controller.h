@@ -8,13 +8,13 @@
 #include "Unit.h"
 
 class Controller {
-   public:
+public:
     Controller();
     bool isUnit(Position iPos);
     std::vector<std::shared_ptr<Unit>> getUnits();
     std::shared_ptr<Unit> getUnit(Position iPos);
     std::vector<std::shared_ptr<Unit>> getUnitsInRange(Position iPos, int range);
-    bool checkUnitPlacement(std::shared_ptr<Unit> originalUnit,std::shared_ptr<Unit> iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
+    bool checkUnitPlacement(std::shared_ptr<Unit> originalUnit, std::shared_ptr<Unit> iUnit); // TODO: controllare se ci sono gia unità nelle caselle di iUnit
 
     void addUnit(std::shared_ptr<Unit> iUnit);
     void removeDeadUnits();
@@ -26,7 +26,7 @@ class Controller {
     bool isDead();
     ~Controller();
 
-   protected:
+protected:
     // std::vector<Unit *> units = {};
     std::vector<std::shared_ptr<Unit>> units;
     std::vector<std::shared_ptr<Entity>> enemyEntities;

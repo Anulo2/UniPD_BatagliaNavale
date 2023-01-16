@@ -15,23 +15,22 @@ bool Controller::isUnit(Position iPos) {
         }
     }
     return false;
-}                                
+}
 void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
             std::cout << "Rimossa unità: " << units[i] << "\n";
-            
-            if (units.size() == 1){
+
+            if (units.size() == 1) {
                 dead = true;
                 return;
             }
 
             units.erase(units.begin() + i);
-            
+
             return;
         }
     }
-    
 }
 std::vector<std::shared_ptr<Unit>> Controller::getUnits() {
     return units;
@@ -45,20 +44,20 @@ std::shared_ptr<Unit> Controller::getUnit(Position iPos) {
     }
     return nullptr;
 }
-bool Controller::isDead(){
+bool Controller::isDead() {
     return dead;
 }
 std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, int range) {
     std::vector<std::shared_ptr<Unit>> unitsInRange;
 
-    Position a(std::max(iPos.getX()-range,1), std::max(iPos.getIntY() - range,1));
-    Position b(std::min(iPos.getX() + range,12), std::min(iPos.getIntY() + range,12));
+    Position a(std::max(iPos.getX() - range, 1), std::max(iPos.getIntY() - range, 1));
+    Position b(std::min(iPos.getX() + range, 12), std::min(iPos.getIntY() + range, 12));
 
     std::cout << a << "\n";
     std::cout << b << "\n";
 
     for (int i = 0; i < units.size(); i++) {
-        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) {  // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
+        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) { // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
             unitsInRange.push_back(units[i]);
         }
     }
@@ -66,14 +65,14 @@ std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, in
     return unitsInRange;
 }
 
-bool Controller::checkUnitPlacement(std::shared_ptr<Unit> originalUnit,std::shared_ptr<Unit> iUnit) {
+bool Controller::checkUnitPlacement(std::shared_ptr<Unit> originalUnit, std::shared_ptr<Unit> iUnit) {
     Position a(1, 1);
     Position b(12, 12);
     if (iUnit->getBow().isInside(a, b) && iUnit->getStern().isInside(a, b)) {
         // std::cout << iUnit->getBow() << ", " << iUnit->getStern() <<"\n";
         std::vector<Position> buffer = iUnit->getUnitPositions();
         for (int i = 0; i < units.size(); i++) {
-            if (units[i] != originalUnit){
+            if (units[i] != originalUnit) {
                 for (int j = 0; j < buffer.size(); j++) {
                     if (units[i]->containsPos(buffer[j])) {
                         return false;
@@ -111,7 +110,7 @@ void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntiti
 
 char columns[] = {' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C'};
 
-void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il dopddio n^2 e farlo solo una volta, per ora va bene così
+void Controller::printDefense(std::ostream &os) { // Forse si può evitare il dopddio n^2 e farlo solo una volta, per ora va bene così
     char output[13][13];
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 13; j++) {
@@ -127,12 +126,12 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
 
     for (int i = 0; i < units.size(); i++) {
         std::vector<bool> status = units[i]->getStatus();
-        //std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
+        // std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
         int dim = units[i]->getDimension();
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
             for (int j = 0; j < dim; j++) {
-                output[units[i]->getBow().getIntY() - (j+1)][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
+                output[units[i]->getBow().getIntY() - (j + 1)][units[i]->getBow().getX()] = status[dim - j - 1] ? (id + 32) : id;
             }
         } else {
             for (int j = 0; j < dim; j++) {
@@ -148,7 +147,7 @@ void Controller::printDefense(std::ostream& os) {  // Forse si può evitare il d
     }
 }
 
-void Controller::printAttack(std::ostream& os) {
+void Controller::printAttack(std::ostream &os) {
 
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[enemyEntities[i]->getPos().getIntY() - 1][enemyEntities[i]->getPos().getX() - 1] = enemyEntities[i];
@@ -179,12 +178,12 @@ void Controller::printAttack(std::ostream& os) {
     }
 }
 
-void Controller::print(std::ostream &os){
-    
+void Controller::print(std::ostream &os) {
+
     char output[13][13] = {' '};
-    
-    for (int i = 0; i < 13; i++){
-        for (int j = 0; j < 13; j++){
+
+    for (int i = 0; i < 13; i++) {
+        for (int j = 0; j < 13; j++) {
             output[i][j] = ' ';
         }
     }
@@ -203,7 +202,7 @@ void Controller::print(std::ostream &os){
             }
         }
     }
-    
+
     for (int i = 0; i < 13; i++) {
         if (i == 12) {
             os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝";
@@ -227,7 +226,7 @@ void Controller::print(std::ostream &os){
                 os << "        ";
                 os << "  ╠═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╬═══╣\n";
             }
-            
+
             for (int j = 0; j < 13; j++) {
                 if (j == 0) {
                     os << rows[i] << " ";
@@ -239,7 +238,7 @@ void Controller::print(std::ostream &os){
             os << "║";
             os << "        ";
             int j = 0;
-            for (j = 0; j < 13; j++){
+            for (j = 0; j < 13; j++) {
 
                 if (j == 0) {
                     os << rows[i] << " ";
@@ -253,13 +252,12 @@ void Controller::print(std::ostream &os){
                 }
                 os << "║";
             }
-            
+
             os << "\n";
         }
-        
     }
     os << "\n";
-    
+
     /*
     for (int i = 0; i < units.size(); i++) {
         std::cout << units[i] << "\n";
@@ -269,10 +267,9 @@ void Controller::print(std::ostream &os){
     }
     std::cout << "\n";
     */
-   
 }
 
-std::ostream& operator<<(std::ostream& os, Controller& a) {
+std::ostream &operator<<(std::ostream &os, Controller &a) {
     /* a.printDefense(os);
     os << std::endl;
     a.printAttack(os);
@@ -281,11 +278,11 @@ std::ostream& operator<<(std::ostream& os, Controller& a) {
     os << "\n";
     a.print(os);
     os << "\n";
-    
+
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, Controller* a) {
+std::ostream &operator<<(std::ostream &os, Controller *a) {
     os << *a;
     return os;
 }

@@ -32,8 +32,8 @@ Unit::Unit(const Unit &a) {
 bool Unit::isHitAt(Position iPos) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
-            return status[iPos.getIntY() - Unit::getStern().getIntY()] ;
-            //return status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1];
+            return status[iPos.getIntY() - Unit::getStern().getIntY()];
+            // return status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1];
         } else {
             return status[iPos.getX() - Unit::getStern().getX()];
         }
@@ -41,7 +41,7 @@ bool Unit::isHitAt(Position iPos) {
     return false;
 }
 
-Position Unit::getMiddle() const{
+Position Unit::getMiddle() const {
     return middlePos;
 }
 
@@ -53,7 +53,7 @@ bool Unit::containsPos(Position iPos) {
     return iPos.isInside(Unit::getStern(), Unit::getBow());
 }
 
-char Unit::getId() const{
+char Unit::getId() const {
     return id;
 }
 
@@ -77,7 +77,7 @@ void Unit::updateStatus(Position iPos, bool iValue) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
             status[iPos.getIntY() - Unit::getStern().getIntY()] = iValue;
-            //status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iValue;
+            // status[dimension - (Unit::getBow().getIntY() - iPos.getIntY()) - 1] = iValue;
         } else {
             status[iPos.getX() - Unit::getStern().getX()] = iValue;
         }
@@ -129,7 +129,7 @@ std::ostream &operator<<(std::ostream &os, Unit &a) {
     for (bool c : a.getStatus()) {
         status.push_back(c ? (a.getId() + 32) : a.getId());
     }
-    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
+    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension(); // TODO check perchè richiede &
     os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId() << ")";
     return os;
 }
@@ -138,11 +138,11 @@ std::ostream &operator<<(std::ostream &os, Unit *a) {
     return os;
 }
 
-bool operator==(const Unit &a, const Unit &b){
-    return a==b;
-    //return (a.getMiddle() == b.getMiddle()) && (a.getId() == b.getId()) && (a.getArmor() && b.getArmor()) && (a.isVertical() != b.isVertical()) && a.;
+bool operator==(const Unit &a, const Unit &b) {
+    return a == b;
+    // return (a.getMiddle() == b.getMiddle()) && (a.getId() == b.getId()) && (a.getArmor() && b.getArmor()) && (a.isVertical() != b.isVertical()) && a.;
 }
 
-bool operator!=(const Unit &a, const Unit &b){
+bool operator!=(const Unit &a, const Unit &b) {
     return !(a == b);
 }

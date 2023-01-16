@@ -4,7 +4,7 @@
 #include "Unit.h"
 
 class Submarine : public Unit {
-   public:
+public:
     Submarine(Position iBow, Position iStern);
     Submarine(Position iPos);
     std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits);
