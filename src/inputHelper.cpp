@@ -211,12 +211,6 @@ std::string inputHelper::randomAction(Controller *player1,Controller *player2)  
     std::shared_ptr<Unit> actionUnit = player1->getUnits()[ship];
     finalActionUnit = actionUnit->getMiddle().getY() + std::to_string(actionUnit->getMiddle().getX());
     
-
-    std::cout<<"######################################\n";
-    std::cout<<"########  TABLE ACTION PLAYER   ######\n";
-    std::cout<<"######################################\n";
-
-
     std::cout << player1 << "\n";
 
     char type = actionUnit->getId();
@@ -309,15 +303,16 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
     std::shared_ptr<Unit> actionUnit;
     
     bool valid = false;
-
+    bool specialChar = false;
     std::cout<<"######################################\n";
     std::cout<<"########  TABLE ACTION PLAYER   ######\n";
     std::cout<<"######################################\n";
-
-
-    std::cout << player1 << "\n";
     
-    while (!actionUnit || !valid) {
+
+        //TODO NON SONO SICURO FRATOMO TESTARE E AGGIUNGERE EVENTUALI CONTROLLI
+
+
+    while ((!actionUnit || !valid) || !specialChar) {
         std::cout << "Inserisci l'azione in questo formato: B10 G6, dove la "
                      "prima posizione seleziona la tua unità e la seconda la "
                      "posizione di arrivo dell'azione\n";
@@ -328,21 +323,25 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
             if(iLogStr.length() == 0){
                 
                 action = inputHelper::getPlayerInput(std::cin);
-                result = inputHelper::inputString(action);
-                log = action;
 
+                if(action == "AA AA"){
+                    std::cout<<"AA funziona"<<std::endl;
+                    std::cout<<player1<<std::endl;
+                    specialChar = true;
+                } else {
+                    result = inputHelper::inputString(action);
+                    log = action;
+                
+                }
+                
             } else{
 
                 result = inputHelper::inputString(iLogStr);
                 log = iLogStr;
+                actionUnit = player1->getUnit(result[0]);
             }
             
-            std::cout<<"\n\niLogString : \t"<<iLogStr<<std::endl;
-            std::cout<<"\n posizione nave attacco : \t"<<result[0].getY() << result[0].getX()<<std::endl;
-            std::cout<<"\n posizione nave target : \t"<<result[1].getY() << result[1].getX()<<std::endl;
-            actionUnit = player1->getUnit(result[0]);
-
-            if (actionUnit) {
+            if (actionUnit && !specialChar) {
 
                 Position target = result[1];
 

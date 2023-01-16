@@ -81,8 +81,7 @@ int main(int argc, char* argv[]){
                 invalid = true;
             }
         }
-
-
+        
         std::cout<<computerVsComputer;
     
         std::ofstream my_oFileA("../mainLogPCVSPC.txt");
