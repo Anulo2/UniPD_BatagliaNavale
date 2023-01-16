@@ -1,6 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <string.h>
+#include <chrono>
+#include <thread>
+#include <stdio.h>
 
 #include "Controller.h"
 #include "Entity.h"
@@ -23,6 +26,8 @@ int main(int argc, char* argv[]){
 
     //content for output file
     std::vector<std::string> oFile;
+
+    static const int placedUnits = 16;  
     
     bool invalid = false;
     while (!invalid){
@@ -53,27 +58,22 @@ int main(int argc, char* argv[]){
             std::cout << a.getPlayer1() << std::endl;
             std::cout << a.getPlayer2() << std::endl;
 
-            static const int placedUnits = 16;  
-            int i = placedUnits;
             
-            std::cout<<"\niFile size: \t"<<iFile.size()<<std::endl;
+            int i = placedUnits;    
 
             while(i < iFile.size()){
-                    std::cout<<"\niterator: \t"<<i<<std::endl;
-                    inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(),iFile[i]);
-                    std::cout<<"\n Azione player 1"<<std::endl;
-                    std::cout<<"\n file: \t"<<iFile[i]<<std::endl;
+                    a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(),iFile[i]));
+                    std::cout<<a.getPlayer1()<<std::endl;
+                    
                     i++;
-                    std::cout<<"\niterator: \t"<<i<<std::endl;
-                    inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(),iFile[i]);
-                    std::cout<<"\n Azione player 2"<<std::endl;
-                    std::cout<<"\n file: \t"<<iFile[i]<<std::endl;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(1000) );
+                    a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(),iFile[i]));
+                    std::cout<<a.getPlayer2()<<std::endl;
+                    
                     i++;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(1000) );
             }
-
-            std::cout << a.getPlayer1() << std::endl;
-            std::cout << a.getPlayer2() << std::endl;
-
+           
             
             invalid = true;
         }
@@ -95,9 +95,18 @@ int main(int argc, char* argv[]){
 
             Replay a(iFile);
             my_ofile <<inputHelper::logToString(a.getLog());
-            
-            //my_ofile << a.getPlayer1() << "\n";
-            //my_ofile << a.getPlayer2() << "\n";
+
+            int i = placedUnits;
+                while(i < iFile.size()){
+                    a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(),iFile[i]));
+                    my_ofile<<iFile[i];
+                    my_ofile<<a<<std::endl;
+                    i++;
+                    a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(),iFile[i]));
+                    my_ofile<<iFile[i];
+                    my_ofile<<a<<std::endl;
+                    i++;
+                }
             
             my_ofile.close();
             invalid = true;

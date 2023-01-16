@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 11)
+set(GCC_COVERAGE_COMPILE_FLAGS "-g -O2")
 
 project(UniPD_BatagliaNavale)
 

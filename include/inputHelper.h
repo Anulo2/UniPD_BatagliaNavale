@@ -49,7 +49,7 @@ namespace inputHelper{
     std::string randomAction(Controller* player1, Controller* player2);
 
     //Gestisce l'acquisizione dell'azione del player
-    std::string handlePlayerAction(Controller* player1, Controller* player2, std::string iLog);
+    std::string handlePlayerAction(Controller* player1, Controller* player2, std::string iLogStr);    
 
 }
 
