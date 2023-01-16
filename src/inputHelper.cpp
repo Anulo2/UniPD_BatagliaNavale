@@ -18,7 +18,7 @@ std::string inputHelper::addContentToLog(std::shared_ptr<Unit> obj){
 
     std::string coordBow = obj->getBow().getY() + std::to_string(obj->getBow().getX());
     std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());
-    return coordBow + " " +  coordStern;
+    return coordStern + " " + coordBow;
 }
 
 std::string inputHelper::addContentToLog(Position target, std::string actionUnit){
@@ -85,66 +85,43 @@ std::vector<Position> inputHelper::inputString(std::string in) {
 }
 
 std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in) {
-    bool done = false;
-    while (!done) {
-        std::cout << "\ninserire posizioni poppa e prua nave corazzata \n";
-        try {
-            std::vector<Position> iPositions{inputHelper::inputString(in)};
 
-            std::shared_ptr<Battleship> iBattleship(
-                new Battleship(iPositions.at(0), iPositions.at(1)));
+    std::cout << "\ninserire posizioni poppa e prua nave corazzata \n";
+    
+    std::vector<Position> iPositions{inputHelper::inputString(in)};
 
-            std::cout << "\n" << iBattleship << "\n";
-            return iBattleship;
-        } catch (std::invalid_argument e) {
-            std::cout << "eccezione input Battlehip\n";
-            std::cout << e.what();
-        };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate
-            // eccezioni perche il ciclo va avanti e riprova (viene interrotto
-            // dal return)
-    }
-    return nullptr;
+    std::shared_ptr<Battleship> iBattleship(new Battleship(iPositions.at(0), iPositions.at(1)));
+
+    std::cout << "\n" << iBattleship << "\n";
+    
+    return iBattleship;
 }
 
 std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
-    bool done = false;
-    while (!done) {
-        std::cout << "\ninserire posizioni poppa e prua nave supporto \n";
-        try {
-            std::vector<Position> iPositions{inputHelper::inputString(in)};
-            std::shared_ptr<Support> iSupport(
-                new Support(iPositions.at(0), iPositions.at(1)));
+    
+    std::cout << "\ninserire posizioni poppa e prua nave supporto \n";
+        
+    std::vector<Position> iPositions{inputHelper::inputString(in)};
+    
+    std::shared_ptr<Support> iSupport(new Support(iPositions.at(0), iPositions.at(1)));
 
-            std::cout << "\n" << iSupport << "\n";
-            return iSupport;
-        } catch (std::invalid_argument e) {
-            std::cout << "eccezione input Support\n";
-            std::cout << e.what();
-        };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate
-            // eccezioni perche il ciclo va avanti e riprova (viene interrotto
-            // dal return)
-    }
-    return nullptr;
+    std::cout << "\n" << iSupport << "\n";
+
+    return iSupport;
+       
 }
 
 std::shared_ptr<Submarine> inputHelper::inputSubmarine(const std::string in) {
-    bool done = false;
-    while (!done) {
-        std::cout << "\ninserire posizioni poppa e prua nave sottomarino \n";
-        try {
-            std::vector<Position> iPositions{inputHelper::inputString(in)};
-            std::shared_ptr<Submarine> iSubmarine(
-                new Submarine(iPositions.at(0), iPositions.at(1)));
-            std::cout << "\n" << iSubmarine << "\n";
-            return iSubmarine;
-        } catch (std::invalid_argument e) {
-            std::cout << "eccezione input Submarine\n";
-            std::cout << e.what();
-        };  // TODO:CHECK idea: non deve fare nulla se vengono lanciate
-            // eccezioni perche il ciclo va avanti e riprova (viene interrotto
-            // dal return)
-    }
-    return nullptr;
+   
+    std::cout << "\ninserire posizioni poppa e prua nave sottomarino \n";
+
+    std::vector<Position> iPositions{inputHelper::inputString(in)};
+
+    std::shared_ptr<Submarine> iSubmarine(new Submarine(iPositions.at(0), iPositions.at(1)));
+
+    std::cout << "\n" << iSubmarine << "\n";
+
+    return iSubmarine;
 }
 
 std::shared_ptr<Unit> inputHelper::randomBattleship() {

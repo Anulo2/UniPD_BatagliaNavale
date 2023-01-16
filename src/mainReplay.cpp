@@ -62,16 +62,16 @@ int main(int argc, char* argv[]){
             int i = placedUnits;    
 
             while(i < iFile.size()){
-                    a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(),iFile[i]));
-                    std::cout<<a.getPlayer1()<<std::endl;
-                    
-                    i++;
-                    std::this_thread::sleep_for(std::chrono::milliseconds(1000) );
-                    a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(),iFile[i]));
-                    std::cout<<a.getPlayer2()<<std::endl;
-                    
-                    i++;
-                    std::this_thread::sleep_for(std::chrono::milliseconds(1000) );
+                a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(),iFile[i]));
+                std::cout<<a.getPlayer1()<<std::endl;
+                
+                i++;
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000) );
+                a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(),iFile[i]));
+                std::cout<<a.getPlayer2()<<std::endl;
+                
+                i++;
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000) );
             }
            
             

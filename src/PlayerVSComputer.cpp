@@ -14,21 +14,28 @@ PlayerVSComputer::PlayerVSComputer(){
     for (int i = 0; i < 3; i++) {  
         placed = false;
         while (!placed) {
-
-            std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(inputHelper::getPlayerInput(std::cin));
-            std::shared_ptr<Unit> battleShip(buffer);
             
-            if(player1.checkUnitPlacement(battleShip,battleShip)){
-                player1.addUnit(battleShip);
-                placed=true;
+            std::cout<<"\nInserisci le coordinate della corazzata n: "<<i+1<<"\n";
+            try{
+                std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(inputHelper::getPlayerInput(std::cin));
+                std::shared_ptr<Unit> battleShip(buffer);
                 
-                log.push_back(inputHelper::addContentToLog(buffer));                   
-                // player1.printDefense(std::cout);
-                // player1.printAttack(std::cout);
+                if(player1.checkUnitPlacement(battleShip,battleShip)){
+                    player1.addUnit(battleShip);
+                    placed=true;
+                    
+                    log.push_back(inputHelper::addContentToLog(buffer));                   
+                    // player1.printDefense(std::cout);
+                    // player1.printAttack(std::cout);
+                }
+                else{
+                    std::cout<<"input non valido, c'è gia una nave\n";
+                }
+                
+            }catch(std::invalid_argument e){
+                std::cout << "\n"<<e.what() <<std::endl;
             }
-            else{
-                std::cout<<"input non valido, c'è gia una nave\n";
-            }
+            
         }
         std::cout<<"Battleship player1 n."<<i+1<<" placed!\n";
         player1.printDefense(std::cout);
@@ -67,21 +74,29 @@ PlayerVSComputer::PlayerVSComputer(){
     for (int i = 0; i < 3; i++) {  
         placed = false;
         while (!placed) {
-        
-            std::shared_ptr<Support> buffer = inputHelper::inputSupport(inputHelper::getPlayerInput(std::cin));
-            std::shared_ptr<Unit> support(buffer);
+            
+            std::cout<<"\nInserisci le coordinate del supporto n: "<<i+1<<"\n";
 
-            if (player1.checkUnitPlacement(support,support)) {
-                player1.addUnit(support);
-                placed=true;
+            try{
+                std::shared_ptr<Support> buffer = inputHelper::inputSupport(inputHelper::getPlayerInput(std::cin));
+                std::shared_ptr<Unit> support(buffer);
 
-                log.push_back(inputHelper::addContentToLog(buffer));                     
-                
-                //player1.printDefense(std::cout);
-                //player1.printAttack(std::cout);
-            } else {
-                std::cout<<"input non valido, c'è gia una nave\n";
+                if (player1.checkUnitPlacement(support,support)) {
+                    player1.addUnit(support);
+                    placed=true;
+
+                    log.push_back(inputHelper::addContentToLog(buffer));                     
+                    
+                    //player1.printDefense(std::cout);
+                    //player1.printAttack(std::cout);
+                } else {
+                    std::cout<<"input non valido, c'è gia una nave\n";
+                }
+
+            }catch(std::invalid_argument e){
+                std::cout << "\n"<<e.what() <<std::endl;
             }
+            
         }  
         std::cout<<"Support player1 n."<<i+1<<" placed!\n";
         player1.printDefense(std::cout); 
@@ -93,7 +108,6 @@ PlayerVSComputer::PlayerVSComputer(){
         while (!placed) {            
             
             try{
-                
                 std::shared_ptr<Unit> buffer(inputHelper::randomSupport());
                 if (player2.checkUnitPlacement(buffer,buffer)) {
                     player2.addUnit(buffer);
@@ -117,20 +131,26 @@ PlayerVSComputer::PlayerVSComputer(){
     for (int i = 0; i < 2; i++) {  
         placed = false;
         while (!placed) {
+            std::cout<<"\nInserisci le coordinate del sottomarino n: "<<i+1<<"\n";
+            try{
+                std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(inputHelper::getPlayerInput(std::cin));
+                std::shared_ptr<Unit> submarine(buffer);
+                if(player1.checkUnitPlacement(submarine,submarine)){
+                    player1.addUnit(submarine);
+                    placed=true;
+                    
+                    log.push_back(inputHelper::addContentToLog(buffer));                    
+                    //player1.printDefense(std::cout);
+                    //player1.printAttack(std::cout);
+                }
+                else{
+                    std::cout<<"input non valido, c'è gia una nave\n";
+                }
+            }catch(std::invalid_argument e){
+                std::cout << "\n"<<e.what() <<std::endl;
+            }
             
-            std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(inputHelper::getPlayerInput(std::cin));
-            std::shared_ptr<Unit> submarine(buffer);
-            if(player1.checkUnitPlacement(submarine,submarine)){
-                player1.addUnit(submarine);
-                placed=true;
-                
-                log.push_back(inputHelper::addContentToLog(buffer));                    
-                //player1.printDefense(std::cout);
-                //player1.printAttack(std::cout);
-            }
-            else{
-                std::cout<<"input non valido, c'è gia una nave\n";
-            }
+            
         }
         std::cout<<"Submarine player1 n."<<i+1<<" placed!\n";
         player1.printDefense(std::cout);
@@ -153,8 +173,7 @@ PlayerVSComputer::PlayerVSComputer(){
                     // std::cout << "Failed to place vertical submarine of Player2 at pos: " << Position(x, y) << "\n";
                 }
             } catch(std::invalid_argument e){
-                std::cout << "\nInvalid Pos for submarine p2 \n" <<std::endl;
-                std::cout << e.what()<<"\n";
+                std::cout << "\n"<<e.what() <<std::endl;
             }
             
         }
