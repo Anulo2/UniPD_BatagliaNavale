@@ -23,11 +23,11 @@ std::string inputHelper::addContentToLog(std::shared_ptr<Unit> obj){
 }
 
 std::string inputHelper::addContentToLog(Position target, std::shared_ptr<Unit> obj){
-
-    std::string coordBow = target.getY() + std::to_string(target.getX());
-    std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());
     
-    return coordStern + " " + coordBow;
+    std::string coordtarget = target.getY() + std::to_string(target.getX());
+    std::string coordAction = obj->getMiddle().getY() + std::to_string(obj->getMiddle().getX());
+    std::cout<<"\nLOG: \t"<<coordAction + " " + coordtarget<<std::endl;
+    return coordAction + " " + coordtarget;
 }
 
 std::string inputHelper::getPlayerInput(std::istream &is) {
@@ -248,10 +248,12 @@ std::string inputHelper::randomAction(Controller *player1,
 
             std::vector<std::shared_ptr<Entity>> enemyEntities =
                 actionUnit->action(target, enemyUnit);
-            valid = true;
-            
-            player1->mergeEntities(enemyEntities);
-            player2->removeDeadUnits();
+                valid = true;
+                    
+                player1->mergeEntities(enemyEntities);
+                player2->removeDeadUnits();
+
+            log = addContentToLog(target,actionUnit);
         } else if (type == 'S') {
             if (actionUnit->isVertical()) {
                 try {
@@ -260,6 +262,7 @@ std::string inputHelper::randomAction(Controller *player1,
                                     Position(xTarget, yTarget + 1)));
                     if (player1->checkUnitPlacement(actionUnit, buffer)) {
                         valid = true;
+                        
                     }
                 } catch (std::invalid_argument e) {
                 }
@@ -270,11 +273,14 @@ std::string inputHelper::randomAction(Controller *player1,
                                     Position(xTarget + 1, yTarget)));
                     if (player1->checkUnitPlacement(actionUnit,buffer)) {
                         valid = true;
+                        
                     }
                 } catch (std::invalid_argument e) {
                 }
             }
             if (valid) {
+                log = addContentToLog(target,actionUnit);
+
                 std::vector<std::shared_ptr<Unit>> bufferUnit =
                     player2->getUnitsInRange(target, 1);
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
@@ -289,6 +295,8 @@ std::string inputHelper::randomAction(Controller *player1,
             }
 
             if (valid) {
+                log = addContentToLog(target,actionUnit);
+
                 std::vector<std::shared_ptr<Unit>> bufferUnit =
                     player2->getUnitsInRange(target, 2);
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
@@ -297,7 +305,8 @@ std::string inputHelper::randomAction(Controller *player1,
             }
         }
 
-        log = addContentToLog(target,actionUnit);
+        
+        
     }
     
 
