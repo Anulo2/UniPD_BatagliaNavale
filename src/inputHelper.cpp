@@ -18,15 +18,13 @@ std::string inputHelper::addContentToLog(std::shared_ptr<Unit> obj){
 
     std::string coordBow = obj->getBow().getY() + std::to_string(obj->getBow().getX());
     std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());
-    
     return coordStern + " " + coordBow;
 }
 
 std::string inputHelper::addContentToLog(Position target, std::shared_ptr<Unit> obj){
-    
     std::string coordtarget = target.getY() + std::to_string(target.getX());
     std::string coordAction = obj->getMiddle().getY() + std::to_string(obj->getMiddle().getX());
-    std::cout<<"\nLOG: \t"<<coordAction + " " + coordtarget<<std::endl;
+    std::cout<<"\nB LOG: \t"<<coordAction + " " + coordtarget<<std::endl;
     return coordAction + " " + coordtarget;
 }
 
@@ -221,6 +219,7 @@ std::string inputHelper::randomAction(Controller *player1,
                                Controller *player2)  // player 1 esegue l'azione
 {   
     std::string log;
+    Position finalTarget;
     std::random_device rand;
 
     std::uniform_int_distribution<int> randomUnitdistribuition(0, player1->getUnits().size()-1);
@@ -253,7 +252,7 @@ std::string inputHelper::randomAction(Controller *player1,
                 player1->mergeEntities(enemyEntities);
                 player2->removeDeadUnits();
 
-            log = addContentToLog(target,actionUnit);
+            
         } else if (type == 'S') {
             if (actionUnit->isVertical()) {
                 try {
@@ -279,8 +278,7 @@ std::string inputHelper::randomAction(Controller *player1,
                 }
             }
             if (valid) {
-                log = addContentToLog(target,actionUnit);
-
+                
                 std::vector<std::shared_ptr<Unit>> bufferUnit =
                     player2->getUnitsInRange(target, 1);
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
@@ -295,8 +293,7 @@ std::string inputHelper::randomAction(Controller *player1,
             }
 
             if (valid) {
-                log = addContentToLog(target,actionUnit);
-
+                
                 std::vector<std::shared_ptr<Unit>> bufferUnit =
                     player2->getUnitsInRange(target, 2);
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
@@ -304,12 +301,11 @@ std::string inputHelper::randomAction(Controller *player1,
                 player1->mergeEntities(enemyEntities);
             }
         }
-
         
-        
+        finalTarget = target;
     }
     
-
+    log = addContentToLog(finalTarget,actionUnit);
     std::cout << "\nAZIONE ESEGUITA DA\t" << actionUnit << std::endl;
     return log;
 }
@@ -396,5 +392,6 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
         }
     }
     std::cout << "\nAZIONE ESEGUITA DA\t" << actionUnit << std::endl;
+    std::cout<<"\nLOG:\t"<<log<<std::endl;
     return log;
 }

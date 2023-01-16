@@ -161,19 +161,42 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
     std::cout<<"######################################\n";
 */
     
-    //PlayerVSComputer b;
-
-    //std::cout<<b;
-
-    ComputerVSComputer a;
-    
-    std::cout<<a;
-    
+    PlayerVSComputer b;
 
     std::cout<<"######################################\n";
     std::cout<<"########   PLAYER VS COMPUTER   ######\n";
     std::cout<<"######################################\n";
+
+    std::cout<<b;
     
+    std::cout<<"######################################\n";
+    std::cout<<"########           LOG          ######\n";
+    std::cout<<"######################################\n";
+
+
+    
+    for(int i = 0; i < 2; i++){
+        b.addStringToLog(inputHelper::handlePlayerAction(b.getPlayer1(), b.getPlayer2()));
+
+        b.addStringToLog(inputHelper::randomAction(b.getPlayer2(), b.getPlayer1()));
+    }
+
+    std::ofstream my_oFileB("../mainLogPLVSPC.txt");
+    my_oFileB <<inputHelper::logToString(b.getLog());
+    my_oFileB.close();
+    
+
+    ComputerVSComputer a;
+    
+    std::cout<<"######################################\n";
+    std::cout<<"########   COMPUTER VS COMPUTER   ######\n";
+    std::cout<<"######################################\n";
+
+    std::cout<<a;
+    
+
+    
+   
     int i = 0;
     while(true){
         i++;
@@ -196,10 +219,12 @@ std::cout << "Risultato azione:  " << entitaAzioneB.at(0) << std::endl;
         }
     }
 
-    std::ofstream my_ofile("../mainLog.txt");
 
-    my_ofile <<inputHelper::logToString(a.getLog());
-            
+    
+   
+    std::ofstream my_oFileA("../mainLogPCVSPC.txt");
+    my_oFileA <<inputHelper::logToString(a.getLog());
+    my_oFileA.close();
 
       
         /*for(int i=0; i<5; i++){
