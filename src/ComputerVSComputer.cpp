@@ -158,7 +158,9 @@ Controller *ComputerVSComputer::getPlayer2() {
 }
 
 std::vector<std::string> ComputerVSComputer::getLog() {
-    return log;
+    std::vector<std::string> buffer = log;
+    log.clear();
+    return buffer;
 }
 
 /*********************************************************

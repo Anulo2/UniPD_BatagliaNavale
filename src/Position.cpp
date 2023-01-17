@@ -27,8 +27,6 @@ Position::Position(int iX, int iY) {
     if ((iX < 1) || (iX > 12) || (iY < 1) || (iY > 12))
         throw std::invalid_argument("invalid X & Y, valid value for X & Y[1,2,3,4,5,6,7,8,9,10,11,12]");
 
-    // TODO controllare eccezione !!
-
     x = iX;
     y = iY;
 }

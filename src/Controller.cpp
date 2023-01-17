@@ -16,21 +16,22 @@ bool Controller::isUnit(Position iPos) {
     }
     return false;
 }
-void Controller::removeDeadUnits() {
+bool Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
-            std::cout << "Removed Unit: " << units[i] << "\n";
-
             if (units.size() == 1) {
                 dead = true;
-                return;
+                return true;
             }
 
             units.erase(units.begin() + i);
 
-            return;
+            std::cout << "Unit destroyed!";
+
+            return true;
         }
     }
+    return false;
 }
 std::vector<std::shared_ptr<Unit>> Controller::getUnits() {
     return units;
@@ -116,12 +117,15 @@ void Controller::clearAttackGrid(const char x) {
         }
     }
 
-    if (x == 'X')
+    if (x == 'X') {
         std::cout << "\nAll the hits 'X' have been removed\n";
-    else if (x == 'O')
+    } else if (x == 'O') {
         std::cout << "\nAll the miss 'O' have been removed\n";
-    else if (x == ' ')
-        std::cout << "\nThe attack gris is clear\n";
+    } else if (x == 'Y' || x == 'y') {
+        std::cout << "\nAll the radar scan 'Y' 'y' have been removed\n";
+    } else if (x == ' ') {
+        std::cout << "\nThe attack grid is clear\n";
+    }
 }
 
 std::string columns[] = {" ", "  1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", "10 ", "11 ", "12 "};

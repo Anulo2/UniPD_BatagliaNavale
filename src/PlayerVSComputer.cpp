@@ -194,7 +194,9 @@ Controller* PlayerVSComputer::getPlayer2() {
 }
 
 std::vector<std::string> PlayerVSComputer::getLog() {
-    return log;
+    std::vector<std::string> buffer = log;
+    log.clear();
+    return buffer;
 }
 
 /*********************************************************

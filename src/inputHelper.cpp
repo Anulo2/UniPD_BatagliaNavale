@@ -195,9 +195,7 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
     char type = actionUnit->getId();
     bool valid = false;
 
-    std::cout << "######################################\n";
     std::cout << "########  ACTION COMPUTER FIELD ######\n";
-    std::cout << "######################################\n";
 
     while (!valid) {
         valid = false;
@@ -213,8 +211,13 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
                 actionUnit->action(target, enemyUnit);
             valid = true;
 
+            std::cout << "\nBattleship fires at " << target;
+
             player1->mergeEntities(enemyEntities);
-            player2->removeDeadUnits();
+            if (player2->removeDeadUnits()) {
+                std::cout << "\nUnit destroyed\n";
+            }
+
         } else if (type == 'S') {
             if (actionUnit->isVertical()) {
                 try {
@@ -243,6 +246,7 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
                     actionUnit->action(target, bufferUnit);
                 player1->mergeEntities(enemyEntities);
+                std::cout << "\n A Support moves ...  \n";
             }
         } else if (type == 'E') {
             std::shared_ptr<Unit> buffer(new Submarine(
@@ -257,6 +261,8 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
                     actionUnit->action(target, bufferUnit);
                 player1->mergeEntities(enemyEntities);
+
+                std::cout << "\n A Submarine moves ...  \n";
             }
         }
 
@@ -265,7 +271,7 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
 
     log = addContentToLog(finalTarget, finalActionUnit);
 
-    std::cout << "\n\t-> " << log << " ";
+    // std::cout << "\n\t-> " << log << " ";
 
     return log;
 }
@@ -273,6 +279,7 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
 std::string inputHelper::handlePlayerAction(Controller *player1, Controller *player2, std::string iLogStr) {
     std::string log;
     std::shared_ptr<Unit> actionUnit;
+    Position actionUnitMiddlePos;
 
     bool valid = false;
     bool specialChar = false;
@@ -282,13 +289,12 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
     std::cout << "######################################\n";
 
     std::cout << "An action has this format: B10 G6\n"
-                 "The first coordinate rappresent the middle pos of the ship that will do the action\n"
+                 "The first coordinates rappresent the middle pos of the ship that will do the action\n"
                  "the second coordinate represents the target position of the action \n"
 
                  "A special string can be used to display your defense and attack field: XX XX\n"
-                 "\n\nType help if you need more info abuot special strings!\n\n";
+                 "\n\nType help if you need more info about special strings!\n\n";
 
-    std::cout.flush();
     while (!actionUnit || !valid) {
         specialChar = false;
 
@@ -299,10 +305,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
             std::vector<Position> result;
 
             if (iLogStr.length() == 0) {
-                try {
-                    action = inputHelper::getPlayerInput(std::cin);
-                } catch (std::out_of_range e) {
-                }
+                action = inputHelper::getPlayerInput(std::cin);
 
                 if (action == "XX XX") {
                     std::cout << player1 << std::endl;
@@ -311,7 +314,9 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     std::cout << "-> XX XX \t: Display your defense and attack grid\n"
                                  "-> AA AA \t: Reset the attack grid\n"
                                  "-> BB BB \t: Removes all the Hit form the attack grid\n"
-                                 "-> CC CC \t: Removes all the Miss form the attack grid\n";
+                                 "-> CC CC \t: Removes all the Miss form the attack grid\n"
+                                 "-> DD DD \t: Removes all the radar scans 'y' 'Y' form the attack grid\n";
+
                     specialChar = true;
                 } else if (action == "AA AA") {
                     player1->clearAttackGrid(' ');
@@ -325,19 +330,18 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     player1->clearAttackGrid('O');
                     std::cout << player1 << std::endl;
                     specialChar = true;
+                } else if (action == "DD DD") {
+                    player1->clearAttackGrid('y');
+                    player1->clearAttackGrid('Y');
+                    std::cout << player1 << std::endl;
+                    specialChar = true;
                 } else {
                     result = inputHelper::inputString(action);
                     actionUnit = player1->getUnit(result[0]);
                     log = action;
                 }
             } else {
-                try {
-                    result = inputHelper::inputString(iLogStr);
-                } catch (std::out_of_range e) {
-                    std::cout << "\n"
-                              << e.what() << std::endl;
-                    std::cout << "Please type a valid input!";
-                }
+                result = inputHelper::inputString(iLogStr);
 
                 actionUnit = player1->getUnit(result[0]);
                 log = iLogStr;
@@ -347,7 +351,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                 Position target = result[1];
 
                 char type = actionUnit->getId();
-
+                actionUnitMiddlePos = actionUnit->getMiddle();
                 if (type == 'C') {
                     std::vector<std::shared_ptr<Unit>> enemyUnit = {
                         player2->getUnit(target)};
@@ -357,8 +361,12 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     valid = true;
                     specialChar = true;
 
+                    std::cout << "\nBattleship in position: " << actionUnitMiddlePos << "fires at " << target;
+
                     player1->mergeEntities(enemyEntities);
-                    player2->removeDeadUnits();
+                    if (player2->removeDeadUnits()) {
+                        std::cout << "\nUnit destroyed\n";
+                    }
                 } else if (type == 'S') {
                     if (actionUnit->isVertical()) {
                         try {
@@ -368,6 +376,8 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                             if (player1->checkUnitPlacement(actionUnit, buffer)) {
                                 valid = true;
                                 specialChar = true;
+                            } else {
+                                std::cout << "Invalid position" << std::endl;
                             }
                         } catch (std::invalid_argument e) {
                         }
@@ -379,6 +389,8 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                             if (player1->checkUnitPlacement(actionUnit, buffer)) {
                                 valid = true;
                                 specialChar = true;
+                            } else {
+                                std::cout << "Invalid position" << std::endl;
                             }
                         } catch (std::invalid_argument e) {
                         }
@@ -389,6 +401,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                         std::vector<std::shared_ptr<Entity>> enemyEntities =
                             actionUnit->action(target, bufferUnit);
                         player1->mergeEntities(enemyEntities);
+                        std::cout << "\nSupport moves from " << actionUnitMiddlePos << " to " << target;
                     }
                 } else if (type == 'E') {
                     std::shared_ptr<Unit> buffer(new Submarine(
@@ -397,6 +410,8 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     if (player1->checkUnitPlacement(actionUnit, buffer)) {
                         valid = true;
                         specialChar = true;
+                    } else {
+                        std::cout << "Invalid position" << std::endl;
                     }
 
                     if (valid) {
@@ -405,13 +420,17 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                         std::vector<std::shared_ptr<Entity>> enemyEntities =
                             actionUnit->action(target, bufferUnit);
                         player1->mergeEntities(enemyEntities);
+                        std::cout << "\n Submarine moves from " << actionUnitMiddlePos << " to " << target;
                     }
                 }
             }
         } catch (std::invalid_argument e) {
+            std::cout << "\nPlease type a valid input!\n";
+        } catch (std::out_of_range e) {
+            std::cout << "\nPlease type a valid input!\n";
         }
     }
 
-    std::cout << "\t " << log << " ";
+    // std::cout << "\t " << log << " ";
     return log;
 }

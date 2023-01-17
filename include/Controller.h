@@ -14,10 +14,10 @@ class Controller {
     std::vector<std::shared_ptr<Unit>> getUnits();
     std::shared_ptr<Unit> getUnit(Position iPos);
     std::vector<std::shared_ptr<Unit>> getUnitsInRange(Position iPos, int range);
-    bool checkUnitPlacement(std::shared_ptr<Unit> originalUnit, std::shared_ptr<Unit> iUnit);  // TODO: controllare se ci sono gia unità nelle caselle di iUnit
+    bool checkUnitPlacement(std::shared_ptr<Unit> originalUnit, std::shared_ptr<Unit> iUnit);
 
     void addUnit(std::shared_ptr<Unit> iUnit);
-    void removeDeadUnits();
+    bool removeDeadUnits();
 
     void printDefense(std::ostream &os);
     void printAttack(std::ostream &os);

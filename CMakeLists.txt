@@ -20,13 +20,13 @@ add_library(${PROJECT_NAME}
 	src/inputHelper.cpp
 )
 
-add_executable(main 
+add_executable(battaglia_navale 
 	src/main.cpp
 	)
 
-add_executable(mainReplay
+add_executable(replay
 	src/mainReplay.cpp
 	)
 
-target_link_libraries(main ${PROJECT_NAME})
-target_link_libraries(mainReplay ${PROJECT_NAME})
+target_link_libraries(battaglia_navale ${PROJECT_NAME})
+target_link_libraries(replay ${PROJECT_NAME})

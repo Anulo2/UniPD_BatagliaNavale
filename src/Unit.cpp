@@ -130,7 +130,7 @@ std::ostream &operator<<(std::ostream &os, Unit &a) {
     for (bool c : a.getStatus()) {
         status.push_back(c ? (a.getId() + 32) : a.getId());
     }
-    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
+    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();
     os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId() << ")";
     return os;
 }
