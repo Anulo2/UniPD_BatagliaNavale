@@ -16,8 +16,8 @@ public:
     bool isVertical() const;         // restituisce true se è verticale false se orizzontale
     bool containsPos(Position iPos); // Controlla se una certa posizione è parte di questa nave
     char getId() const;
-    Position getBow();
-    Position getStern();
+    Position getBow() const;
+    Position getStern() const;
     void updateStatus(Position iPos, bool iValue);
     void setArmor(int iArmor);
     int getArmor() const;
@@ -26,7 +26,7 @@ public:
     bool isHitAt(Position iPos);
     std::vector<bool> getStatus();
     virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) = 0; // funzione virtuale pura, restituisce il tipo della nave
-    const std::vector<Position> getUnitPositions();
+    std::vector<Position> getUnitPositions() const;
     virtual ~Unit();
 
 protected:

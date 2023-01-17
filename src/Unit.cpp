@@ -57,7 +57,7 @@ char Unit::getId() const {
     return id;
 }
 
-Position Unit::getBow() {
+Position Unit::getBow() const {
     if (vertical) {
         return Position(middlePos.getX(), middlePos.getIntY() + dimension / 2);
     } else {
@@ -65,7 +65,7 @@ Position Unit::getBow() {
     }
 }
 
-Position Unit::getStern() {
+Position Unit::getStern() const{
     if (vertical) {
         return Position(middlePos.getX(), middlePos.getIntY() - (dimension / 2));
     } else {
@@ -106,7 +106,7 @@ std::vector<bool> Unit::getStatus() {
     return status;
 }
 
-const std::vector<Position> Unit::getUnitPositions() {
+std::vector<Position> Unit::getUnitPositions() const{
     std::vector<Position> result;
     if (vertical) {
         for (int i = 0; i < dimension; i++) {
