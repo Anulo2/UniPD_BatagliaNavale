@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < MAX_TURNS && (!playerVsComputer.getPlayer1()->isDead() && !playerVsComputer.getPlayer2()->isDead()); i++) {
 
             playerVsComputer.addStringToLog(inputHelper::handlePlayerAction(playerVsComputer.getPlayer1(), playerVsComputer.getPlayer2(), ""));
+            std::cout<<"\n\n";
 
             playerVsComputer.addStringToLog(inputHelper::randomAction(playerVsComputer.getPlayer2(), playerVsComputer.getPlayer1()));
             
@@ -57,7 +58,7 @@ int main(int argc, char *argv[]) {
             std::cout << "######################################\n";
         }
 
-        std::ofstream my_oFileB("../mainLogPLVSPC.txt");
+        std::ofstream my_oFileB("../logs/mainLogPLVSPC.txt");
         my_oFileB << inputHelper::logToString(playerVsComputer.getLog());
         std::cout<<"\n You can find the log of the game in mainLogPLVSPC.txt !\n";
         my_oFileB.close();
@@ -102,7 +103,7 @@ int main(int argc, char *argv[]) {
 
         std::cout << computerVsComputer;
 
-        std::ofstream my_oFileA("../mainLogPCVSPC.txt");
+        std::ofstream my_oFileA("../logs/mainLogPCVSPC.txt");
         my_oFileA << inputHelper::logToString(computerVsComputer.getLog());
         std::cout<<"\n You can find the log of the game in mainLogPCVSPC.txt !\n";
         my_oFileA.close();

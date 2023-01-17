@@ -18,11 +18,14 @@ public:
 
     void addUnit(std::shared_ptr<Unit> iUnit);
     void removeDeadUnits();
-    // void addUnit(Unit iUnit);
+    
     void printDefense(std::ostream &os);
     void printAttack(std::ostream &os);
     void print(std::ostream &os);
     void mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntities);
+
+    void clearAttackGrid(const char x);
+    
     bool isDead();
     ~Controller();
 

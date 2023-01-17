@@ -124,6 +124,7 @@ std::vector<Position> Unit::getUnitPositions() const{
 
 Unit::~Unit() {
 }
+
 std::ostream &operator<<(std::ostream &os, Unit &a) {
     std::string status;
     for (bool c : a.getStatus()) {

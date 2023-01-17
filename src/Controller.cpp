@@ -44,6 +44,7 @@ std::shared_ptr<Unit> Controller::getUnit(Position iPos) {
     }
     return nullptr;
 }
+
 bool Controller::isDead() {
     return dead;
 }
@@ -102,6 +103,29 @@ void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntiti
         }
     }
 }
+
+void Controller::clearAttackGrid(const char x){
+
+    for (int i = 0; i < 12; i++) {
+        for(int j = 0; j < 12; j++){
+            if (enemyEntitiesMatrix[i][j] != nullptr) {
+
+                if(enemyEntitiesMatrix[i][j]->getId() == x){
+                    enemyEntitiesMatrix[i][j]->setId(' ');
+
+                } else if(x == ' ' ){
+                    enemyEntitiesMatrix[i][j]->setId(' '); 
+                }
+            }
+        }
+        
+    }
+
+    if(x == 'X') std::cout<<"\nAll the hits 'X' have been removed\n";
+    else if(x == 'O') std::cout<<"\nAll the miss 'O' have been removed\n";
+    else if(x == ' ') std::cout<<"\nThe attack gris is clear\n";
+}
+
 
 std::string columns[] = {" ", "  1 ", " 2 ", " 3 ", " 4 " , " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", "10 ", "11 ", "12 "};
 
