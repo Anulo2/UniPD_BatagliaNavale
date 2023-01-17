@@ -41,7 +41,5 @@ protected:
 std::ostream &operator<<(std::ostream &os, Unit &a);
 std::ostream &operator<<(std::ostream &os, Unit *a);
 
-bool operator==(const Unit &a, const Unit &b);
-bool operator!=(const Unit &a, const Unit &b);
 
 #endif

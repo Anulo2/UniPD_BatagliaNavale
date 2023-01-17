@@ -37,7 +37,4 @@ protected:
 std::ostream &operator<<(std::ostream &os, Controller &a);
 std::ostream &operator<<(std::ostream &os, Controller *a);
 
-bool operator==(Controller a, Controller b);
-bool operator!=(Controller a, Controller b);
-
 #endif

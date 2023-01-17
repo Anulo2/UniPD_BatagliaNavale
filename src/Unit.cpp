@@ -137,12 +137,3 @@ std::ostream &operator<<(std::ostream &os, Unit *a) {
     os << *a;
     return os;
 }
-
-bool operator==(const Unit &a, const Unit &b) {
-    return a == b;
-    // return (a.getMiddle() == b.getMiddle()) && (a.getId() == b.getId()) && (a.getArmor() && b.getArmor()) && (a.isVertical() != b.isVertical()) && a.;
-}
-
-bool operator!=(const Unit &a, const Unit &b) {
-    return !(a == b);
-}
