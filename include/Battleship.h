@@ -4,7 +4,7 @@
 #include "Unit.h"
 
 class Battleship : public Unit {
-public:
+   public:
     Battleship(const Position &iBow, const Position &iStern);
 
     std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits);

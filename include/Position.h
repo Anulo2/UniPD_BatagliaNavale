@@ -8,7 +8,7 @@
 static const char rows[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N'};
 
 class Position {
-public:
+   public:
     Position();
     Position(const int &iX, const char &iY);
     Position(int iX, int iY);
@@ -24,7 +24,7 @@ public:
 
     ~Position();
 
-private:
+   private:
     int x;
     int y;
 };

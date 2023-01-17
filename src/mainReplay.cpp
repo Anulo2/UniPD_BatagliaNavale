@@ -1,19 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
 #include <chrono>
 #include <fstream>
 #include <iostream>
-#include <stdio.h>
-#include <string.h>
 #include <thread>
 
 #include "Battleship.h"
 #include "Controller.h"
 #include "Entity.h"
 #include "Position.h"
+#include "Replay.h"
 #include "Submarine.h"
 #include "Support.h"
 #include "Unit.h"
-
-#include "Replay.h"
 
 int main(int argc, char *argv[]) {
     std::cout << std::endl;
@@ -31,7 +31,6 @@ int main(int argc, char *argv[]) {
 
     bool invalid = false;
     while (!invalid) {
-
         if (argc < 3 || argc > 4) {
             std::cout << "\ninvalid arguments\n"
                          "You can use: parameter v [name_file_log]\nor"
@@ -40,7 +39,6 @@ int main(int argc, char *argv[]) {
             invalid = true;
 
         } else if (argc == 3 && strcmp(argv[1], "v") == 0) {
-
             std::ifstream my_ifile(argv[2]);
 
             if (my_ifile.is_open()) {
@@ -69,13 +67,12 @@ int main(int argc, char *argv[]) {
                 replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
                 std::cout << replay.getPlayer2() << std::endl;
                 i++;
-                
+
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             }
 
             invalid = true;
         } else if (argc == 4 && strcmp(argv[1], "f") == 0) {
-
             std::ifstream my_ifile(argv[2]);
             std::ofstream my_ofile(argv[3]);
 
@@ -94,17 +91,36 @@ int main(int argc, char *argv[]) {
 
             int i = placedUnits;
             while (i < iFile.size()) {
+                my_ofile << "\nPLAYER 1 ACTION\n";
+
+                std::cout.setstate(std::ios_base::failbit);
+
                 replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
-                my_ofile << iFile[i];
-                my_ofile << replay.getPlayer1() << std::endl;
+                my_ofile << "\t-> " + iFile[i];
+                my_ofile << replay << std::endl;
                 i++;
+                my_ofile << "PLAYER 2 ACTION\n";
                 replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
-                my_ofile << iFile[i];
-                my_ofile << replay.getPlayer2() << std::endl;
+                my_ofile << "\t-> " + iFile[i];
+                my_ofile << replay << std::endl;
                 i++;
+
+                std::cout.clear();
+
+                if (replay.getPlayer2()->isDead()) {
+                    my_ofile << "######################################\n";
+                    my_ofile << "########        VINCE PC1       ######\n";
+                    my_ofile << "######################################\n";
+                }
+                if (replay.getPlayer1()->isDead()) {
+                    my_ofile << "######################################\n";
+                    my_ofile << "########        VINCE PC2       ######\n";
+                    my_ofile << "######################################\n";
+                }
             }
 
             my_ofile.close();
+            std::cout << "You can find the output of the Replay in " << argv[3] << std::endl;
             invalid = true;
 
         } else {

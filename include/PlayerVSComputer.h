@@ -8,7 +8,7 @@
 #include "inputHelper.h"
 
 class PlayerVSComputer {
-public:
+   public:
     PlayerVSComputer();
 
     Controller *getPlayer1();
@@ -17,7 +17,7 @@ public:
     void addToLog(std::shared_ptr<Unit> obj);
     void addStringToLog(std::string iLog);
 
-protected:
+   protected:
     Controller player1;
     Controller player2;
     std::vector<std::string> log;
@@ -26,4 +26,4 @@ protected:
 std::ostream &operator<<(std::ostream &os, PlayerVSComputer &a);
 std::ostream &operator<<(std::ostream &os, PlayerVSComputer *a);
 
-#endif // PLAYERVSCOMPUTER_H
+#endif  // PLAYERVSCOMPUTER_H

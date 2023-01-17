@@ -6,7 +6,7 @@
 #include "Position.h"
 
 class Entity {
-public:
+   public:
     Entity();
     Entity(Position iPos, char iId);
     // Entity(const Entity &a);
@@ -14,7 +14,7 @@ public:
     char getId();
     void setId(char iId);
 
-private:
+   private:
     char id = ' ';
     Position pos;
 };

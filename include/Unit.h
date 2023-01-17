@@ -9,12 +9,12 @@
 #include "Position.h"
 
 class Unit {
-public:
+   public:
     Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId);
     Unit(const Unit &a);
-    Position getMiddle() const;      // restiuisce posizione centrale
-    bool isVertical() const;         // restituisce true se è verticale false se orizzontale
-    bool containsPos(Position iPos); // Controlla se una certa posizione è parte di questa nave
+    Position getMiddle() const;       // restiuisce posizione centrale
+    bool isVertical() const;          // restituisce true se è verticale false se orizzontale
+    bool containsPos(Position iPos);  // Controlla se una certa posizione è parte di questa nave
     char getId() const;
     Position getBow() const;
     Position getStern() const;
@@ -25,21 +25,20 @@ public:
     int getDimension();
     bool isHitAt(Position iPos);
     std::vector<bool> getStatus();
-    virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) = 0; // funzione virtuale pura, restituisce il tipo della nave
+    virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) = 0;  // funzione virtuale pura, restituisce il tipo della nave
     std::vector<Position> getUnitPositions() const;
     virtual ~Unit();
 
-protected:
+   protected:
     Position middlePos;
     int dimension;
     bool vertical;
     int armor;
-    std::vector<bool> status; // TODO: trasformare in vettore di bool
+    std::vector<bool> status;  // TODO: trasformare in vettore di bool
     char id;
 };
 
 std::ostream &operator<<(std::ostream &os, Unit &a);
 std::ostream &operator<<(std::ostream &os, Unit *a);
-
 
 #endif

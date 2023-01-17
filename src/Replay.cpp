@@ -10,14 +10,10 @@ Replay::Replay(std::vector<std::string> in) {
     static const int nTotalUnitsInGame = 16;
 
     while (iterator < nTotalUnitsInGame) {
-
         // Placing battleships of player1
         for (int i = 0; i < 3; i++) {
-            std::cout << "Input String: \n"
-                      << in[iterator] << std::endl;
             placed = false;
             while (!placed) {
-
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
 
@@ -37,7 +33,6 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
 
@@ -57,7 +52,6 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
@@ -77,7 +71,6 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
@@ -97,7 +90,6 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 2; i++) {
             placed = false;
             while (!placed) {
-
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
@@ -117,7 +109,6 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 2; i++) {
             placed = false;
             while (!placed) {
-
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
@@ -133,10 +124,8 @@ Replay::Replay(std::vector<std::string> in) {
             iterator++;
         }
 
-        std::cout << "iterator: " << iterator << std::endl;
-
         // end placing unit
-    } // end of while
+    }  // end of while
 }
 
 /*********************************************************
@@ -168,7 +157,7 @@ void Replay::addStringToLog(std::string iLog) {
  **********************************************************/
 
 std::ostream &operator<<(std::ostream &os, Replay &a) {
-    //inputHelper::writeLog(os, a.getLog());
+    // inputHelper::writeLog(os, a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());

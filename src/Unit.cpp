@@ -65,7 +65,7 @@ Position Unit::getBow() const {
     }
 }
 
-Position Unit::getStern() const{
+Position Unit::getStern() const {
     if (vertical) {
         return Position(middlePos.getX(), middlePos.getIntY() - (dimension / 2));
     } else {
@@ -106,7 +106,7 @@ std::vector<bool> Unit::getStatus() {
     return status;
 }
 
-std::vector<Position> Unit::getUnitPositions() const{
+std::vector<Position> Unit::getUnitPositions() const {
     std::vector<Position> result;
     if (vertical) {
         for (int i = 0; i < dimension; i++) {
@@ -130,7 +130,7 @@ std::ostream &operator<<(std::ostream &os, Unit &a) {
     for (bool c : a.getStatus()) {
         status.push_back(c ? (a.getId() + 32) : a.getId());
     }
-    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension(); // TODO check perchè richiede &
+    os << "(Pos: " << a.getMiddle() << ", Dim: " << a.getDimension();  // TODO check perchè richiede &
     os << ", Vert: " << a.isVertical() << ", Armor: " << a.getArmor() << ", Status: " << status << ", Id: " << a.getId() << ")";
     return os;
 }

@@ -55,7 +55,7 @@ std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, in
     Position b(std::min(iPos.getX() + range, 12), std::min(iPos.getIntY() + range, 12));
 
     for (int i = 0; i < units.size(); i++) {
-        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) { // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
+        if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) {  // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
             unitsInRange.push_back(units[i]);
         }
     }
@@ -67,7 +67,6 @@ bool Controller::checkUnitPlacement(std::shared_ptr<Unit> originalUnit, std::sha
     Position a(1, 1);
     Position b(12, 12);
     if (iUnit->getBow().isInside(a, b) && iUnit->getStern().isInside(a, b)) {
-        
         std::vector<Position> buffer = iUnit->getUnitPositions();
         for (int i = 0; i < units.size(); i++) {
             if (units[i] != originalUnit) {
@@ -93,9 +92,8 @@ Controller::~Controller() {
 void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntities) {
     for (int i = 0; i < iEnemyEntities.size(); i++) {
         if (enemyEntitiesMatrix[iEnemyEntities[i]->getPos().getIntY() - 1][iEnemyEntities[i]->getPos().getX() - 1] != nullptr) {
-            
             enemyEntitiesMatrix[iEnemyEntities[i]->getPos().getIntY() - 1][iEnemyEntities[i]->getPos().getX() - 1]->setId(iEnemyEntities[i]->getId());
-            
+
         } else {
             std::shared_ptr<Entity> sharedPtr(iEnemyEntities[i]);
             enemyEntities.push_back(sharedPtr);
@@ -104,32 +102,31 @@ void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntiti
     }
 }
 
-void Controller::clearAttackGrid(const char x){
-
+void Controller::clearAttackGrid(const char x) {
     for (int i = 0; i < 12; i++) {
-        for(int j = 0; j < 12; j++){
+        for (int j = 0; j < 12; j++) {
             if (enemyEntitiesMatrix[i][j] != nullptr) {
-
-                if(enemyEntitiesMatrix[i][j]->getId() == x){
+                if (enemyEntitiesMatrix[i][j]->getId() == x) {
                     enemyEntitiesMatrix[i][j]->setId(' ');
 
-                } else if(x == ' ' ){
-                    enemyEntitiesMatrix[i][j]->setId(' '); 
+                } else if (x == ' ') {
+                    enemyEntitiesMatrix[i][j]->setId(' ');
                 }
             }
         }
-        
     }
 
-    if(x == 'X') std::cout<<"\nAll the hits 'X' have been removed\n";
-    else if(x == 'O') std::cout<<"\nAll the miss 'O' have been removed\n";
-    else if(x == ' ') std::cout<<"\nThe attack gris is clear\n";
+    if (x == 'X')
+        std::cout << "\nAll the hits 'X' have been removed\n";
+    else if (x == 'O')
+        std::cout << "\nAll the miss 'O' have been removed\n";
+    else if (x == ' ')
+        std::cout << "\nThe attack gris is clear\n";
 }
 
+std::string columns[] = {" ", "  1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", "10 ", "11 ", "12 "};
 
-std::string columns[] = {" ", "  1 ", " 2 ", " 3 ", " 4 " , " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", "10 ", "11 ", "12 "};
-
-void Controller::printDefense(std::ostream &os) { // Forse si può evitare il dopddio n^2 e farlo solo una volta, per ora va bene così
+void Controller::printDefense(std::ostream &os) {  // Forse si può evitare il dopddio n^2 e farlo solo una volta, per ora va bene così
     std::string output[13][13];
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 13; j++) {
@@ -145,7 +142,7 @@ void Controller::printDefense(std::ostream &os) { // Forse si può evitare il do
 
     for (int i = 0; i < units.size(); i++) {
         std::vector<bool> status = units[i]->getStatus();
-        
+
         int dim = units[i]->getDimension();
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
@@ -167,7 +164,6 @@ void Controller::printDefense(std::ostream &os) { // Forse si può evitare il do
 }
 
 void Controller::printAttack(std::ostream &os) {
-
     for (int i = 0; i < enemyEntities.size(); i++) {
         enemyEntitiesMatrix[enemyEntities[i]->getPos().getIntY() - 1][enemyEntities[i]->getPos().getX() - 1] = enemyEntities[i];
         std::cout << enemyEntities[i] << std::endl;
@@ -198,7 +194,6 @@ void Controller::printAttack(std::ostream &os) {
 }
 
 void Controller::print(std::ostream &os) {
-
     char output[13][13] = {' '};
 
     for (int i = 0; i < 13; i++) {
@@ -258,7 +253,6 @@ void Controller::print(std::ostream &os) {
             os << "        ";
             int j = 0;
             for (j = 0; j < 13; j++) {
-
                 if (j == 0) {
                     os << rows[i] << " ";
                 } else {
@@ -276,7 +270,6 @@ void Controller::print(std::ostream &os) {
         }
     }
     os << "\n";
-
 }
 
 std::ostream &operator<<(std::ostream &os, Controller &a) {

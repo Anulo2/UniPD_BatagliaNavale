@@ -14,7 +14,6 @@ std::string inputHelper::logToString(std::vector<std::string> log) {
 }
 
 std::string inputHelper::addContentToLog(std::shared_ptr<Unit> obj) {
-
     std::string coordBow = obj->getBow().getY() + std::to_string(obj->getBow().getX());
     std::string coordStern = obj->getStern().getY() + std::to_string(obj->getStern().getX());
     return coordStern + " " + coordBow;
@@ -28,15 +27,14 @@ std::string inputHelper::addContentToLog(Position target, std::string actionUnit
 }
 
 std::string inputHelper::getPlayerInput(std::istream &is) {
-                    
     std::string in{};
-    
-    try{
-        std::getline(is, in, '\n');    
-    }catch(std::exception e){
-        std::cout<<"Input exception "<<e.what()<<std::endl;
+
+    try {
+        std::getline(is, in, '\n');
+    } catch (std::exception e) {
+        std::cout << "Input exception " << e.what() << std::endl;
     }
-    
+
     return in;
 }
 
@@ -48,13 +46,11 @@ int inputHelper::stringTointeger(std::string str) {
     return temp;
 }
 
-std::vector<Position> inputHelper::inputString(std::string in){
-    
-    //throw std::out_of_range!
+std::vector<Position> inputHelper::inputString(std::string in) {
+    // throw std::out_of_range!
     std::string XY1 = in.substr(0, in.find(" "));
-    //throw std::out_of_range!
-    std::string XY2 = in.substr(in.find(" ") + 1, in.npos); 
-
+    // throw std::out_of_range!
+    std::string XY2 = in.substr(in.find(" ") + 1, in.npos);
 
     if (XY2.length() > 2)
         XY2 = XY2.substr(0, XY2.find(" "));
@@ -62,14 +58,14 @@ std::vector<Position> inputHelper::inputString(std::string in){
     char y1 = XY1[0];
     std::string strx1 = XY1.substr(
         1,
-        XY1.length() - 1); // estrazione dei caratteri dall'inizio all'ultimo-1
+        XY1.length() - 1);  // estrazione dei caratteri dall'inizio all'ultimo-1
     int x1 = inputHelper::stringTointeger(strx1);
 
     // estrazione dell'ultimo carattere
     char y2 = XY2[0];
     std::string strx2 = XY2.substr(
         1,
-        XY2.length() - 1); // estrazione dei caratteri dall'inizio all'ultimo-1
+        XY2.length() - 1);  // estrazione dei caratteri dall'inizio all'ultimo-1
     int x2 = inputHelper::stringTointeger(strx2);
 
     Position bow(x1, y1);
@@ -79,7 +75,6 @@ std::vector<Position> inputHelper::inputString(std::string in){
 }
 
 std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in) {
-
     std::vector<Position> iPositions{inputHelper::inputString(in)};
 
     std::shared_ptr<Battleship> iBattleship(new Battleship(iPositions.at(0), iPositions.at(1)));
@@ -90,7 +85,6 @@ std::shared_ptr<Battleship> inputHelper::inputBattleship(const std::string in) {
 }
 
 std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
-
     std::vector<Position> iPositions{inputHelper::inputString(in)};
 
     std::shared_ptr<Support> iSupport(new Support(iPositions.at(0), iPositions.at(1)));
@@ -101,7 +95,6 @@ std::shared_ptr<Support> inputHelper::inputSupport(const std::string in) {
 }
 
 std::shared_ptr<Submarine> inputHelper::inputSubmarine(const std::string in) {
-
     std::vector<Position> iPositions{inputHelper::inputString(in)};
 
     std::shared_ptr<Submarine> iSubmarine(new Submarine(iPositions.at(0), iPositions.at(1)));
@@ -181,8 +174,8 @@ std::shared_ptr<Unit> inputHelper::randomSubmarine() {
     return buffer;
 }
 
-//Random action function.
-//The action will be done by player1
+// Random action function.
+// The action will be done by player1
 std::string inputHelper::randomAction(Controller *player1, Controller *player2) {
     std::string log{};
     Position finalTarget;
@@ -207,7 +200,6 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
     std::cout << "######################################\n";
 
     while (!valid) {
-        
         valid = false;
         int xTarget = Xdistribution(rand);
         int yTarget = Ydistribution(rand);
@@ -223,7 +215,6 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
 
             player1->mergeEntities(enemyEntities);
             player2->removeDeadUnits();
-
         } else if (type == 'S') {
             if (actionUnit->isVertical()) {
                 try {
@@ -247,14 +238,12 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
                 }
             }
             if (valid) {
-
                 std::vector<std::shared_ptr<Unit>> bufferUnit =
                     player1->getUnitsInRange(target, 1);
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
                     actionUnit->action(target, bufferUnit);
                 player1->mergeEntities(enemyEntities);
             }
-
         } else if (type == 'E') {
             std::shared_ptr<Unit> buffer(new Submarine(
                 Position(xTarget, yTarget), Position(xTarget, yTarget)));
@@ -263,7 +252,6 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
             }
 
             if (valid) {
-
                 std::vector<std::shared_ptr<Unit>> bufferUnit =
                     player2->getUnitsInRange(target, 2);
                 std::vector<std::shared_ptr<Entity>> enemyEntities =
@@ -274,16 +262,15 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
 
         finalTarget = target;
     }
-    
+
     log = addContentToLog(finalTarget, finalActionUnit);
 
-    std::cout<<"\n\t-> "<<log<<" ";
-            
+    std::cout << "\n\t-> " << log << " ";
+
     return log;
 }
 
 std::string inputHelper::handlePlayerAction(Controller *player1, Controller *player2, std::string iLogStr) {
-
     std::string log;
     std::shared_ptr<Unit> actionUnit;
 
@@ -293,87 +280,75 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
     std::cout << "######################################\n";
     std::cout << "########  ACTION PLAYER FIELD   ######\n";
     std::cout << "######################################\n";
-    
-    std::cout << "An action has this format: B10 G6\n"
-                "The first coordinate rappresent the middle pos of the ship that will do the action\n"
-                "the second coordinate represents the target position of the action \n"
 
-                "A special string can be used to display your defense and attack field: XX XX\n"
-                "\n\nType help if you need more info abuot special strings!\n\n";
-                
+    std::cout << "An action has this format: B10 G6\n"
+                 "The first coordinate rappresent the middle pos of the ship that will do the action\n"
+                 "the second coordinate represents the target position of the action \n"
+
+                 "A special string can be used to display your defense and attack field: XX XX\n"
+                 "\n\nType help if you need more info abuot special strings!\n\n";
+
+    std::cout.flush();
     while (!actionUnit || !valid) {
         specialChar = false;
-        
-        std::cout<<"\n-> ";
+
+        std::cout << "\n-> ";
 
         try {
             std::string action;
             std::vector<Position> result;
 
             if (iLogStr.length() == 0) {
-                try{
+                try {
                     action = inputHelper::getPlayerInput(std::cin);
-                    
-                }catch(std::out_of_range e){
-
+                } catch (std::out_of_range e) {
                 }
-                
+
                 if (action == "XX XX") {
                     std::cout << player1 << std::endl;
                     specialChar = true;
-
-                }else if(action == "help"){
-                    std::cout<<"-> XX XX \t: Display your defense and attack grid\n"
-                               "-> AA AA \t: Reset the attack grid\n"
-                               "-> BB BB \t: Removes all the Hit form the attack grid\n"
-                               "-> CC CC \t: Removes all the Miss form the attack grid\n";
+                } else if (action == "help") {
+                    std::cout << "-> XX XX \t: Display your defense and attack grid\n"
+                                 "-> AA AA \t: Reset the attack grid\n"
+                                 "-> BB BB \t: Removes all the Hit form the attack grid\n"
+                                 "-> CC CC \t: Removes all the Miss form the attack grid\n";
                     specialChar = true;
-                }
-                else if(action == "AA AA"){
+                } else if (action == "AA AA") {
                     player1->clearAttackGrid(' ');
                     std::cout << player1 << std::endl;
                     specialChar = true;
-
-                } else if(action == "BB BB"){
+                } else if (action == "BB BB") {
                     player1->clearAttackGrid('X');
                     std::cout << player1 << std::endl;
                     specialChar = true;
-                    
-                } else if(action == "CC CC"){
+                } else if (action == "CC CC") {
                     player1->clearAttackGrid('O');
                     std::cout << player1 << std::endl;
                     specialChar = true;
-                }  
-                else {
+                } else {
                     result = inputHelper::inputString(action);
                     actionUnit = player1->getUnit(result[0]);
                     log = action;
                 }
-
             } else {
-                try{
-                    
+                try {
                     result = inputHelper::inputString(iLogStr);
-                    
-                }catch(std::out_of_range e){
-                    std::cout<<"\n"<<e.what()<<std::endl;
-                    std::cout<<"Please type a valid input!";
-                }       
-                
-                actionUnit = player1->getUnit(result[0]);
-                log = iLogStr;   
+                } catch (std::out_of_range e) {
+                    std::cout << "\n"
+                              << e.what() << std::endl;
+                    std::cout << "Please type a valid input!";
+                }
 
+                actionUnit = player1->getUnit(result[0]);
+                log = iLogStr;
             }
 
-            
             if (actionUnit && !specialChar) {
-                
                 Position target = result[1];
 
                 char type = actionUnit->getId();
 
                 if (type == 'C') {
-
                     std::vector<std::shared_ptr<Unit>> enemyUnit = {
                         player2->getUnit(target)};
 
@@ -384,7 +359,6 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
 
                     player1->mergeEntities(enemyEntities);
                     player2->removeDeadUnits();
-
                 } else if (type == 'S') {
                     if (actionUnit->isVertical()) {
                         try {
@@ -434,12 +408,10 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     }
                 }
             }
-
         } catch (std::invalid_argument e) {
         }
-
     }
-    
-    std::cout<<"\t "<<log<<" ";
+
+    std::cout << "\t " << log << " ";
     return log;
 }

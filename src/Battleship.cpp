@@ -10,16 +10,13 @@ std::vector<std::shared_ptr<Entity>> Battleship::action(
         // std::cout << iUnits[0] << "\n";
         // std::cout << iUnits[0]->getId();
         if (!iUnits[0]->isHitAt(iTarget)) {
-            iUnits[0]->updateStatus(iTarget,
-                                    true); // il +32 la rende minuscola
-            iUnits[0]->setArmor(iUnits[0]->getArmor() -
-                                1); // TODO: aggiungere lancio eccenzione in
-                                    // caso sia già a zero
+            iUnits[0]->updateStatus(iTarget, true);          // il +32 la rende minuscola
+            iUnits[0]->setArmor(iUnits[0]->getArmor() - 1);  // TODO: aggiungere lancio eccenzione in
+                                                             // caso sia già a zero
 
             Entity result(iTarget, 'X');
             std::vector<std::shared_ptr<Entity>> resultVect;
-            resultVect.push_back(
-                std::shared_ptr<Entity>(new Entity(iTarget, 'X')));
+            resultVect.push_back(std::shared_ptr<Entity>(new Entity(iTarget, 'X')));
             return resultVect;
         }
     }
