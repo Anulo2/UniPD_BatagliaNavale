@@ -38,7 +38,6 @@ int main(int argc, char *argv[]) {
             std::cout << "\n\n";
 
             playerVsComputer.addStringToLog(inputHelper::randomAction(playerVsComputer.getPlayer2(), playerVsComputer.getPlayer1()));
-            std::cout << playerVsComputer;  // TODO: RIMUOVERE
 
             std::cout << "\n\n";
 
