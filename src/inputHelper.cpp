@@ -24,8 +24,6 @@ std::string inputHelper::addContentToLog(Position target, std::string actionUnit
     std::string pos{};
     std::string coordtarget = target.getY() + std::to_string(target.getX());
     pos += actionUnit + " " + coordtarget;
-
-    // std::cout << "\nB LOG: \t" << pos << std::endl;
     return pos;
 }
 
@@ -43,9 +41,12 @@ int inputHelper::stringTointeger(std::string str) {
     return temp;
 }
 
-std::vector<Position> inputHelper::inputString(std::string in) {
+std::vector<Position> inputHelper::inputString(std::string in){
+    //throw std::out_of_range!
     std::string XY1 = in.substr(0, in.find(" "));
-    std::string XY2 = in.substr(in.find(" ") + 1, in.npos);
+    //throw std::out_of_range!
+    std::string XY2 = in.substr(in.find(" ") + 1, in.npos); 
+
 
     if (XY2.length() > 2)
         XY2 = XY2.substr(0, XY2.find(" "));
@@ -172,9 +173,10 @@ std::shared_ptr<Unit> inputHelper::randomSubmarine() {
     return buffer;
 }
 
-std::string inputHelper::randomAction(Controller *player1, Controller *player2) // player 1 esegue l'azione
-{
-    std::string log;
+//Random action function.
+//The action will be done by player1
+std::string inputHelper::randomAction(Controller *player1, Controller *player2) {
+    std::string log{};
     Position finalTarget;
     std::string finalActionUnit;
 
@@ -189,18 +191,19 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
     std::shared_ptr<Unit> actionUnit = player1->getUnits()[ship];
     finalActionUnit = actionUnit->getMiddle().getY() + std::to_string(actionUnit->getMiddle().getX());
 
-    std::cout << player1 << "\n";
-
     char type = actionUnit->getId();
     bool valid = false;
+
+    std::cout << "######################################\n";
+    std::cout << "########  ACTION COMPUTER FIELD ######\n";
+    std::cout << "######################################\n";
+
     while (!valid) {
+        
         valid = false;
         int xTarget = Xdistribution(rand);
         int yTarget = Ydistribution(rand);
         Position target(xTarget, yTarget);
-
-        std::cout << "\nPOSIZIONE TARGET = " << target << std::endl;
-        std::cout << "\nNAVE AZIONE = " << actionUnit << std::endl;
 
         if (type == 'C') {
             std::vector<std::shared_ptr<Unit>> enemyUnit = {
@@ -263,14 +266,11 @@ std::string inputHelper::randomAction(Controller *player1, Controller *player2) 
 
         finalTarget = target;
     }
-
-    std::cout << std::endl
-              << "finalTarget: " << finalTarget << std::endl;
-    std::cout << std::endl
-              << "finalUnit: " << finalActionUnit << std::endl;
-
+    
     log = addContentToLog(finalTarget, finalActionUnit);
-    std::cout << "\nAZIONE ESEGUITA DA\t" << actionUnit << std::endl;
+
+    std::cout<<"\n\t-> "<<log<<" ";
+            
     return log;
 }
 
@@ -281,16 +281,19 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
 
     bool valid = false;
     bool specialChar = false;
+
     std::cout << "######################################\n";
-    std::cout << "########  TABLE ACTION PLAYER   ######\n";
+    std::cout << "########  ACTION PLAYER FIELD   ######\n";
     std::cout << "######################################\n";
 
     // TODO NON SONO SICURO FRATOMO TESTARE E AGGIUNGERE EVENTUALI CONTROLLI
 
-    while ((!actionUnit || !valid) || !specialChar) {
-        std::cout << "Inserisci l'azione in questo formato: B10 G6, dove la "
-                     "prima posizione seleziona la tua unità e la seconda la "
-                     "posizione di arrivo dell'azione\n";
+    while (!actionUnit || !valid) {
+        std::cout << "An action has this format: B10 G6\n"
+                     "A special string can be used to display your defense and attack field: XX XX\n"
+                     "The first coordinate rappresent the middle pos of the ship that will do the action\n"
+                     "the second coordinate represents the target position of the action\n->  ";
+
         try {
             std::string action;
             std::vector<Position> result;
@@ -298,25 +301,26 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
             if (iLogStr.length() == 0) {
 
                 action = inputHelper::getPlayerInput(std::cin);
-
-                if (action == "AA AA") {
-                    std::cout << "AA funziona" << std::endl;
+                
+                if (action == "XX XX") {
                     std::cout << player1 << std::endl;
                     specialChar = true;
+
                 } else {
                     result = inputHelper::inputString(action);
+                    actionUnit = player1->getUnit(result[0]);
                     log = action;
                 }
 
             } else {
-
                 result = inputHelper::inputString(iLogStr);
-                log = iLogStr;
                 actionUnit = player1->getUnit(result[0]);
+                log = iLogStr;    
             }
 
-            if (actionUnit && !specialChar) {
-
+            
+            if (actionUnit && specialChar) {
+                
                 Position target = result[1];
 
                 char type = actionUnit->getId();
@@ -329,6 +333,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     std::vector<std::shared_ptr<Entity>> enemyEntities =
                         actionUnit->action(target, enemyUnit);
                     valid = true;
+                    specialChar = true;
 
                     player1->mergeEntities(enemyEntities);
                     player2->removeDeadUnits();
@@ -341,6 +346,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                                 Position(target.getX(), target.getIntY() + 1)));
                             if (player1->checkUnitPlacement(actionUnit, buffer)) {
                                 valid = true;
+                                specialChar = true;
                             }
                         } catch (std::invalid_argument e) {
                         }
@@ -351,6 +357,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                                 Position(target.getX() + 1, target.getIntY())));
                             if (player1->checkUnitPlacement(actionUnit, buffer)) {
                                 valid = true;
+                                specialChar = true;
                             }
                         } catch (std::invalid_argument e) {
                         }
@@ -368,6 +375,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                         Position(target.getX(), target.getIntY())));
                     if (player1->checkUnitPlacement(actionUnit, buffer)) {
                         valid = true;
+                        specialChar = true;
                     }
 
                     if (valid) {
@@ -379,12 +387,11 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     }
                 }
             }
-            // log = action;
+
         } catch (std::invalid_argument e) {
         }
-    }
 
-    std::cout << "\nAZIONE ESEGUITA DA\t" << actionUnit << std::endl;
-    std::cout << "\nLOG:\t" << log << std::endl;
+    }
+    
     return log;
 }

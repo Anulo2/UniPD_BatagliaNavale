@@ -15,7 +15,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
             
-            std::cout<<"\nInserisci le coordinate della corazzata n: "<<i+1<<"\n";
+            std::cout<<"\nPlace battleship n: "<<i+1<<"\n";
             try{
                 std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(inputHelper::getPlayerInput(std::cin));
                 std::shared_ptr<Unit> battleShip(buffer);
@@ -25,20 +25,22 @@ PlayerVSComputer::PlayerVSComputer(){
                     placed=true;
                     
                     log.push_back(inputHelper::addContentToLog(buffer));                   
-                    // player1.printDefense(std::cout);
-                    // player1.printAttack(std::cout);
+                    
                 }
                 else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    std::cout<<"Invalid input, There is already a ship\n";
                 }
                 
-            }catch(std::invalid_argument e){
+            } catch(std::invalid_argument e){
                 std::cout << "\n"<<e.what() <<std::endl;
+            } catch(std::out_of_range e){
+                std::cout << "\n"<<"Invalid string input" <<std::endl;
+                std::cout << "\n"<<"A valid input string has this format: A5 B5" <<std::endl;
             }
             
         }
         std::cout<<"Battleship player1 n."<<i+1<<" placed!\n";
-        player1.printDefense(std::cout);
+        //player1.printDefense(std::cout);
     }
     
 //Placing battleships of player2
@@ -60,7 +62,7 @@ PlayerVSComputer::PlayerVSComputer(){
             } catch(std::invalid_argument e){
                 std::cout << "\nInvalid Pos for battleship p2 \n" <<std::endl;
                 std::cout << e.what()<<"\n";
-            }
+            } 
             
         }
 
@@ -75,7 +77,7 @@ PlayerVSComputer::PlayerVSComputer(){
         placed = false;
         while (!placed) {
             
-            std::cout<<"\nInserisci le coordinate del supporto n: "<<i+1<<"\n";
+            std::cout<<"\nPlace support n: "<<i+1<<"\n";
 
             try{
                 std::shared_ptr<Support> buffer = inputHelper::inputSupport(inputHelper::getPlayerInput(std::cin));
@@ -87,19 +89,20 @@ PlayerVSComputer::PlayerVSComputer(){
 
                     log.push_back(inputHelper::addContentToLog(buffer));                     
                     
-                    //player1.printDefense(std::cout);
-                    //player1.printAttack(std::cout);
                 } else {
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                    std::cout<<"Invalid input, There is already a ship\n";
                 }
 
             }catch(std::invalid_argument e){
                 std::cout << "\n"<<e.what() <<std::endl;
+            } catch(std::out_of_range e){
+                std::cout << "\n"<<"Invalid string input" <<std::endl;
+                std::cout << "\n"<<"A valid input string has this format: A5 B5" <<std::endl;
             }
             
         }  
         std::cout<<"Support player1 n."<<i+1<<" placed!\n";
-        player1.printDefense(std::cout); 
+        //player1.printDefense(std::cout); 
     }
     
     //Placing supports of player2
@@ -119,19 +122,18 @@ PlayerVSComputer::PlayerVSComputer(){
                 }
             } catch(std::invalid_argument e){
                 std::cout << "\n"<<e.what() <<std::endl;
-            }
+            } 
             
         }
 
         std::cout<<"Support player2 n."<<i+1<<" placed!\n";
-        //player2.printDefense(std::cout);
     }
 
     //Placing submarines of player1
     for (int i = 0; i < 2; i++) {  
         placed = false;
         while (!placed) {
-            std::cout<<"\nInserisci le coordinate del sottomarino n: "<<i+1<<"\n";
+            std::cout<<"\nPlace submarine n: "<<i+1<<"\n";
             try{
                 std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(inputHelper::getPlayerInput(std::cin));
                 std::shared_ptr<Unit> submarine(buffer);
@@ -144,16 +146,19 @@ PlayerVSComputer::PlayerVSComputer(){
                     //player1.printAttack(std::cout);
                 }
                 else{
-                    std::cout<<"input non valido, c'è gia una nave\n";
+                     std::cout<<"Invalid input, There is already a ship\n";
                 }
             }catch(std::invalid_argument e){
                 std::cout << "\n"<<e.what() <<std::endl;
+            } catch(std::out_of_range e){
+                std::cout << "\n"<<"Invalid string input" <<std::endl;
+                std::cout << "\n"<<"A valid input string has this format: A5 B5" <<std::endl;
             }
             
             
         }
         std::cout<<"Submarine player1 n."<<i+1<<" placed!\n";
-        player1.printDefense(std::cout);
+        //player1.printDefense(std::cout);
     }
 
     //Placing submarines of player2
@@ -221,7 +226,8 @@ void PlayerVSComputer::addStringToLog(std::string iLog){
 **********************************************************/
 
 std::ostream& operator<<(std::ostream& os, PlayerVSComputer& a) {
-    inputHelper::writeLog(os,a.getLog());
+    //inputHelper::writeLog(os,a.getLog());
+    
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());

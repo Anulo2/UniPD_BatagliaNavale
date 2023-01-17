@@ -19,7 +19,7 @@ bool Controller::isUnit(Position iPos) {
 void Controller::removeDeadUnits() {
     for (int i = 0; i < units.size(); i++) {
         if (units[i]->getArmor() == 0) {
-            std::cout << "Rimossa unità: " << units[i] << "\n";
+            std::cout << "Removed Unit: " << units[i] << "\n";
 
             if (units.size() == 1) {
                 dead = true;
@@ -53,9 +53,6 @@ std::vector<std::shared_ptr<Unit>> Controller::getUnitsInRange(Position iPos, in
     Position a(std::max(iPos.getX() - range, 1), std::max(iPos.getIntY() - range, 1));
     Position b(std::min(iPos.getX() + range, 12), std::min(iPos.getIntY() + range, 12));
 
-    std::cout << a << "\n";
-    std::cout << b << "\n";
-
     for (int i = 0; i < units.size(); i++) {
         if ((*units[i]).getBow().isInside(a, b) || (*units[i]).getStern().isInside(a, b) || (*units[i]).getMiddle().isInside(a, b)) { // DUBBIO SU VERIFICA: se range = 1 e nave è corazzata può succedere che ne prua ne poppa sono dentro ma qualche altra casella della nave si
             unitsInRange.push_back(units[i]);
@@ -69,7 +66,7 @@ bool Controller::checkUnitPlacement(std::shared_ptr<Unit> originalUnit, std::sha
     Position a(1, 1);
     Position b(12, 12);
     if (iUnit->getBow().isInside(a, b) && iUnit->getStern().isInside(a, b)) {
-        // std::cout << iUnit->getBow() << ", " << iUnit->getStern() <<"\n";
+        
         std::vector<Position> buffer = iUnit->getUnitPositions();
         for (int i = 0; i < units.size(); i++) {
             if (units[i] != originalUnit) {
@@ -95,11 +92,9 @@ Controller::~Controller() {
 void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntities) {
     for (int i = 0; i < iEnemyEntities.size(); i++) {
         if (enemyEntitiesMatrix[iEnemyEntities[i]->getPos().getIntY() - 1][iEnemyEntities[i]->getPos().getX() - 1] != nullptr) {
-            // Entity* bufferEntity = enemyEntitiesMatrix[buffer.getIntY() - 1][buffer.getX() - 1];
-            //  if(bufferEntity->getId()!= 'X'){
-            // bufferEntity->setId(iEnemyEntities[i]->getId());
+            
             enemyEntitiesMatrix[iEnemyEntities[i]->getPos().getIntY() - 1][iEnemyEntities[i]->getPos().getX() - 1]->setId(iEnemyEntities[i]->getId());
-            //}
+            
         } else {
             std::shared_ptr<Entity> sharedPtr(iEnemyEntities[i]);
             enemyEntities.push_back(sharedPtr);
@@ -108,10 +103,10 @@ void Controller::mergeEntities(std::vector<std::shared_ptr<Entity>> iEnemyEntiti
     }
 }
 
-char columns[] = {' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C'};
+std::string columns[] = {" ", "  1 ", " 2 ", " 3 ", " 4 " , " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", "10 ", "11 ", "12 "};
 
 void Controller::printDefense(std::ostream &os) { // Forse si può evitare il dopddio n^2 e farlo solo una volta, per ora va bene così
-    char output[13][13];
+    std::string output[13][13];
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 13; j++) {
             if (j == 0) {
@@ -126,7 +121,7 @@ void Controller::printDefense(std::ostream &os) { // Forse si può evitare il do
 
     for (int i = 0; i < units.size(); i++) {
         std::vector<bool> status = units[i]->getStatus();
-        // std::cout << units[i] << ", " << units[i]->getStern() << ", " << units[i]->getBow() << "\n";
+        
         int dim = units[i]->getDimension();
         char id = units[i]->getId();
         if ((*units[i]).isVertical()) {
@@ -156,8 +151,8 @@ void Controller::printAttack(std::ostream &os) {
 
     for (int i = 0; i < 13; i++) {
         if (i == 12) {
-            for (char column : columns) {
-                os << column << " ";
+            for (int j = 0; j < 13; j++) {
+                os << columns[j] << " ";
             }
 
         } else {
@@ -209,12 +204,12 @@ void Controller::print(std::ostream &os) {
             os << "        ";
             os << "  ╚═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╩═══╝\n";
             os << "";
-            for (char column : columns) {
-                os << column << "   ";
+            for (int j = 0; j < 13; j++) {
+                os << columns[j] << " ";
             }
-            os << "       ";
-            for (char column : columns) {
-                os << column << "   ";
+            os << "        ";
+            for (int j = 0; j < 13; j++) {
+                os << columns[j] << " ";
             }
         } else {
             if (i == 0) {
@@ -258,23 +253,9 @@ void Controller::print(std::ostream &os) {
     }
     os << "\n";
 
-    /*
-    for (int i = 0; i < units.size(); i++) {
-        std::cout << units[i] << "\n";
-    }
-    for (int i = 0; i < enemyEntities.size(); i++) {
-        std::cout << enemyEntities[i] << "\n";
-    }
-    std::cout << "\n";
-    */
 }
 
 std::ostream &operator<<(std::ostream &os, Controller &a) {
-    /* a.printDefense(os);
-    os << std::endl;
-    a.printAttack(os);
-    */
-
     os << "\n";
     a.print(os);
     os << "\n";

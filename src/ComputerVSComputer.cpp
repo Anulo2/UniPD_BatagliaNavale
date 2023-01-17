@@ -455,14 +455,12 @@ std::vector<std::string> ComputerVSComputer::getLog() {
  **********************************************************/
 
 void ComputerVSComputer::addToLog(std::shared_ptr<Entity> obj) {
-
     std::string coordBow = obj->getPos().getY() + std::to_string(obj->getPos().getX());
     std::string coordStern = obj->getPos().getY() + std::to_string(obj->getPos().getX());
     log.push_back(coordStern + " " + coordBow);
 }
 
 void ComputerVSComputer::addStringToLog(std::string iLog) {
-    std::cout << "\nIlog string-> " << iLog << std::endl;
     log.push_back(iLog);
 }
 
@@ -471,7 +469,7 @@ void ComputerVSComputer::addStringToLog(std::string iLog) {
  **********************************************************/
 
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a) {
-    inputHelper::writeLog(os, a.getLog());
+    //inputHelper::writeLog(os, a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());

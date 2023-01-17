@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 
         PlayerVSComputer playerVsComputer;
 
-        std::cout << playerVsComputer;
+        std::cout << playerVsComputer.getPlayer1();
 
         // TODO TESTARE INPUT
         for (int i = 0; i < MAX_TURNS && (!playerVsComputer.getPlayer1()->isDead() && !playerVsComputer.getPlayer2()->isDead()); i++) {
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
 
             playerVsComputer.addStringToLog(inputHelper::randomAction(playerVsComputer.getPlayer2(), playerVsComputer.getPlayer1()));
 
-            std::cout << playerVsComputer; // TODO:  deve stampare solo le griglie del player umano
+            //std::cout << playerVsComputer.getPlayer1(); // TODO:  deve stampare solo le griglie del player umano
 
             if (playerVsComputer.getPlayer1()->isDead()) {
                 std::cout << "######################################\n";
@@ -74,15 +74,20 @@ int main(int argc, char *argv[]) {
         for (int i = 0; i < MAX_TURNS && (!computerVsComputer.getPlayer1()->isDead() && !computerVsComputer.getPlayer2()->isDead()); i++) {
 
             computerVsComputer.addStringToLog(inputHelper::randomAction(computerVsComputer.getPlayer1(), computerVsComputer.getPlayer2()));
-
+            
+            std::cout << "    COMPUTER 1 ACTION   \n";
+            std::cout<<computerVsComputer.getPlayer1();
+            
             computerVsComputer.addStringToLog(inputHelper::randomAction(computerVsComputer.getPlayer2(), computerVsComputer.getPlayer1()));
+            std::cout << "    COMPUTER 2 ACTION   \n";
+            std::cout<<computerVsComputer.getPlayer2();
 
-            if (computerVsComputer.getPlayer1()->isDead()) {
+            if (computerVsComputer.getPlayer2()->isDead()) {
                 std::cout << "######################################\n";
                 std::cout << "########        VINCE PC1       ######\n";
                 std::cout << "######################################\n";
             }
-            if (computerVsComputer.getPlayer2()->isDead()) {
+            if (computerVsComputer.getPlayer1()->isDead()) {
                 std::cout << "######################################\n";
                 std::cout << "########        VINCE PC2       ######\n";
                 std::cout << "######################################\n";
