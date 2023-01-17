@@ -37,8 +37,8 @@ int main(int argc, char *argv[]) {
             playerVsComputer.addStringToLog(inputHelper::handlePlayerAction(playerVsComputer.getPlayer1(), playerVsComputer.getPlayer2(), ""));
 
             playerVsComputer.addStringToLog(inputHelper::randomAction(playerVsComputer.getPlayer2(), playerVsComputer.getPlayer1()));
-
-            //std::cout << playerVsComputer.getPlayer1(); // TODO:  deve stampare solo le griglie del player umano
+            
+            std::cout<<"\n\n";
 
             if (playerVsComputer.getPlayer1()->isDead()) {
                 std::cout << "######################################\n";
@@ -59,6 +59,7 @@ int main(int argc, char *argv[]) {
 
         std::ofstream my_oFileB("../mainLogPLVSPC.txt");
         my_oFileB << inputHelper::logToString(playerVsComputer.getLog());
+        std::cout<<"\n You can find the log of the game in mainLogPLVSPC.txt !\n";
         my_oFileB.close();
 
     } else if (strcmp(argv[1], "cc") == 0) { // partita computer vs computer
@@ -103,6 +104,7 @@ int main(int argc, char *argv[]) {
 
         std::ofstream my_oFileA("../mainLogPCVSPC.txt");
         my_oFileA << inputHelper::logToString(computerVsComputer.getLog());
+        std::cout<<"\n You can find the log of the game in mainLogPCVSPC.txt !\n";
         my_oFileA.close();
 
     } else {

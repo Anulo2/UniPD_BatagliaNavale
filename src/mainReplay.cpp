@@ -53,22 +53,23 @@ int main(int argc, char *argv[]) {
                 std::cout << "Unable to open file" << std::endl;
             }
 
-            Replay a(iFile);
-            std::cout << a.getPlayer1() << std::endl;
-            std::cout << a.getPlayer2() << std::endl;
+            Replay replay(iFile);
+            std::cout << replay.getPlayer1() << std::endl;
+            std::cout << replay.getPlayer2() << std::endl;
 
             int i = placedUnits;
 
             while (i < iFile.size()) {
-                a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(), iFile[i]));
-                std::cout << a.getPlayer1() << std::endl;
+                replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
+                std::cout << replay.getPlayer1() << std::endl;
 
                 i++;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-                a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(), iFile[i]));
-                std::cout << a.getPlayer2() << std::endl;
 
+                replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
+                std::cout << replay.getPlayer2() << std::endl;
                 i++;
+                
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             }
 
@@ -88,18 +89,18 @@ int main(int argc, char *argv[]) {
                 std::cout << "Unable to open file" << std::endl;
             }
 
-            Replay a(iFile);
-            my_ofile << inputHelper::logToString(a.getLog());
+            Replay replay(iFile);
+            my_ofile << inputHelper::logToString(replay.getLog());
 
             int i = placedUnits;
             while (i < iFile.size()) {
-                a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer1(), a.getPlayer2(), iFile[i]));
+                replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
                 my_ofile << iFile[i];
-                my_ofile << a << std::endl;
+                my_ofile << replay.getPlayer1() << std::endl;
                 i++;
-                a.addStringToLog(inputHelper::handlePlayerAction(a.getPlayer2(), a.getPlayer1(), iFile[i]));
+                replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
                 my_ofile << iFile[i];
-                my_ofile << a << std::endl;
+                my_ofile << replay.getPlayer2() << std::endl;
                 i++;
             }
 

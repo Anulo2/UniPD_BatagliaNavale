@@ -315,11 +315,12 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
             } else {
                 result = inputHelper::inputString(iLogStr);
                 actionUnit = player1->getUnit(result[0]);
+             
                 log = iLogStr;    
             }
 
             
-            if (actionUnit && specialChar) {
+            if (actionUnit && !specialChar) {
                 
                 Position target = result[1];
 
@@ -393,5 +394,6 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
 
     }
     
+    std::cout<<"\t "<<log<<" ";
     return log;
 }

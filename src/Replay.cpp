@@ -168,7 +168,7 @@ void Replay::addStringToLog(std::string iLog) {
  **********************************************************/
 
 std::ostream &operator<<(std::ostream &os, Replay &a) {
-    inputHelper::writeLog(os, a.getLog());
+    //inputHelper::writeLog(os, a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());
