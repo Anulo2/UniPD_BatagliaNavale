@@ -5,46 +5,34 @@ ComputerVSComputer::ComputerVSComputer() {
     std::uniform_int_distribution<int> ranomPlayer(0, 1);
     // true  = player 1
     selectPlayer = ranomPlayer(rand);
-    int placing = 0;
-    bool placed;
-    bool placedUnitP1 = false;
-    bool placedUnitP2 = false;
 
-    while (!placed) {
-        if (selectPlayer == 0) {
-            // Placing battleships of player1
-            Game::placeUnits(player1, Helper::unitType::random_battleship, 3);
-
-            // Placing support of player1
-            Game::placeUnits(player1, Helper::unitType::random_support, 3);
-
-            // Placing submarines of player1
-            Game::placeUnits(player1, Helper::unitType::random_submarine, 2);
-            placedUnitP1 = true;
-        }
-        if (selectPlayer == 1) {
-            // Placing battleships of player2
-            Game::placeUnits(player2, Helper::unitType::random_battleship, 3);
-
-            // Placing support of player2
-            Game::placeUnits(player2, Helper::unitType::random_support, 3);
-            // Placing submarines of player2
-            Game::placeUnits(player2, Helper::unitType::random_submarine, 2);
-            placedUnitP2 = true;
-        }
-
-        if (selectPlayer == 0) {
-            selectPlayer++;
-        } else {
-            selectPlayer--;
-        }
-        if (placedUnitP1 && placedUnitP2) placed = true;
+    if (selectPlayer == 0) {
+        placeInOrder(player1, player2);
+    } else {
+        placeInOrder(player2, player1);
     }
 }
 
 /*********************************************************
  *                  HELPER FUNCTIONS                     *
  **********************************************************/
+void ComputerVSComputer::placeInOrder(Controller &first, Controller &second) {
+    placeUnitsFor(first);
+    placeUnitsFor(second);
+}
+
+void ComputerVSComputer::placeUnitsFor(Controller &player) {
+    std::cout << "\nPlacing Battlesips\n";
+    Game::placeUnits(player, Helper::unitType::random_battleship, 3);
+
+    // Placing support of player1
+    std::cout << "\nPlacing Supports\n";
+    Game::placeUnits(player, Helper::unitType::random_support, 3);
+
+    // Placing submarines of player1
+    std::cout << "\nPlacing Submarines\n";
+    Game::placeUnits(player, Helper::unitType::random_submarine, 2);
+}
 
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a) {
     // inputHelper::writeLog(os, a.getLog());

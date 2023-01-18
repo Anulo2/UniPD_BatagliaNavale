@@ -5,6 +5,10 @@
 class PlayerVSComputer : public Game {
    public:
     PlayerVSComputer();
+
+   private:
+    void placeComputerUnits(Controller &computer);
+    void placePlayerUnits(Controller &player);
 };
 
 std::ostream &operator<<(std::ostream &os, PlayerVSComputer &a);

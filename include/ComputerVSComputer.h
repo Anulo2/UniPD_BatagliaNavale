@@ -6,6 +6,10 @@
 class ComputerVSComputer : public Game {
    public:
     ComputerVSComputer();
+
+   private:
+    void placeUnitsFor(Controller &player);
+    void placeInOrder(Controller &first, Controller &second);
 };
 
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a);

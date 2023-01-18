@@ -70,8 +70,7 @@ void Game::placeUnit(Controller& player, Helper::unitType unitType, std::string 
 void Game::placeUnits(Controller& player, Helper::unitType unitType, int quantity) {
     for (int i = 0; i < quantity; i++) {
         while (!placeUnit(player, unitType)) {
-            std::cout << "nop";
-        }
+            }
 
         std::cout << "Placed Unit Player!\n";
     }

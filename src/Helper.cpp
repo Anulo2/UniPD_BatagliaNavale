@@ -176,28 +176,22 @@ std::shared_ptr<Unit> Helper::randomSubmarine() {
 
 std::shared_ptr<Unit> Helper::typeOfUnit(Helper::unitType unitType) {
     if (unitType == Helper::unitType::iBattleship) {
-        std::cout << "\niBattleship\n";
         return inputBattleship(Helper::getPlayerInput(std::cin));
     }
     if (unitType == unitType::iSupport) {
-        std::cout << "\nisupport\n";
         return inputSupport(Helper::getPlayerInput(std::cin));
-        std::cout << "\nisubmarine\n";
     }
     if (unitType == unitType::iSubmarine) {
         return inputSubmarine(Helper::getPlayerInput(std::cin));
     }
 
     if (unitType == unitType::random_battleship) {
-        std::cout << "\nrbattleship\n";
         return randomBattleship();
     }
     if (unitType == unitType::random_support) {
-        std::cout << "\nrsupport\n";
         return randomSupport();
     }
     if (unitType == unitType::random_submarine) {
-        std::cout << "\nrsubmarino\n";
         return randomSubmarine();
     }
     return nullptr;
