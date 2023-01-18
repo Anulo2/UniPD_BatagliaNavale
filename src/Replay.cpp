@@ -14,7 +14,7 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-                std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
+                std::shared_ptr<Battleship> buffer = Helper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
 
                 if (player1.checkUnitPlacement(buffer, battleShip)) {
@@ -33,7 +33,7 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-                std::shared_ptr<Battleship> buffer = inputHelper::inputBattleship(in[iterator]);
+                std::shared_ptr<Battleship> buffer = Helper::inputBattleship(in[iterator]);
                 std::shared_ptr<Unit> battleShip(buffer);
 
                 if (player2.checkUnitPlacement(buffer, battleShip)) {
@@ -52,7 +52,7 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-                std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
+                std::shared_ptr<Support> buffer = Helper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
                 if (player1.checkUnitPlacement(buffer, support)) {
@@ -71,7 +71,7 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 3; i++) {
             placed = false;
             while (!placed) {
-                std::shared_ptr<Support> buffer = inputHelper::inputSupport(in[iterator]);
+                std::shared_ptr<Support> buffer = Helper::inputSupport(in[iterator]);
                 std::shared_ptr<Unit> support(buffer);
 
                 if (player2.checkUnitPlacement(buffer, support)) {
@@ -90,7 +90,7 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 2; i++) {
             placed = false;
             while (!placed) {
-                std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
+                std::shared_ptr<Submarine> buffer = Helper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
                 if (player1.checkUnitPlacement(buffer, submarine)) {
@@ -109,7 +109,7 @@ Replay::Replay(std::vector<std::string> in) {
         for (int i = 0; i < 2; i++) {
             placed = false;
             while (!placed) {
-                std::shared_ptr<Submarine> buffer = inputHelper::inputSubmarine(in[iterator]);
+                std::shared_ptr<Submarine> buffer = Helper::inputSubmarine(in[iterator]);
                 std::shared_ptr<Unit> submarine(buffer);
 
                 if (player2.checkUnitPlacement(buffer, submarine)) {
@@ -145,7 +145,7 @@ std::vector<std::string> Replay::getLog() {
 }
 
 /*********************************************************
- *                  SETER FUNCTIONS                      *
+ *                  SETTER FUNCTIONS                      *
  **********************************************************/
 
 void Replay::addStringToLog(std::string iLog) {
@@ -157,7 +157,7 @@ void Replay::addStringToLog(std::string iLog) {
  **********************************************************/
 
 std::ostream &operator<<(std::ostream &os, Replay &a) {
-    // inputHelper::writeLog(os, a.getLog());
+    // Helper::writeLog(os, a.getLog());
     os << (a.getPlayer1());
     os << "\n";
     os << (a.getPlayer2());

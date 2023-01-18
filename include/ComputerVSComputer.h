@@ -3,9 +3,9 @@
 
 #include "Battleship.h"
 #include "Controller.h"
+#include "Helper.h"
 #include "Submarine.h"
 #include "Support.h"
-#include "inputHelper.h"
 
 class ComputerVSComputer {
    public:
@@ -16,10 +16,12 @@ class ComputerVSComputer {
     std::vector<std::string> getLog();
     void addToLog(std::shared_ptr<Entity> obj);
     void addStringToLog(std::string iLog);
+    int getStartingPlayer();
 
    protected:
     Controller player1;
     Controller player2;
+    int selectPlayer;
     std::vector<std::string> log;
 };
 

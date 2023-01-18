@@ -3,9 +3,9 @@
 
 #include "Battleship.h"
 #include "Controller.h"
+#include "Helper.h"
 #include "Submarine.h"
 #include "Support.h"
-#include "inputHelper.h"
 
 class Replay {
    public:

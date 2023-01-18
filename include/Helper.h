@@ -1,5 +1,5 @@
-#ifndef INPUTHELPER_H
-#define INPUTHELPER_H
+#ifndef HELPER_H
+#define HELPER_H
 
 #include <iostream>
 #include <random>
@@ -9,7 +9,8 @@
 #include "Submarine.h"
 #include "Support.h"
 
-namespace inputHelper {
+namespace Helper {
+
 void writeLog(std::ostream& os, std::vector<std::string> log);
 
 std::string addContentToLog(std::shared_ptr<Unit> obj);
@@ -51,6 +52,6 @@ std::string randomAction(Controller* player1, Controller* player2);
 // Gestisce l'acquisizione dell'azione del player
 std::string handlePlayerAction(Controller* player1, Controller* player2, std::string iLogStr);
 
-}  // namespace inputHelper
+}  // namespace Helper
 
-#endif  // INPUTHELPER_H
+#endif  // HELPER_H

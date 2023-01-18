@@ -17,7 +17,7 @@ add_library(${PROJECT_NAME}
 	src/ComputerVSComputer.cpp
 	src/PlayerVSComputer.cpp
 	src/Replay.cpp
-	src/inputHelper.cpp
+	src/Helper.cpp
 )
 
 add_executable(battaglia_navale 

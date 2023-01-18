@@ -82,13 +82,13 @@ int main(int argc, char* argv[]) {
                 int i = placedUnits;
 
                 while (i < iFile.size()) {
-                    replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
                     std::cout << replay.getPlayer1() << std::endl;
 
                     i++;
                     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-                    replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
                     std::cout << replay.getPlayer2() << std::endl;
                     i++;
 
@@ -133,7 +133,7 @@ int main(int argc, char* argv[]) {
                 std::cout << "###          REPLAY              ###\n";
                 std::cout << "####################################\n";
 
-                my_ofile << inputHelper::logToString(replay.getLog());
+                my_ofile << Helper::logToString(replay.getLog());
 
                 int i = placedUnits;
                 while (i < iFile.size()) {
@@ -141,7 +141,7 @@ int main(int argc, char* argv[]) {
 
                     std::cout.setstate(std::ios_base::failbit);
 
-                    replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
                     my_ofile << "\t-> " + iFile[i];
                     my_ofile << replay << std::endl;
                     i++;
@@ -151,7 +151,7 @@ int main(int argc, char* argv[]) {
                     }
 
                     my_ofile << "PLAYER 2 ACTION\n";
-                    replay.addStringToLog(inputHelper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
                     my_ofile << "\t-> " + iFile[i];
                     my_ofile << replay << std::endl;
                     i++;
