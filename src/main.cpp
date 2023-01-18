@@ -31,13 +31,21 @@ int main(int argc, char *argv[]) {
 
         std::ofstream my_oFileB("./logs/mainLogPLVSPC.txt");
 
-        for (int i = 0; i < MAX_TURNS && (!playerVsComputer.getPlayer1()->isDead() && !playerVsComputer.getPlayer2()->isDead()); i++) {
+        bool win = false;
+
+        for (int i = 0; i < MAX_TURNS && !win; i++) {
             std::cout << "\n\n";
 
-            playerVsComputer.addStringToLog(inputHelper::handlePlayerAction(playerVsComputer.getPlayer1(), playerVsComputer.getPlayer2(), ""));
+            if (!win) {
+                playerVsComputer.addStringToLog(inputHelper::handlePlayerAction(playerVsComputer.getPlayer1(), playerVsComputer.getPlayer2(), ""));
+                win = playerVsComputer.getPlayer2()->isDead();
+            }
             std::cout << "\n\n";
 
-            playerVsComputer.addStringToLog(inputHelper::randomAction(playerVsComputer.getPlayer2(), playerVsComputer.getPlayer1()));
+            if (!win) {
+                playerVsComputer.addStringToLog(inputHelper::randomAction(playerVsComputer.getPlayer2(), playerVsComputer.getPlayer1()));
+                win = playerVsComputer.getPlayer1()->isDead();
+            }
 
             std::cout << "\n\n";
 
@@ -74,15 +82,21 @@ int main(int argc, char *argv[]) {
         std::cout << computerVsComputer;
         std::ofstream my_oFileA("./logs/mainLogPCVSPC.txt");
 
-        for (int i = 0; i < MAX_TURNS && (!computerVsComputer.getPlayer1()->isDead() && !computerVsComputer.getPlayer2()->isDead()); i++) {
-            computerVsComputer.addStringToLog(inputHelper::randomAction(computerVsComputer.getPlayer1(), computerVsComputer.getPlayer2()));
+        bool win = false;
+        for (int i = 0; i < MAX_TURNS && !win; i++) {
+            if (!win) {
+                std::cout << "\t     COMPUTER 1 ACTION \t\t\n\n";
+                computerVsComputer.addStringToLog(inputHelper::randomAction(computerVsComputer.getPlayer1(), computerVsComputer.getPlayer2()));
+                std::cout << computerVsComputer.getPlayer1();
 
-            std::cout << "    COMPUTER 1 ACTION   \n";
-            std::cout << computerVsComputer.getPlayer1();
-
-            computerVsComputer.addStringToLog(inputHelper::randomAction(computerVsComputer.getPlayer2(), computerVsComputer.getPlayer1()));
-            std::cout << "    COMPUTER 2 ACTION   \n";
-            std::cout << computerVsComputer.getPlayer2();
+                win = computerVsComputer.getPlayer2()->isDead();
+            }
+            if (!win) {
+                std::cout << "\t     COMPUTER 2 ACTION \t\t\n\n";
+                computerVsComputer.addStringToLog(inputHelper::randomAction(computerVsComputer.getPlayer2(), computerVsComputer.getPlayer1()));
+                std::cout << computerVsComputer.getPlayer2();
+                win = computerVsComputer.getPlayer1()->isDead();
+            }
 
             if (computerVsComputer.getPlayer2()->isDead()) {
                 std::cout << "######################################\n";

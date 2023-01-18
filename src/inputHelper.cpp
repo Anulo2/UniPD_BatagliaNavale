@@ -361,7 +361,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                     valid = true;
                     specialChar = true;
 
-                    std::cout << "\nBattleship in position: " << actionUnitMiddlePos << "fires at " << target;
+                    std::cout << " Battleship in position: " << actionUnitMiddlePos << "fires at " << target;
 
                     player1->mergeEntities(enemyEntities);
                     if (player2->removeDeadUnits()) {
@@ -401,7 +401,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                         std::vector<std::shared_ptr<Entity>> enemyEntities =
                             actionUnit->action(target, bufferUnit);
                         player1->mergeEntities(enemyEntities);
-                        std::cout << "\nSupport moves from " << actionUnitMiddlePos << " to " << target;
+                        std::cout << " Support moves from " << actionUnitMiddlePos << " to " << target;
                     }
                 } else if (type == 'E') {
                     std::shared_ptr<Unit> buffer(new Submarine(
@@ -420,7 +420,7 @@ std::string inputHelper::handlePlayerAction(Controller *player1, Controller *pla
                         std::vector<std::shared_ptr<Entity>> enemyEntities =
                             actionUnit->action(target, bufferUnit);
                         player1->mergeEntities(enemyEntities);
-                        std::cout << "\n Submarine moves from " << actionUnitMiddlePos << " to " << target;
+                        std::cout << "  Submarine moves from " << actionUnitMiddlePos << " to " << target;
                     }
                 }
             }
