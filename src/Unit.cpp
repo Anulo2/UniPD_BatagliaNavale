@@ -1,3 +1,5 @@
+// Leonardo Canello
+
 #include "Unit.h"
 
 Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId) {

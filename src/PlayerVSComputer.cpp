@@ -1,3 +1,5 @@
+// Leonardo Canello
+
 #include "PlayerVSComputer.h"
 
 /*********************************************************

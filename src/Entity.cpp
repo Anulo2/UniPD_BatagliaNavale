@@ -1,3 +1,5 @@
+// Enrico Zanoni
+
 #include "Entity.h"
 
 Entity::Entity() {
@@ -7,12 +9,7 @@ Entity::Entity(Position iPos, char iId) {
     id = iId;
     pos = iPos;
 }
-/*
-Entity::Entity(const Entity& a) {
-    id = a.id;
-    pos = a.pos;
-}
-*/
+
 char Entity::getId() {
     return id;
 }

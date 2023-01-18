@@ -1,3 +1,5 @@
+// Eris Sanson
+
 #ifndef GAME_H
 #define GAME_H
 

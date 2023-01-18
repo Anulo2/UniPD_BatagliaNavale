@@ -1,3 +1,5 @@
+// Enrico Zanoni
+
 #ifndef COMPUTERVSCOMPUTER_H
 #define COMPUTERVSCOMPUTER_H
 

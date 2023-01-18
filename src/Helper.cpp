@@ -1,3 +1,5 @@
+// Entico Zanoni
+
 #include "Helper.h"
 
 void Helper::writeLog(std::ostream &os, std::vector<std::string> log) {

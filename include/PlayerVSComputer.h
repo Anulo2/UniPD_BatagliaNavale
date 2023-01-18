@@ -1,3 +1,5 @@
+// Leonardo Canello
+
 #ifndef PLAYERVSCOMPUTER_H
 #define PLAYERVSCOMPUTER_H
 

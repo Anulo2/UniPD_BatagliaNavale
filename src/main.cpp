@@ -1,3 +1,6 @@
+
+// Eris Sanson
+
 #include <string.h>
 
 #include <fstream>

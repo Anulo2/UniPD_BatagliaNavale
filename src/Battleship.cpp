@@ -1,3 +1,5 @@
+// Eris Sanson
+
 #include "Battleship.h"
 
 Battleship::Battleship(const Position &iBow, const Position &iStern)

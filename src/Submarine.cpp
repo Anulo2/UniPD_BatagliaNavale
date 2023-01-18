@@ -1,3 +1,4 @@
+// Leonardo Canello
 
 #include "Submarine.h"
 
@@ -46,60 +47,8 @@ std::vector<std::shared_ptr<Entity>> Submarine::action(Position iTarget, std::ve
         }
     }
 
-    /*
-        std::vector<Position> unitPositions = (*iUnits[i]).getUnitPositions();
-
-        for (std::size_t j = 0; j < unitPositions.size(); ++j) {
-            if (unitPositions[j].isInside(a, b)) {
-
-                if(iUnits[i]-> isHitAt(unitPositions[j])){
-    Entity result(unitPositions[j], 'X');
-                resultVect.push_back(result);
-                }else{
-    Entity result(unitPositions[j], 'Y');
-                resultVect.push_back(result);
-                }
-
-            }
-        }
-    }*/
-
     return resultVect;
 }
 
 Submarine::~Submarine() {
 }
-
-/*
-
-
-
-N # # # # # # # # # # # #
-M # # # # # # # # # # # #
-L # # # # # S # # # # # #
-I # # # # # S # S S S # #
-H # # # # # S # C C C C C
-G # # # # # # # # # # # #
-F # # # # # # # # # # # #
-E # # # # # # # # # # # #
-D # # # # # S S S # # # #
-C # # # # # # # # # # # #
-B # # # # # # # # # # # #
-A # # # # # # # # # # # #
-  1 2 3 4 5 6 7 8 9 101112
-
-
-N # # # # # # # # # # # #
-M # # # # # # # # # # # #
-L # # # # # # # # # # # #
-I # # # # # # # S S S # #
-H # # # # # # # C C C C T
-G # # # # # # # # # # # #
-F # # # # # # # # # # # #
-E # # # # # # # # # # # #
-D # # # # # # # # # # # #
-C # # # # # # # # # # # #
-B # # # # # # # # # # # #
-A # # # # # # # # # # # #
-  1 2 3 4 5 6 7 8 9 101112
-*/

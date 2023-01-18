@@ -1,3 +1,5 @@
+// Enrico Zanoni
+
 #include "ComputerVSComputer.h"
 
 ComputerVSComputer::ComputerVSComputer() {
