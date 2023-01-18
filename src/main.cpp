@@ -4,19 +4,17 @@
 #include <iostream>
 #include <random>
 
-#include "Battleship.h"
 #include "ComputerVSComputer.h"
-#include "Controller.h"
-#include "Entity.h"
 #include "PlayerVSComputer.h"
-#include "Position.h"
-#include "Submarine.h"
-#include "Support.h"
-#include "Unit.h"
+
 
 static const int MAX_TURNS = 5000;
 
 int main(int argc, char *argv[]) {
+    if (argc <= 1){
+        std::cout << "\n!!Invalid arguments!!\nYou can use parameter: pc or cc\n\n";
+        return 0;
+    }
     if (strcmp(argv[1], "pc") == 0) {  // partita player vs computer
 
         std::cout << "######################################\n";
@@ -73,7 +71,7 @@ int main(int argc, char *argv[]) {
         my_oFileB.close();
 
     } else if (strcmp(argv[1], "cc") == 0) {  // partita computer vs computer
-
+        std::cout.setstate(std::ios_base::failbit);
         std::cout << "######################################\n";
         std::cout << "########  COMPUTER VS COMPUTER  ######\n";
         std::cout << "######################################\n";
@@ -119,10 +117,10 @@ int main(int argc, char *argv[]) {
         }
 
         std::cout << computerVsComputer;
-
+        std::cout.clear();
         std::cout << "\n You can find the log of the game in mainLogPCVSPC.txt !\n";
         my_oFileA.close();
-
+        
     } else {
         std::cout << "\n!!Invalid arguments!!\nYou can use parameter: pc or cc\n\n";
     }

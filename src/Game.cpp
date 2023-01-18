@@ -73,6 +73,9 @@ void Game::placeUnits(Controller& player, Helper::unitType unitType, int quantit
         }
 
         std::cout << "Placed Unit Player!\n";
+        if(i < quantity-1){
+            std::cout << "Place next unit!\n";
+        }
     }
 }
 
