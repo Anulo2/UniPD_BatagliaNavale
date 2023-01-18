@@ -340,7 +340,7 @@ std::string Helper::handlePlayerAction(Controller *player1, Controller *player2,
         try {
             std::string action;
             std::vector<Position> result;
-
+            std::cout << player1 << std::endl;
             if (iLogStr.length() == 0) {
                 action = Helper::getPlayerInput(std::cin);
 

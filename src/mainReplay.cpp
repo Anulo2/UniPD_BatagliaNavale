@@ -123,6 +123,7 @@ int main(int argc, char* argv[]) {
                 }
 
                 Replay replay(iFile);
+
                 std::cout << std::endl;
                 std::cout << "####################################\n";
                 std::cout << "###          REPLAY              ###\n";
@@ -130,32 +131,43 @@ int main(int argc, char* argv[]) {
 
                 my_ofile << Helper::logToString(replay.getLog());
 
+                my_ofile << "####################################\n";
+                my_ofile << "###          PLAYER 1            ###\n";
+                my_ofile << "####################################\n";
+                my_ofile << "\n\n";
+                my_ofile << replay.getPlayer1();
+
+                my_ofile << "####################################\n";
+                my_ofile << "###          PLAYER 2            ###\n";
+                my_ofile << "####################################\n";
+                my_ofile << "\n\n";
+                my_ofile << replay.getPlayer2();
+
                 int i = placedUnits;
 
                 while (i < iFile.size()) {
-                    my_ofile << "\nPLAYER 1 ACTION\n";
                     std::cout.setstate(std::ios_base::failbit);
 
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i++]));
-                    my_ofile << "\t-> " + iFile[i];
-                    my_ofile << replay << std::endl;
+                    my_ofile << "\nPLAYER 1 ACTION\n";
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
 
-                    std::cout << "file " << iFile[i] << std::endl;
+                    my_ofile << "\t-> " + iFile[i];
+                    my_ofile << replay.getPlayer1() << std::endl;
+                    i++;
                     if (replay.getPlayer2()->removeDeadUnits()) {
                         my_ofile << "\nUnit destroyed\n";
                     }
 
                     my_ofile << "PLAYER 2 ACTION\n";
-                    if (i < iFile.size()) {
-                        replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i++]));
-                        my_ofile << "\t-> " + iFile[i];
-                        my_ofile << replay << std::endl;
-                    }
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
 
+                    my_ofile << "\t-> " + iFile[i];
+                    my_ofile << replay.getPlayer2() << std::endl;
+                    i++;
                     if (replay.getPlayer1()->removeDeadUnits()) {
                         my_ofile << "\nUnit destroyed\n";
                     }
-
+                    std::cout << "Iterator: " << i << std::endl;
                     std::cout.clear();
 
                     if (replay.getPlayer2()->isDead()) {

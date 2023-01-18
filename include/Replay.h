@@ -10,7 +10,8 @@ class Replay : public Game {
     Replay(std::vector<std::string> in);
 
    private:
-    bool placeUnitsFor(Controller &player, std::vector<std::string> inString);
+    void placeUnitsFor(Controller &player, std::vector<std::string> inVect);
+    void placeInOrder(Controller &first, Controller &second, std::vector<std::string> inVect);
 };
 
 std::ostream &operator<<(std::ostream &os, Replay &a);
