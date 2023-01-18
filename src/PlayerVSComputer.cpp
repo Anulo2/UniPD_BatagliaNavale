@@ -115,6 +115,7 @@ PlayerVSComputer::PlayerVSComputer() {
                 std::cout << "Submarine player1 n." << i + 1 << " placed!\n";
                 // player1.printDefense(std::cout);
             }
+            placedUnitP1 = true;
         }
 
         if (selectPlayer == 1) {
@@ -187,6 +188,7 @@ PlayerVSComputer::PlayerVSComputer() {
                 std::cout << "Submarine player2 n." << i + 1 << " placed!\n";
                 // player2.printDefense(std::cout);
             }
+            placedUnitP2 = true;
         }
         if (selectPlayer == 0) {
             selectPlayer++;

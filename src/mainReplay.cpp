@@ -188,8 +188,9 @@ int main(int argc, char* argv[]) {
             }
         }
     } catch (std::invalid_argument e) {
+        std::cout << e.what() << std::endl;
         std::cout << "Something went wrong... " << std::endl;
-    }
+        }
 
     return 0;
 }

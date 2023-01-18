@@ -6,10 +6,10 @@ ComputerVSComputer::ComputerVSComputer() {
     // true  = player 1
     selectPlayer = ranomPlayer(rand);
     int placing = 0;
-
     bool placed;
     bool placedUnitP1 = false;
     bool placedUnitP2 = false;
+
     while (!placed) {
         if (selectPlayer == 0) {
             // Placing battleships of player1
@@ -30,6 +30,11 @@ ComputerVSComputer::ComputerVSComputer() {
                         std::cout << "\nInvalid Pos for battleship p1\n"
                                   << std::endl;
                         std::cout << e.what() << "\n";
+                    } catch (std::out_of_range e) {
+                        std::cout << "\n"
+                                  << "Invalid string input" << std::endl;
+                        std::cout << "\n"
+                                  << "A valid input string has this format: A5 B5" << std::endl;
                     }
                 }
 
@@ -52,6 +57,11 @@ ComputerVSComputer::ComputerVSComputer() {
                         }
                     } catch (std::invalid_argument) {
                         std::cout << "\nInvalid Pos for support p1" << std::endl;
+                    } catch (std::out_of_range e) {
+                        std::cout << "\n"
+                                  << "Invalid string input" << std::endl;
+                        std::cout << "\n"
+                                  << "A valid input string has this format: A5 B5" << std::endl;
                     }
                 }
 
@@ -76,11 +86,18 @@ ComputerVSComputer::ComputerVSComputer() {
                         std::cout << "\nInvalid Pos for submarine p1 \n"
                                   << std::endl;
                         std::cout << e.what() << "\n";
+                    } catch (std::out_of_range e) {
+                        std::cout << "\n"
+                                  << "Invalid string input" << std::endl;
+                        std::cout << "\n"
+                                  << "A valid input string has this format: A5 B5" << std::endl;
                     }
                 }
 
                 std::cout << "Placed submarine Player1!\n";
             }
+
+            placedUnitP1 = true;
         }
         if (selectPlayer == 1) {
             // Placing battleships of player2
@@ -101,6 +118,11 @@ ComputerVSComputer::ComputerVSComputer() {
                         std::cout << "\nInvalid Pos for battleship p1\n"
                                   << std::endl;
                         std::cout << e.what() << "\n";
+                    } catch (std::out_of_range e) {
+                        std::cout << "\n"
+                                  << "Invalid string input" << std::endl;
+                        std::cout << "\n"
+                                  << "A valid input string has this format: A5 B5" << std::endl;
                     }
                 }
 
@@ -109,7 +131,7 @@ ComputerVSComputer::ComputerVSComputer() {
 
             // Placing support of player2
             for (int i = 0; i < 3; i++) {
-                placedUnitP1 = false;
+                placedUnitP2 = false;
                 while (!placedUnitP2) {
                     try {
                         std::shared_ptr<Unit> buffer(Helper::randomSupport());
@@ -125,6 +147,11 @@ ComputerVSComputer::ComputerVSComputer() {
                         std::cout << "\nInvalid Pos for Support p2 \n"
                                   << std::endl;
                         std::cout << e.what() << "\n";
+                    } catch (std::out_of_range e) {
+                        std::cout << "\n"
+                                  << "Invalid string input" << std::endl;
+                        std::cout << "\n"
+                                  << "A valid input string has this format: A5 B5" << std::endl;
                     }
                 }
 
@@ -148,11 +175,17 @@ ComputerVSComputer::ComputerVSComputer() {
                         std::cout << "\nInvalid Pos for submarine p2 \n"
                                   << std::endl;
                         std::cout << e.what() << "\n";
+                    } catch (std::out_of_range e) {
+                        std::cout << "\n"
+                                  << "Invalid string input" << std::endl;
+                        std::cout << "\n"
+                                  << "A valid input string has this format: A5 B5" << std::endl;
                     }
                 }
 
                 std::cout << "Placed submarine Player2!\n";
             }
+            placedUnitP2 = true;
         }
 
         if (selectPlayer == 0) {
