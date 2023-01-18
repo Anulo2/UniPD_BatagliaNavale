@@ -131,25 +131,26 @@ int main(int argc, char* argv[]) {
                 my_ofile << Helper::logToString(replay.getLog());
 
                 int i = placedUnits;
+
                 while (i < iFile.size()) {
                     my_ofile << "\nPLAYER 1 ACTION\n";
-
                     std::cout.setstate(std::ios_base::failbit);
 
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
+                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i++]));
                     my_ofile << "\t-> " + iFile[i];
                     my_ofile << replay << std::endl;
-                    i++;
 
+                    std::cout << "file " << iFile[i] << std::endl;
                     if (replay.getPlayer2()->removeDeadUnits()) {
                         my_ofile << "\nUnit destroyed\n";
                     }
 
                     my_ofile << "PLAYER 2 ACTION\n";
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
-                    my_ofile << "\t-> " + iFile[i];
-                    my_ofile << replay << std::endl;
-                    i++;
+                    if (i < iFile.size()) {
+                        replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i++]));
+                        my_ofile << "\t-> " + iFile[i];
+                        my_ofile << replay << std::endl;
+                    }
 
                     if (replay.getPlayer1()->removeDeadUnits()) {
                         my_ofile << "\nUnit destroyed\n";
@@ -170,6 +171,7 @@ int main(int argc, char* argv[]) {
 
                     my_ofile.flush();
                 }
+
                 if (!replay.getPlayer2()->isDead() && !replay.getPlayer1()->isDead()) {
                     my_ofile << "######################################\n";
                     my_ofile << "########          DRAW          ######\n";
