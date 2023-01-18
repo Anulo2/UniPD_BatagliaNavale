@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
             my_oFileB << Helper::logToString(playerVsComputer.getLog());
             my_oFileB.flush();
         }
-        if ((!playerVsComputer.getPlayer1()->isDead() && !playerVsComputer.getPlayer2()->isDead())) {
+        if (!playerVsComputer.getPlayer1()->isDead() && !playerVsComputer.getPlayer2()->isDead()) {
             std::cout << "######################################\n";
             std::cout << "########           DRAW         ######\n";
             std::cout << "######################################\n";
@@ -112,7 +112,7 @@ int main(int argc, char *argv[]) {
             my_oFileA << Helper::logToString(computerVsComputer.getLog());
             my_oFileA.flush();
         }
-        if ((!computerVsComputer.getPlayer1()->isDead() && !computerVsComputer.getPlayer2()->isDead())) {
+        if (!computerVsComputer.getPlayer1()->isDead() && !computerVsComputer.getPlayer2()->isDead()) {
             std::cout << "######################################\n";
             std::cout << "########          DRAW          ######\n";
             std::cout << "######################################\n";

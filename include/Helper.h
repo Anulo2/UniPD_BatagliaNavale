@@ -11,6 +11,15 @@
 
 namespace Helper {
 
+enum unitType : int {
+    random_battleship,
+    random_support,
+    random_submarine,
+    iBattleship,
+    iSupport,
+    iSubmarine,
+};
+
 void writeLog(std::ostream& os, std::vector<std::string> log);
 
 std::string addContentToLog(std::shared_ptr<Unit> obj);
@@ -45,6 +54,11 @@ std::shared_ptr<Unit> randomSupport();
 
 // To get a random Submarine
 std::shared_ptr<Unit> randomSubmarine();
+
+// select the type of unit you want to place
+std::shared_ptr<Unit> typeOfUnit(Helper::unitType unitType);
+
+std::shared_ptr<Unit> typeOfUnit(Helper::unitType unitType, std::string inString);
 
 // Random action by player1 + merge entity
 std::string randomAction(Controller* player1, Controller* player2);

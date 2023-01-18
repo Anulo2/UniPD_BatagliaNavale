@@ -164,15 +164,21 @@ int main(int argc, char* argv[]) {
 
                     if (replay.getPlayer2()->isDead()) {
                         my_ofile << "######################################\n";
-                        my_ofile << "########        VINCE PC1       ######\n";
+                        my_ofile << "########        PC1 WIN         ######\n";
                         my_ofile << "######################################\n";
                     }
                     if (replay.getPlayer1()->isDead()) {
                         my_ofile << "######################################\n";
-                        my_ofile << "########        VINCE PC2       ######\n";
+                        my_ofile << "########        PC2 WIN         ######\n";
                         my_ofile << "######################################\n";
                     }
+
                     my_ofile.flush();
+                }
+                if (!replay.getPlayer2()->isDead() && !replay.getPlayer1()->isDead()) {
+                    my_ofile << "######################################\n";
+                    my_ofile << "########          DRAW          ######\n";
+                    my_ofile << "######################################\n";
                 }
 
                 my_ofile.close();
@@ -190,7 +196,7 @@ int main(int argc, char* argv[]) {
     } catch (std::invalid_argument e) {
         std::cout << e.what() << std::endl;
         std::cout << "Something went wrong... " << std::endl;
-        }
+    }
 
     return 0;
 }

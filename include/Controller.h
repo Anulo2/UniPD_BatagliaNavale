@@ -30,7 +30,6 @@ class Controller {
     ~Controller();
 
    protected:
-    // std::vector<Unit *> units = {};
     std::vector<std::shared_ptr<Unit>> units;
     std::vector<std::shared_ptr<Entity>> enemyEntities;
     Entity defaultEntity;
