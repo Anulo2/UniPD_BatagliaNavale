@@ -7,14 +7,7 @@
 #include <iostream>
 #include <thread>
 
-#include "Battleship.h"
-#include "Controller.h"
-#include "Entity.h"
-#include "Position.h"
 #include "Replay.h"
-#include "Submarine.h"
-#include "Support.h"
-#include "Unit.h"
 
 int main(int argc, char* argv[]) {
     // content for input file
