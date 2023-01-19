@@ -60,14 +60,14 @@ std::vector<Position> Helper::inputString(const std::string &in) {
     char y1 = XY1[0];
     std::string strx1 = XY1.substr(
         1,
-        XY1.length() - 1); // estrazione dei caratteri dall'inizio all'ultimo-1
+        XY1.length() - 1);  // estrazione dei caratteri dall'inizio all'ultimo-1
     int x1 = Helper::stringTointeger(strx1);
 
     // estrazione dell'ultimo carattere
     char y2 = XY2[0];
     std::string strx2 = XY2.substr(
         1,
-        XY2.length() - 1); // estrazione dei caratteri dall'inizio all'ultimo-1
+        XY2.length() - 1);  // estrazione dei caratteri dall'inizio all'ultimo-1
     int x2 = Helper::stringTointeger(strx2);
 
     Position bow(x1, y1);
@@ -340,7 +340,7 @@ std::string Helper::handlePlayerAction(Controller *player1, Controller *player2,
         try {
             std::string action;
             std::vector<Position> result;
-            // std::cout << player1 << std::endl;
+
             if (iLogStr.length() == 0) {
                 action = Helper::getPlayerInput(std::cin);
 

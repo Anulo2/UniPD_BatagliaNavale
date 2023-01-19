@@ -27,28 +27,46 @@ void PlayerVSComputer::startGame() {
  **********************************************************/
 
 void PlayerVSComputer::placeComputerUnits(Controller &computer) {
-    std::cout << "\nPlacing Battlesips\n";
+    std::cout << "\n### Placing Battlesips ###\n";
+
     Game::placeUnits(computer, Helper::unitType::random_battleship, 3);
 
     // Placing support of player1
-    std::cout << "\nPlacing Supports\n";
+    std::cout << "\n### Placing Supports ###\n";
     Game::placeUnits(computer, Helper::unitType::random_support, 3);
 
     // Placing submarines of player1
-    std::cout << "\nPlacing Submarines\n";
+    std::cout << "\n### Placing Submarines ###\n";
     Game::placeUnits(computer, Helper::unitType::random_submarine, 2);
 }
 
 void PlayerVSComputer::placePlayerUnits(Controller &player) {
-    std::cout << "\nPlacing Battlesips\n";
+    // Placing Battleship of player
+    std::cout << "\nSet next unit bow and stern position\n";
+    std::cout << "Example: A1 A5" << std::endl;
+
+    std::cout << "\n### Placing 3 Battlesips ###\n";
+    std::cout << "\n### This unit has dimension = 5 ###\n";
+    std::cout << "\n-> ";
     Game::placeUnits(player, Helper::unitType::iBattleship, 3);
 
-    // Placing support of player1
-    std::cout << "\nPlacing Supports\n";
+    // Placing support of player
+    std::cout << "\nSet next unit bow and stern position\n";
+    std::cout << "Example: A6 C6" << std::endl;
+
+    std::cout << "\n### Placing 3 Supports ###\n";
+    std::cout << "\n### This unit has dimension = 3 ###\n";
+
+    std::cout << "\n-> ";
     Game::placeUnits(player, Helper::unitType::iSupport, 3);
 
-    // Placing submarines of player1
-    std::cout << "\nPlacing Submarines\n";
+    // Placing submarines of player
+    std::cout << "\nSet next unit bow and stern position\n";
+    std::cout << "Example: H11 H11" << std::endl;
+
+    std::cout << "\n### Placing 2 Submarines ###\n";
+    std::cout << "\n### This unit has dimension = 1 ###\n";
+    std::cout << "\n-> ";
     Game::placeUnits(player, Helper::unitType::iSubmarine, 2);
 }
 

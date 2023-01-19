@@ -99,7 +99,7 @@ void Replay::writeActionInOrder(Controller *first, Controller *second, std::vect
 
         if (second->isDead()) {
             outputFile << "######################################\n";
-            outputFile << "########        PLAYER1 WIN      ######\n";
+            outputFile << "########        PLAYER1 WIN     ######\n";
             outputFile << "######################################\n";
         }
         if (first->isDead()) {
