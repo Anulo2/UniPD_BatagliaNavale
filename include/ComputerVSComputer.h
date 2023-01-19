@@ -6,16 +6,18 @@
 #include "Game.h"
 
 class ComputerVSComputer : public Game {
-   public:
-    ComputerVSComputer();
-    void startGame();
+public:
+    ComputerVSComputer(); // costruttore di default
 
-   private:
-    void placeUnitsFor(Controller &player);
-    void placeInOrder(Controller &first, Controller &second);
+    void startGame(); // piazza unità e inizia gioco (virtuale di game)
+
+private:
+    void placeUnitsFor(Controller &player);                   // piazza unità al controller dato
+    void placeInOrder(Controller &first, Controller &second); // piazza le unità in ordine ai due controller
 };
 
+// overload operatori
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer &a);
 std::ostream &operator<<(std::ostream &os, ComputerVSComputer *a);
 
-#endif  // COMPUTERVSCOMPUTER_H
+#endif // COMPUTERVSCOMPUTER_H

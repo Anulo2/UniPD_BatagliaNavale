@@ -10,7 +10,7 @@ Entity::Entity(Position iPos, char iId) {
     pos = iPos;
 }
 
-char Entity::getId() {
+char Entity::getId() const {
     return id;
 }
 
@@ -18,7 +18,7 @@ void Entity::setId(char iId) {
     id = iId;
 }
 
-Position Entity::getPos() {
+Position Entity::getPos() const{
     return pos;
 }
 

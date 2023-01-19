@@ -22,52 +22,40 @@ enum unitType : int {
     iSubmarine,
 };
 
-void writeLog(std::ostream& os, std::vector<std::string> log);
+void writeLog(std::ostream &os, std::vector<std::string> log); // scrive il log sullo stream dato
 
-std::string addContentToLog(std::shared_ptr<Unit> obj);
+std::string addContentToLog(std::shared_ptr<Unit> obj); // aggiunge il contenuto al log
 
-std::string addContentToLog(Position target, std::string actionUnit);
+std::string addContentToLog(Position target, std::string actionUnit); // aggiunge il contenuto al log
 
-std::string logToString(std::vector<std::string> log);
+std::string logToString(std::vector<std::string> log); // conversione da log a string
 
-// Return String from player input stream
-std::string getPlayerInput(std::istream& is);
+std::string getPlayerInput(std::istream &is); // restituisce una stringa dal input stream del player
 
-// return a position from a input string
-std::vector<Position> inputString(std::string in);
+std::vector<Position> inputString(std::string in); // restituisce una posizione dall'input stream
 
-// Convert string to integer value
-int stringTointeger(const std::string str);
+int stringTointeger(const std::string str); // conversione string -> int
 
-// Function that takes a input String and return a new Battleship
-std::shared_ptr<Battleship> inputBattleship(std::string in);
+std::shared_ptr<Battleship> inputBattleship(std::string in); // data una stringa dallo stream di input restituisce un battleship
 
-// Function that takes a input String and return a new Support
-std::shared_ptr<Support> inputSupport(std::string in);
+std::shared_ptr<Support> inputSupport(std::string in); // data una stringa dallo stream di input restituisce un supporto
 
-// Function that takes a input String and return a new Submarine
-std::shared_ptr<Submarine> inputSubmarine(std::string in);
+std::shared_ptr<Submarine> inputSubmarine(std::string in); // data una stringa dallo stream di input restituisce un sottomarino
 
-// To get a random Battleship
-std::shared_ptr<Unit> randomBattleship();
+std::shared_ptr<Unit> randomBattleship(); // restituisce un battleship random
 
-// To get a random Support
-std::shared_ptr<Unit> randomSupport();
+std::shared_ptr<Unit> randomSupport(); // restituisce un supporto random
 
-// To get a random Submarine
-std::shared_ptr<Unit> randomSubmarine();
+std::shared_ptr<Unit> randomSubmarine(); // restituisce un sottomarino random
 
-// select the type of unit you want to place
-std::shared_ptr<Unit> typeOfUnit(Helper::unitType unitType);
+std::shared_ptr<Unit> typeOfUnit(Helper::unitType unitType); // seleziona il tipo di unità da piazare
 
 std::shared_ptr<Unit> typeOfUnit(Helper::unitType unitType, std::string inString);
 
-// Random action by player1 + merge entity
-std::string randomAction(Controller* player1, Controller* player2);
+std::string randomAction(Controller *player1, Controller *player2); // player 1 performa un azione random + merge entity
 
-// Gestisce l'acquisizione dell'azione del player
-std::string handlePlayerAction(Controller* player1, Controller* player2, std::string iLogStr);
+std::string handlePlayerAction(Controller *player1, Controller *player2, std::string iLogStr); // Gestisce l'acquisizione dell'azione del player
 
-}  // namespace Helper
+} // namespace Helper
 
-#endif  // HELPER_H
+#endif // HELPER_H
