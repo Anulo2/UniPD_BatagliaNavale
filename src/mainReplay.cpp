@@ -8,7 +8,7 @@
 
 #include "Replay.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     // content for input file
     std::vector<std::string> iFile;
 
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 
             } else if (argc == 3 && strcmp(argv[1], "v") == 0) {
                 struct stat sb;
-                const char* argv2 = argv[2];
+                const char *argv2 = argv[2];
                 if (stat(argv2, &sb) == 0) {
                     if (sb.st_mode & S_IFDIR) {
                         throw std::invalid_argument("This is a folder!");
@@ -95,13 +95,13 @@ int main(int argc, char* argv[]) {
                     throw std::invalid_argument("You are tring to r/w the same file!\n");
                 }
                 struct stat sb;
-                const char* argv2 = argv[2];
+                const char *argv2 = argv[2];
                 if (stat(argv2, &sb) == 0) {
                     if (sb.st_mode & S_IFDIR) {
                         throw std::invalid_argument("This is a folder!");
                     }
                 }
-                const char* argv3 = argv[3];
+                const char *argv3 = argv[3];
                 if (stat(argv3, &sb) == 0) {
                     if (sb.st_mode & S_IFDIR) {
                         throw std::invalid_argument("This is a folder!");

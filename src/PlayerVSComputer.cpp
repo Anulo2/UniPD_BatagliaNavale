@@ -26,7 +26,7 @@ void PlayerVSComputer::startGame() {
  *                  HELPER FUNCTIONS                     *
  **********************************************************/
 
-void PlayerVSComputer::placeComputerUnits(Controller& computer) {
+void PlayerVSComputer::placeComputerUnits(Controller &computer) {
     std::cout << "\nPlacing Battlesips\n";
     Game::placeUnits(computer, Helper::unitType::random_battleship, 3);
 
@@ -39,7 +39,7 @@ void PlayerVSComputer::placeComputerUnits(Controller& computer) {
     Game::placeUnits(computer, Helper::unitType::random_submarine, 2);
 }
 
-void PlayerVSComputer::placePlayerUnits(Controller& player) {
+void PlayerVSComputer::placePlayerUnits(Controller &player) {
     std::cout << "\nPlacing Battlesips\n";
     Game::placeUnits(player, Helper::unitType::iBattleship, 3);
 
@@ -52,7 +52,7 @@ void PlayerVSComputer::placePlayerUnits(Controller& player) {
     Game::placeUnits(player, Helper::unitType::iSubmarine, 2);
 }
 
-std::ostream& operator<<(std::ostream& os, PlayerVSComputer& a) {
+std::ostream &operator<<(std::ostream &os, PlayerVSComputer &a) {
     // Helper::writeLog(os,a.getLog());
 
     os << (a.getPlayer1());
@@ -61,7 +61,7 @@ std::ostream& operator<<(std::ostream& os, PlayerVSComputer& a) {
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, PlayerVSComputer* a) {
+std::ostream &operator<<(std::ostream &os, PlayerVSComputer *a) {
     os << *a;
     return os;
 }

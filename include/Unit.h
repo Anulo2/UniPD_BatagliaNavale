@@ -12,7 +12,7 @@
 
 class Unit {
    public:
-    Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId);
+    Unit(const Position &iBow, const Position &iStern, const int& iDimension, const int& iArmor,const char& iId);
     Unit(const Unit &a);
 
     // restiuisce posizione centrale
@@ -22,7 +22,7 @@ class Unit {
     bool isVertical() const;
 
     // Controlla se una certa posizione è parte di questa nave
-    bool containsPos(Position iPos);
+    bool containsPos(const Position& iPos);
 
     // restituisce il carattere identificativo del tipo di nave
     char getId() const;
@@ -34,10 +34,10 @@ class Unit {
     Position getStern() const;
 
     // esegue un update dello status di salute della nave
-    void updateStatus(Position iPos, bool iValue);
+    void updateStatus(const Position& iPos, const bool& iValue);
 
     // setter dell'armatura
-    void setArmor(int iArmor);
+    void setArmor(const int& iArmor);
 
     // getter dell'armatura
     int getArmor() const;
@@ -49,13 +49,13 @@ class Unit {
     int getDimension();
 
     // restituisce vero o falso in base a se la nave è stata colpita nella data posizione
-    bool isHitAt(Position iPos);
+    bool isHitAt(const Position& iPos);
 
     // getter dello status
     std::vector<bool> getStatus();
 
     // funzione virtuale pura, restituisce il tipo della nave
-    virtual std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits) = 0;
+    virtual std::vector<std::shared_ptr<Entity>> action(const Position& iTarget, std::vector<std::shared_ptr<Unit>> iUnits) = 0;
 
     // getter di tutte le posizioni della nave
     std::vector<Position> getUnitPositions() const;

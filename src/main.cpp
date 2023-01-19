@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
         std::cout << "\n!!Invalid arguments!!\nYou can use parameter: pc or cc\n\n";
         return 0;
     }
-    if (strcmp(argv[1], "pc") == 0) {  // partita player vs computer
+    if (strcmp(argv[1], "pc") == 0) { // partita player vs computer
 
         std::cout << "######################################\n";
         std::cout << "########   PLAYER VS COMPUTER   ######\n";
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
         std::cout << "\n You can find the log of the game in mainLogPLVSPC.txt !\n";
         my_oFileB.close();
 
-    } else if (strcmp(argv[1], "cc") == 0) {  // partita computer vs computer
+    } else if (strcmp(argv[1], "cc") == 0) { // partita computer vs computer
         std::cout.setstate(std::ios_base::failbit);
         std::cout << "######################################\n";
         std::cout << "########  COMPUTER VS COMPUTER  ######\n";

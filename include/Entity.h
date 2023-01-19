@@ -8,12 +8,12 @@
 #include "Position.h"
 
 class Entity {
-   public:
+public:
     // costruttore di default
     Entity();
 
     // costruttore
-    Entity(Position iPos, char iId);
+    Entity(const Position &iPos, const char &iId);
 
     // getter della posizione
     Position getPos() const;
@@ -22,9 +22,9 @@ class Entity {
     char getId() const;
 
     // setter identificativo
-    void setId(char iId);
+    void setId(const char &iId);
 
-   private:
+private:
     char id = ' ';
     Position pos;
 };

@@ -2,7 +2,7 @@
 
 #include "Unit.h"
 
-Unit::Unit(const Position &iBow, const Position &iStern, int iDimension, int iArmor, char iId) {
+Unit::Unit(const Position &iBow, const Position &iStern, const int &iDimension, const int &iArmor, const char &iId) {
     Position bow(iBow);
     Position stern(iStern);
 
@@ -31,7 +31,7 @@ Unit::Unit(const Unit &a) {
     status = a.status;
 }
 
-bool Unit::isHitAt(Position iPos) {
+bool Unit::isHitAt(const Position &iPos) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
             return status[iPos.getIntY() - Unit::getStern().getIntY()];
@@ -51,7 +51,7 @@ bool Unit::isVertical() const {
     return vertical;
 }
 
-bool Unit::containsPos(Position iPos) {
+bool Unit::containsPos(const Position &iPos) {
     return iPos.isInside(Unit::getStern(), Unit::getBow());
 }
 
@@ -75,7 +75,7 @@ Position Unit::getStern() const {
     }
 }
 
-void Unit::updateStatus(Position iPos, bool iValue) {
+void Unit::updateStatus(const Position &iPos, const bool &iValue) {
     if (Unit::containsPos(iPos)) {
         if (vertical) {
             status[iPos.getIntY() - Unit::getStern().getIntY()] = iValue;
@@ -86,7 +86,7 @@ void Unit::updateStatus(Position iPos, bool iValue) {
     }
 }
 
-void Unit::setArmor(int iArmor) {
+void Unit::setArmor(const int &iArmor) {
     armor = iArmor;
 }
 

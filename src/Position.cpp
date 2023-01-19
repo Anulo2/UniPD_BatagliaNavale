@@ -7,7 +7,7 @@ Position::Position() {
     y = 0;
 }
 
-Position::Position(const int& iX, const char& iY) {
+Position::Position(const int &iX, const char &iY) {
     if (iX < 1 || iX > 12)
         throw std::invalid_argument("invalid X, valid value for X: [1,2,3,4,5,6,7,8,9,10,11,12]");
 
@@ -25,7 +25,7 @@ Position::Position(const int& iX, const char& iY) {
 }
 
 // X[1,12] Y[1,12]
-Position::Position(int iX, int iY) {
+Position::Position(const int &iX, const int &iY) {
     if ((iX < 1) || (iX > 12) || (iY < 1) || (iY > 12))
         throw std::invalid_argument("invalid X & Y, valid value for X & Y[1,2,3,4,5,6,7,8,9,10,11,12]");
 
@@ -44,22 +44,22 @@ int Position::getX() const {
     return x;
 }
 
-bool Position::isAligned(const Position& a) const {
+bool Position::isAligned(const Position &a) const {
     return (x == a.getX() || y == a.getIntY());
 }
 
-int Position::distanceTo(const Position& a) const {
+int Position::distanceTo(const Position &a) const {
     if (!Position::isAligned(a)) {
         throw std::invalid_argument("Positions must be aligned");
     }
     return std::abs(x - a.x) + std::abs(y - a.y);
 }
 
-bool Position::isSmaller(const Position& a) const {
+bool Position::isSmaller(const Position &a) const {
     return x < a.x || (x == a.x && y < a.y);
 }
 
-bool Position::isInside(Position a, Position b) {
+bool Position::isInside(const Position &a, const Position &b) const {
     int x1 = std::min(a.getX(), b.getX());
     int x2 = std::max(a.getX(), b.getX());
     int y1 = std::min(a.getIntY(), b.getIntY());
@@ -71,20 +71,20 @@ bool Position::isInside(Position a, Position b) {
     return false;
 }
 
-bool operator==(Position a, Position b) {
+bool operator==(const Position &a, const Position &b) {
     return (a.getX() == b.getX()) && (a.getIntY() == b.getIntY());
 }
 
-bool operator!=(Position a, Position b) {
+bool operator!=(const Position &a, const Position &b) {
     return !(a == b);
 }
 
-std::ostream& operator<<(std::ostream& os, Position a) {
+std::ostream &operator<<(std::ostream &os, const Position &a) {
     os << "(" << a.getX() << ", " << a.getY() << ")";
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, Position* a) {
+std::ostream &operator<<(std::ostream &os, const Position *a) {
     os << *a;
     return os;
 }

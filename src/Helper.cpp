@@ -2,7 +2,7 @@
 
 #include "Helper.h"
 
-void Helper::writeLog(std::ostream &os, std::vector<std::string> log) {
+void Helper::writeLog(std::ostream &os, const std::vector<std::string> log) {
     for (int i = 0; i < log.size(); i++)
         os << log[i] << "\n";
 }
@@ -21,7 +21,7 @@ std::string Helper::addContentToLog(std::shared_ptr<Unit> obj) {
     return coordStern + " " + coordBow;
 }
 
-std::string Helper::addContentToLog(Position target, std::string actionUnit) {
+std::string Helper::addContentToLog(const Position &target, const std::string &actionUnit) {
     std::string pos{};
     std::string coordtarget = target.getY() + std::to_string(target.getX());
     pos += actionUnit + " " + coordtarget;
@@ -40,7 +40,7 @@ std::string Helper::getPlayerInput(std::istream &is) {
     return in;
 }
 
-int Helper::stringTointeger(std::string str) {
+int Helper::stringTointeger(const std::string &str) {
     int temp = 0;
     for (int i = 0; i < str.length(); i++) {
         temp = temp * 10 + (str[i] - '0');
@@ -48,7 +48,7 @@ int Helper::stringTointeger(std::string str) {
     return temp;
 }
 
-std::vector<Position> Helper::inputString(std::string in) {
+std::vector<Position> Helper::inputString(const std::string &in) {
     // throw std::out_of_range!
     std::string XY1 = in.substr(0, in.find(" "));
     // throw std::out_of_range!
@@ -60,14 +60,14 @@ std::vector<Position> Helper::inputString(std::string in) {
     char y1 = XY1[0];
     std::string strx1 = XY1.substr(
         1,
-        XY1.length() - 1);  // estrazione dei caratteri dall'inizio all'ultimo-1
+        XY1.length() - 1); // estrazione dei caratteri dall'inizio all'ultimo-1
     int x1 = Helper::stringTointeger(strx1);
 
     // estrazione dell'ultimo carattere
     char y2 = XY2[0];
     std::string strx2 = XY2.substr(
         1,
-        XY2.length() - 1);  // estrazione dei caratteri dall'inizio all'ultimo-1
+        XY2.length() - 1); // estrazione dei caratteri dall'inizio all'ultimo-1
     int x2 = Helper::stringTointeger(strx2);
 
     Position bow(x1, y1);
@@ -76,7 +76,7 @@ std::vector<Position> Helper::inputString(std::string in) {
     return std::vector<Position>{bow, stern};
 }
 
-std::shared_ptr<Battleship> Helper::inputBattleship(const std::string in) {
+std::shared_ptr<Battleship> Helper::inputBattleship(const std::string &in) {
     std::vector<Position> iPositions{Helper::inputString(in)};
 
     std::shared_ptr<Battleship> iBattleship(new Battleship(iPositions.at(0), iPositions.at(1)));
@@ -86,7 +86,7 @@ std::shared_ptr<Battleship> Helper::inputBattleship(const std::string in) {
     return iBattleship;
 }
 
-std::shared_ptr<Support> Helper::inputSupport(const std::string in) {
+std::shared_ptr<Support> Helper::inputSupport(const std::string &in) {
     std::vector<Position> iPositions{Helper::inputString(in)};
 
     std::shared_ptr<Support> iSupport(new Support(iPositions.at(0), iPositions.at(1)));
@@ -96,7 +96,7 @@ std::shared_ptr<Support> Helper::inputSupport(const std::string in) {
     return iSupport;
 }
 
-std::shared_ptr<Submarine> Helper::inputSubmarine(const std::string in) {
+std::shared_ptr<Submarine> Helper::inputSubmarine(const std::string &in) {
     std::vector<Position> iPositions{Helper::inputString(in)};
 
     std::shared_ptr<Submarine> iSubmarine(new Submarine(iPositions.at(0), iPositions.at(1)));
@@ -176,7 +176,7 @@ std::shared_ptr<Unit> Helper::randomSubmarine() {
     return buffer;
 }
 
-std::shared_ptr<Unit> Helper::typeOfUnit(Helper::unitType unitType) {
+std::shared_ptr<Unit> Helper::typeOfUnit(const Helper::unitType &unitType) {
     if (unitType == Helper::unitType::iBattleship) {
         return inputBattleship(Helper::getPlayerInput(std::cin));
     }
@@ -199,7 +199,7 @@ std::shared_ptr<Unit> Helper::typeOfUnit(Helper::unitType unitType) {
     return nullptr;
 }
 
-std::shared_ptr<Unit> Helper::typeOfUnit(Helper::unitType unitType, std::string inString) {
+std::shared_ptr<Unit> Helper::typeOfUnit(const Helper::unitType &unitType, const std::string &inString) {
     if (unitType == Helper::unitType::iBattleship) {
         return inputBattleship(inString);
     } else if (unitType == unitType::iSupport) {
@@ -313,7 +313,7 @@ std::string Helper::randomAction(Controller *player1, Controller *player2) {
     return log;
 }
 
-std::string Helper::handlePlayerAction(Controller *player1, Controller *player2, std::string iLogStr) {
+std::string Helper::handlePlayerAction(Controller *player1, Controller *player2, const std::string &iLogStr) {
     std::string log;
     std::shared_ptr<Unit> actionUnit;
     Position actionUnitMiddlePos;
@@ -457,7 +457,7 @@ std::string Helper::handlePlayerAction(Controller *player1, Controller *player2,
                         std::vector<std::shared_ptr<Entity>> enemyEntities =
                             actionUnit->action(target, bufferUnit);
                         player1->mergeEntities(enemyEntities);
-                        std::cout << "  Submarine moves from " << actionUnitMiddlePos << " to " << target;
+                        std::cout << " Submarine moves from " << actionUnitMiddlePos << " to " << target;
                     }
                 }
             }

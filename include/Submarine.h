@@ -6,17 +6,17 @@
 #include "Unit.h"
 
 class Submarine : public Unit {
-   public:
+public:
     // costruttore standard
-    Submarine(Position iBow, Position iStern);
+    Submarine(const Position &iBow, const Position &iStern);
 
     // costruttore con solo una coordinata
-    Submarine(Position iPos);
+    Submarine(const Position &iPos);
 
     // funzione virtuale di Unit
-    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits);
+    std::vector<std::shared_ptr<Entity>> action(const Position &iTarget, std::vector<std::shared_ptr<Unit>> iUnits);
 
-    ~Submarine();  // distruttore
+    ~Submarine(); // distruttore
 };
 
 #endif

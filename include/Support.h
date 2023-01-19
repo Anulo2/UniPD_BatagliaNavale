@@ -6,14 +6,11 @@
 #include "Unit.h"
 
 class Support : public Unit {
-   public:
-    // costruttore standard
-    Support(Position iBow, Position iStern);
+public:
+    Support(const Position &iBow, const Position &iStern);                                                           // costruttore standard
+    std::vector<std::shared_ptr<Entity>> action(const Position &iTarget, std::vector<std::shared_ptr<Unit>> iUnits); // funzione virtuale di Unit
 
-    // funzione virtuale di Unit
-    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits);
-
-    ~Support();  // distruttore
+    ~Support(); // distruttore
 };
 
 #endif

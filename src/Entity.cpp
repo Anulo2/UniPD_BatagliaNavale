@@ -5,7 +5,7 @@
 Entity::Entity() {
 }
 
-Entity::Entity(Position iPos, char iId) {
+Entity::Entity(const Position &iPos, const char &iId) {
     id = iId;
     pos = iPos;
 }
@@ -14,11 +14,11 @@ char Entity::getId() const {
     return id;
 }
 
-void Entity::setId(char iId) {
+void Entity::setId(const char &iId) {
     id = iId;
 }
 
-Position Entity::getPos() const{
+Position Entity::getPos() const {
     return pos;
 }
 

@@ -12,11 +12,11 @@ Game::Game() {
  *                  GETTER FUNCTIONS                     *
  **********************************************************/
 
-Controller* Game::getPlayer1() {
+Controller *Game::getPlayer1() {
     return &player1;
 }
 
-Controller* Game::getPlayer2() {
+Controller *Game::getPlayer2() {
     return &player2;
 }
 
@@ -38,7 +38,7 @@ void Game::startGame() {
     addStringToLog(std::to_string(selectPlayer));
 }
 
-bool Game::placeUnit(Controller& player, Helper::unitType unitType) {
+bool Game::placeUnit(Controller &player, Helper::unitType unitType) {
     bool unitPlaced = false;
     try {
         std::shared_ptr<Unit> buffer(Helper::typeOfUnit(unitType));
@@ -65,7 +65,7 @@ bool Game::placeUnit(Controller& player, Helper::unitType unitType) {
     return unitPlaced;
 }
 
-void Game::placeUnit(Controller& player, Helper::unitType unitType, std::string inString) {
+void Game::placeUnit(Controller &player, Helper::unitType unitType, const std::string &inString) {
     std::shared_ptr<Unit> buffer(Helper::typeOfUnit(unitType, inString));
 
     if (player.checkUnitPlacement(buffer, buffer)) {
@@ -77,7 +77,7 @@ void Game::placeUnit(Controller& player, Helper::unitType unitType, std::string 
     }
 }
 
-void Game::placeUnits(Controller& player, Helper::unitType unitType, int quantity) {
+void Game::placeUnits(Controller &player, Helper::unitType unitType, int quantity) {
     for (int i = 0; i < quantity; i++) {
         while (!placeUnit(player, unitType)) {
         }
@@ -95,7 +95,7 @@ void Game::addToLog(std::shared_ptr<Entity> obj) {
     log.push_back(coordStern + " " + coordBow);
 }
 
-void Game::addStringToLog(std::string iLog) {
+void Game::addStringToLog(const std::string &iLog) {
     log.push_back(iLog);
 }
 
@@ -107,7 +107,7 @@ int Game::getStartingPlayer() {
  *                  HELPER FUNCTIONS                     *
  **********************************************************/
 
-std::ostream& operator<<(std::ostream& os, Game& a) {
+std::ostream &operator<<(std::ostream &os, Game &a) {
     // Helper::writeLog(os,a.getLog());
 
     os << (a.getPlayer1());
@@ -116,7 +116,7 @@ std::ostream& operator<<(std::ostream& os, Game& a) {
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, Game* a) {
+std::ostream &operator<<(std::ostream &os, Game *a) {
     os << *a;
     return os;
 }

@@ -9,7 +9,7 @@
 #include "Game.h"
 
 class Replay : public Game {
-   public:
+public:
     // costruttore
     Replay();
 
@@ -17,7 +17,7 @@ class Replay : public Game {
     void startGame(std::vector<std::string> inputVector);
 
     // getter del giocatore iniziale
-    bool getStartingPlayer(std::string firstPlayer);
+    bool getStartingPlayer(const std::string &firstPlayer);
 
     // scrive le azioni in ordine su terminale
     void printActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector);
@@ -25,7 +25,7 @@ class Replay : public Game {
     // scrive le azioni in ordine su file
     void writeActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector, std::ofstream &outputFile);
 
-   private:
+private:
     // piazza le navi per il giocatore dato
     void placeUnitsFor(Controller &player, std::vector<std::string> inputVector);
 
@@ -37,4 +37,4 @@ class Replay : public Game {
 std::ostream &operator<<(std::ostream &os, Replay &a);
 std::ostream &operator<<(std::ostream &os, Replay *a);
 
-#endif  // REPLAY_H
+#endif // REPLAY_H

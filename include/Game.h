@@ -8,7 +8,7 @@
 #include "Helper.h"
 
 class Game {
-   public:
+public:
     // costruttore di default
     Game();
 
@@ -28,7 +28,7 @@ class Game {
     void addToLog(std::shared_ptr<Entity> obj);
 
     // aggiunge stringa al log
-    void addStringToLog(std::string iLog);
+    void addStringToLog(const std::string &iLog);
 
     // getter del giocatore iniziale
     int getStartingPlayer();
@@ -37,12 +37,12 @@ class Game {
     bool placeUnit(Controller &player, Helper::unitType unitType);
 
     // piazza un'unità del tipo specificato sul controller dato
-    void placeUnit(Controller &player, Helper::unitType unitType, std::string inString);
+    void placeUnit(Controller &player, Helper::unitType unitType, const std::string &inString);
 
     // piazza quantity unità del tipo specificato sul controller dato
     void placeUnits(Controller &player, Helper::unitType unitType, int quantity);
 
-   protected:
+protected:
     Controller player1;
     Controller player2;
     int selectPlayer;

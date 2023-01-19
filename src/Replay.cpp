@@ -25,7 +25,7 @@ void Replay::startGame(std::vector<std::string> inputVector) {
  *                  GETTER FUNCTIONS                     *
  *********************************************************/
 
-bool Replay::getStartingPlayer(std::string firstPlayer) {
+bool Replay::getStartingPlayer(const std::string &firstPlayer) {
     return firstPlayer == "0";
 }
 
@@ -61,19 +61,19 @@ void Replay::printActionInOrder(Controller *first, Controller *second, std::vect
 }
 
 void Replay::writeActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector, std::ofstream &outputFile) {
-    int i = 17;
-    while (i < inputVector.size()) {
+    int index = 17;
+    while (index < inputVector.size()) {
         int getPlayerInfo = Helper::stringTointeger((inputVector[0])) + 1;
 
         std::cout.setstate(std::ios_base::failbit);
 
         outputFile << "\nPLAYER " << getPlayerInfo << " ACTION\n";
-        if (i < inputVector.size()) {
-            addStringToLog(Helper::handlePlayerAction(first, second, inputVector[i]));
+        if (index < inputVector.size()) {
+            addStringToLog(Helper::handlePlayerAction(first, second, inputVector[index]));
 
-            outputFile << "\t-> " + inputVector[i];
+            outputFile << "\t-> " + inputVector[index];
             outputFile << first << std::endl;
-            i++;
+            index++;
         }
 
         if (second->removeDeadUnits()) {
@@ -83,18 +83,18 @@ void Replay::writeActionInOrder(Controller *first, Controller *second, std::vect
         (getPlayerInfo == 2) ? (getPlayerInfo--) : (getPlayerInfo++);
 
         outputFile << "\nPLAYER " << getPlayerInfo << " ACTION\n";
-        if (i < inputVector.size()) {
-            addStringToLog(Helper::handlePlayerAction(second, first, inputVector[i]));
+        if (index < inputVector.size()) {
+            addStringToLog(Helper::handlePlayerAction(second, first, inputVector[index]));
 
-            outputFile << "\t-> " + inputVector[i];
+            outputFile << "\t-> " + inputVector[index];
             outputFile << second << std::endl;
-            i++;
+            index++;
         }
 
         if (first->removeDeadUnits()) {
             outputFile << "\nUnit destroyed\n";
         }
-        std::cout << "Iterator: " << i << std::endl;
+        std::cout << "Iterator: " << index << std::endl;
         std::cout.clear();
 
         if (second->isDead()) {
