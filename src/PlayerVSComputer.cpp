@@ -7,10 +7,11 @@
  **********************************************************/
 
 PlayerVSComputer::PlayerVSComputer() {
-    std::random_device rand;
-    std::uniform_int_distribution<int> ranomPlayer(0, 1);
-    selectPlayer = ranomPlayer(rand);
-    addStringToLog(std::to_string(selectPlayer));
+}
+
+void PlayerVSComputer::startGame() {
+    Game::startGame();
+
     if (selectPlayer == 0) {
         placePlayerUnits(player1);
         placeComputerUnits(player2);

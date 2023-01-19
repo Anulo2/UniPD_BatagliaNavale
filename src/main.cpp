@@ -28,6 +28,9 @@ int main(int argc, char *argv[]) {
 
         PlayerVSComputer playerVsComputer;
 
+        // place all the ships
+        playerVsComputer.startGame();
+
         std::cout << playerVsComputer.getPlayer1();
 
         std::ofstream my_oFileB("./logs/mainLogPLVSPC.txt");
@@ -36,7 +39,7 @@ int main(int argc, char *argv[]) {
 
         for (int i = 0; i < MAX_TURNS && !win; i++) {
             std::cout << "\n\n";
-
+            std::cout << playerVsComputer;
             if (!win && ((i + playerVsComputer.getStartingPlayer()) % 2 == 0)) {
                 playerVsComputer.addStringToLog(Helper::handlePlayerAction(playerVsComputer.getPlayer1(), playerVsComputer.getPlayer2(), ""));
                 win = playerVsComputer.getPlayer2()->isDead();
@@ -79,6 +82,7 @@ int main(int argc, char *argv[]) {
         std::cout << "######################################\n";
 
         ComputerVSComputer computerVsComputer;
+        computerVsComputer.startGame();
 
         std::cout << computerVsComputer;
         std::ofstream my_oFileA("./logs/mainLogPCVSPC.txt");

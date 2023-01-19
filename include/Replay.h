@@ -10,7 +10,10 @@
 
 class Replay : public Game {
    public:
-    Replay(std::vector<std::string> inputVector);
+    Replay();
+
+    void startGame(std::vector<std::string> inputVector);
+
     bool getStartingPlayer(std::string firstPlayer);
     void printActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector);
     void writeActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector, std::ofstream &outputFile);

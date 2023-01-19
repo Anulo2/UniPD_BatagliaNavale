@@ -6,7 +6,14 @@
  *                    CONSTRUCTOR                        *
  **********************************************************/
 
-Replay::Replay(std::vector<std::string> inputVector) {
+Replay::Replay() {
+}
+
+/*********************************************************
+ *                  SETTER FUNCTIONS                     *
+ *********************************************************/
+
+void Replay::startGame(std::vector<std::string> inputVector) {
     if (getStartingPlayer(inputVector[0])) {
         placeInOrder(player1, player2, inputVector);
     } else {
@@ -58,7 +65,6 @@ void Replay::writeActionInOrder(Controller *first, Controller *second, std::vect
     while (i < inputVector.size()) {
         int getPlayerInfo = Helper::stringTointeger((inputVector[0])) + 1;
 
-        std::cout << getPlayerInfo;
         std::cout.setstate(std::ios_base::failbit);
 
         outputFile << "\nPLAYER " << getPlayerInfo << " ACTION\n";
@@ -93,22 +99,21 @@ void Replay::writeActionInOrder(Controller *first, Controller *second, std::vect
 
         if (second->isDead()) {
             outputFile << "######################################\n";
-            outputFile << "########        PC1 WIN         ######\n";
+            outputFile << "########        PLAYER1 WIN      ######\n";
             outputFile << "######################################\n";
         }
         if (first->isDead()) {
             outputFile << "######################################\n";
-            outputFile << "########        PC2 WIN         ######\n";
-            outputFile << "######################################\n";
-        }
-
-        if (!first->isDead() && !second->isDead() || i < inputVector.size()) {
-            outputFile << "######################################\n";
-            outputFile << "########          DRAW          ######\n";
+            outputFile << "########        PLAYER2 WIN     ######\n";
             outputFile << "######################################\n";
         }
 
         outputFile.flush();
+    }
+    if (!first->isDead() && !second->isDead()) {
+        outputFile << "######################################\n";
+        outputFile << "########          DRAW          ######\n";
+        outputFile << "######################################\n";
     }
 }
 

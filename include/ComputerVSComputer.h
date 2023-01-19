@@ -8,6 +8,7 @@
 class ComputerVSComputer : public Game {
    public:
     ComputerVSComputer();
+    void startGame();
 
    private:
     void placeUnitsFor(Controller &player);

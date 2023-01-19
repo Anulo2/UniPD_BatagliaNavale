@@ -30,6 +30,14 @@ std::vector<std::string> Game::getLog() {
  *                  SETTER FUNCTIONS                     *
  **********************************************************/
 
+void Game::startGame() {
+    std::random_device rand;
+    std::uniform_int_distribution<int> ranomPlayer(0, 1);
+    // true  = player 1
+    selectPlayer = ranomPlayer(rand);
+    addStringToLog(std::to_string(selectPlayer));
+}
+
 bool Game::placeUnit(Controller& player, Helper::unitType unitType) {
     bool unitPlaced = false;
     try {

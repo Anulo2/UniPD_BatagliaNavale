@@ -49,7 +49,12 @@ int main(int argc, char* argv[]) {
                     std::cout << "Unable to open file" << std::endl;
                 }
 
-                Replay replay(iFile);
+                /*********************************************************
+                 *                      Placing Units                     *
+                 **********************************************************/
+
+                Replay replay;
+                replay.startGame(iFile);
 
                 std::cout << std::endl;
                 std::cout << "####################################\n";
@@ -72,6 +77,10 @@ int main(int argc, char* argv[]) {
 
                 std::cout << replay.getPlayer2() << std::endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+
+                /*********************************************************
+                 *                      LIVE REPLAY                      *
+                 **********************************************************/
 
                 if (replay.getStartingPlayer(iFile[0])) {
                     replay.printActionInOrder(replay.getPlayer1(), replay.getPlayer2(), iFile);
@@ -112,7 +121,12 @@ int main(int argc, char* argv[]) {
                     std::cout << "Unable to open file" << std::endl;
                 }
 
-                Replay replay(iFile);
+                /*********************************************************
+                 *                      Placing Units                     *
+                 **********************************************************/
+
+                Replay replay;
+                replay.startGame(iFile);
 
                 std::cout << std::endl;
                 std::cout << "####################################\n";
@@ -132,6 +146,10 @@ int main(int argc, char* argv[]) {
                 my_ofile << "####################################\n";
                 my_ofile << "\n\n";
                 my_ofile << replay.getPlayer2();
+
+                /*********************************************************
+                 *                      REPLAY ON FILE!                  *
+                 **********************************************************/
 
                 if (replay.getStartingPlayer(iFile[0])) {
                     replay.writeActionInOrder(replay.getPlayer1(), replay.getPlayer2(), iFile, my_ofile);

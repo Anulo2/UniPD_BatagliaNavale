@@ -13,12 +13,14 @@ class Game {
 
     Controller *getPlayer1();
     Controller *getPlayer2();
+
+    virtual void startGame();
+
     std::vector<std::string> getLog();
     void addToLog(std::shared_ptr<Entity> obj);
     void addStringToLog(std::string iLog);
     int getStartingPlayer();
 
-    // place a unit
     bool placeUnit(Controller &player, Helper::unitType unitType);
     void placeUnit(Controller &player, Helper::unitType unitType, std::string inString);
     void placeUnits(Controller &player, Helper::unitType unitType, int quantity);
