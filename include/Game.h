@@ -8,24 +8,41 @@
 #include "Helper.h"
 
 class Game {
-public:
-    Game(); // costruttore di default
+   public:
+    // costruttore di default
+    Game();
 
-    Controller *getPlayer1(); // getter player1
-    Controller *getPlayer2(); // getter player2
+    // getter player1
+    Controller *getPlayer1();
 
-    virtual void startGame(); // funzione virtuale per piazzare le unità e iniziare il gioco
+    // getter player2
+    Controller *getPlayer2();
 
-    std::vector<std::string> getLog();          // getter del log
-    void addToLog(std::shared_ptr<Entity> obj); // aggiunge al log
-    void addStringToLog(std::string iLog);      // aggiunge stringa al log
-    int getStartingPlayer();                    // getter del giocatore iniziale
+    // funzione virtuale per piazzare le unità, necessaria per iniziare il gioco
+    virtual void startGame();
 
-    bool placeUnit(Controller &player, Helper::unitType unitType);                       // piazza un'unità del tipo specificato sul controller dato
-    void placeUnit(Controller &player, Helper::unitType unitType, std::string inString); // piazza un'unità del tipo specificato sul controller dato
-    void placeUnits(Controller &player, Helper::unitType unitType, int quantity);        // piazza quantity unità del tipo specificato sul controller dato
+    // getter del log
+    std::vector<std::string> getLog();
 
-protected:
+    // aggiunge al log in base a un Entity
+    void addToLog(std::shared_ptr<Entity> obj);
+
+    // aggiunge stringa al log
+    void addStringToLog(std::string iLog);
+
+    // getter del giocatore iniziale
+    int getStartingPlayer();
+
+    // piazza un'unità del tipo specificato sul controller dato
+    bool placeUnit(Controller &player, Helper::unitType unitType);
+
+    // piazza un'unità del tipo specificato sul controller dato
+    void placeUnit(Controller &player, Helper::unitType unitType, std::string inString);
+
+    // piazza quantity unità del tipo specificato sul controller dato
+    void placeUnits(Controller &player, Helper::unitType unitType, int quantity);
+
+   protected:
     Controller player1;
     Controller player2;
     int selectPlayer;

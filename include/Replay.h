@@ -9,22 +9,32 @@
 #include "Game.h"
 
 class Replay : public Game {
-public:
-    Replay(); // costruttore
+   public:
+    // costruttore
+    Replay();
 
-    void startGame(std::vector<std::string> inputVector); // piazza le navi nelle griglie
+    // piazza le navi nelle griglie
+    void startGame(std::vector<std::string> inputVector);
 
-    bool getStartingPlayer(std::string firstPlayer);                                                                                 // getter del giocatore iniziale
-    void printActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector);                            // scrive le azioni in ordine su terminale
-    void writeActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector, std::ofstream &outputFile); // scrive le azioni in ordine su file
+    // getter del giocatore iniziale
+    bool getStartingPlayer(std::string firstPlayer);
 
-private:
-    void placeUnitsFor(Controller &player, std::vector<std::string> inputVector);                   // piazza le navi per il giocatore dato
-    void placeInOrder(Controller &first, Controller &second, std::vector<std::string> inputVector); // piazza le navi in ordine
+    // scrive le azioni in ordine su terminale
+    void printActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector);
+
+    // scrive le azioni in ordine su file
+    void writeActionInOrder(Controller *first, Controller *second, std::vector<std::string> inputVector, std::ofstream &outputFile);
+
+   private:
+    // piazza le navi per il giocatore dato
+    void placeUnitsFor(Controller &player, std::vector<std::string> inputVector);
+
+    // piazza le navi in ordine
+    void placeInOrder(Controller &first, Controller &second, std::vector<std::string> inputVector);
 };
 
 // overload operatori
 std::ostream &operator<<(std::ostream &os, Replay &a);
 std::ostream &operator<<(std::ostream &os, Replay *a);
 
-#endif // REPLAY_H
+#endif  // REPLAY_H

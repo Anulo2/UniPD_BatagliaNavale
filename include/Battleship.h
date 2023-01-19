@@ -6,11 +6,15 @@
 #include "Unit.h"
 
 class Battleship : public Unit {
-public:
-    Battleship(const Position &iBow, const Position &iStern);                                                 // costruttore standard
-    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits); // funzione virtuale di Unit
+   public:
+    // costruttore standard
+    Battleship(const Position &iBow, const Position &iStern);
 
-    ~Battleship(); // distruttore
+    // funzione virtuale di Unit
+    std::vector<std::shared_ptr<Entity>> action(Position iTarget, std::vector<std::shared_ptr<Unit>> iUnits);
+
+    // distruttore
+    ~Battleship();
 };
 
 #endif
