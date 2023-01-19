@@ -4,10 +4,7 @@
 #include <string.h>
 #include <sys/stat.h>
 
-#include <chrono>
-#include <fstream>
 #include <iostream>
-#include <thread>
 
 #include "Replay.h"
 
@@ -39,6 +36,7 @@ int main(int argc, char* argv[]) {
                     }
                 }
 
+                // Open input file!
                 std::ifstream my_ifile(argv[2]);
 
                 if (my_ifile.is_open()) {
@@ -52,6 +50,7 @@ int main(int argc, char* argv[]) {
                 }
 
                 Replay replay(iFile);
+
                 std::cout << std::endl;
                 std::cout << "####################################\n";
                 std::cout << "###          REPLAY              ###\n";
@@ -74,23 +73,14 @@ int main(int argc, char* argv[]) {
                 std::cout << replay.getPlayer2() << std::endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
-                int i = placedUnits;
-
-                while (i < iFile.size()) {
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
-                    std::cout << replay.getPlayer1() << std::endl;
-
-                    i++;
-                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
-                    std::cout << replay.getPlayer2() << std::endl;
-                    i++;
-
-                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                if (replay.getStartingPlayer(iFile[0])) {
+                    replay.printActionInOrder(replay.getPlayer1(), replay.getPlayer2(), iFile);
+                } else {
+                    replay.printActionInOrder(replay.getPlayer2(), replay.getPlayer1(), iFile);
                 }
 
                 invalid = true;
+
             } else if (argc == 4 && strcmp(argv[1], "f") == 0) {
                 if (strcmp(argv[2], argv[3]) == 0) {
                     throw std::invalid_argument("You are tring to r/w the same file!\n");
@@ -143,54 +133,14 @@ int main(int argc, char* argv[]) {
                 my_ofile << "\n\n";
                 my_ofile << replay.getPlayer2();
 
-                int i = placedUnits;
-
-                while (i < iFile.size()) {
-                    std::cout.setstate(std::ios_base::failbit);
-
-                    my_ofile << "\nPLAYER 1 ACTION\n";
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer1(), replay.getPlayer2(), iFile[i]));
-
-                    my_ofile << "\t-> " + iFile[i];
-                    my_ofile << replay.getPlayer1() << std::endl;
-                    i++;
-                    if (replay.getPlayer2()->removeDeadUnits()) {
-                        my_ofile << "\nUnit destroyed\n";
-                    }
-
-                    my_ofile << "PLAYER 2 ACTION\n";
-                    replay.addStringToLog(Helper::handlePlayerAction(replay.getPlayer2(), replay.getPlayer1(), iFile[i]));
-
-                    my_ofile << "\t-> " + iFile[i];
-                    my_ofile << replay.getPlayer2() << std::endl;
-                    i++;
-                    if (replay.getPlayer1()->removeDeadUnits()) {
-                        my_ofile << "\nUnit destroyed\n";
-                    }
-                    std::cout << "Iterator: " << i << std::endl;
-                    std::cout.clear();
-
-                    if (replay.getPlayer2()->isDead()) {
-                        my_ofile << "######################################\n";
-                        my_ofile << "########        PC1 WIN         ######\n";
-                        my_ofile << "######################################\n";
-                    }
-                    if (replay.getPlayer1()->isDead()) {
-                        my_ofile << "######################################\n";
-                        my_ofile << "########        PC2 WIN         ######\n";
-                        my_ofile << "######################################\n";
-                    }
-
-                    my_ofile.flush();
-                }
-
-                if (!replay.getPlayer2()->isDead() && !replay.getPlayer1()->isDead()) {
-                    my_ofile << "######################################\n";
-                    my_ofile << "########          DRAW          ######\n";
-                    my_ofile << "######################################\n";
+                if (replay.getStartingPlayer(iFile[0])) {
+                    replay.writeActionInOrder(replay.getPlayer1(), replay.getPlayer2(), iFile, my_ofile);
+                } else {
+                    replay.writeActionInOrder(replay.getPlayer2(), replay.getPlayer1(), iFile, my_ofile);
                 }
 
                 my_ofile.close();
+
                 std::cout << "You can find the output of the Replay in " << argv[3] << std::endl;
                 invalid = true;
 

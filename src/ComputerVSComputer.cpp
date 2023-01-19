@@ -7,7 +7,7 @@ ComputerVSComputer::ComputerVSComputer() {
     std::uniform_int_distribution<int> ranomPlayer(0, 1);
     // true  = player 1
     selectPlayer = ranomPlayer(rand);
-
+    addStringToLog(std::to_string(selectPlayer));
     if (selectPlayer == 0) {
         placeInOrder(player1, player2);
     } else {
